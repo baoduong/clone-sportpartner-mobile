@@ -1,0 +1,68 @@
+<div fxLayout="column" fxLayoutGap.gt-xs="60px" fxLayoutGap.xs="30px">
+    <div class="top-no-message">
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+            <h2 class="top-msg-heading text-center" [ngClass.gt-xs]="'desktop-heading-2'" [ngClass.xs]="'mobile-heading-2'">
+                {{ 'Web-Group.START-PAGE.nomessage_title' | translate }}
+            </h2>
+            <span class="top-msg-subtitle text-center" [ngClass.gt-xs]="'desktop-subtitle-2'" [ngClass.xs]="'mobile-subtitle-2'">
+                {{ 'Web-Group.START-PAGE.nomessage_description' | translate }}
+            </span>
+        </div>
+    </div>
+    <div class="bottom-no-message-mobile" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="30px" fxHide.gt-xs="true">
+        <div class="content-box" fxLayout="column" fxLayoutAlign="center center">
+            <div class="icon-wrap" fxLayoutAlign="center center">
+                <i class="icon-medium-line-groups"></i>
+            </div>
+            <span class="bottom-msg-heading mobile-heading-3">
+                <!-- Explore new groups -->
+                {{ 'Web-Group.START-PAGE.nomessage_tip1_title' | translate }}
+            </span>
+            <span class="bottom-msg-subtitle text-center mobile-paragraph-1">
+                <!-- Invite people via Whatsapp (works best) or email. Everyone has a reason to participate. -->
+                {{ 'Web-Group.START-PAGE.nomessage_tip1_description' | translate }}
+            </span>
+        </div>
+        <div class="content-box" fxLayout="column" fxLayoutAlign="center center">
+            <div class="icon-wrap" fxLayoutAlign="center center">
+                <i class="icon-medium-line-chat"></i>
+            </div>
+            <span class="bottom-msg-heading mobile-heading-3">
+                <!-- Start the conversation -->
+                {{ 'Web-Group.START-PAGE.nomessage_tip2_title' | translate }}</span>
+            <span class="bottom-msg-subtitle text-center mobile-paragraph-1">
+                <!-- Sometimes people just need some encouragement. If necessary, put them under pressure :-  -->
+                {{ 'Web-Group.START-PAGE.nomessage_tip2_description' | translate }}</span>
+        </div>
+    </div>
+    <div class="bottom-no-message-desktop" fxLayout="column" fxLayoutAlign="center center" fxHide.xs="true">
+        <div class="icon-wrap" fxLayout="row" fxLayoutGap="314px">
+            <div class="icon" fxLayoutAlign="center center">
+                <i class="icon-medium-line-groups"></i>
+            </div>
+            <div class="icon" fxLayoutAlign="center center">
+                <i class="icon-medium-line-chat"></i>
+            </div>
+        </div>
+        <div class="description-wrap" fxLayout="row" fxLayoutGap="92px">
+            <span class="desktop-heading-2">
+                <!-- Explore new groups -->
+                {{ 'Web-Group.START-PAGE.nomessage_tip1_title' | translate }}
+            </span>
+            <span class="desktop-heading-2">
+                <!-- Start the conversation -->
+                {{ 'Web-Group.START-PAGE.nomessage_tip2_title' | translate }}
+            </span>
+        </div>
+        <div class="sub-desdescription" fxLayout="row" fxLayoutGap="92px">
+            <span class="desktop-paragraph-1">
+                <!-- Invite people via Whatsapp (works best) or email. Everyone has a reason to participate. -->
+                {{ 'Web-Group.START-PAGE.nomessage_tip1_description' | translate }}
+            </span>
+            <span class="desktop-paragraph-1">
+                <!-- Sometimes people just need some encouragement. If necessary, put them under pressure :-  -->
+                {{ 'Web-Group.START-PAGE.nomessage_tip2_description' | translate }}
+            </span>
+        </div>
+    </div>
+</div>

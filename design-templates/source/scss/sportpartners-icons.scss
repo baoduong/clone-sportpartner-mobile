@@ -1,0 +1,269 @@
+$icomoon-font-family: "sportpartnerfonts" !default;
+$icomoon-font-path: "fonts" !default;
+$sport-iconshighfiv: "\e900";
+$sport-iconspair-person: "\e901";
+$sport-iconsplus: "\e902";
+$sport-iconsminus: "\e903";
+$sport-iconsrotate-right: "\e904";
+$sport-iconsrotate-left: "\e905";
+$sport-iconsremove: "\e906";
+$sport-iconsstar: "\e907";
+$sport-iconsstar-outline: "\e91e";
+$sport-iconsphoto: "\e908";
+$sport-iconsfacebook: "\e909";
+$sport-iconstwitter: "\e90a";
+$sport-iconsgoogle-plus: "\e90b";
+$sport-iconsarrow-down: "\e90c";
+$sport-iconshamburger: "\e90d";
+$sport-iconsarrow-right: "\e90e";
+$sport-iconsright-arrow-no-tail-left: "\e91f";
+$sport-iconsmail-comming: "\e90f";
+$sport-iconsenvelope: "\e910";
+$sport-iconsbell: "\e911";
+$sport-iconspremium: "\e912";
+$sport-iconseye-flash: "\e913";
+$sport-iconsheart-slash: "\e914";
+$sport-iconsheart: "\e915";
+$sport-iconshighfive: "\e916";
+$sport-iconsimage-upload: "\e917";
+$sport-iconscheck: "\e918";
+$sport-iconsinbox: "\e919";
+$sport-iconsdelete-bin: "\e91a";
+$sport-iconsarrow-left: "\e91b";
+$sport-iconsmessages-recieve: "\e91c";
+$sport-iconslogo: "\e91d";
+
+[class^="sport-icons"],
+[class*=" sport-icons"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "#{$icomoon-font-family}" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 20px;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.sport-icons::before {
+  vertical-align: middle;
+}
+
+.sport-icons.highfive {
+  &:before {
+    content: $sport-iconshighfiv;
+  }
+}
+
+.sport-icons.pair-persion {
+  &:before {
+    content: $sport-iconspair-person;
+  }
+}
+
+.sport-icons.plus {
+  &:before {
+    content: $sport-iconsplus;
+  }
+}
+
+.sport-icons.minus {
+  &:before {
+    content: $sport-iconsminus;
+  }
+}
+
+.sport-icons.rotate-right {
+  &:before {
+    content: $sport-iconsrotate-right;
+  }
+}
+
+.sport-icons.rotate-left {
+  &:before {
+    content: $sport-iconsrotate-left;
+  }
+}
+
+.sport-icons.remove {
+  &:before {
+    content: $sport-iconsremove;
+  }
+}
+
+.sport-icons.close {
+  &:before {
+    content: $sport-iconsremove;
+  }
+}
+
+.sport-icons.star {
+  &:before {
+    content: $sport-iconsstar;
+  }
+}
+
+.sport-icons.star-filled,
+.sport-icons.favorites-filled {
+  &:before {
+    content: $sport-iconsstar;
+  }
+}
+
+.sport-icons.mes-star {
+  &:before {
+    content: $sport-iconsstar;
+  }
+}
+
+.sport-icons.star-outline {
+  &:before {
+    content: $sport-iconsstar-outline;
+  }
+}
+
+.sport-icons.photo {
+  &:before {
+    content: $sport-iconsphoto;
+  }
+}
+
+.sport-icons.facebook {
+  &:before {
+    content: $sport-iconsfacebook;
+  }
+}
+
+.sport-icons.twitter {
+  &:before {
+    content: $sport-iconstwitter;
+  }
+}
+
+.sport-icons.google-plus {
+  &:before {
+    content: $sport-iconsgoogle-plus;
+  }
+}
+
+.sport-icons.arrow-down {
+  &:before {
+    content: $sport-iconsarrow-down;
+  }
+}
+
+.sport-icons.hamburger {
+  &:before {
+    content: $sport-iconshamburger;
+  }
+}
+
+.sport-icons.arrow-right {
+  &:before {
+    content: $sport-iconsarrow-right;
+  }
+}
+
+.sport-icons.mail-comming {
+  &:before {
+    content: $sport-iconsmail-comming;
+  }
+}
+
+.sport-icons.envelope {
+  &:before {
+    content: $sport-iconsenvelope;
+  }
+}
+
+.sport-icons.bell {
+  &:before {
+    content: $sport-iconsbell;
+  }
+}
+
+.sport-icons.premium {
+  &:before {
+    content: $sport-iconspremium;
+  }
+}
+
+.sport-icons.eye-flash {
+  &:before {
+    content: $sport-iconseye-flash;
+  }
+}
+
+.sport-icons.heart-slash {
+  &:before {
+    content: $sport-iconsheart-slash;
+  }
+}
+
+.sport-icons.heart {
+  &:before {
+    content: $sport-iconsheart;
+  }
+}
+
+.sport-icons.highfive {
+  &:before {
+    content: $sport-iconshighfive;
+  }
+}
+
+.sport-icons.image-upload {
+  &:before {
+    content: $sport-iconsimage-upload;
+  }
+}
+
+.sport-icons.upload-photo {
+  &:before {
+    content: $sport-iconsimage-upload;
+  }
+}
+
+.sport-icons.check {
+  &:before {
+    content: $sport-iconscheck;
+  }
+}
+
+.sport-icons.mes-inbox {
+  &:before {
+    content: $sport-iconsinbox;
+  }
+}
+
+.sport-icons.delete-bin {
+  &:before {
+    content: $sport-iconsdelete-bin;
+  }
+}
+
+.sport-icons.mes-deleted {
+  &:before {
+    content: $sport-iconsdelete-bin;
+  }
+}
+
+.sport-icons.arrow-left {
+  &:before {
+    content: $sport-iconsright-arrow-no-tail-left;
+  }
+}
+
+.sport-icons.messages-recieve {
+  &:before {
+    content: $sport-iconsmessages-recieve;
+  }
+}
+
+.sport-icons.logo {
+  &:before {
+    content: $sport-iconslogo;
+  }
+}

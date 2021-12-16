@@ -1,0 +1,8 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <div class="custom-badge position-relative">
+    <!-- <span *ngIf="number" class="rounded-circle number"></span> -->
+    <i class="text-gray-cool-2 {{cssClass(type)}}"></i>
+  </div>
+  <span class="text-gray-cool-2 paragraph-3 d-inline-block text-truncate mw-100" [ngClass.xs]="'mobile-paragraph-3'"
+    [ngClass.gt-xs]="'mobile-button-1'">{{text | translate }}</span>
+</div>

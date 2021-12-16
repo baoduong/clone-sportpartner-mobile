@@ -1,0 +1,78 @@
+<div class="information equalHeight">
+    {{# accountNoPhoto}}
+    <div class="panel-i-avatar">
+        <div class="pn-upload-photo">
+            <p class="title">
+                Profile photo missing!
+            </p>
+            <p class="desc">
+                Members with a profile photo have 6 times more chance in finding a sport partner!
+            </p>
+            <a href="#" class="btn black-two">
+                Upload your photo <span class="sport-icons upload-photo"></span>
+            </a>
+        </div>
+    </div>
+    {{/ accountNoPhoto}} {{^ accountNoPhoto}}
+    <div class="panel-i-avatar">
+        {{# showFcButton }}
+        <div class="fc-button">
+            <div class="d-flex">
+                {{#closeProfile}}
+                <button type="button" class="btn btn-link close close-profile transparent">
+                    <img data-toggle="tooltip" data-placement="top" title="Close profile" src="/images/icons-solid/right-arrow-no-tail.svg" style="width: 19px">
+                </button>
+                {{/closeProfile}} {{^closeProfile}} {{> elements-close-button(close-for: "") }} {{/closeProfile}} {{> elements-favorite-button-filled
+                }}
+            </div>
+        </div>
+        {{/ showFcButton }} {{# showUploadMyProfile}}
+        <div class="fc-button-upload-photo bottom">
+            <div class="d-flex">
+                <a href="#" class="navigating-upload-photo">
+                    <img src="/images/icons-solid-white/photo-camera.svg" alt="">
+                    <span>Change profile photo</span>
+                </a>
+            </div>
+        </div>
+        {{/ showUploadMyProfile}}
+        <div class="display-avatar"></div>
+    </div>
+    {{/ accountNoPhoto}}
+    <div class="match-info">
+        <label class="Heading-2-diap ma-0 d-flex">
+            <span class="t-name">Name Lorem Ipsum dorlor sit amet</span>
+            {{# showStatusMariedProfile}}
+            <span class="float-right match-info-pre-singles">
+                    <span class="sport-icons heart"></span>
+                    <span class="sport-icons premium"></span>
+                <!-- <img class="single" src="/images/icons-solid/singles.svg" alt="">
+                <img class="premium" src="/images/icons-solid/premium-member.svg" alt=""> -->
+            </span>
+            {{/ showStatusMariedProfile}}
+        </label>
+        <label class="Paragraph-1-diap ma-0 d-block">
+            M/30 City, Amsterdam, Noord-Holldand
+        </label>
+    </div>
+    <div class="info">
+        <div class="match-image clearfix">
+            <div class="image float-left"></div>
+            <div class="image float-left"></div>
+            <div class="image float-left"></div>
+            <div class="image float-left"></div>
+            <div class="image float-left"></div>
+            <div class="image float-left"></div>
+        </div>
+        <div class="space-20"></div>
+        <div class="match-description">
+            <h3 class="about">
+                About me
+            </h3>
+            <span class="description ma-0 d-block clearfix">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi
+                neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet
+            </span>
+        </div>
+    </div>
+</div>

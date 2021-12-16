@@ -1,0 +1,79 @@
+.modal-open #sign-up {
+  @include style-mobile {
+    display: block !important;
+    z-index: 10001;
+  }
+}
+
+.modal-dialog.modal-login {
+  @include style-mobile {
+    margin: 0;
+    height: var(--vh100);
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: auto;
+    .modal-content {
+      border-radius: 0 !important;
+      height: 100%;
+      overflow: auto;
+    }
+
+    .login-modal {
+      // height: 100%;
+
+      .Get-started-today {
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 5px !important;
+      }
+
+      label.ma-0.text-center.font-size-22.font-weight-300.text-color-dark {
+        font-size: 18px !important;
+        line-height: 1.56;
+        margin-top: 22px !important;
+        font-weight: 400 !important;
+        color: #525866 !important;
+        margin-bottom: 45px !important;
+      }
+
+      .main-form {
+        padding: {
+          left: 30px;
+          right: 30px;
+        }
+      }
+
+      .btn {
+        font-size: 18px !important;
+      }
+
+      .btn.close .sport-icons.close::before {
+        font-size: 20px;
+      }
+    }
+
+    .btn-singup-email,
+    .btn.btn-block.white-three.login-link.text-color-orangey-red {
+      line-height: 1.5 !important;
+      padding: 12px;
+
+      .sport-icons {
+        line-height: 0px;
+      }
+    }
+
+    .btn.btn-link.button-close-modal.close.text-color-dark {
+      // margin-right: -5px;
+      // padding-top: 27px;
+      opacity: 0.4;
+
+      .sport-icons.close {
+        float: none !important;
+      }
+    }
+
+    .btn.btn-block.white-three.login-link.text-color-orangey-red:hover {
+      color: #fff !important;
+    }
+  }
+}

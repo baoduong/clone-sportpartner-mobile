@@ -1,0 +1,23 @@
+<ng-container *ngIf="!userProfile.isPremium">
+    <div [@toggleBanner]="(premiumInPage$ | async) ? 'show':'hide'" class="background-azure-2">
+        <div [ngClass.gt-xs]="'max-width-content'">
+            <div class="nof-premium" fxLayoutAlign="center center" fxLayoutGap.gt-xs="20px" (click)="gotoPayment()">
+                <div class="icon-premium" fxLayoutAlign="center center">
+                    <i class="icon-small-solid-premium"></i>
+                </div>
+                <div class="text-premium" [ngClass.xs]="'mobile-paragraph-2'" [ngClass.gt-xs]="'desktop-paragraph-2'">
+                    <div>
+                        <span>{{'Web-Group.NON-PREMIUM.group_popup_description' | translate }}</span>
+                    </div>
+                </div>
+                <button (click)="gotoPayment()" fxHide.xs="true" class="btn btn-azure-6 btn-upgrade-premium"
+                    [ngClass.gt-xs]="'desktop-button-2'" [ngClass.xs]="'mobile-button-2'">
+                    <span>
+                        {{'Web-Group.NON-PREMIUM.group_popup_button' | translate }}
+                    </span>
+                </button>
+                <i fxHide.gt-xs="true" class="icon-small-line-arrow-right"></i>
+            </div>
+        </div>
+    </div>
+</ng-container>

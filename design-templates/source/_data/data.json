@@ -1,0 +1,63 @@
+{
+  "isLogin": true,
+  "placeholder": "placeholder",
+  "idPasswordToggle": "demo-password-toggle",
+  "buttonText": "button text",
+  "isMatched": true,
+  "showFcButton": true,
+  "activeTabMatches": true,
+  "activeTabMessage": false,
+  "noPremium": true,
+  "requestPhotoInNoPremium": false,
+  "showProfile": false,
+  "closeProfile": false,
+  "converstion_photo": false,
+  "isLastSeen": true,
+  "matchedItemNormalButton": true,
+  "fullSendMessage": false,
+  "messageRecived": false,
+  "hadSend": false,
+  "showUploadMyProfile": false,
+  "accountNoPhoto": false,
+  "showStatusMariedProfile": true,
+  "conversations": [{
+    "time": "now",
+    "content": [{
+        "you": "Lorem ipsum dolor sit amet"
+      }, {
+        "me": ":smile:"
+      },
+      {
+        "me": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+        "you": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus.",
+        "you_request": "me"
+      }
+    ]
+  }],
+  "notification": [{
+      "title": "3 people have visited your profile",
+      "title_2": "Click here to find out who",
+      "img": "/images/icons-solid/matches.svg"
+    },
+    {
+      "title": "You're still missing a profile photo!",
+      "title_2": "Upload one know",
+      "img": "/images/icons-solid/photo-missing.svg"
+    },
+    {
+      "title": "There're new members in your area",
+      "title_2": "Be the first to send them a message",
+      "img": "/images/icons-solid/matches.svg"
+    },
+    {
+      "title": "Susan is still waiting for you to respond",
+      "title_2": "Send her a message",
+      "img": "/images/icons-solid/matches.svg"
+    }
+  ],
+  "active-my-profile": "active",
+  "active-settings": "",
+  "active-help": "",
+  "isPremium" : true,
+  "basicMember": false
+}

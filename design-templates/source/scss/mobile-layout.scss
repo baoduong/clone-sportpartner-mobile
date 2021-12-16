@@ -1,0 +1,68 @@
+@mixin border-below-header {
+  &:before {
+    position: absolute;
+    content: "";
+    display: block;
+    height: 1px;
+    background: rgba($color: #fff, $alpha: 0.1);
+    width: calc(100% - 30px);
+    margin: 0 15px;
+    top: 0;
+  }
+}
+
+.border-below-header {
+  position: relative;
+  @include border-below-header;
+}
+
+@import "header-bar.mobile";
+
+@import "1xx-styles.mobile";
+
+@import "6xx-styles.mobile";
+
+@import "7xx-styles.mobile";
+
+@import "8xx-styles.mobile";
+
+@import "uploading-photo";
+
+@import "footer.mobile";
+
+@import "login.mobile";
+
+@import "navigation.mobile";
+
+#mb-header {
+  position: sticky !important;
+  position: -webkit-sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: $z-index-header + 1;
+}
+
+#mb-layout {
+  display: flex;
+  flex-direction: column;
+  // overflow: hidden !important;
+  // height: var(--vh100) !important;
+
+  // @supports (-webkit-appearance: none) {
+  //   height: calc(var(--vh100) - 56px) !important;
+  // }
+
+  #mb-main-content {
+    // min-height: calc(var(--vh100) - 70px);
+    // overflow-y: auto;
+    // padding-top: 70px;
+  }
+}
+
+@include style-mobile {
+  * {
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+  }
+}

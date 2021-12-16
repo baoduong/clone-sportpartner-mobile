@@ -1,0 +1,89 @@
+{
+  "activeTabMatches": false,
+  "activeTabMessage": true,
+  "showProfile": true,
+  "closeProfile": true,
+  "noPremium": false,
+  "requestPhotoInNoPremium": false,
+  "PhotoInNoPremium": false,
+  "requestHighFiveInNoPremium": true,
+  "chatInNoPremium": false,
+  "inbox-messages": [{
+      "inbox-fav": false,
+      "showNumberMessage": true,
+      "number-message": 10,
+      "hasReply": true,
+      "name": "Roberts, Naida O.",
+      "time": "January 12th, 2019",
+      "message-content": "quam, elementum at, egestas a, scelerisque sed, sapien. Nunc pulvinar arcu et pede. Nunc sed orci lobortis augue"
+    },
+    {
+      "inbox-fav": true,
+      "number-message": 5,
+      "showNumberMessage": true,
+      "hasReply": false,
+      "name": "Gordon, Cathleen P.",
+      "time": "July 26th, 2017",
+      "message-content": "interdum. Nunc sollicitudin commodo ipsum. Suspendisse non leo. Vivamus"
+    },
+    {
+      "inbox-fav": false,
+      "showNumberMessage": false,
+      "hasReply": false,
+      "name": "Rivas, Carson A.",
+      "time": "November 15th, 2017",
+      "message-content": "natoque penatibus"
+    }, {
+      "inbox-fav": false,
+      "showNumberMessage": true,
+      "number-message": 15,
+      "inbox-item-selected": true,
+      "hasReply": true,
+      "name": "Glass, Malachi E.",
+      "time": "June 20th, 2017",
+      "message-content": "orci. Ut sagittis lobortis mauris. Suspendisse aliquet molestie tellus."
+    }, {
+      "inbox-fav": false,
+      "showNumberMessage": false,
+      "hasReply": false,
+      "name": "Hendrix, Tashya Y.",
+      "time": "July 26th, 2018",
+      "message-content": "natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec dignissim magna a"
+    }, {
+      "inbox-fav": false,
+      "showNumberMessage": false,
+      "hasReply": true,
+      "name": "Duncan, Amena V.",
+      "time": "July 23rd, 2018",
+      "message-content": "tellus. Phasellus elit pede, malesuada vel, venenatis vel, faucibus id, libero."
+    }, {
+      "inbox-fav": true,
+      "showNumberMessage": false,
+      "hasReply": false,
+      "name": "Roman, Edan S.",
+      "time": "February 19th, 2019",
+      "message-content": "magna. Lorem ipsum dolor sit amet,"
+    }, {
+      "inbox-fav": true,
+      "showNumberMessage": false,
+      "hasReply": true,
+      "name": "Dyer, Shana L.",
+      "time": "December 7th, 2017",
+      "message-content": "nulla vulputate dui, nec tempus mauris erat eget ipsum."
+    }, {
+      "inbox-fav": false,
+      "showNumberMessage": true,
+      "hasReply": false,
+      "name": "Parker, Hu Z.",
+      "time": "October 30th, 2017",
+      "message-content": "sit amet, faucibus ut, nulla. Cras eu tellus eu augue porttitor interdum."
+    }, {
+      "inbox-fav": true,
+      "showNumberMessage": false,
+      "hasReply": false,
+      "name": "Tanner, Howard C.",
+      "time": "May 10th, 2017",
+      "message-content": "enim commodo hendrerit. Donec porttitor tellus non magna. Nam ligula elit,"
+    }
+  ]
+}

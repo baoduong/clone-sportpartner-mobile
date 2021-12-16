@@ -1,0 +1,200 @@
+<ng-container *ngIf="(memberProfile$ | async)">
+    <div class="panel-profile-wrrap background-gray-warm-6" [ngClass]="{
+        'tablet-layout': (deviceType | async) === 'tablet',
+        'portrait': (orientation$ | async) === 'portrait',
+        'landscape': (orientation$ | async) === 'landscape'}">
+        <div class="box-heading" fxHide.xs="true">
+            <span *ngIf="(deviceType | async) === 'tablet'" class="heading-title-panel flex-fill">
+                {{'Conversation.CHAT.heading_about_panel_userprofile' | translate}}
+            </span>
+            <i (click)="closePanelProfile()" class="icon-small-line-cross1 text-gray-cool-2"></i>
+        </div>
+        <div class="box-content">
+            <button class="btn btn-back" fxHide.gt-xs="true" (click)="closePanelProfile()">
+                <i class="icon-small-line-arrow-left"></i>
+            </button>
+            <div class="box-overview" fxLayout="column" fxLayoutAlign=" center">
+                <div class="profile-avatar">
+                    <img src="{{ (memberProfile$ | async).avatarUrl }}" alt="">
+                    <ng-container *ngIf="(memberProfile$ | async).isPremium">
+                        <div class="icon-premium">
+                            <i class="icon-small-solid-premium"></i>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="profile-name">
+                    <span class="mobile-heading-2 text-gray-cool-1">{{ (memberProfile$ | async).screenName }}</span>
+                </div>
+                <ng-container *ngIf="!(memberProfile$ | async).isDeletedUser">
+                    <div class="profile-address">
+                        <span class="mobile-paragraph-1" [ngClass.gt-xs]="'text-black-40'"
+                            [ngClass.xs]="'text-gray-cool-3'">({{ (memberProfile$ | async).gender }}/{{ (memberProfile$
+                            | async).age }})
+                            {{ (memberProfile$ | async).address }}
+                        </span>
+                    </div>
+                </ng-container>
+            </div>
+            <ng-container *ngIf="!(memberProfile$ | async).isDeletedUser">
+                <div class="box-description">
+                    <div class="profile-sport" fxLayout="row" fxLayoutGap="5px">
+                        <div class="sport-icon" *ngFor="let item of (memberProfile$ | async).sports">
+                            <div class="img sport-svg"
+                                [ngStyle]="{'-webkit-mask' : 'url('+ item.iconUrl +') center no-repeat'}"></div>
+                        </div>
+                    </div>
+                    <div class="profile-title text-gray-cool-1" [ngClass.gt-xs]="'desktop-text-emphasis-1'"
+                        [ngClass.xs]="'mobile-text-emphasis-1'">{{'Web-Group.VISITING-PROFILE.about_me' | translate }}
+                    </div>
+                    <div class="profile-intro mobile-paragraph-1 text-black-60">
+                        <span>{{ (memberProfile$ | async).introduction }}</span>
+                    </div>
+                </div>
+                <div class="box-btn" fxLayout="column" fxLayoutGap="10px">
+                    <!-- <button *ngIf="!isUserBlocked" class="btn btn-view-profile" fxLayout="row" fxLayoutGap="21px"
+                        (click)="viewProfile()">
+                        <i class="icon-small-line-arrow-right text-gray-cool-2"></i>
+                        <span class="mobile-button-2 text-gray-cool-2">
+                            <!-- View Profile --!>
+                            {{'Conversation.CHAT.menu_1on1chat_view_profile' | translate: { member: (memberProfile$ |
+                            async).screenName } }}
+                        </span>
+                    </button> -->
+
+                    <ng-container *ngIf="conversationSelecting.conversationType === 'One'">
+                        <button *ngIf="!isUserBlocked" class="btn btn-block btn-view-profile" fxLayout="row"
+                            fxLayoutGap="21px" (click)="toggleDialogBlock(true)">
+                            <i class="icon-small-line-block text-gray-cool-2"></i>
+                            <span class="mobile-button-2 text-gray-cool-2">
+                                <!-- Block user -->
+                                {{'Conversation.CHAT.menu_1on1chat_block_user' | translate}}
+                            </span>
+                        </button>
+
+                        <button class="btn btn-delete btn-view-profile" fxLayout="row" fxLayoutGap="21px"
+                            (click)="toggleDialogDelete(true)"
+                            [disabled]="listBoxType === 'Deleted' ? 'disabled' : (memberProfile$ | async).conversation.isBlocked ? 'disabled' : (memberProfile$ | async).conversation.isDeleted ? 'disabled' : null">
+                            <i class="icon-small-line-delete text-gray-cool-2"></i>
+                            <span class="mobile-button-2 text-gray-cool-2">
+                                <!-- Delete conversation -->
+                                {{'Conversation.CHAT.menu_1on1chat_delete_conversation' | translate}}
+                            </span>
+                        </button>
+                    </ng-container>
+                    <ng-container *ngIf="conversationSelecting.conversationType === 'Group'">
+                        <button *ngIf="!isUserBlocked && (memberProfile$ | async).conversation.conversationId !== null"
+                            class="btn btn-view-profile" fxLayout="row" fxLayoutGap="21px" (click)="sendAMessage()">
+                            <i class="icon-small-line-messages1 text-gray-cool-2"></i>
+                            <span class="mobile-button-2 text-gray-cool-2">
+                                <!-- Send user a message -->
+                                {{'Conversation.CHAT.send_user_a_message' | translate: { member: (memberProfile$ |
+                                async).screenName } }}
+                            </span>
+                        </button>
+
+                        <button *ngIf="!isUserBlocked && (memberProfile$ | async).conversation.conversationId === null"
+                            class="btn btn-view-profile" fxLayout="row" fxLayoutGap="15px" (click)="sendHighFive()">
+                            <i style="font-size: 24px;" class="icon-medium-solid-hf text-gray-cool-2"></i>
+                            <span class="mobile-button-2 text-gray-cool-2">
+                                <!-- Send High five -->
+                                {{'Conversation.CHAT.panel_highfive_button' | translate }}
+                            </span>
+                        </button>
+
+                        <button *ngIf="isUserBlocked" class="btn btn-view-profile" fxLayout="row" fxLayoutGap="21px"
+                            (click)="unblockUser()">
+                            <i class="icon-small-line-arrow-right text-gray-cool-2"></i>
+                            <span class="mobile-button-2 text-gray-cool-2">
+                                <!-- UnBlock -->
+                                {{'Account.PROFILE-SETTINGS.unblock' | translate }}
+                            </span>
+                        </button>
+                    </ng-container>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="(memberProfile$ | async).isDeletedUser">
+                <div class="box-description">
+                    <p class="m-0 text-center mobile-paragraph-1 text-black-60">
+                        {{'Conversation.CHAT.deleted_user_short_description' | translate:{member: (memberProfile$
+                        |async).screenName} }}
+                    </p>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+</ng-container>
+
+
+<div *ngIf="(isShowDialogBlock$ | async)" [@animationToggleDialogConfirm] class="dialog-block" fxLayout="column"
+    fxLayoutAlign="center center">
+    <div class="overlay-dialog" (click)="toggleDialogBlock(false)"></div>
+    <div class="box-detail" fxLayout="column" fxLayoutAlign="center center">
+        <div class="dialog-head">
+            <button class="btn" (click)="toggleDialogBlock(false)">
+                <i class="icon-small-line-cross1 text-gray-cool-3"></i>
+            </button>
+        </div>
+        <div class="dialog-content">
+            <div>
+                <!-- Are you sure you want to block this member -->
+                <h2 [innerHTML]="'Conversation.CHAT.menu_1on1chat_block_user_popup_title' | translate"
+                    class="text-gray-cool-1 text-center heading" [ngClass.gt-xs]="'desktop-heading-2'"
+                    [ngClass.xs]="'mobile-heading-1'">
+                </h2>
+            </div>
+            <div>
+                <!-- Cras in ultricies molestie at cras posuere. -->
+                <p [innerHTML]="'Conversation.CHAT.menu_1on1chat_block_user_popup_description' | translate"
+                    class="text-gray-cool-2 text-center sub-title" [ngClass.gt-xs]="'desktop-paragraph-1'"
+                    [ngClass.xs]="'mobile-paragraph-1'">
+                </p>
+            </div>
+            <button class="btn-block" (click)="toggleDialogBlock(false)" appBtnAzure2>
+                <!-- Cancel -->
+                {{ 'Conversation.CHAT.menu_1on1chat_block_user_popup_cancel_button' | translate }}
+            </button>
+            <button class="btn-block btn-confirm" appBtnOutlineAzure2 (click)="blockConversation()">
+                <!-- Yes, block this member -->
+                {{ 'Conversation.CHAT.menu_1on1chat_block_user_popup_yes_button' | translate }}
+            </button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="(isShowDialogDelete$ | async)" [@animationToggleDialogConfirm] class="dialog-delete" fxLayout="column"
+    fxLayoutAlign="center center">
+    <div class="overlay-dialog" (click)="toggleDialogDelete(false)"></div>
+    <div class="box-detail" fxLayout="column" fxLayoutAlign="center center">
+        <div class="dialog-head">
+            <button class="btn" (click)="toggleDialogDelete(false)">
+                <i class="icon-small-line-cross1 text-gray-cool-3"></i>
+            </button>
+        </div>
+        <div class="dialog-content">
+            <div>
+                <!-- Are you sure you want to delete this conversation? -->
+                <h2 [innerHTML]="'Conversation.CHAT.menu_1on1chat_delete_conversation_popup_title' | translate"
+                    class="text-gray-cool-1 text-center heading" [ngClass.gt-xs]="'desktop-heading-2'"
+                    [ngClass.xs]="'mobile-heading-1'">
+                </h2>
+            </div>
+            <div>
+                <!-- Cras in ultricies molestie at cras posuere. -->
+                <p [innerHTML]="'Conversation.CHAT.menu_1on1chat_delete_conversation_popup_description' | translate"
+                    class="text-gray-cool-2 text-center sub-title" [ngClass.gt-xs]="'desktop-paragraph-1'"
+                    [ngClass.xs]="'mobile-paragraph-1'">
+                </p>
+            </div>
+            <button class="btn-block" (click)="toggleDialogDelete(false)" appBtnAzure2>
+                <!-- Cancel-->
+                {{ 'Conversation.CHAT.menu_1on1chat_delete_conversation_popup_cancel_button' | translate }}
+            </button>
+            <button class="btn-block btn-confirm" appBtnOutlineAzure2 (click)="deleteConversation()">
+                <!-- Yes, delete it -->
+                {{ 'Conversation.CHAT.menu_1on1chat_delete_conversation_popup_yes_button' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

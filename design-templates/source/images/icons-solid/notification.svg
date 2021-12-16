@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>icons small / notification</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M13,16 C13,17.657 11.657,19 10,19 C8.343,19 7,17.657 7,16 L13,16 Z M13,16 L13.005,16 L13,16 Z M10,2 C13.313,2 16,4.687 16,8 L16,12 L17,12 C17.552,12 18,12.448 18,13 L18,14 L16,14 L4,14 L2,14 L2,13 C2,12.448 2.448,12 3,12 L4,12 L4,8 C4,4.687 6.687,2 10,2 Z" id="path-1"></path>
+    </defs>
+    <g id="icons-small-/-notification" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Combined-Shape" fill="#000000" xlink:href="#path-1"></use>
+        <g id="colours-/-dark" mask="url(#mask-2)" fill="#000000">
+            <rect id="Rectangle-4" x="0" y="0" width="20" height="20"></rect>
+        </g>
+    </g>
+</svg>

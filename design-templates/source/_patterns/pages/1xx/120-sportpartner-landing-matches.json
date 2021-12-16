@@ -1,0 +1,75 @@
+{
+  "bodyClass":"_landing",
+  "matchItems": [{
+    "name": ""
+  }, {
+    "name": ""
+  }, {
+    "name": ""
+  }, {
+    "name": ""
+  }],
+  "matchItems1": [{
+    "singles": true,dd
+    "isMatched": true,
+    "photoExisted": true,
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi  neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti."
+  }, {
+    "singles": true,
+    "isMatched": true,
+    "photoExisted": true,
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi  neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti."
+  }, {
+    "singles": true,
+    "isMatched": true,
+    "photoExisted": true,
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi  neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti."
+  }, {
+    "singles": true,
+    "isMatched": true,
+    "photoExisted": true,
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi  neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti."
+  }, {
+    "singles": true,
+    "isMatched": true,
+    "photoExisted": true,
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi  neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti."
+  }, {
+    "singles": true,
+    "isMatched": true,
+    "photoExisted": true,
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi  neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti."
+  }, {
+    "singles": true,
+    "isMatched": true,
+    "photoExisted": true,
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi  neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti."
+  }, {
+    "singles": true,
+    "isMatched": true,
+    "photoExisted": true,
+    "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi  neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti."
+  }],
+  "home-landing-preview": [{
+      "name": "DorienS",
+      "time": "Just now",
+      "rating": "4",
+      "title": "Heb een wandelmaatje gevonden!",
+      "desc": "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis."
+    },
+    {
+      "name": "Wouter",
+      "time": "1 hour ago",
+      "rating": "5",
+      "title": "Samen echt bezig zijn, wat wil je nog meer, dankzij hier op sportpartner",
+      "desc": "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis."
+    },
+    {
+      "name": "Jay-An",
+      "time": "Yesterday",
+      "rating": "4",
+      "title": "Leuke site om een sportmaatje te vinden",
+      "desc": "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "activeTabMatches": false,
+  "activeTabMessage": true,
+  "inbox-messages": [{
+      "name": "Roberts, Naida O.",
+      "time": "January 12th, 2019",
+      "message-content": "quam, elementum at, egestas a, scelerisque sed, sapien. Nunc pulvinar arcu et pede. Nunc sed orci lobortis augue"
+    },
+    {
+      "name": "Gordon, Cathleen P.",
+      "time": "July 26th, 2017",
+      "message-content": "interdum. Nunc sollicitudin commodo ipsum. Suspendisse non leo. Vivamus"
+    },
+    {
+      "name": "Rivas, Carson A.",
+      "time": "November 15th, 2017",
+      "message-content": "natoque penatibus"
+    }
+  ],
+  "conversations": [{
+    "time": "yesterday",
+    "content": [{
+        "me": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit.",
+        "you": "Lorem ipsum dolor sit amet"
+      },
+      {
+        "me": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. :smile:"
+      }, {
+        "me": ":smile:"
+      }
+    ]
+  }]
+}

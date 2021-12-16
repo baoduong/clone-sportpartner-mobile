@@ -1,0 +1,763 @@
+.my-profile-settings {
+  max-width: 540px;
+  margin: 60px auto;
+  width: 100%;
+}
+
+.fc-button-upload-photo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 30px;
+  z-index: 11;
+
+  img {
+    width: 20px;
+    margin-right: 20px;
+    vertical-align: -3px;
+  }
+
+  .navigating-upload-photo {
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+}
+
+.photo-upload-page {
+  .wl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px; // background-color: #ffffff;
+
+    p {
+      font-family: $font-gilroy;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: normal;
+      text-align: center;
+      color: $royal-purple;
+    }
+  }
+
+  .pnl-step-1 {
+    width: 720px;
+    height: 260px;
+    border-radius: 4px;
+    background-color: #f7f5f2;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+      font-size: 18px;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.56;
+      letter-spacing: normal;
+      text-align: center;
+      color: $slate-grey;
+      margin-top: 50px;
+      margin-bottom: 45px;
+      font-weight: 500;
+    }
+
+    .btn.btn-round {
+      width: 200px;
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+      font-size: 18px;
+    }
+  }
+
+  .pnl-step-2 {
+    @extend .pnl-step-1;
+    height: 280px;
+    position: relative;
+
+    .pnl-upload-photo {
+      width: 720px;
+      text-align: center;
+
+      .wrap-function {
+        display: flex;
+
+        .tooltip {
+          top: -10px !important;
+        }
+
+        .btn {
+          width: 50px;
+          height: 50px;
+          background-color: #fff !important;
+          color: $slate-grey;
+
+          .sport-icons {
+            line-height: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &::before {
+              font-size: 15px;
+            }
+          }
+
+          &:hover {
+            color: $orangey-red;
+          }
+        }
+
+        .function-image {
+          min-width: 360px;
+          height: 360px;
+          border-radius: 4px;
+          background-color: $warm-grey;
+          box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.1);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .oval {
+            width: 320px;
+            height: 320px;
+            opacity: 0.5;
+            border-radius: 50%;
+            border: dashed 2px #ffffff;
+          }
+        }
+
+        .function-right {
+          width: 180px;
+          align-items: center;
+          display: block;
+          justify-content: center;
+
+          .btn-group {
+            position: relative;
+            top: 200px;
+            box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+          }
+        }
+
+        .function-left {
+          @extend .function-right;
+        }
+      }
+
+      .btn.btn-round {
+        width: 360px;
+      }
+
+      .input-file {
+        display: flex;
+        position: relative;
+        width: 360px;
+        margin: 40px auto 36px;
+
+        #frm-input-file {
+          position: relative;
+          z-index: 2;
+          width: 100%;
+          opacity: 0;
+          overflow: visible;
+        }
+
+        .lblInputFile {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 25px;
+          color: #525866;
+        }
+      }
+    }
+  }
+}
+
+.li-pnl-settings {
+  height: 100px;
+  background: #fff;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid $white-three;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @include style-desktop {
+    max-width: 540px;
+  }
+
+  .inbox-item-messages .item-avatar-number .img img {
+    min-width: 60px !important;
+  }
+
+  &.unBlocked {
+    height: auto;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid transparent;
+  }
+
+  .content {
+    flex: 1 auto;
+    max-width: none !important;
+    padding: 0 !important;
+    .title {
+      font-size: 18px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.63;
+      letter-spacing: normal;
+      text-align: left;
+      color: $dark;
+      margin-bottom: 6px;
+    }
+
+    .desc {
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.57;
+      letter-spacing: normal;
+      text-align: left;
+      color: #716e6c;
+      margin: 0;
+    }
+  }
+
+  .message-unblock {
+    width: calc(100% + 50px);
+    margin: 0 -50px;
+    background: #fff;
+    padding: 0 15px 8px;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    text-align: left;
+    color: $warm-grey;
+  }
+
+  .inbox-item-messages {
+    width: auto;
+    margin: 0 0 0 -10px;
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+    height: auto;
+    cursor: auto;
+    background: transparent;
+
+    .img {
+      background-color: $warm-grey-two;
+      box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.08);
+      width: 60px;
+      height: 60px;
+    }
+
+    .name {
+      font-family: $font-gilroy;
+      font-size: 20px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.3;
+      letter-spacing: normal;
+      color: $dark;
+      margin: 0;
+    }
+
+    .city {
+      font-size: 18px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.56;
+      letter-spacing: normal;
+      color: $slate-grey;
+      margin: 0;
+    }
+  }
+
+  .isBlocked,
+  .isUnBlocked {
+    height: 40px;
+    width: 125px;
+    padding: 7px;
+
+    img {
+      width: 18px;
+      margin-right: 11px;
+      vertical-align: -3px;
+    }
+  }
+
+  .isUnBlocked {
+    width: 125px;
+  }
+
+  .showMoreBlockMembers {
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: $black-two;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+    text-decoration: none !important;
+    font-size: 16px;
+
+    img {
+      width: 12px;
+      margin-right: 15px;
+    }
+  }
+}
+
+.panel-profile.panel-settings {
+  .match-info {
+    .Heading-2-diap {
+      .t-name {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        flex: 1 auto;
+      }
+    }
+  }
+}
+
+.my-settings {
+  max-width: 540px;
+  margin: 60px auto;
+  width: 100%;
+
+  .select-sport-panel {
+    position: relative;
+
+    .btn-edit-email-again {
+      position: absolute;
+      z-index: 9;
+      right: 0;
+      background-color: transparent !important;
+
+      img {
+        width: 16px;
+        opacity: 0.4;
+      }
+    }
+  }
+
+  .change-language {
+    width: 265px;
+    height: 50px;
+    border-radius: 4px; // box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(0, 0, 0, 0.1);
+    border: solid 1px $white-four;
+    color: #a0a0a0;
+  }
+
+  .btn-delete-account {
+    width: 265px;
+    height: 50px;
+    color: #262f40 !important;
+    font-weight: 500;
+    font-size: 16px;
+    padding-top: 13px;
+  }
+
+  .btn-save {
+    width: 90px;
+    height: 50px;
+    border-radius: 4px;
+    padding: 0;
+  }
+
+  .btn-link {
+    background: transparent !important;
+    width: 90px;
+    height: 50px;
+    padding: 0;
+  }
+
+  .message-confirm-block {
+    // max-height: 50px;
+    // min-height: 50px;
+    border-radius: 4px; // background-color: #fff;
+    // margin-top: 10px;
+    // font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: $black-two; // flex: 1;
+    // display: flex;
+    align-items: center; // padding: 0 18px;
+
+    img {
+      width: 14px;
+      margin-right: 13px;
+    }
+  }
+
+  .message-resend-email {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px !important;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.63;
+    letter-spacing: normal;
+    display: flex;
+    color: $warm-grey !important;
+
+    .mess {
+      flex: 1 auto;
+    }
+
+    a {
+      color: $warm-grey !important;
+    }
+
+    .close-message {
+      .btn-xs.btn-link {
+        padding: 0;
+        height: auto;
+        width: auto;
+
+        img {
+          width: 12px;
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+}
+
+.confirm-edit-email {
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  color: $black-two;
+}
+
+#page-profile-settings-edit-confirm {
+  max-width: 1080px;
+  margin: 180px auto 40px;
+
+  @include style-mobile {
+    margin-top: 110px;
+    display: flex;
+    flex-direction: column;
+    height: calc(var(--vh100) - 181px);
+    padding-bottom: 30px;
+    margin-bottom: 0;
+
+    .text-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      .btn-confirm-back-profile {
+        width: calc(100vw - 60px);
+      }
+    }
+  }
+
+  .confirm-title {
+    font-family: $font-gilroy;
+    font-size: 40px;
+    font-weight: 800;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.95;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+
+    @include style-mobile {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+  }
+
+  .confirm-desc {
+    width: 720px;
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.56;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+    opacity: 0.5;
+
+    @include style-mobile {
+      font-weight: 300;
+      width: 100%;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+
+  .confirm-tooltip {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: normal;
+    color: #fff;
+    opacity: 0.5;
+  }
+
+  .btn-confirm-resend-email {
+    width: 260px;
+  }
+
+  .btn-confirm-back-profile {
+    width: 260px;
+  }
+
+  .btn-cancel-email-edit {
+    // font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.22;
+    letter-spacing: normal;
+    color: #fff;
+  }
+}
+#page-profile-settings-edit-confirm,
+#page-account-profile-settings-delete-contact {
+  max-width: 720px;
+  margin: 60px auto;
+
+  @include style-mobile {
+    margin: {
+      top: 30px;
+      bottom: 0;
+    }
+
+    &.mb-custom-layout {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(var(--vh100) - 100px);
+
+      .panel-form-delete {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        form {
+          flex: 1;
+          background: #f7f5f2;
+        }
+      }
+    }
+  }
+
+  .Heading-1 {
+    font-family: $font-gilroy;
+    font-size: 40px;
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.1;
+    letter-spacing: normal;
+    text-align: center;
+    color: $royal-purple;
+
+    @include style-mobile {
+      font-size: 30px;
+    }
+    @include style-small-mobile {
+      padding: 0 30px;
+    }
+  }
+
+  .paragraph-1 {
+    font-size: 18px;
+    line-height: 1.56;
+    color: $slate-grey;
+
+    @include style-mobile {
+      $padding-x: 30px;
+
+      padding: {
+        left: $padding-x;
+        right: $padding-x;
+      }
+    }
+  }
+
+  .panel-form-delete {
+    margin-top: 50px;
+
+    @include style-mobile {
+      margin-top: 30px;
+    }
+
+    .group-field {
+      border-radius: 4px;
+      background-color: #f7f5f2;
+      padding: 30px 40px 40px;
+      position: relative;
+
+      @include style-mobile {
+        border-radius: 0;
+        padding: 30px;
+      }
+
+      .custom-select {
+        height: 50px;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(0, 0, 0, 0.1);
+
+        &:disabled {
+          color: rgba($color: $slate-grey, $alpha: 0.5);
+        }
+
+        &:not(:disabled) {
+          color: rgba($color: $slate-grey, $alpha: 1);
+        }
+      }
+
+      .form-control {
+        &:disabled {
+          color: rgba($color: $slate-grey, $alpha: 0.5);
+        }
+
+        &:not(:disabled) {
+          // color: rgba($color: $slate-grey, $alpha: 1);
+          color: #525866;
+        }
+      }
+
+      .field {
+        margin-bottom: 30px;
+
+        @include style-mobile {
+          margin-bottom: 15px;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .black-two {
+        width: 100%;
+        padding-top: 14px;
+        font-size: 16px;
+
+        @include style-mobile {
+          padding-top: 12px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .panel-rating {
+    display: flex;
+    height: 50px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border: solid 1px $white-three;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    direction: rtl;
+    border-radius: 4px;
+
+    .btn-rating {
+      background: #fff !important;
+      border-left: 1px solid #e1e1e1;
+      flex: 1;
+      border-radius: 0;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+
+      &:last-child {
+        border-left-color: transparent;
+      }
+
+      .sport-icons.star {
+        font-size: 20px;
+        color: #716e6c;
+
+        &:before {
+          font-size: 20px;
+        }
+      }
+
+      &.active,
+      &:hover {
+        .sport-icons.star {
+          color: $orangey-red;
+        }
+
+        & ~ .btn-rating {
+          .sport-icons.star {
+            color: $orangey-red;
+          }
+        }
+      }
+    }
+  }
+
+  .btn-send-review {
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+    font-size: 16px !important;
+    padding-bottom: 13px !important;
+
+    @include style-mobile {
+      font-size: 18px !important;
+      padding-bottom: 12px !important;
+    }
+  }
+}
+
+#form-chat {
+  @include style-mobile {
+    display: flex;
+    align-items: flex-end;
+  }
+  #message {
+    @include style-mobile {
+      max-height: 143px;
+      min-height: 50px;
+      padding-top: 12px;
+    }
+  }
+}

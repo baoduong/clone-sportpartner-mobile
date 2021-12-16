@@ -1,0 +1,178 @@
+<div class="my-settings" id="page-my-profile-form">
+    <div class="field">
+      <label class="m-0 Paragraph-1-form-label d-md-block">Your email address</label>
+      <label class="Description d-md-block">This will not be visible to other users</label>
+      <div class="field-panel">
+        <div class="select-sport-panel input full-width m-0">
+          <input id="" type="text" disabled="disabled" value="jorrit@gmail.com" class="form-control inputfield " placeholder="Type your name here">
+          <button type="button" class="btn btn-edit-email-again">
+            <img src="/images/icons-solid/pencil-button.svg" alt="">
+          </button>
+        </div>
+        <div class="message-confirm-block">
+          <img src="/images/icons-solid/tick.svg" alt="">New email address saved
+        </div>
+      </div>
+      <div class="message-resend-email">
+        <div class="mess">To confirm your email address we’ve send you an email. Did you not receive an email form us? <a href="javascript:;">Click here to resend email confirmation</a></div>
+        <div class="close-message">
+          <button class="btn btn-xs btn-link">
+            <img src="/images/icons-solid/close.svg" alt="">
+          </button>
+        </div>
+      </div>
+      <hr class="m-0">
+    </div>
+
+    <div class="field" style="margin-top: -10px;">
+      <label class="Paragraph-1-form-label d-md-block">Password</label>
+      <div class="field-panel">
+        <div class="select-sport-panel input full-width m-0">
+          {{> elements-password(idPasswordToggle: "input-password-view", placeholder: "Your new password") }}
+        </div>
+        <div class="message-confirm-block">
+          <img src="/images/icons-solid/tick.svg" alt="">New password saved
+        </div>
+      </div>
+    </div>
+
+    <div class="space-30"></div>
+    <div class="field">
+      <ul class="list-unstyled">
+        <li class="li-pnl-settings" style="height: 70px;">
+          <div class="content">
+            <p class="title m-0">Profile settings</p>
+          </div>
+        </li>
+        {{# profileSettings}}
+        <li class="li-pnl-settings">
+          <div class="content">
+            <p class="title">{{title}}</p>
+            <p class="desc">{{desc}}</p>
+          </div>
+          <div class="checkpnl">
+            {{> elements-checkbox-slider }}
+          </div>
+        </li>
+        {{/ profileSettings}}
+      </ul>
+    </div>
+    <div class="space-30"></div>
+    <div class="field">
+      <ul class="list-unstyled">
+        <li class="li-pnl-settings" style="height: 70px;">
+          <div class="content">
+            <p class="title m-0">Email settings</p>
+          </div>
+        </li>
+        {{# emailSettings}}
+        <li class="li-pnl-settings">
+          <div class="content">
+            <p class="title">{{title}}</p>
+            <p class="desc">{{desc}}</p>
+          </div>
+          <div class="checkpnl">
+            {{> elements-checkbox-slider }}
+          </div>
+        </li>
+        {{/ emailSettings}}
+      </ul>
+    </div>
+    <div class="space-30"></div>
+    <div class="field">
+      <ul class="list-unstyled">
+        <li class="li-pnl-settings" style="height: 70px;">
+          <div class="content">
+            <p class="title m-0">My membership</p>
+          </div>
+        </li>
+        <li class="li-pnl-settings" style="height: auto; min-height: 280px;">
+          <div class="content">
+            <p class="title">Member since</p>
+            <p class="m-0 desc">December 10, 2017</p>
+            <div class="space-20"></div>
+            <p class="title">Membership status</p>
+            <p class="m-0 desc">Your Premium membership is expired. If you renew your subscription now, you’ll be able to directly start messaging
+              again!
+            </p>
+            <div class="space-30"></div>
+            <button style="width: 180px;" type="button" class="btn black-two">Stay Premium</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="space-30"></div>
+    <div class="field">
+      <ul class="list-unstyled">
+        <li class="li-pnl-settings" style="height: 70px;">
+          <div class="content">
+            <p class="title m-0">Blocked members</p>
+          </div>
+        </li>
+        {{# memberblocks}}
+        <li class="li-pnl-settings {{# isUnBlocked}}unBlocked{{/ isUnBlocked}}">
+          <div class="content">
+            <div class="inbox-item-messages">
+              <div class="message-content">
+                <div class="item-avatar-number">
+                    <div class="img">
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div class="item-name-message-content">
+                    <p class="name">{{name}}</p>
+                    <p class="city">{{city}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="checkpnl">
+           {{# isBlocked}}
+            <button type="button" class="btn warm-grey-two isBlocked">
+              <img src="/images/icons-solid/remove-around.svg">Blocked
+            </button>
+           {{/ isBlocked}}
+
+           {{# isUnBlocked}}
+              <button type="button" class="btn outline-white-four isUnBlocked">
+                <img src="/images/icons-solid/remove-around.svg">Unblock?
+              </button>
+           {{/ isUnBlocked}}
+          </div>
+          {{# isUnBlocked}}
+            <div class="message-unblock">
+              You have unblocked this user. He or she will show in matches on next login
+            </div>
+           {{/ isUnBlocked}}
+        </li>
+        {{/ memberblocks}}
+        <li class="li-pnl-settings" style="height: auto;">
+          <div class="content">
+            <a href="#" class="showMoreBlockMembers">
+              <img src="/images/icons-solid/down-arrow.svg" alt="">
+              Show 4 more blocked members
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+  <div class="space-30"></div>
+  <div class="change-language-delete-acc">
+    <div class="field">
+      <label class="Paragraph-1-form-label d-md-block">Language</label>
+      <div class="field-panel">
+        <select class="custom-select change-language">
+          <option selected value="1">English (UK)</option>
+          <option value="2">Dutch (NL)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-panel">
+        <button type="button" class="btn-delete-account btn outline-white-four">Delete my account</button>
+      </div>
+    </div>
+  </div>
+</div>

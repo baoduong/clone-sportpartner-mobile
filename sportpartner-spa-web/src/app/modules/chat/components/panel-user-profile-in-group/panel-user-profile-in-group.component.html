@@ -1,0 +1,220 @@
+<ng-container *ngIf="(memberProfile$ | async).isDeletedUser; then tplUserDeleted else tplUserNotDeleted"></ng-container>
+
+<ng-template #tplUserNotDeleted>
+    <div (swiperight)="onSwipeLeft($event,-1)" [ngClass.gt-xs]="'max-width-content'">
+        <div class="members-profile">
+            <div class="member-detail" fxLayout="column">
+                <div class="avatar-member"
+                    [ngStyle]="{'background-image': 'url('+ (memberProfile$ | async).avatarUrl +')'}">
+                    <button class="btn btn-back" (click)="backClicked()">
+                        <i class="icon-small-line-arrow-left"></i>
+                    </button>
+                    <ng-container *ngIf="isShowBtnPhotoRequest">
+                        <ng-container
+                            *ngIf="(memberProfile$ | async).conversation.isRequestedPhoto === false; then btnUnSentPhotoRq else btnSentPhotoRq">
+                        </ng-container>
+                        <ng-template #btnUnSentPhotoRq>
+                            <button class="btn btn-photorequest" (click)="sendPhotoRequest()"
+                                [disabled]="(memberProfile$ | async).id === myProfile.id
+                                || (memberProfile$ | async).conversation.isBlocked === true">
+                                <i class="icon-small-line-send-member"></i>
+                                <span class="desktop-button-2">
+                                    <!-- Send photo request -->
+                                    {{'Web-Account.MATCH-INTERACTION.photo_request' | translate}}
+                                </span>
+                            </button>
+                        </ng-template>
+
+                        <ng-template #btnSentPhotoRq>
+                            <button class="btn btn-photorequest-sent">
+                                <i class="icon-small-line-check1"></i>
+                                <span class="desktop-button-2">
+                                    <!-- Photo request sent -->
+                                    {{'Web-Account.MATCH-INTERACTION.photo_request_sent' | translate}}
+                                </span>
+                            </button>
+                        </ng-template>
+                    </ng-container>
+                    <div class="icon-favorite" (click)="toggleFavorite()">
+                        <i
+                            [ngClass]="(memberProfile$ | async).isFavorite ? 'icon-small-solid-star' : 'icon-small-line-fav'"></i>
+                    </div>
+                    <div class="bg-linear-box">
+                        <div class="bg-linear"></div>
+                        <div class="info-box" fxLayout="column" fxLayoutGap="6px">
+                            <div class="name-box">
+                                <h2 [ngClass.gt-xs]="'desktop-heading-2'" [ngClass.xs]="'mobile-heading-1'">
+                                    {{ (memberProfile$ | async).screenName }}
+                                </h2>
+                            </div>
+                            <div class="sub-info">
+                                <span [ngClass.gt-xs]="'desktop-paragraph-2'" [ngClass.xs]="'mobile-paragraph-1'">({{
+                                    keyGender | translate }}/{{ (memberProfile$ | async).age }})
+                                    {{ (memberProfile$ | async).address }}
+                                </span>
+                                <ng-container *ngIf="(memberProfile$ | async).isPremium">
+                                    <i class="icon-small-solid-premium icon-premium"></i>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="des-member">
+                    <div class="list-sport" fxLayoutGap="5px" *ngIf="(memberProfile$ | async).sports.length > 0">
+                        <div class="icon-sport" *ngFor="let item of (memberProfile$ | async).sports">
+                            <div class="img sport-svg"
+                                [ngStyle]="{'-webkit-mask' : 'url('+ item.iconUrl +') center no-repeat'}">
+                            </div>
+                            <div class="tooltip-box">
+                                <div class="tooltip-bg">
+                                    <span class="mobile-paragraph-3">{{ 'Sports.'+ item.translationKey.toUpperCase() +
+                                        '.name' | translate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="des-title" [ngClass.gt-xs]="'desktop-heading-3'" [ngClass.xs]="'mobile-heading-2'">
+                        {{'Web-Group.VISITING-PROFILE.about_me' | translate }}
+                    </h1>
+                    <p class="des-text mobile-paragraph-1">{{ (memberProfile$ | async).introduction }}</p>
+                </div>
+            </div>
+            <div class="member-conversation-mobile">
+                <ng-container *ngIf="!(memberProfile$ | async).conversation.isBlocked; else tplUnBlock">
+                    <ng-container *ngIf="isShowInputSendMsg; then inputSendFirstMsgMobile else tplSendFirstMsgMobile">
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #tplUserDeleted>
+    <div (swiperight)="onSwipeLeft($event,-1)" [ngClass.gt-xs]="'max-width-content'">
+        <div class="members-profile" fxLayout="row">
+            <div class="info-member-wrrap" fxLayout="column">
+                <div class="avatar-member"
+                    [ngStyle]="{'background-image': 'url('+ (memberProfile$ | async).avatarUrl +')'}">
+                    <button class="btn btn-back" (click)="backClicked()">
+                        <i class="icon-small-line-arrow-left"></i>
+                    </button>
+                    <div class="info-box" fxLayout="column" fxLayoutGap="6px">
+                        <div class="name-box">
+                            <h2 [ngClass.gt-xs]="'desktop-heading-2'" [ngClass.xs]="'mobile-heading-1'">
+                                {{ (memberProfile$ | async).screenName }}
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="bg-linear">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #tplSendFirstMsgMobile>
+    <div [@animationSlide] class="box-conversation-mobile" fxLayout="row">
+        <ng-container
+            *ngIf="(memberProfile$ | async).conversation.isSentFirstMessage; then btnHighFived else btnHighFive">
+        </ng-container>
+
+        <ng-template #btnHighFive>
+            <button class="btn btn-highfive" (click)="sendHiveFive()"
+                [disabled]="(memberProfile$ | async).id === myProfile.id">
+                <i class="icon-medium-solid-hf"></i>
+            </button>
+            <div class="line"></div>
+            <button class="btn btn-unsent" (click)="showInputSendMessage()"
+                [disabled]="(memberProfile$ | async).id === myProfile.id">
+                <i class="icon-medium-solid-write-message"></i>
+            </button>
+        </ng-template>
+        <ng-template #btnHighFived>
+            <button class="btn btn-highfived">
+                <div class="highfived-box">
+                    <i class="icon-medium-solid-hf icon-hf"></i>
+                    <i class="icon-small-line-check1 icon-check"></i>
+                </div>
+            </button>
+            <div class="line"></div>
+            <button class="btn btn-sent" (click)="showConversation()">
+                <!-- <i class="icon-medium-solid-chat"></i> -->
+                <i class="icon-medium-solid-write-message"></i>
+            </button>
+        </ng-template>
+
+    </div>
+    <ng-container *ngIf="(isShowOverlayNoticeHighFive$ | async)">
+        <div [@animationOverlay] class="overlay-highfive" fxLayoutAlign="center center">
+            <div class="notice-highfive" fxLayout="column" fxLayoutAlign="center center">
+                <div class="icon-check">
+                    <i class="icon-medium-line-check"></i>
+                </div>
+                <div class="title">
+                    <span class="mobile-text-emphasis-1">
+                        <!-- High five send! -->
+                        {{'Web-Group.VISITING-PROFILE.tip_highfive' | translate }}
+                    </span>
+                </div>
+                <div class="description-highfive">
+                    <span class="mobile-paragraph-2 text-white-80">
+                        <!-- Great you have made your first contact ! -->
+                        {{'Web-Group.VISITING-PROFILE.tip_highfive_description' | translate }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="(isShowOverlayNoticeMsg$ | async)">
+        <div [@animationOverlay] class="overlay-message" fxLayoutAlign="center center">
+            <div class="notice-message" fxLayout="column" fxLayoutAlign="center center">
+                <div class="icon-check">
+                    <i class="icon-medium-line-check"></i>
+                </div>
+                <div class="title">
+                    <span class="mobile-text-emphasis-1">
+                        <!-- Message send! -->
+                        {{'Web-Group.VISITING-PROFILE.tip_message' | translate }}
+                    </span>
+                </div>
+                <div class="description-msg">
+                    <span class="mobile-paragraph-2 text-white-80">
+                        <!-- You can also continute the conversation from your inbox -->
+                        {{ 'Web-Group.VISITING-PROFILE.tip_message_description' | translate }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</ng-template>
+
+<ng-template #inputSendFirstMsgMobile>
+    <div [@animationSlide] class="box-input-msg-mobile">
+        <div class="title-send">
+            <span class="mobile-text-emphasis-2 text-gray-cool-1">
+                {{'Web-Group.GROUP-PAGE.message_post_new' | translate}}
+            </span>
+            <button class="btn btn-close" (click)="isShowInputSendMsg = false">
+                <i class="icon-small-line-cross1"></i>
+            </button>
+        </div>
+        <div class="input-send">
+            <app-typing-message (sentMessage)="sendMessage($event,'SendMessage')" [autoFocus]="true"></app-typing-message>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #tplUnBlock>
+    <div class="un-block-wrap" fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="center center">
+        <span class="notice-block desktop-paragraph-2">
+            <!-- You can't send messages, because  you have blocked {{member}} as a member -->
+            {{'Web-Group.VISITING-PROFILE.blocked_description' | translate: { member: (memberProfile$ | async).screenName } }}
+        </span>
+        <button (click)="unBlockMember()" class="btn btn-coral-2 desktop-button-2">
+            <!-- UnBlock Jennifer -->
+            {{'Web-Group.VISITING-PROFILE.blocked_button' | translate: { member: (memberProfile$ | async).screenName } }}
+        </button>
+    </div>
+</ng-template>

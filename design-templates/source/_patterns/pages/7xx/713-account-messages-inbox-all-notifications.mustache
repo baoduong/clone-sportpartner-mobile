@@ -1,0 +1,41 @@
+{{> common-header }}
+<div>
+  <hr class="m-0">
+</div>
+<div id="landing-matches" class="custom-center-block">
+  <div class="space-60"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="all-notifications">
+          <label class="m-0 title">Your notifications</label>
+          <div class="space-20"></div>
+          <hr class="m-0"> 
+          {{# notification }}
+          <div class="notification-item-block">
+            <div class="notification-item">
+              <a class="link-item" href="#">
+                <div class="img">
+                  <img src="{{{img}}}" alt="">
+                </div>
+                <div class="content">
+                  <p class="m-0">{{title}}
+                    <small>{{title_2}}</small>
+                  </p>
+                </div>
+              </a>
+              <div class="delete">
+                <button type="button" class="btn btn-link btn-clear">
+                  <img src="/images/icons-solid/close.svg">
+                </button>
+              </div>
+            </div>
+          </div>
+          {{/ notification }}
+          <div class="space-20"></div>
+          <a class="a-link" href="#">Back to my messages</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

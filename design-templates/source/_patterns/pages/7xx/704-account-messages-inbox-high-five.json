@@ -1,0 +1,50 @@
+{
+  "activeTabMatches": false,
+  "activeTabMessage": true,
+  "showProfile": true,
+  "closeProfile": true,
+  "isLastSeen": false,
+  "converstion_photo": false,
+  "inbox-messages": [{
+      "inbox-fav": false,
+      "showNumberMessage": true,
+      "number-message": 10,
+      "hasReply": true,
+      "name": "Roberts, Naida O.",
+      "time": "January 12th, 2019",
+      "message-content": "quam, elementum at, egestas a, scelerisque sed, sapien. Nunc pulvinar arcu et pede. Nunc sed orci lobortis augue"
+    },
+    {
+      "inbox-fav": true,
+      "number-message": 5,
+      "showNumberMessage": true,
+      "hasReply": false,
+      "name": "Gordon, Cathleen P.",
+      "time": "July 26th, 2017",
+      "message-content": "interdum. Nunc sollicitudin commodo ipsum. Suspendisse non leo. Vivamus"
+    },
+    {
+      "inbox-fav": false,
+      "showNumberMessage": false,
+      "hasReply": false,
+      "name": "Rivas, Carson A.",
+      "time": "November 15th, 2017",
+      "message-content": "natoque penatibus"
+    },
+    {
+      "inbox-fav": false,
+      "showNumberMessage": true,
+      "number-message": 15,
+      "inbox-item-selected": true,
+      "hasReply": true,
+      "name": "Glass, Malachi E.",
+      "time": "June 20th, 2017",
+      "message-content": "orci. Ut sagittis lobortis mauris. Suspendisse aliquet molestie tellus."
+    }
+  ],
+  "conversations": [{
+    "content": [{
+      "converstion_photo": true
+    }]
+  }]
+}

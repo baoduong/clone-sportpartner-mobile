@@ -1,0 +1,51 @@
+{{> common-header(customHeaderClass :"bg-purple") }}
+<div>
+  <hr class="m-0">
+</div>
+<div class="container-fluid photo-upload-page">
+  <div class="wl">
+    <p class="m-0">
+      Make sure you’re happy with profile photo
+    </p>
+  </div>
+  <div class="pnl-step-2">
+    <p>Your photo is automatically centred. Click and drag to position your photo.</p>
+    <div class="pnl-upload-photo">
+      <div class="wrap-function">
+        <div class="function-left">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn outline-white-four" data-toggle="tooltip" data-container=".wrap-function" data-placement="top" title="Rotate to left">
+              <!-- <img style="transform: rotate(55deg);" src="/images/icons-solid/rotate-arrow-left.svg"> -->
+              <span class="sport-icons rotate-left"></span>
+            </button>
+            <button type="button" data-toggle="tooltip" class="btn outline-white-four" data-container=".wrap-function" data-placement="top" title="Rotate to right">
+              <!-- <img style="transform: rotate(116deg);" src="/images/icons-solid/rotate-arrow-right.svg"> -->
+              <span class="sport-icons rotate-right"></span>
+            </button>
+          </div>
+        </div>
+        <div class="function-image">
+        </div>
+        <div class="function-right">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn outline-white-four" data-toggle="tooltip" data-container=".wrap-function" data-placement="top" title="Zoom out">
+              <!-- <img src="/images/icons-solid/minus-symbol.svg"> -->
+              <span class="sport-icons minus"></span>
+            </button>
+            <button type="button" class="btn outline-white-four" data-toggle="tooltip" data-container=".wrap-function" data-placement="top" title="Zoom in">
+              <!-- <img src="/images/icons-solid/plus-symbol.svg"> -->
+              <span class="sport-icons plus"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="input-file">
+        <input id="frm-input-file" type="file">
+        <label class="lblInputFile" for="frm-input-file">
+          Upload a new photo
+        </label>
+      </div>
+      <button type="button" class="btn btn-round black-two">Save and return to my profile</button>
+    </div>
+  </div>
+</div>

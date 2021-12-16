@@ -1,0 +1,196 @@
+$indigos: (
+  indigo-1: #32005e,
+  indigo-2: #440778,
+  indigo-3: #743ba4,
+  indigo-4: #9f6dc9,
+  indigo-5: #d7bfec,
+  indigo-6: #eee6f4,
+);
+
+$grayCools: (
+  gray-cool-1: #262f40,
+  gray-cool-2: #525866,
+  gray-cool-3: #9aa0ab,
+  gray-cool-4: #cacdd3,
+  gray-cool-5: #ecf0f2,
+  gray-cool-6: #f6f8f9,
+);
+
+$grayWarms: (
+  gray-warm-1: #716e6c,
+  gray-warm-2: #a8a4a1,
+  gray-warm-3: #d9d6d2,
+  gray-warm-4: #f0ede9,
+  gray-warm-5: #f5f3f1,
+  gray-warm-6: #faf9f7,
+);
+
+$azures: (
+  azure-1: #1375d7,
+  azure-2: #0d86ff,
+  azure-3: #4ca6ff,
+  azure-4: #8ec7ff,
+  azure-5: #d6eaff,
+  azure-6: #eaf5ff,
+);
+
+$corals: (
+  coral-1: #ea3e1b,
+  coral-2: #ff5533,
+  coral-3: #ff704c,
+  coral-4: #ffaa98,
+  coral-5: #ffddd6,
+  coral-6: #ffece9,
+);
+
+$color-pallets: (
+  mint-1: #00a880,
+  mint-2: #30c996,
+  mint-3: #45e4af,
+  black: #fff,
+  black-80: rgba(0, 0, 0, 0.8),
+  black-60: rgba(0, 0, 0, 0.6),
+  black-40: rgba(0, 0, 0, 0.4),
+  black-20: rgba(0, 0, 0, 0.2),
+  black-10: rgba(0, 0, 0, 0.1),
+  white: #fff,
+  white-80: rgba(255, 255, 255, 0.8),
+  white-60: rgba(255, 255, 255, 0.6),
+  white-40: rgba(255, 255, 255, 0.4),
+  white-20: rgba(255, 255, 255, 0.2),
+  white-10: rgba(255, 255, 255, 0.1),
+) !default;
+
+$color-pallets: map-merge($color-pallets, $indigos);
+$color-pallets: map-merge($color-pallets, $grayCools);
+$color-pallets: map-merge($color-pallets, $grayWarms);
+$color-pallets: map-merge($color-pallets, $azures);
+$color-pallets: map-merge($color-pallets, $corals);
+
+$button-pallets: (
+  coral-2: (
+    normal: (
+      background: map-get($color-pallets, coral-2),
+      color: map-get($color-pallets, white),
+    ),
+    hover: (
+      background: map-get($color-pallets, coral-3),
+      color: map-get($color-pallets, white),
+      glow: "glow-primary",
+    ),
+    pressed: (
+      background: map-get($color-pallets, coral-1),
+      color: map-get($color-pallets, white),
+      border: 1px solid rgba(0, 0, 0, 0.1),
+    ),
+    focus: (
+      background: map-get($color-pallets, coral-2),
+      color: map-get($color-pallets, white),
+    ),
+    disabled: (
+      background: map-get($color-pallets, black-10),
+      color: map-get($color-pallets, white),
+    ),
+  ),
+  azure-2: (
+    normal: (
+      background: map-get($color-pallets, azure-2),
+      color: map-get($color-pallets, white),
+    ),
+    hover: (
+      background: map-get($color-pallets, azure-3),
+      color: map-get($color-pallets, white),
+      glow: "glow-secondary",
+    ),
+    pressed: (
+      background: map-get($color-pallets, azure-1),
+      color: map-get($color-pallets, white),
+      border: 1px solid rgba(0, 0, 0, 0.1),
+    ),
+    focus: (
+      background: map-get($color-pallets, azure-2),
+      color: map-get($color-pallets, white),
+      border: 1px solid rgba(0, 0, 0, 0.1),
+    ),
+    disabled: (
+      background: map-get($color-pallets, black-10),
+      color: map-get($color-pallets, white),
+    ),
+  ),
+  azure-6: (
+    normal: (
+      background: map-get($color-pallets, azure-6),
+      color: map-get($color-pallets, azure-2),
+    ),
+    hover: (
+      background: map-get($color-pallets, azure-5),
+      color: map-get($color-pallets, azure-2),
+      // glow: "glow-secondary",
+    ),
+    pressed: (
+      background: map-get($color-pallets, azure-4),
+      color: map-get($color-pallets, white),
+      border: 1px solid rgba(0, 0, 0, 0.1),
+    ),
+    focus: (
+      background: map-get($color-pallets, azure-2),
+      color: map-get($color-pallets, white),
+      border: 1px solid rgba(0, 0, 0, 0.1),
+    ),
+    disabled: (
+      background: transparent,
+      color: map-get($color-pallets, black-20),
+      border: 1px solid rgba(0, 0, 0, 0.1),
+    ),
+  ),
+  outline-azure-2: (
+    normal: (
+      background: transparent,
+      color: map-get($color-pallets, azure-2),
+      border: 2px solid map-get($color-pallets, azure-2),
+    ),
+    hover: (
+      background: map-get($color-pallets, azure-2),
+      color: map-get($color-pallets, white),
+    ),
+    pressed: (
+      background: map-get($color-pallets, azure-1),
+      color: map-get($color-pallets, white),
+    ),
+    focus: (
+      background: map-get($color-pallets, azure-2),
+      color: map-get($color-pallets, white),
+      border: 1px solid rgba(0, 0, 0, 0.1),
+    ),
+    disabled: (
+      background: transparent,
+      color: map-get($color-pallets, black-20),
+      border: 1px solid rgba(0, 0, 0, 0.1),
+    ),
+  ),
+  outline-light: (
+    normal: (
+      background: transparent,
+      color: map-get($color-pallets, white),
+      border: 2px solid rgba(255, 255, 255, 0.2),
+    ),
+    hover: (
+      border-color: map-get($color-pallets, azure-2),
+      color: map-get($color-pallets, azure-2) !important,
+      background: transparent,
+    ),
+    pressed: (
+      border-color: map-get($color-pallets, azure-2),
+      color: map-get($color-pallets, white),
+    ),
+    focus: (
+      border-color: map-get($color-pallets, white),
+      color: map-get($color-pallets, white),
+    ),
+    disabled: (
+      background: transparent,
+      color: rgba(255, 255, 255, 0.2),
+      border: 1px solid rgba(0, 0, 0, 0.1),
+    ),
+  ),
+);

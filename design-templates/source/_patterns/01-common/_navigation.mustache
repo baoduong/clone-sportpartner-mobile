@@ -1,0 +1,84 @@
+<nav id="main-navigation" class="mm-menu_offcanvas">
+  {{# isLogin}}
+  <div class="nav-not-login">
+    <p class="menu-title m-0 font-family-gilroy font-size-40">more is together</p>
+    <div class="space-20"></div>
+    <p class="m-0 font-weight-300" style="opacity: 0.5;">Sign up today to find your match</p>
+    <div class="space-20"></div>
+    <button class="btn deep-sky-blue btn-block">Find your match today!</button>
+    <div class="space-60"></div>
+    <hr>
+    <div class="space-40"></div>
+    <ul id="main-menu" class="m-0 main-menu">
+      <li>
+        <a class="active" href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">Succes Stories</a>
+      </li>
+      <li>
+        <a href="#">Blog</a>
+      </li>
+      <li>
+        <a href="#">Membership</a>
+      </li>
+    </ul>
+    <div class="space-60"></div>
+    <hr>
+    <div class="space-40"></div>
+    <ul id="second-menu" class="m-0 second-menu">
+      <li>
+        <a href="#">Login</a>
+      </li>
+      <li>
+        <a href="#">Sign up</a>
+      </li>
+      <li>
+        <a href="#">Help</a>
+      </li>
+    </ul>
+  </div>
+  {{/ isLogin}} {{^ isLogin}}
+  <div class="nav-login">
+    <div class="nav-header d-flex">
+      <div class="ha-avatar">
+        <span class="circle">
+          <span class="sport-icons premium"></span>
+        </span>
+        <span class="avatar">
+          <img src="" alt="">
+        </span>
+      </div>
+      <div class="hd-content">
+        <p class="font-size-26 m-0 font-family-gilroy font-weight-bold text-white">Jorrit</p>
+        <p class="font-size-18 m-0 text-white opacity-50">premium member</p>
+      </div>
+    </div>
+    <div class="space-40"></div>
+    <hr>
+    <div class="space-40"></div>
+    <ul id="panel-menu">
+      <li>
+        <a class="active" href="#">My matches</a>
+      </li>
+      <li>
+        <a href="#">Messages</a>
+      </li>
+      <li>
+        <a href="#">My profile</a>
+      </li>
+    </ul>
+    <div class="space-40"></div>
+    <hr>
+    <div class="space-40"></div>
+    <ul id="second-menu" class="m-0 second-menu">
+      <li>
+        <a href="#">Help</a>
+      </li>
+      <li>
+        <a href="#">Logout</a>
+      </li>
+    </ul>
+  </div>
+  {{/ isLogin}}
+</nav>

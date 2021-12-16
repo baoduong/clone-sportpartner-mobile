@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>icons / messages</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8,32 L8,17.896 L19.592,25.825 C19.762,25.941 19.959,26 20.157,26 C20.357,26 20.559,25.939 20.73,25.819 L32,17.921 L32.001,32 L8,32 Z M31.258,16 L20.15,23.784 L8.771,16 L31.258,16 Z M32,14 C33.103,14 34,14.897 34,16 L34,32 C34,33.103 33.103,34 32,34 L8,34 C6.897,34 6,33.103 6,32 L6,16 C6,15.933 6.013,15.87 6.02,15.805 C6.02,15.803 6.02,15.802 6.02,15.8 C6.122,14.792 6.965,14 8,14 L32,14 Z M11,8 C10.448,8 10,7.552 10,7 C10,6.448 10.448,6 11,6 L29,6 C29.552,6 30,6.448 30,7 C30,7.552 29.552,8 29,8 L11,8 Z M9,12 C8.448,12 8,11.552 8,11 C8,10.448 8.448,10 9,10 L31,10 C31.552,10 32,10.448 32,11 C32,11.552 31.552,12 31,12 L9,12 Z" id="path-1"></path>
+    </defs>
+    <g id="icons-/-messages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Combined-Shape" fill="#fff" xlink:href="#path-1"></use>
+        <g id="colours-/-dark" mask="url(#mask-2)" fill="#fff">
+            <rect id="Rectangle-4" x="0" y="0" width="40" height="40"></rect>
+        </g>
+    </g>
+</svg>

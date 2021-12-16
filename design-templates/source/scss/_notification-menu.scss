@@ -1,0 +1,362 @@
+@mixin itemNotification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 17px 17px 25px;
+  border-radius: 2px;
+
+  // &:active {
+  //     background: $orangey-red;
+  // }
+  @include style-desktop {
+    &:hover {
+      background: $orangey-red;
+
+      .btn-clear {
+        visibility: visible;
+      }
+
+      .link-item {
+        color: #fff;
+
+        .img {
+          opacity: 1;
+
+          img {
+            filter: invert(100%);
+            -webkit-filter: invert(100%);
+            -ms-filter: invert(100%);
+          }
+        }
+      }
+
+      .content {
+        color: #fff !important;
+
+        small {
+          color: #fff !important;
+        }
+      }
+
+      .btn-clear {
+        img {
+          filter: invert(100%) !important;
+        }
+      }
+    }
+  }
+
+  .link-item {
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+    @include style-mobile {
+      align-items: flex-start;
+      max-width: calc(100vw - 98px) !important;
+    }
+
+    @include style-desktop {
+      &:hover {
+        text-decoration: none !important;
+
+        .img {
+          opacity: 1;
+
+          img {
+            filter: invert(100%);
+            -webkit-filter: invert(100%);
+            -ms-filter: invert(100%);
+            -ms-filter: invert(100%);
+          }
+        }
+      }
+    }
+
+    .content {
+      flex: 1;
+      font-size: 18px;
+      color: $warm-grey;
+      max-width: calc(100% - 60px);
+
+      p {
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      small {
+        display: block;
+        font-size: 16px;
+        color: $black-two;
+
+        @include style-mobile {
+          font-size: 18px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .img {
+      margin-right: 15px;
+      opacity: 0.5;
+
+      img {
+        max-width: 40px;
+      }
+    }
+  }
+
+  .btn-clear {
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    min-width: inherit !important;
+
+    img {
+      width: 12px;
+    }
+
+    &:hover {
+      img {
+        filter: invert(100%);
+        -webkit-filter: invert(100%);
+        -ms-filter: invert(100%);
+      }
+    }
+
+    @include style-mobile {
+      visibility: visible;
+      // margin-left: 15px;
+
+      img {
+        filter: none;
+        width: auto;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.notification-menu {
+  .dropdown-menu {
+    padding: 0;
+    border: 0 !important;
+    background: transparent !important;
+    z-index: 9999;
+
+    .reposition {
+      max-width: 522px;
+      width: 520px;
+      background: #fff;
+      transform: translateX(98px) translateY(5px);
+      border-radius: 4px;
+      border: 1px solid $white-three;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+
+      @include style-mobile {
+        position: fixed;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        max-width: $max-width-mobile;
+        transform: none;
+        border-radius: 0;
+        top: 70px;
+        overflow: auto;
+        border: 0;
+        max-height: calc(var(--vh100) - 70px);
+        &:before {
+          position: absolute;
+          content: "";
+          display: block;
+          height: 1px;
+          background: rgba($color: #fff, $alpha: 0.1);
+          width: calc(100% - 30px);
+          margin: 0 15px;
+          top: 0;
+        }
+      }
+    }
+
+    .title {
+      font-size: 16px;
+      text-align: left;
+      color: #525866;
+      display: block;
+      line-height: 1.5;
+      padding: 8px 22px 7px;
+
+      span.sport-icons.close {
+        font-size: 12px !important;
+        color: rgba($color: #716e6c, $alpha: 0.5);
+
+        @include style-mobile {
+          color: #fff;
+        }
+      }
+
+      .sport-icons.close::before {
+        font-size: 12px !important;
+
+        @include style-mobile {
+          font-size: 14px !important;
+        }
+      }
+
+      @include style-mobile {
+        height: 70px;
+        background: #440778;
+        font-family: $font-gilroy;
+        font-size: 20px;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 700;
+        padding-left: 42px;
+        padding-right: 25px;
+      }
+    }
+  }
+
+  .notification-item-block {
+    padding: 5px; // border-bottom: 1px solid $white-three;
+
+    &:last-child {
+      border-bottom-color: transparent; // padding-top: 5px;
+      // padding-bottom: 5px;
+      padding: 9px;
+    }
+  }
+
+  .dropdown-item {
+    padding: 5px;
+    border-bottom: 1px solid #f2f2f2;
+    background: #fff;
+
+    &.read {
+      background: #f7f5f2;
+    }
+
+    .item-inner {
+      @include itemNotification;
+    }
+
+    &[attr-type="NewMatches"] {
+      .img {
+        opacity: 1 !important;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        overflow: hidden;
+
+        img {
+          opacity: 1;
+          filter: none !important;
+        }
+      }
+    }
+  }
+
+  .see-all-notification {
+    font-size: 16px;
+    text-align: center;
+    color: #5e5e5e;
+    line-height: 1.38;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-bottom-color: transparent !important;
+  }
+}
+
+.all-notifications {
+  width: 720px;
+  margin: 0 auto;
+
+  .notification-item-block {
+    padding: 5px;
+    border-bottom: 1px solid #f2f2f2;
+
+    &.read {
+      background-color: #faf9f7;
+    }
+
+    &[data-type="NewMatches"] {
+      .img {
+        border-radius: 50% !important;
+        width: 40px !important;
+        height: 40px !important;
+        opacity: 1 !important;
+        overflow: hidden !important;
+
+        img {
+          opacity: 1;
+          filter: none !important;
+        }
+      }
+    }
+
+    .img {
+      @include style-mobile {
+        margin-top: 3px;
+      }
+    }
+  }
+
+  .notification-item {
+    @include itemNotification;
+  }
+
+  .title {
+    height: 60px;
+    font-size: 30px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.27;
+    letter-spacing: normal;
+    color: $black-two;
+  }
+
+  @include style-mobile {
+    width: 100vw;
+    max-width: $max-width-mobile;
+
+    margin: {
+      left: auto;
+      right: auto;
+    }
+
+    .sport-icons.close::before {
+      font-size: 14px;
+    }
+  }
+}
+
+#list-notifications {
+  background: #fff;
+
+  .all-notifications .notification-item {
+    padding: 17px 25px;
+  }
+}
+
+.mb-clear-all-notification {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 110px;
+  background-color: #f7f5f2;
+  padding: 30px;
+
+  .btn {
+    background: transparent;
+    border: 1px solid rgba($color: #000, $alpha: 0.1);
+    color: $slate-grey;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}

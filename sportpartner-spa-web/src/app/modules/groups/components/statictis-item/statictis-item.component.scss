@@ -1,0 +1,51 @@
+@import "media";
+@import "app-colorpalette";
+
+.background-white{
+  background: #FFFFFF !important;
+}
+
+.group-report {
+    padding: 40px;
+
+    @include gt-mobile {
+      padding: 80px 0;
+      background: map-get($grayWarms, gray-warm-6);
+    }
+
+    .status-text {
+      padding: 0 18px;
+      text-align: center;
+      color: map-get($grayCools, gray-cool-2);
+      margin: 20px 0 0;
+    }
+
+    .report-content {
+      margin-top: 40px;
+      text-align: center;
+
+      .active-member-box {
+        .total {
+          margin-top: 20px;
+          color: map-get($grayCools, gray-cool-1);
+        }
+
+        .text-content {
+          margin-top: 5px;
+          color: map-get($grayCools, gray-cool-2);
+        }
+      }
+
+      .msg-send-box {
+        .total {
+          margin-top: 23px;
+          color: map-get($grayCools, gray-cool-1);
+        }
+
+        .text-content {
+          margin-top: 5px;
+          color: map-get($grayCools, gray-cool-2);
+        }
+      }
+    }
+}

@@ -1,0 +1,27 @@
+<ng-container *ngIf="(isShowListMember$ | async)">
+    <div class="overlay-list-member" (click)="hideListMember(false)">
+    </div>
+    <div [@CloseListMember]="stateAnimation" class="lits-member-group">
+        <div class="total-member">
+            <span fxHide.gt-xs="true" class="title-member"
+                [ngClass.xs]="'mobile-text-emphasis-2'">{{'Web-Group.GROUP-PAGE.members_popup_title' | translate: {number : totalMember} }}</span>
+            <span fxHide.xs="true"
+                class="desktop-button-1 title-recently">{{'Web-Group.START-PAGE.recently_joined_members_title' | translate }}</span>
+            <span class="close" (click)="hideListMember(false)"><i class="icon-medium-line-close"></i></span>
+        </div>
+        <div class="content-list-member">
+            <div class="list-member-box" #listMemberElement>
+                    <ul fxLayout="column" fxLayoutGap.xs="30px" fxLayoutGap.gt-xs="40px" *ngIf="listMember !== null">
+                        <li *ngFor="let item of listMember">
+                            <app-list-member-item [memberProfile]="item" [isFollowing]="isFollowing" [myProfile]="myProfile"
+                                (disableShow)="hideListMember($event)">
+                            </app-list-member-item>
+                        </li>
+                        <div [@loadingListAnimation] *ngIf="(isShowLoadingIcon$ | async)" class="loading-box">
+                            <div class="loading-icon"></div>
+                        </div>
+                    </ul>
+            </div>
+        </div>
+    </div>
+</ng-container>

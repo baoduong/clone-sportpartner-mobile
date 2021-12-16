@@ -1,0 +1,227 @@
+@import "functions";
+@import "media";
+@import "app-colorpalette";
+
+:host {
+    display: block;
+    height: calc(100% - var(--safe-area-inset-top));
+}
+
+.chat-layout {
+    // height: calc(100vh - 71px);
+    transition: all 0.3s 0s ease;
+    min-height: calc( var(--vh100) - 71px - var(--safe-area-inset-bottom) - var(--safe-area-inset-top) );
+
+    /* min-height: calc(
+      100% - 71px - var(--safe-area-inset-bottom) -
+        var(--safe-area-inset-top)
+    ); */
+
+    @include gt-mobile {
+        height: calc(var(--vh100) - 80px + var(--safe-area-inset-bottom));
+        padding-top: 60px;
+        min-height: 0;
+    }
+
+
+    .chat-box-screen {
+        height: 100%;
+        flex: 1;
+        background-color: #fff;
+        position: relative;
+
+        @include gt-mobile {
+            border-radius: 4px 4px 0 0;
+
+            // display: grid;
+            overflow: hidden;
+
+            // grid-template-columns: 449px auto;
+            display: flex;
+            flex-direction: row;
+        }
+
+
+        .wrapper-list-conversation {
+            height: 100%;
+            overflow: hidden;
+
+            @include gt-mobile {
+                border-right: 1px solid map-get($grayWarms, gray-warm-5);
+                width: 449px;
+                transition: width 0.3s ease;
+
+                &.showDesktopPanelUserprofile {
+                    width: 353px;
+                    box-shadow: inset 1px 0px 0px rgba(0, 0, 0, 0.05);
+
+                    // border-left: 1px solid #f5f3f1;
+               
+                }
+            }
+
+
+            app-list-conversation {
+                display: block;
+                height: 100%;
+            }
+        }
+
+        .wrapper-detail-conversation {
+            @include gt-mobile {
+                width: 100%;
+                flex: 1;
+            }
+        }
+
+        .wrapper-panel-user-profile {
+            width: 0;
+            transition: width 0.3s ease;
+            overflow: hidden;
+
+            @include gt-mobile {
+                &.tablet-layout {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    top: 0;
+                    z-index: 2;
+                }
+
+                &.showDesktopPanelUserprofile {
+                    width: 353px;
+                    overflow-y: auto;
+                    background: map-get($grayWarms, gray-warm-6);
+
+                    // box-shadow: inset 1px 0px 0px rgba(0, 0, 0, 0.05);
+                    border-left: 1px solid rgba(0, 0, 0, 0.05);
+
+                    @include scrollBarStyle;
+
+                    &.tablet-layout {
+                        width: calc(100vw - 308px);
+
+                        &.landscape {
+                            width: calc(100vw - 413px);
+                        }
+                    }
+                }
+
+                // min-width: 0;
+                // right: 0;
+                // position: absolute;
+                // transform: translateX(100%);
+            }
+        }
+    }
+
+    &.tablet--layout {
+        padding-top: 0;
+
+        &.portrait {
+            .chat-box-screen {
+                .wrapper-list-conversation {
+                    width: 308px;
+                }
+            }
+        }
+
+        &.landscape {
+            .chat-box-screen {
+                .wrapper-list-conversation {
+                    width: 414px;
+                }
+            }
+        }
+    }
+}
+
+.section-no-message-desktop {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .no-message-item {
+        display: grid;
+        row-gap: 30px;
+        margin: 30px 30px 10px;
+
+        .icon-bagde {
+            width: 80px;
+            height: 80px;
+            background-color: map-get($grayCools, gray-cool-6);
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+
+            i {
+                font-size: 40px;
+                color: map-get($grayCools, gray-cool-2);
+            }
+        }
+    }
+}
+
+.wrapper-detail-conversation,
+.wrapper-detail-conversation-animation {
+    @include gt-mobile {
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+}
+
+.mobile-layout-chat-detail {
+    /* min-height: calc(
+      var(--vh100) - var(--safe-area-inset-bottom) - var(--safe-area-inset-top)
+    ); */
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    // bottom: 0;
+    height: 100%;
+    z-index: 2;
+}
+
+.mobile-wrapper-side-panel {
+    width: 0;
+    transition: width 0.3s ease;
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    // left: 0;
+    &.showMobilePanelUserprofile {
+        width: 100vw;
+    }
+}
+
+app-panel-user-profile,
+app-panel-group-info {
+    @include gt-mobile {
+        min-width: 353px;
+        display: block;
+    }
+}
+
+.popup-mobile-user-profile {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    // background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    // justify-content: flex-end;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

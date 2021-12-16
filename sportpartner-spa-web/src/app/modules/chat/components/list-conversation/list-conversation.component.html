@@ -1,0 +1,143 @@
+<div class="list-box-layout">
+  <div #boxTypeOverlay class="list-box-heading" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+    <ng-container [ngSwitch]="buttonType$.value">
+      <ng-container *ngSwitchCase="'Inbox'">
+        <button (click)="toggleChangingListBoxType()" class="btn btn-changes btn-new-message">
+          <i class="icon-small-line-inbox1"></i>
+          <span fxHide.xs class="desktop-button-2">{{'Conversation.INBOX.inbox' | translate}}</span>
+        </button>
+        <div class="mobile-title-heading" fxHide.gt-xs>
+          <span class="mobile-text-emphasis-2 text-gray-cool-1">{{'Conversation.INBOX.inbox' | translate}}</span>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="'Starred'">
+        <button (click)="toggleChangingListBoxType()" class="btn btn-changes btn-new-message">
+          <i class="icon-small-line-fav"></i>
+          <span fxHide.xs class="desktop-button-2">{{'Conversation.INBOX.favourite' | translate}}</span>
+        </button>
+        <div class="mobile-title-heading" fxHide.gt-xs>
+          <span class="mobile-text-emphasis-2 text-gray-cool-1">{{'Conversation.INBOX.favourite' | translate}}</span>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="'Deleted'">
+        <button (click)="toggleChangingListBoxType()" class="btn btn-changes btn-new-message">
+          <i class="icon-small-line-delete"></i>
+          <span fxHide.xs class="desktop-button-2">{{'Conversation.INBOX.deleted' | translate}}</span>
+        </button>
+        <div class="mobile-title-heading" fxHide.gt-xs>
+          <span class="mobile-text-emphasis-2 text-gray-cool-1">{{'Conversation.INBOX.deleted' | translate}}</span>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="(deviceType | async) === 'desktop' || (deviceType | async) === 'tablet'">
+      <ng-container *ngTemplateOutlet="tplSwitchConversationListType"></ng-container>
+    </ng-container>
+  </div>
+
+  <div class="list-box-items">
+    <div class="box-items" #onScrollEventElement>
+      <div class="scrollAble">
+        <ng-container *ngIf="listConversation$ !== null && (listConversation$ | async).length > 0; else tplNoMessage">
+          <ng-container *ngFor="let conversation of listConversation$ | async">
+            <app-list-conversation-item [conversation]="conversation">
+            </app-list-conversation-item>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+
+    <ng-container
+      *ngIf="((deviceType | async) === 'desktop' || (deviceType | async) === 'tablet') && !userProfile.isPremium">
+      <ng-container *ngTemplateOutlet="tplBecomePremium"></ng-container>
+    </ng-container>
+  </div>
+  <ng-container *ngIf="(deviceType | async) === 'mobile' && !userProfile.isPremium">
+    <ng-container *ngTemplateOutlet="tplBecomePremium"></ng-container>
+  </ng-container>
+</div>
+
+<ng-container *ngIf="(deviceType | async) === 'mobile'">
+  <ng-container *ngTemplateOutlet="tplSwitchConversationListType"></ng-container>
+</ng-container>
+
+<ng-template #tplSwitchConversationListType>
+  <div [@animationOverlay] [@.disabled]="(deviceType | async) === 'desktop' || (deviceType | async) === 'tablet'"
+    *ngIf="isChangingListBoxType" (click)="toggleChangingListBoxType()" class="heading-switch-conversation-list">
+    <ng-container *ngTemplateOutlet="tplListButtons"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="(isOpenMobile | async)" cdkConnectedOverlayHasBackdrop
+  [cdkConnectedOverlayPanelClass]="'panel-overlay-switch-box'" (backdropClick)="closeOverlaySwitchBox()"
+  [cdkConnectedOverlayPositionStrategy]="positionStrategy">
+  <div class="panel-overlay" (click)="closeOverlaySwitchBox()">
+    <ng-container *ngTemplateOutlet="tplListButtons"></ng-container>
+  </div>
+
+</ng-template>
+
+<ng-template #tplListButtons>
+  <div [@animationMobileSwitchConversationListType] class="list-button">
+    <button (click)="choosedListBoxType('Inbox')" [ngClass]="{'active': buttonType$.value === 'Inbox'}"
+      class="btn btn-block">
+      <i class="icon-small-solid-inbox"></i>
+      <span class="mobile-paragraph-2">{{'Conversation.INBOX.inbox_menu' | translate}}</span>
+    </button>
+    <button (click)="choosedListBoxType('Starred')" [ngClass]="{'active': buttonType$.value === 'Starred'}"
+      class="btn btn-block">
+      <i class="icon-small-solid-star"></i>
+      <span class="mobile-paragraph-2">{{'Conversation.INBOX.favourite_menu' | translate}}</span>
+    </button>
+    <button (click)="choosedListBoxType('Deleted')" [ngClass]="{'active': buttonType$.value === 'Deleted'}"
+      class="btn btn-block">
+      <i class="icon-small-solid-trash"></i>
+      <span class="mobile-paragraph-2">{{'Conversation.INBOX.deleted_menu' | translate}}</span>
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #tplNoMessage>
+  <div class="no-message-item" fxHide.gt-xs="true">
+    <div class="no-message-box">
+      <div class="icon-bagde">
+        <i class="icon-medium-line-no-chat"></i>
+      </div>
+      <div class="text-grid">
+        <p class="m-0 mobile-text-emphasis-1 text-gray-cool-2 text-center">
+          {{'Conversation.INBOX.nomessage_available_title' | translate}}</p>
+        <p class="m-0 mobile-paragraph-2 text-gray-cool-2 text-center">
+          {{'Conversation.INBOX.nomessage_available_description' | translate}}</p>
+      </div>
+    </div>
+  </div>
+  <!-- <ng-container *ngTemplateOutlet="tplChatInboxSuggestion"></ng-container> -->
+</ng-template>
+
+<!-- Temporary hard code suggestion message -->
+<ng-template #tplChatInboxSuggestion>
+  <div class="section-suggestion-chat-items">
+    <div class="section-suggestion-chat-items-title">
+      <p [ngClass.xs]="'mobile-paragraph-4'" [ngClass.gt-xs]="'desktop-paragraph-3'" class="m-0 text-gray-cool-2">
+        {{'Conversation.INBOX.suggestion_title' | translate}}
+      </p>
+    </div>
+    <app-list-chat-box-suggestion-item></app-list-chat-box-suggestion-item>
+    <app-list-chat-box-suggestion-item></app-list-chat-box-suggestion-item>
+    <app-list-chat-box-suggestion-item></app-list-chat-box-suggestion-item>
+  </div>
+</ng-template>
+
+<ng-template #tplBecomePremium>
+  <div class="become-premium-banner">
+    <div>
+      <p class="text">{{'Conversation.INBOX.nonpremium_title' | translate}}</p>
+    </div>
+    <div>
+      <button (click)="gotoPayment()" class="btn-block" appBtnCoral2>
+        {{'Conversation.INBOX.nonpremium_button' | translate}}
+      </button>
+    </div>
+  </div>
+</ng-template>

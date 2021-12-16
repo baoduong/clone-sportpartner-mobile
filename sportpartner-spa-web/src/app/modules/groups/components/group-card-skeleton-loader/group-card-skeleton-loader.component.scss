@@ -1,0 +1,42 @@
+@import "functions";
+@import "media";
+@import "app-colorpalette";
+:host {
+  width: 100%;
+  display: block;
+}
+.your-group-layout {
+  app-group-card-item {
+    margin-bottom: 20px;
+  }
+
+  @include gt-mobile {
+    margin: {
+      left: -15px;
+      right: -15px;
+    }
+
+    app-group-card-item {
+      width: calc(50% - 30px);
+      margin: {
+        left: 15px;
+        right: 15px;
+        bottom: 30px;
+      }
+    }
+  }
+  @include desktop-md {
+    margin: {
+      left: -15px;
+      right: -15px;
+    }
+    app-group-card-item {
+      width: calc(25% - 30px);
+      margin: {
+        left: 15px;
+        right: 15px;
+        bottom: 30px;
+      }
+    }
+  }
+}

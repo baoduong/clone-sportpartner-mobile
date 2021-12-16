@@ -1,0 +1,201 @@
+@include style-mobile {
+  .photo-upload-page-profile.mb-photo-upload-page {
+    .upload-step-1 {
+      padding-top: 160px;
+
+      .progress-photo {
+        position: static !important;
+      }
+
+      .progress-bar-photo-uploading {
+        max-width: 180px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .progress {
+          background-color: #32005e !important;
+          height: 4px !important;
+
+          .bar {
+            height: 4px !important;
+          }
+
+          p.m-0.text-center.text-color-slate-grey {
+            font-family: $font-family-base !important;
+            font-size: 18px !important;
+            line-height: 1.56;
+            text-align: center;
+            color: rgba($color: #ffffff, $alpha: 0.5);
+          }
+        }
+      }
+
+      .pnl-step-1 {
+        width: 100vw !important;
+        height: auto;
+        background-color: transparent;
+
+        .btn.orangey-red {
+          min-width: 200px !important;
+        }
+      }
+
+      .wl {
+        height: auto !important;
+        margin: 0 60px 55px;
+
+        p {
+          font-family: $font-gilroy;
+          font-size: 30px !important;
+          font-weight: 700;
+          line-height: 1.2;
+          text-align: center;
+          color: #ffffff !important;
+        }
+      }
+    }
+
+    .upload-step-2 {
+      min-height: calc(var(--vh100) - 70px);
+      height: auto;
+      background: linear-gradient(180deg, #440778 299px, #f7f5f2 0);
+
+      @include style-small-mobile {
+        background: linear-gradient(180deg, #440778 260px, #f7f5f2 0);
+      }
+
+      .wl {
+        height: auto !important;
+
+        p {
+          font-family: $font-family-base !important;
+          font-size: 18px !important;
+          font-weight: 300;
+          line-height: 1.56;
+          text-align: center;
+          color: rgba($color: #ffffff, $alpha: 0.5);
+          margin: 21px 0 !important;
+        }
+      }
+
+      .pnl-step-2 {
+        border-radius: 0;
+        height: auto;
+        width: 100vw;
+        max-width: $max-width-mobile;
+        background: transparent;
+
+        .input-file {
+          margin: 15px auto 0;
+          width: 100%;
+        }
+
+        .btn.orangey-red.btn-save-photo {
+          width: calc(100vw - 60px); // margin-top: 40px;
+          max-width: calc(#{$max-width-mobile}/ 2 - 60px);
+        }
+
+        .validation-summary-errors {
+          width: calc(100vw - 60px);
+          max-width: calc(#{$max-width-mobile}/ 2 - 60px);
+          margin: 10px 30px 0;
+
+          ul {
+            padding-left: 22px;
+          }
+        }
+      }
+    }
+  }
+
+  .mb-photo-upload-page {
+    .pnl-upload-photo {
+      width: 100vw !important;
+      max-width: $max-width-mobile/2;
+
+      .wrap-function {
+        flex-direction: column;
+
+        .btn-group {
+          position: static !important;
+        }
+      }
+
+      .function-image {
+        width: calc(100vw - 60px);
+        max-width: calc(#{$max-width-mobile}/ 2 - 60px);
+        height: calc(100vw - 60px) !important;
+        max-height: calc(#{$max-width-mobile}/ 2 - 60px);
+        min-width: 0 !important;
+        margin: 0 auto;
+        // padding-bottom: calc(100% - 60px);
+        position: relative;
+
+        .croppie-container {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+
+          .cr-boundary {
+            .cr-viewport {
+              width: calc(100vw - 90px) !important;
+              max-width: calc(#{$max-width-mobile}/ 2 - 90px);
+              height: calc(100vw - 90px) !important;
+              max-height: calc(#{$max-width-mobile}/ 2 - 90px);
+            }
+          }
+        }
+      }
+
+      .mb-function-below {
+        display: flex;
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-top: 30px;
+        justify-content: space-between;
+
+        .function-right,
+        .function-left {
+          width: auto !important;
+        }
+      }
+    }
+  }
+}
+
+.upload-step-2-spacing {
+  height: 280px;
+}
+
+#page-sign-up-upload-photo .photo-upload-page-signup .pnl-upload-photo .wrap-function {
+  .function-left,
+  .function-right {
+    padding-top: 65px;
+  }
+
+  .function-left {
+    padding-right: 40px;
+  }
+
+  .function-right {
+    padding-left: 40px;
+  }
+}
+
+#page-sign-up-upload-photo .photo-upload-page-signup .pnl-upload-photo .input-file .lblInputFile {
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ff5533;
+  margin: 0;
+}
+
+#page-sign-up-upload-photo .bg {
+  margin-bottom: 75px !important;
+}

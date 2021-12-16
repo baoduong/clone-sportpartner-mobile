@@ -1,0 +1,105 @@
+@import "variables";
+
+@font-face {
+  font-family: "#{$icomoon-font-family}";
+  src: url("#{$icomoon-font-path}/sportpartner.eot?seu6xu");
+  src: url("#{$icomoon-font-path}/sportpartner.eot?seu6xu#iefix") format("embedded-opentype"),
+    url("#{$icomoon-font-path}/sportpartner.ttf?seu6xu") format("truetype"),
+    url("#{$icomoon-font-path}/sportpartner.woff?seu6xu") format("woff"),
+    url("#{$icomoon-font-path}/sportpartner.svg?seu6xu#sportpartner") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-small-solid-"],
+[class*="icon-small-solid-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "#{$icomoon-font-family}" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-small-solid-copy-link {
+  &:before {
+    content: $icon-small-solid-copy-link;
+  }
+}
+.icon-small-solid-facebook {
+  &:before {
+    content: $icon-small-solid-facebook;
+  }
+}
+.icon-small-solid-heart {
+  &:before {
+    content: $icon-small-solid-heart;
+  }
+}
+.icon-small-solid-inbox {
+  &:before {
+    content: $icon-small-solid-inbox;
+  }
+}
+.icon-small-solid-link {
+  &:before {
+    content: $icon-small-solid-link;
+  }
+}
+.icon-small-solid-lock {
+  &:before {
+    content: $icon-small-solid-lock;
+  }
+}
+.icon-small-solid-mail {
+  &:before {
+    content: $icon-small-solid-mail;
+  }
+}
+.icon-small-solid-mail-1 {
+  &:before {
+    content: $icon-small-solid-mail-1;
+  }
+}
+.icon-small-solid-members {
+  &:before {
+    content: $icon-small-solid-members;
+  }
+}
+.icon-small-solid-messages {
+  &:before {
+    content: $icon-small-solid-messages;
+  }
+}
+.icon-small-solid-premium {
+  &:before {
+    content: $icon-small-solid-premium;
+  }
+}
+.icon-small-solid-send {
+  &:before {
+    content: $icon-small-solid-send;
+  }
+}
+.icon-small-solid-star {
+  &:before {
+    content: $icon-small-solid-star;
+  }
+}
+.icon-small-solid-trash {
+  &:before {
+    content: $icon-small-solid-trash;
+  }
+}
+.icon-small-solid-whatsapp {
+  &:before {
+    content: $icon-small-solid-whatsapp;
+  }
+}

@@ -1,0 +1,184 @@
+.the-static-pages #page-static {
+  font-size: 18px;
+  font-family: $font-family-base;
+  color: #525866;
+
+  @include style-mobile {
+    background: #fff;
+    padding: 20px;
+  }
+
+  .big-banner {
+    background: linear-gradient(180deg, #430073 460px, #f7f5f2 0);
+    padding-bottom: 80px;
+
+    @include style-mobile {
+      background: #fff;
+    }
+  }
+
+  ul,
+  ol,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: inherit;
+  }
+
+  h3 {
+    font-family: $font-gilroy;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.31;
+    color: #262f40;
+    margin-bottom: 20px;
+
+    @include style-mobile {
+      font-size: 24px;
+      line-height: 1.25;
+    }
+  }
+
+  p {
+    line-height: 1.56;
+    letter-spacing: normal;
+    color: #525866;
+    margin-bottom: 40px;
+  }
+
+  ul,
+  ol {
+    padding-left: 33px;
+  }
+
+  .block-content {
+    border-radius: 10px;
+  }
+
+  .message-first {
+    margin-top: 0;
+  }
+
+  .error-banner {
+    ._hr-header {
+      border-color: rgba($color: #fff, $alpha: 0.1);
+      margin: 0 15px;
+    }
+
+    background: linear-gradient(180deg, #430073 180px, #f7f5f2 0);
+    padding-bottom: 80px;
+
+    .error-content {
+      border-radius: 10px;
+      background-color: #ffffff;
+      padding: 40px 80px;
+      max-width: 900px;
+      margin: 0 auto;
+      margin-top: 100px;
+
+      .error-btn-block {
+        margin-top: 50px;
+      }
+    }
+  }
+}
+
+#faq-screen {
+  background-color: #fff;
+
+  #faq-content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 70px;
+
+    @include style-mobile {
+      padding-top: 0;
+      padding-right: 30px;
+      padding-left: 30px;
+    }
+
+    .card {
+      border-left: 0;
+      border-right: 0;
+      border-top: 0;
+      border-color: #f0f0f0;
+
+      &:last-child {
+        border-color: #fff;
+      }
+
+      .card-header {
+        min-height: 70px;
+        border-radius: 0 !important;
+        background-color: #fff;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        border: 0;
+
+        @include style-mobile {
+          min-height: 90px;
+        }
+
+        h5 {
+          flex: 1;
+          height: 100%;
+        }
+
+        button.btn-link {
+          display: block;
+          height: 100%;
+          width: 100%;
+          text-align: left;
+          padding: 0;
+          font-size: 18px;
+          line-height: 1.56;
+          color: #ff5533;
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='2' viewBox='0 0 14 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M1 2C0.448 2 0 1.552 0 1C0 0.448 0.448 0 1 0H13C13.552 0 14 0.448 14 1C14 1.552 13.552 2 13 2H1Z' fill='%23ff5533'/%3e%3c/svg%3e ");
+          background-repeat: no-repeat;
+          background-position: center right;
+
+          @include style-mobile {
+            white-space: normal;
+            padding-right: 40px;
+            background-image: none !important;
+          }
+
+          &.collapsed {
+            color: #525866;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='14' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13 6H8V1C8 0.448 7.553 0 7 0C6.447 0 6 0.448 6 1V6H1C0.447 6 0 6.448 0 7C0 7.552 0.447 8 1 8H6V13C6 13.553 6.447 14 7 14C7.553 14 8 13.553 8 13V8H13C13.553 8 14 7.552 14 7C14 6.448 13.553 6 13 6' fill='%23716e6c'/%3e%3c/svg%3e");
+          }
+        }
+      }
+
+      .card-body {
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 18px;
+        line-height: 1.56;
+        color: #525866;
+        padding-bottom: 50px;
+      }
+    }
+  }
+
+  .couldnt-find {
+    margin: 100px 20px 0 20px;
+    border-radius: 4px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include style-mobile {
+      margin: 50px 0 0 0;
+      min-height: 220px;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@import "media";
+@import "app-colorpalette";
+
+#mb-match-list {
+  #landing-matches {
+    .match-items-panel {
+      .match-block:not(.send-first-message-full-profile).showMessagePanel .panel-send-message {
+        @include mobile {
+          bottom: 70px !important;
+        }
+      }
+    }
+  }
+}
+
+#landing-matches {
+  .match-items-panel {
+    .match-block:not(.send-first-message-full-profile).showMessagePanel .panel-send-message {
+      @include mobile {
+        bottom: 70px !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,172 @@
+$isMobileMode: true !default; // false: DESKTOP
+$max-width-panel-profile-mobile: 400px;
+$max-width-mobile: 1024px;
+$font-size-base: 18px;
+$font-family-base: "Heebo"; // "Inter"; //"heebo";
+// $font-calibre: $font-family-base;
+$font-gilroy: "gilroy"; // "Inter"; //"gilroy";
+$font-inter: "Inter";
+$z-index-header: 9999;
+$z-index-content: $z-index-header - 1;
+$white: #fff;
+$white-five: #e2e2e2;
+$black: #000000;
+$orangey-red: #ff5533;
+// $black-two: #303030;
+$black-two: $orangey-red;
+$brownish-grey: #5e5e5e;
+$azure: #00aaff;
+// $warm-grey : #8c8c8c;
+$coral: #ff5533;
+$warm-grey-two: #939393;
+$input-border-error: $orangey-red;
+$light-purple: #a180b9;
+$deep-sky-blue: #0d86ff;
+$seaweed: #12ce66;
+$royal-purple: #430073;
+$dark: #262f40;
+$slate-grey: #525866;
+$white-two: #faf9f7;
+$white-three: #f7f5f2;
+$white-four: #f0ede9;
+$light-grey: #d9d6d2;
+$royal-purple-two: #32005e;
+$warm-grey: #807e7c;
+$indigo: #440778;
+
+$buttonStyle: (
+  facebook: (
+    bg: #3a589b,
+    cl: #fff,
+  ),
+  twitter: (
+    bg: #1da1f2,
+    cl: #fff,
+  ),
+  royal-purple: (
+    bg: $royal-purple,
+    cl: $white,
+  ),
+  orangey-red: (
+    bg: $orangey-red,
+    cl: $white,
+  ),
+  deep-sky-blue: (
+    bg: $deep-sky-blue,
+    cl: $white,
+  ),
+  brownish-grey: (
+    bg: $brownish-grey,
+    cl: $white,
+  ),
+  black-two: (
+    bg: $black-two,
+    cl: $white,
+  ),
+  white-four: (
+    bg: $white-four,
+    cl: $white,
+  ),
+  white-three: (
+    bg: $white-three,
+    cl: $orangey-red,
+  ),
+  white-two: (
+    bg: $white-two,
+    cl: $black,
+  ),
+  transparent: (
+    bg: transparent,
+    cl: $orangey-red,
+  ),
+  white-zero: (
+    bg: #fff,
+    cl: $orangey-red,
+  ),
+  warm-grey-two: (
+    bg: $warm-grey-two,
+    cl: $white,
+  ),
+  azure: (
+    bg: #0d86ff,
+    cl: $white,
+  ),
+  white-line-50: (
+    bg: rgba(255, 255, 255, 0.5),
+    cl: #fff,
+  ),
+);
+@mixin text-style-normal {
+  font-family: $font-family-base;
+  font-size: 14px;
+}
+
+/* global color */
+
+.bg-white {
+  background-color: $white !important;
+}
+
+.bg-white-three {
+  background-color: $white-three !important;
+}
+
+.bg-white-two {
+  background-color: $white-two !important;
+}
+
+.bg-white-four {
+  background-color: $white-four !important;
+}
+
+.bg-white-five {
+  background-color: $white-five !important;
+}
+
+.bg-black {
+  background-color: $black !important;
+}
+
+.bg-black-two {
+  background-color: $black-two !important;
+}
+
+.bg-brownish-grey {
+  background-color: $brownish-grey !important;
+}
+
+.bg-azure {
+  background-color: $azure !important;
+}
+
+.bg-warm-grey {
+  background-color: $warm-grey !important;
+}
+
+.bg-warm-grey-two {
+  background-color: $warm-grey-two !important;
+}
+
+.bg-coral {
+  background-color: $coral !important;
+}
+
+.bg-input-border-error {
+  background-color: $input-border-error;
+}
+
+.bg-white-f8 {
+  background-color: #f8f8f8 !important;
+}
+
+.bg-purple {
+  background-color: $royal-purple !important;
+}
+
+.bg-indigo {
+  background-color: $indigo !important;
+}
+
+.bg-transparent {
+  background-color: rgba($color: #fff, $alpha: 0) !important;
+}

@@ -1,0 +1,281 @@
+<ng-container [ngSwitch]="typeShowOverlay">
+    <ng-container *ngSwitchCase="'AfterExpired'">
+        <ng-container *ngTemplateOutlet="AfterExpired"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'AlmostExpired'">
+        <ng-container *ngTemplateOutlet="AlmostExpired"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'SpecialOffer'">
+        <ng-container *ngTemplateOutlet="SpecialOffer"></ng-container>
+    </ng-container>
+</ng-container>
+
+<ng-template #AlmostExpired>
+    <div [@fadeOutOverLay] class="overlay-expried-wrap">
+        <div class="bg-overlay-expire">
+            <div style="min-height: 30px;"></div>
+            <div class="wrp-img">
+                <img src="spa-web/assets/images/membership-expired-light.svg" alt="">
+            </div>
+            <div class="title">
+                <h2>
+                    <!-- Before.Your membership is almost expired! -->
+                    {{ 'Web-Account.PAYMENT-BEFORE-EXPIRED-OVERLAY.title_almost' | translate }}
+                </h2>
+            </div>
+            <span class="overlay-expire-descr">
+                <!-- Before.Prevent losing your messages and matchs. And renew to day. Now for a special renewal price. -->
+                {{ 'Web-Account.PAYMENT-BEFORE-EXPIRED-OVERLAY.copy_almost' | translate }}
+            </span>
+            <div class="box-offer">
+                <p class="expried-dated">
+                    <!-- 3 months.el -->
+                    {{ ('Web-Account.PAYMENT-BEFORE-EXPIRED-OVERLAY.period' | translate).replace('{0}', mounthPeriod) }}
+                </p>
+                <p class="expired-price-offer">
+                    <!-- 7.95 kr/month.el -->
+                    {{ ('Web-Account.PAYMENT-BEFORE-EXPIRED-OVERLAY.monthly_price' | translate).replace('{0}', myProfile.offerOverlay.offerOverlayDataDto.priceDiscount) }}
+                </p>
+                <p class="expired-price">
+                    <!-- el.instead of 9.95 kr -->
+                    {{ ('Web-Account.PAYMENT-BEFORE-EXPIRED-OVERLAY.normal_price' | translate).replace('{0}', myProfile.offerOverlay.offerOverlayDataDto.priceDefault) }}
+                </p>
+                <button class="btn btn-offer" (click)="gotoPayment(paymentSource.almostExpired)">
+                    <!-- el.Renewal today -->
+                    {{ 'Web-Account.PAYMENT-BEFORE-EXPIRED-OVERLAY.main_button' | translate }}
+                </button>
+                <p class="expire-offer-descr">
+                    <!-- 1 installment payment of 29.85 kr -->
+                    {{ ('Web-Account.PAYMENT-BEFORE-EXPIRED-OVERLAY.total_price' | translate).replace('{0}', myProfile.offerOverlay.offerOverlayDataDto.total) }}
+                </p>
+            </div>
+        </div>
+        <div class="bg-overlay-expire-gray">
+            <div class="box-normal">
+                <p class="desc-expired-normal">
+                    <!-- or renew for only 1 month?.el -->
+                    {{ 'Web-Account.PAYMENT-BEFORE-EXPIRED-OVERLAY.sub_title' | translate }}
+                </p>
+                <p class="normal-price">
+                    <!-- 9.95 kr per month.el -->
+                    {{ ('Web-Account.PAYMENT-BEFORE-EXPIRED-OVERLAY.sub_title_2' | translate).replace('{0}', myProfile.offerOverlay.offerOverlayDataDto.priceDefault) }}
+                </p>
+                <div class="text-center">
+                    <button class="btn btn-nomal-price" (click)="gotoPayment(paymentSource.almostExpired)">
+                        <!-- 1 month for 9.95 kr.el -->
+                        {{ ('Web-Account.PAYMENT-BEFORE-EXPIRED-OVERLAY.sub_button' | translate).replace('{0}', myProfile.offerOverlay.offerOverlayDataDto.priceDefault) }}
+                    </button>
+                </div>
+            </div>
+            <div class="notify-box">
+                <fieldset>
+                    <legend>
+                        <div class="mask">
+                            <img src="spa-web/assets/images/lock.svg" alt="">
+                        </div>
+                    </legend>
+                    <p class="lt-text">
+                        <!-- Before.Payments on Sportpartner are highly secured using SSL and the Adyen payment gateway. -->
+                        {{ 'Web-Account.PAYMENT-BEFORE-EXPIRED-OVERLAY.pay_description' | translate }}
+                    </p>
+                </fieldset>
+            </div>
+        </div>
+        <button class="btn btn-close-overlay" (click)="closeOverlay('.sp-shown-before-payment-expire-overlay')">
+            <i class="icon-inline-cross"></i>
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #AfterExpired>
+    <div [@fadeOutOverLay] class="overlay-expried-wrap">
+        <div class="bg-overlay-expire">
+            <div style="min-height: 30px;"></div>
+            <div class="wrp-img">
+                <img src="spa-web/assets/images/membership-expired-light.svg" alt="">
+            </div>
+            <div class="title">
+                <h2>
+                    <!-- Your membership is expired! -->
+                    {{ 'Web-Account.PAYMENT-AFTER-EXPIRED-OVERLAY.title_expired' | translate }}
+                </h2>
+            </div>
+            <span class="overlay-expire-descr">
+                <!-- Please re-active to day and continue receiving priority match alerts and messages. Now for a special renewal price. -->
+                {{ 'Web-Account.PAYMENT-AFTER-EXPIRED-OVERLAY.copy_expired' | translate }}
+            </span>
+            <div class="box-offer">
+                <p class="expried-dated">
+                    <!-- 3 months.el -->
+                    {{ ('Web-Account.PAYMENT-AFTER-EXPIRED-OVERLAY.period' | translate).replace('{0}', mounthPeriod) }}
+                </p>
+                <p class="expired-price-offer">
+                    <!-- 7.95 kr/month.el -->
+                    {{ ('Web-Account.PAYMENT-AFTER-EXPIRED-OVERLAY.monthly_price' | translate).replace('{0}', myProfile.offerOverlay.offerOverlayDataDto.priceDiscount) }}
+                </p>
+                <p class="expired-price">
+                    <!-- el.instead of 9.95 kr -->
+                    {{ ('Web-Account.PAYMENT-AFTER-EXPIRED-OVERLAY.normal_price' | translate).replace('{0}', myProfile.offerOverlay.offerOverlayDataDto.priceDefault) }}
+                </p>
+                <button class="btn btn-offer" (click)="gotoPayment(paymentSource.afterExpired)">
+                    <!-- el.Renewal today -->
+                    {{ 'Web-Account.PAYMENT-AFTER-EXPIRED-OVERLAY.main_button' | translate }}
+                </button>
+                <p class="expire-offer-descr">
+                    <!-- 1 installment payment of 23.85 kr -->
+                    {{ ('Web-Account.PAYMENT-AFTER-EXPIRED-OVERLAY.total_price' | translate).replace('{0}', myProfile.offerOverlay.offerOverlayDataDto.total) }}
+                </p>
+            </div>
+        </div>
+        <div class="bg-overlay-expire-gray">
+            <div class="box-normal">
+                <p class="desc-expired-normal">
+                    <!-- or renew for only 1 month?.el -->
+                    {{ 'Web-Account.PAYMENT-AFTER-EXPIRED-OVERLAY.copy_expired' | translate }}
+                </p>
+                <p class="normal-price">
+                    <!-- 9.95 kr per month.el -->
+                    {{ ('Web-Account.PAYMENT-AFTER-EXPIRED-OVERLAY.sub_title_2' | translate).replace('{0}', myProfile.offerOverlay.offerOverlayDataDto.priceDefault) }}
+                </p>
+                <div class="text-center">
+                    <button class="btn btn-nomal-price" (click)="gotoPayment(paymentSource.afterExpired)">
+                        <!-- 1 month for 9.95 kr.el -->
+                        {{ ('Web-Account.PAYMENT-AFTER-EXPIRED-OVERLAY.sub_button' | translate).replace('{0}', myProfile.offerOverlay.offerOverlayDataDto.priceDefault) }}
+                    </button>
+                </div>
+            </div>
+            <div class="notify-box">
+                <fieldset>
+                    <legend>
+                        <div class="mask">
+                            <img src="spa-web/assets/images/lock.svg" alt="">
+                        </div>
+                    </legend>
+                    <p class="lt-text">
+                        <!-- Before.Payments on Sportpartner are highly secured using SSL and the Adyen payment gateway. -->
+                        {{ 'Web-Account.PAYMENT-AFTER-EXPIRED-OVERLAY.pay_description' | translate }}
+                    </p>
+                </fieldset>
+            </div>
+        </div>
+        <button class="btn btn-close-overlay" (click)="closeOverlay('.sp-shown-after-payment-expire-overlay')">
+            <i class="icon-inline-cross"></i>
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #SpecialOffer>
+    <div [@fadeOutOverLay] class="overlay-special-offer">
+        <div class="header">
+            <div (click)="gotoMatch()" style="cursor: pointer;">
+                <img src="spa-web/assets/images/logo-white.svg" alt="">
+            </div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <div class="offer-price-step" fxLayout="column" fxLayoutAlign="center center">
+                <div class="title">
+                    <h2>
+                        <!-- 1.Great! You already have private message! -->
+                        {{ 'Special-Pages.P1-DISCOUNT-OFFER.pageheader_message' | translate }}
+                    </h2>
+                </div>
+                <div class="avatar-wrapper">
+                    <div class="avatar-discount">
+                        <img src="{{ myProfile.avatarUrl }}" alt="">
+                    </div>
+                    <div class="icon-premium">
+                        <i class="icon-small-solid-premium"></i>
+                    </div>
+                </div>
+                <span class="description">
+                    <!-- 2.message.That’s great! Very last last step is to become a Premium member also! And keep the conversation going! Today only for a special low price. -->
+                    {{ 'Special-Pages.P1-DISCOUNT-OFFER.paragraph_message' | translate }}
+                </span>
+                <span class="promotion-price">
+                    <!-- 3.Only 0.00 kr -->
+                    {{ ('Special-Pages.P1-DISCOUNT-OFFER.price_special' | translate) }}&nbsp;{{ myProfile.offerOverlay.offerOverlayDataDto.priceDiscount }}
+                </span>
+                <span class="per-mounth">
+                    <!-- 4.per month -->
+                    <span class="line-through">{{ myProfile.offerOverlay.offerOverlayDataDto.priceDefault }}</span>&nbsp;{{ ('Special-Pages.P1-DISCOUNT-OFFER.permonth' | translate)}}
+                </span>
+                <span class="benefit-title">
+                    <!-- 5. Can be canceled at any time! -->
+                    {{ 'Special-Pages.P1-DISCOUNT-OFFER.no_notice_periode' | translate }}
+                </span>
+                <div class="btn-wrap" fxLayout.gt-xs="row" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+                    <button class="btn btn-upgrade" (click)="gotoPayment(paymentSource.specialOffer)">
+                        <!-- 6. Upgrade now at a discount -->
+                        {{ 'Special-Pages.P1-DISCOUNT-OFFER.button_upgrade' | translate }}
+                    </button>
+                    <button class="btn btn-refuse" (click)="closeOverlay('.sp_show_overlay_special_offer')">
+                        <!-- 7. No thanks -->
+                        {{ 'Special-Pages.P1-DISCOUNT-OFFER.button_nothanks' | translate }}
+                    </button>
+                </div>
+                <div class="notify">
+                    <span>
+                        <!-- You will now proceed to the secure payment page. This subscription has no notice period and can always be canceled immediately. -->
+                        {{ 'Special-Pages.P1-DISCOUNT-OFFER.payment_info' | translate }}
+                    </span>
+                </div>
+            </div>
+            <div class="offer-description-step">
+                <div class="title">
+                    <h2>
+                        <!-- 9.Why go for Premium? -->
+                        {{ 'Special-Pages.P1-DISCOUNT-OFFER.why_premium' | translate }}
+                    </h2>
+                </div>
+                <div class="description-wrap" fxLayout.gt-xs="row" fxLayout.xs="column" fxlayoutAlign="center center" fxLayoutGap.xs="20px">
+                    <div class="descrption-box" fxlayout="column">
+                        <span class="sub-title">
+                            <!-- 10. New matches first -->
+                            {{ 'Special-Pages.P1-DISCOUNT-OFFER.usp1_title' | translate }}
+                        </span>
+                        <span class="sub-description">
+                            <!-- 11.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada -->
+                            {{ 'Special-Pages.P1-DISCOUNT-OFFER.usp1_body' | translate }}
+                        </span>
+                    </div>
+                    <div class="descrption-box" fxlayout="column">
+                        <span class="sub-title">
+                            <!-- 12. Who visited your profile -->
+                            {{ 'Special-Pages.P1-DISCOUNT-OFFER.usp2_title' | translate }}
+                        </span>
+                        <span class="sub-description">
+                            <!-- 13.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada -->
+                            {{ 'Special-Pages.P1-DISCOUNT-OFFER.usp2_body' | translate }}
+                        </span>
+                    </div>
+                    <div class="descrption-box" fxlayout="column">
+                        <span class="sub-title">
+                            <!-- 14.Kortom, veel meer kans -->
+                            {{ 'Special-Pages.P1-DISCOUNT-OFFER.usp3_title' | translate }}
+                        </span>
+                        <span class="sub-description">
+                            <!-- 15.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada -->
+                            {{ 'Special-Pages.P1-DISCOUNT-OFFER.usp3_body' | translate }}
+                        </span>
+                    </div>
+                </div>
+                <div class="btn-wrap" fxLayout.gt-xs="row" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+                    <button class="btn btn-upgrade" (click)="gotoPayment(paymentSource.specialOffer)">
+                        <!-- 6. Upgrade now at a discount -->
+                        {{ 'Special-Pages.P1-DISCOUNT-OFFER.button_upgrade' | translate }}
+                    </button>
+                    <button class="btn btn-refuse" (click)="closeOverlay('.sp_show_overlay_special_offer')">
+                        <!-- 7. No thanks -->
+                        {{ 'Special-Pages.P1-DISCOUNT-OFFER.button_nothanks' | translate }}
+                    </button>
+                </div>
+                <div class="notify">
+                    <span>
+                        <!-- You will now proceed to the secure payment page. This subscription has no notice period and can always be canceled immediately. -->
+                        {{ 'Special-Pages.P1-DISCOUNT-OFFER.payment_info' | translate }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,30 @@
+<div class="header-bar {{ customHeaderClass }}">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <ul class="ma-0 list-inline">
+          {{> common-menu }}
+          <li class="list-inline-item">
+            <h1 class="sportpartner">
+              <a href="#">sportpartner</a>
+            </h1>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        {{> common-tabs }}
+      </div>
+      <div class="col-md-4">
+        <ul class="ma-0 list-inline float-right" style="padding-top: 10px;">
+          <li class="list-inline-item mr-4">
+            {{> common-notification }}
+          </li>
+          <li class="list-inline-item">
+            {{> common-account }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{{> common-navigation }}

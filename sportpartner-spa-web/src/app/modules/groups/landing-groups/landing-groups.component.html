@@ -1,0 +1,191 @@
+<div [ngClass.xs]="'background-gray-warm-5'" [ngClass.gt-xs]="'background-gray-warm-6'">
+  <app-quick-search-group></app-quick-search-group>
+</div>
+<hr fxHide.xs="true" class="m-0">
+<div [ngClass.xs]="'background-gray-warm-5'" [ngClass.gt-xs]="'background-gray-warm-6'">
+  <div class="max-width-content greeting-member" [ngClass.gt-xs]="'background-gray-warm-5'">
+    <div [ngStyle.gt-xs]="'padding-right:18px'" class="intro-heading">
+      <div>
+        <h2 class="text-indigo-2 heading-1" [ngClass.xs]="'mobile-heading-1 text-center'"
+          [ngClass.gt-xs]="'desktop-heading-1 text-left'" [ngStyle.gt-xs]="'margin-top: 14px'">
+          <!-- {{'groups.landing.hello' | translate:param}}, -->
+          {{'Web-Group.START-PAGE.header' | translate:{screen_name : nameUser} }}
+        </h2>
+        <p class="text-gray-cool-2" [ngClass.xs]="'mobile-paragraph-2 text-center'"
+          [ngClass.gt-xs]="'desktop-subtitle-2 text-left'">
+          <!-- See what’s happening in your groups -->
+          {{'Web-Group.START-PAGE.description' | translate }}
+        </p>
+      </div>
+    </div>
+    <div [ngStyle.gt-xs]="'padding-left:5px'">
+      <div class="swiper-wrapper" *ngIf="!isEmptyGroup else landingEmptyIcon">
+        <div class="swiper-slide">
+          <app-carousel-item [routerLink]="['your-groups']" [text]="'Web-Group.START-PAGE.whatnews_groups'"
+            [type]="'groups'" [number]="5">
+          </app-carousel-item>
+        </div>
+        <div class="swiper-slide">
+          <app-carousel-item [routerLink]="['discover-groups']" [text]="'Web-Group.START-PAGE.whatnews_discover'"
+            [type]="'discover'" [number]="3">
+          </app-carousel-item>
+        </div>
+        <div class="swiper-slide" (click)="showRecentMember()">
+          <app-carousel-item [text]="'Web-Group.START-PAGE.whatnews_members'" [type]="'memebers'" [number]="4">
+          </app-carousel-item>
+        </div>
+      </div>
+      <ng-template #landingEmptyIcon>
+        <div class="swiper-wrapper" fxLayoutGap="50px">
+          <div class="w-80" fxHide.xs="true"></div>
+          <div class="w-80" fxHide.xs="true"></div>
+          <div class="swiper-slide mg-15">
+            <app-carousel-item [routerLink]="['discover-groups']" [text]="'Discover'" [type]="'discover'" [number]="3">
+            </app-carousel-item>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- content 4 group card -->
+  <div class="your-group" [ngClass.xs]="'background-gray-warm-6'" *ngIf="!isEmptyGroup">
+    <div class="max-width-content">
+      <div class="landing-group-content" fxLayout="column" fxLayoutGap.xs="20px" fxLayoutGap.gt-xs="30px">
+        <!-- <h2 class="heading-2 text-indigo-2">
+        Your groups
+      </h2> -->
+        <div fxLayout="column" fxLayoutGap.xs="20px" fxLayoutGap.gt-xs="30px">
+
+          <div class="your-group-layout" fxLayout.xs="column" fxLayout.gt-xs="row wrap">
+            <ng-container *ngFor="let item of topNewGroups">
+              <app-group-card-item [groupDetail]="item">
+              </app-group-card-item>
+            </ng-container>
+          </div>
+
+          <div *ngIf="isViewAllButton" class="wrap-view-all-groups">
+            <button appBtnOutlineAzure2 class="btn-block"
+              (click)="viewAllGroup()">{{ 'Web-Group.START-PAGE.view_all_your_groups_button' | translate }}</button>
+          </div>
+          <div *ngIf="!isEmptyMessage && (myProfile$ | async).isPremium == true">
+            <hr class="my-0" style="opacity: 0.5;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end content 4 group card -->
+
+  <!-- content if user join group and premium and don't have message -->
+  <div class="background-gray-warm-5" *ngIf="isEmptyMessage && !isEmptyGroup && (myProfile$ | async).isPremium == true">
+    <div class="max-width-content" ngStyle.gt-xs="'margin': 30px auto">
+      <app-no-message-item></app-no-message-item>
+    </div>
+  </div>
+  <!-- end content if user join group and premium and don't have message -->
+
+  <!-- content if user not join any group -->
+  <div class="empty-group background-gray-warm-6" *ngIf="isEmptyGroup || isEmptyMessage && (myProfile$ | async).isPremium == true">
+    <div class="max-width-content" fxLayout="row" ngStyle.gt-xs="'margin-bottom':55px">
+      <div fxHide.xs="true" class="desktop-content" fxFlex="50%">
+        <div class="social-image-box">
+          <img src="spa-web/assets/images/no-group-social.png" alt="">
+        </div>
+      </div>
+      <div class="discover-block-wrap background-gray-warm-6">
+        <div fxLayout="column" fxLayoutAlign.gt-xs="center start" fxLayoutAlign.xs="center center">
+          <h2 class="title" [ngClass.xs]="'mobile-subtitle-1'" [ngClass.gt-xs]="'desktop-subtitle-1'">
+            {{'Web-Group.START-PAGE.nogroup_title' | translate }}</h2>
+          <span class="no-group-des" [ngClass.xs]="'mobile-paragraph-1'"
+            [ngClass.gt-xs]="'desktop-paragraph-1'">{{'Web-Group.START-PAGE.nogroup_description' | translate }}</span>
+          <div class="btn-discover">
+            <button [ngClass]="'desktop-button-1'" (click)="gotoDiscoverPage()"
+              class="btn btn-coral-2">{{'Web-Group.START-PAGE.nogroup_discover_button' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end content if user not join any group -->
+</div>
+
+<!-- content if user is premium and join group and have message -->
+<div class="background-gray-warm-5 list-recent-msg" *ngIf="!isEmptyGroup && !isEmptyMessage && (myProfile$ | async).isPremium == true">
+  <div class="background-gray-warm-6">
+    <div class="max-width-content">
+      <h2 class="m-0 label-recent-messages text-center text-sm-left text-indigo-2" [ngClass.xs]="'mobile-heading-2'"
+        [ngClass.gt-xs]="'desktop-heading-2'">
+        {{'Web-Group.START-PAGE.message_title' | translate }}
+      </h2>
+    </div>
+  </div>
+
+  <div class="max-width-content">
+    <div fxLayout="column" fxLayoutGap.gt-xs="20px" fxLayoutGap.xs="20px" class="recent-messages-lists">
+      <ng-container *ngFor="let item of latestGroupMessages; let i = index">
+        <ng-container *ngIf="i%2 !== 0; then latestMsgAndBanner else latestMsg"></ng-container>
+
+        <ng-template #latestMsgAndBanner>
+          <app-recent-message-item
+            [recentMessage]="item">
+          </app-recent-message-item>
+          <div>
+            <app-banner-invite-friends></app-banner-invite-friends>
+          </div>
+        </ng-template>
+  
+        <ng-template #latestMsg>
+          <app-recent-message-item
+            [recentMessage]="item">
+          </app-recent-message-item>
+        </ng-template>
+        
+      </ng-container>
+    </div>
+
+    <button class="btn btn-load-more" fxLayoutAlign="center center" fxLayoutGap="13px" (click)="goToMyInbox()">
+      <!-- <i class="icon-small-line-plus"></i> -->
+      <span [ngClass.xs]="'mobile-button-2'"
+        [ngClass.gt-xs]="'desktop-button-2'">{{ 'Web-Group.START-PAGE.go_to_inbox_button' | translate }}</span>
+    </button>
+  </div>
+  <!-- <app-loading-icon></app-loading-icon> -->
+</div>
+<!-- end content if user is premium and join group and have message -->
+
+<!-- content statictis if user not premium and don't have group-->
+<ng-container *ngIf="(myProfile$ | async).isPremium == false && !isEmptyGroup">
+  <div [ngClass.gt-xs]="'max-width-content'">
+    <div [ngStyle.gt-xs]="{'margin-bottom': '60px'}">
+      <app-statictis-item [backgroundDesktop]="'background-gray-warm-6'"
+      [backgroundMobile]="'background-gray-warm-6'"></app-statictis-item>
+      <div>
+        <app-banner-invite-friends [styleMobile]="{'border':0, 'border-radius':0}" [styleDesktop]="{'border':0}"></app-banner-invite-friends>
+      </div>
+      <!-- <div fxHide.gt-xs="true">
+          <div class="discover-block-wrap background-gray-warm-5">
+            <div fxLayout="column" fxLayoutAlign.gt-xs="center start" fxLayoutAlign.xs="center center">
+              <h2 class="title" [ngClass.xs]="'mobile-subtitle-1'" [ngClass.gt-xs]="'desktop-subtitle-1'">
+                {{'Web-Group.START-PAGE.nogroup_title' | translate }}</h2>
+              <span class="no-group-des" [ngClass.xs]="'mobile-paragraph-1'"
+                [ngClass.gt-xs]="'desktop-paragraph-1'">{{'Web-Group.START-PAGE.nogroup_description' | translate }}</span>
+              <div class="btn-discover">
+                <button [ngClass]="'desktop-button-1'" (click)="gotoDiscoverPage()"
+                  class="btn btn-coral-2">{{'Web-Group.START-PAGE.nogroup_discover_button' | translate }}</button>
+              </div>
+            </div>
+          </div>
+      </div> -->
+    </div>
+  </div>
+</ng-container>
+<!-- end statictis if user not premium and don't have group -->
+
+<ng-container *ngIf="!isEmptyGroup">
+  <ng-container *ngIf="isShowRecentMember">
+    <app-recent-member 
+      (isClosePopup)="closeRecentMember($event)">
+    </app-recent-member>
+  </ng-container>
+</ng-container>

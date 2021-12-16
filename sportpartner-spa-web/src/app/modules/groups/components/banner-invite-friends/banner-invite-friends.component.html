@@ -1,0 +1,30 @@
+<div class="landing-receive-gifl-banner card position-relative background-gray-warm-5"
+  [class]="noBorder ? 'border-0': ''"
+  [ngStyle.xs]="styleMobile ? styleMobile : null"
+  [ngStyle.gt-xs]="styleDesktop ? styleDesktop : null">
+  <!--  <a fxHide fxShow.gt-xs="true" href="javascript:;" class="close-banner">
+    <i class="icon-small-line-cross1"></i>
+  </a> -->
+  <div class="card-body" fxLayoutGap="20px" fxLayout="column">
+    <h3 fxFlexOrder.xs="1" fxFlexOrder.gt-xs="2" class="subtitle-1 text-center text-gray-cool-1"
+      [ngClass.xs]="'mobile-subtitle-1'" [ngClass.gt-xs]="'desktop-subtitle-1'">
+      {{ 'Web-Group.INVITATION-BLOCK.header' | translate }}
+    </h3>
+    <div fxFlexOrder.xs="2" fxFlexOrder.gt-xs="1" class="d-flex justify-content-center align-items-center">
+      <span class="badge background-white">
+        <i class="icon-medium-line-gift text-coral-2"></i>
+      </span>
+    </div>
+    <p fxFlexOrder="3" [ngClass.xs]="'mobile-paragraph-1 text-gray-warm-1'"
+      [ngClass.gt-xs]="'desktop-paragraph-1 text-gray-warm-1'" class="paragraph-1 text-center">
+      {{ 'Web-Group.INVITATION-BLOCK.description' | translate }}
+    </p>
+    <div fxHide fxShow.gt-xs="true" fxFlexOrder="4"></div>
+    <div fxFlexOrder="4">
+      <button [ngStyle.xs]="'margin-top:4px'" [ngStyle.gt-xs]="'margin-top:2px'" (click)="inviteFriends()"
+        class="btn btn-large btn-coral-2 glow-primary-2 button-1" [ngClass.xs]="'btn-block mobile-button-1'"
+        [ngClass.gt-xs]="'desktop-button-1'">{{ 'Web-Group.INVITATION-BLOCK.invite_your_friends_button' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

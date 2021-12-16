@@ -1,0 +1,251 @@
+@import "functions";
+@import "media";
+@import "app-colorpalette";
+
+.list-button-converstation{
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1001;
+
+  @include gt-mobile{
+    position: absolute;
+    background: #FFFFFF;
+    top: 70px;
+    left: auto;
+    bottom: auto;
+    min-width: 340px;
+    right: 15px;
+    animation: animationFadeIn 0.3s ease 1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05), 0px 20px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .list-button{
+    background: #FFFFFF;
+    padding: 0;
+
+    @include mobile{
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+
+    .title-conversation{
+      padding: 23px 30px;
+      position: relative;
+
+      &::before{
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0.5;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .conversation-name{
+        @include mobile {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 275px;
+        }
+      }
+
+      .btn-close{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i{
+          margin-right: 0;
+          color: map-get($grayCools, gray-cool-3);
+        }
+      }
+    }
+
+    .btn-block{
+      position: relative;
+      border: 0;
+      margin: 0;
+      padding: 23px 25px;
+
+      &::before{
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0.5;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      &:last-child{
+        &::before{
+          display: none;
+        }
+      }
+    }
+
+    .btn-invite{
+      padding: 20px 18px;
+
+      button{
+        width: 100%;
+        justify-content: center;
+        border-radius: 8px;
+        height: auto;
+        font-weight: 400;
+        padding: 20px;
+        border: 0;
+      }
+    }
+
+    .btn-view-profile{
+      .name-profile{
+        @include mobile {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}
+
+.dialog-block,
+.dialog-delete{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+
+  @include mobile{
+    background-color: #FFFFFF;
+    z-index: 100;
+  }
+
+  .box-detail{
+    background: #FFFFFF;
+    position: relative;
+    height: 100%;
+
+    @include gt-mobile{
+      width: 520px;
+      height: 426px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05), 0px 20px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .dialog-head{
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      @include gt-mobile{
+        top: 34px;
+        right: 34px;
+      }
+
+      button{
+        padding: 34px;
+        border: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include gt-mobile{
+          padding: 0;
+        }
+
+        @include mobile{
+          width: 80px;
+          height: 80px;
+        }
+
+        i{
+          font-size: 20px;
+        }
+      }
+    }
+
+    .dialog-content{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include mobile{
+        padding: 30px;
+        justify-content: center;
+      }
+
+      .heading{
+        max-width: 400px;
+        margin-bottom: 0;
+
+        @include gt-mobile{
+          margin-top: 70px;
+        }
+      }
+
+      .sub-title{
+        max-width: 400px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+
+        @include mobile{
+          max-width: 315px;
+          margin-bottom: 30px;
+        }
+      }
+
+      .btn-confirm{
+        margin-top: 10px;
+      }
+
+      button{
+        max-width: 240px;
+
+        @include mobile{
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .overlay-dialog{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+@keyframes animationFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,115 @@
+@import "variables";
+
+@font-face {
+  font-family: "#{$icomoon-font-family}";
+  src: url("#{$icomoon-font-path}/sportpartner.eot?buwnb2");
+  src: url("#{$icomoon-font-path}/sportpartner.eot?buwnb2#iefix") format("embedded-opentype"),
+    url("#{$icomoon-font-path}/sportpartner.ttf?buwnb2") format("truetype"),
+    url("#{$icomoon-font-path}/sportpartner.woff?buwnb2") format("woff"),
+    url("#{$icomoon-font-path}/sportpartner.svg?buwnb2#sportpartner") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-inline-"],
+[class*="icon-inline-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "#{$icomoon-font-family}" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-inline-arrow {
+  &:before {
+    content: $icon-inline-arrow;
+  }
+}
+.icon-inline-back {
+  &:before {
+    content: $icon-inline-back;
+  }
+}
+.icon-inline-caret {
+  &:before {
+    content: $icon-inline-caret;
+  }
+}
+.icon-inline-check {
+  &:before {
+    content: $icon-inline-check;
+  }
+}
+.icon-inline-cross {
+  &:before {
+    content: $icon-inline-cross;
+  }
+}
+.icon-inline-cw {
+  &:before {
+    content: $icon-inline-cw;
+  }
+}
+.icon-inline-enter {
+  &:before {
+    content: $icon-inline-enter;
+  }
+}
+.icon-inline-location {
+  &:before {
+    content: $icon-inline-location;
+  }
+}
+.icon-inline-message-new {
+  &:before {
+    content: $icon-inline-message-new;
+  }
+}
+.icon-inline-min-bottom {
+  &:before {
+    content: $icon-inline-min-bottom;
+  }
+}
+.icon-inline-min-corner {
+  &:before {
+    content: $icon-inline-min-corner;
+  }
+}
+.icon-inline-min {
+  &:before {
+    content: $icon-inline-min;
+  }
+}
+.icon-inline-pending {
+  &:before {
+    content: $icon-inline-pending;
+  }
+}
+.icon-inline-plus {
+  &:before {
+    content: $icon-inline-plus;
+  }
+}
+.icon-inline-rotate-ccw {
+  &:before {
+    content: $icon-inline-rotate-ccw;
+  }
+}
+.icon-inline-search {
+  &:before {
+    content: $icon-inline-search;
+  }
+}
+.icon-inline-trash {
+  &:before {
+    content: $icon-inline-trash;
+  }
+}

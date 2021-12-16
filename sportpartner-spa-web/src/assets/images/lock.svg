@@ -1,0 +1,14 @@
+<svg width="20" height="20" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Canvas" fill="none">
+<g id="icons small / lock">
+<path id="Page 1" fill-rule="evenodd" clip-rule="evenodd" d="M 8 6L 4 6L 4 4C 4 2.897 4.897 2 6 2C 7.103 2 8 2.897 8 4L 8 6ZM 7 12C 7 12.553 6.553 13 6 13C 5.447 13 5 12.553 5 12L 5 10C 5 9.447 5.447 9 6 9C 6.553 9 7 9.447 7 10L 7 12ZM 11 6L 10 6L 10 4C 10 1.794 8.206 0 6 0C 3.794 0 2 1.794 2 4L 2 6L 1 6C 0.447 6 0 6.447 0 7L 0 14C 0 15.104 0.896 16 2 16L 10 16C 11.104 16 12 15.104 12 14L 12 7C 12 6.447 11.553 6 11 6Z" transform="translate(4 2)" fill="black"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="2" width="12" height="16">
+<path id="Page 1_2" fill-rule="evenodd" clip-rule="evenodd" d="M 8 6L 4 6L 4 4C 4 2.897 4.897 2 6 2C 7.103 2 8 2.897 8 4L 8 6ZM 7 12C 7 12.553 6.553 13 6 13C 5.447 13 5 12.553 5 12L 5 10C 5 9.447 5.447 9 6 9C 6.553 9 7 9.447 7 10L 7 12ZM 11 6L 10 6L 10 4C 10 1.794 8.206 0 6 0C 3.794 0 2 1.794 2 4L 2 6L 1 6C 0.447 6 0 6.447 0 7L 0 14C 0 15.104 0.896 16 2 16L 10 16C 11.104 16 12 15.104 12 14L 12 7C 12 6.447 11.553 6 11 6Z" transform="translate(4 2)" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<g id="colour">
+</g>
+</g>
+</g>
+</g>
+</svg>

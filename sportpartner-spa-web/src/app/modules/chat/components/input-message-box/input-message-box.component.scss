@@ -1,0 +1,192 @@
+@import "functions";
+@import "media";
+@import "app-colorpalette";
+
+.input-message-layout {
+  display: grid;
+  grid-template-columns: 50px auto;
+  align-items: center;
+  column-gap: 10px;
+  padding: 15px 20px;
+  background: #fff;
+  box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.05);
+  .avatar {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    object-fit: cover;
+    img {
+      height: 100%;
+      min-width: 100%;
+    }
+  }
+  .input-message {
+    color: map-get($azures, azure-2);
+    i {
+      font-size: 20px;
+      color: inherit;
+    }
+    .first-state-input {
+      background: map-get($azures, azure-6);
+      border-radius: 8px;
+      padding: 13px 20px;
+      display: flex;
+      align-items: center;
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.active-input-message-box,
+.input-message-layout-desktop {
+  background: #fff;
+  box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.05);
+  display: grid;
+  grid-template-columns: 40px auto;
+  column-gap: 10px;
+  align-items: end;
+  padding: 10px 15px;
+  .section-emoji {
+    .btn {
+      color: map-get($grayWarms, gray-warm-2);
+      padding: 0;
+      width: 40px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i {
+        font-size: 40px;
+        color: inherit;
+      }
+    }
+  }
+}
+.active-input-message-box {
+  display: block;
+  padding: 15px 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  &.active {
+    z-index: 2;
+    &.chrome-ipad {
+      padding-bottom: 50px !important;
+    }
+  }
+
+  &.tablet-layout {
+    position: absolute;
+  }
+}
+
+.input-message {
+  // max-height: 144px;
+  textarea {
+    resize: none;
+    // display: initial !important;
+    width: 100%;
+    padding: 12px 22px;
+    font-family: heebo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+    color: map-get($grayCools, gray-cool-2);
+    border-radius: 8px;
+    border-width: 0;
+    box-shadow: inset 0px 0 0px 1px rgba(0, 0, 0, 0.05),
+      0px 1px 2px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    max-height: 144px;
+    min-height: 50px;
+    // transition: all 0.1s linear;
+    &::placeholder {
+      color: map-get($grayCools, gray-cool-3);
+    }
+    &:focus {
+      // border-color: map-get($azures, azure-2);
+      // border-width: 2px;
+      box-shadow: inset 0px 0 0px 2px map-get($azures, azure-2),
+        0px 4px 4px rgba(13, 134, 255, 0.1), 0px 1px 2px rgba(13, 134, 255, 0.2);
+    }
+    @include scrollBarStyle;
+  }
+}
+.section-button-send {
+  .btn {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    background: map-get($azures, azure-2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    i {
+      font-size: 20px;
+      color: inherit;
+    }
+    &:disabled {
+      background: rgba(0, 0, 0, 0.1);
+      cursor: not-allowed;
+    }
+  }
+}
+
+.become-premium-banner {
+  padding: 20px 30px;
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05), 0px -1px 0px rgba(0, 0, 0, 0.05);
+  // z-index: 1;
+  display: grid;
+  row-gap: 15px;
+  @include gt-mobile {
+    padding: 30px;
+  }
+  .text {
+    margin: 0;
+    font-family: heebo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+    color: #525866;
+    text-align: center;
+  }
+}
+
+.layout-no-allow-chat {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05), 0px -1px 0px rgba(0, 0, 0, 0.05);
+  &.delete_conversation {
+    display: grid;
+    row-gap: 15px;
+    justify-items: center;
+    .btn {
+      width: 100%;
+      @include gt-mobile {
+        max-width: 320px;
+      }
+    }
+  }
+}
+
+.container-restore-conversation {
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05), 0px -1px 0px rgba(0, 0, 0, 0.05);
+  padding: 20px 30px 30px;
+  display: grid;
+  row-gap: 15px;
+}

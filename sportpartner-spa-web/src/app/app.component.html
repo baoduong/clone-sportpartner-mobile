@@ -1,0 +1,23 @@
+<!-- <span style="position: fixed; z-index:9999; background-color: black; color: #fff;">
+  {{(deviceType | async)}} - {{(orientation$ | async)}}
+</span> -->
+<div #mainLayout id="layout" class="gird-layout mainLayout">
+  <div *ngIf="(deviceType | async)==='desktop' || (deviceType | async)==='tablet'" class="sticky-top" id="nav-content">
+    <div>
+      <app-main-navigation></app-main-navigation>
+    </div>
+  </div>
+  <div id="loaded-content" class="position-relative">
+    <div class="loaded-content-height">
+      <app-layout></app-layout>
+    </div>
+  </div>
+  <ng-container *ngIf="(deviceType | async)==='mobile'">
+    <div #sectionNav class="sticky-bottom-fixed" id="nav-content-bottom">
+      <app-main-navigation></app-main-navigation>
+    </div>
+  </ng-container>
+</div>
+
+<app-module-loading></app-module-loading>
+<app-overlay-expried></app-overlay-expried>

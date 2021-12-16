@@ -1,0 +1,41 @@
+.loading-spinner {
+  // background-color: #ffffff;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+
+  .loader {
+    align-self: center;
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #ff5533;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 1s linear infinite; /* Safari */
+    animation: spin 1s linear infinite;
+  }
+
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

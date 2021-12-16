@@ -1,0 +1,177 @@
+<div class="chat-box-layout" [ngClass]="{'tablet-layout': (deviceType | async) === 'tablet'}">
+  <div *ngIf="(room | async)" class="box-heading">
+    <div class="avatar-back">
+      <button fxHide.gt-xs class="btn btn-back-list" (click)="backList()">
+        <i class="icon-small-line-arrow-left"></i>
+      </button>
+      <div>
+        <ng-container *ngIf="room.value.conversationType === 'One'">
+          <div (click)="clickedTitleToggleSidePanel(room.value.conversationId, 'PANEL_USER_PROFILE')"
+            fxLayout="row inline" fxLayoutAlign="start center" fxLayoutGap="15px">
+            <span class="avatar">
+              <img [src]="room.value.conversationPhoto">
+            </span>
+            <span class="sender-name">
+              <p class="m-0 mobile-text-emphasis-2 text-gray-cool-1">
+                {{room.value.conversationName}}
+              </p>
+            </span>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="room.value.conversationType === 'Group'">
+          <div (click)="clickedTitleToggleSidePanel(room.value.conversationId, 'PANEL_GROUP_INFO')"
+            fxLayout="row inline" fxLayoutAlign="start center" fxLayoutGap="15px">
+            <span class="avatar-icon" fxHide.xs>
+              <i class="icon-medium-line-members-group"></i>
+            </span>
+            <span class="sender-name">
+              <p class="m-0 mobile-text-emphasis-2 text-gray-cool-1">
+                {{room.value.conversationName}}
+              </p>
+            </span>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div *ngIf="!(isUserDeleted$ | async) || room.value.conversationType !== 'One'" class="heading-section-more">
+      <button class="btn btn-more" (click)="toggleMenuButton()">
+        <i class="icon-small-line-more1"></i>
+      </button>
+      <app-list-button-detail-conversation [isShowListButton]="isShowListButton" [room]="room"
+        [listBoxType]="(category$ | async)" (isCloseMenuButton)="closeMenuButton($event)" 
+        (isShowPanelProfile)="clickedTitleToggleSidePanel(room.value.conversationId, 'PANEL_USER_PROFILE')">
+      </app-list-button-detail-conversation>
+    </div>
+  </div>
+
+  <div class="box-body">
+    <div *ngIf="isShowLoading$ | async" [@toggleLoading] class="overlay-loading">
+      <div class="spinner"></div>
+    </div>
+
+    <div [ngClass]="{
+      'active-real-time': isRealTime$.value,
+      'smooth-scroll': smoothScroll$.value,
+      'disabled-scroll': !allowRead}"
+      class="able-scoll" #scrollContent>
+
+      <ng-container *ngIf="!allowRead">
+        <div class="overlay-blur-content">
+          <ng-container *ngTemplateOutlet="tplUnableRead"></ng-container>
+        </div>
+      </ng-container>
+
+      <ng-container>
+        <div class="wrapper-content-chat-detail" [ngClass]="{'blur-content': !allowRead}">
+          <div *ngIf="ableToLoadUp$ | async" [@toggleWaitingTop] id="waiting-load-top">
+            <div class="spinner"></div>
+          </div>
+          <ng-template #chatDetailContainer></ng-template>
+          <div *ngIf="ableToLoadDown$ | async" [@toggleWaitingTop] id="waiting-load-bottom">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </ng-container>
+      <div #scrollAnchor id="anchor"></div>
+    </div>
+  </div>
+  <div class="box-input" [ngClass]="{'position-relative': (deviceType | async) === 'tablet'}">
+    <div class="position-relative">
+      <div class="fab-button-container"
+        [ngClass]="(ableToLoadDown$ | async) || !(isAtBottomContent$ | async) ? 'active': 'hide'">
+        <button (click)="jumpToBottomMessage()" #btnJumpDown class="btn btn-link btn-jump-scroll-down">
+          <i class="icon-small-line-caret-down"></i>
+        </button>
+      </div>
+    </div>
+    <app-input-message-box (showInputMessageBox)="onShowInputMessageBox($event)" [room]="room">
+    </app-input-message-box>
+  </div>
+</div>
+
+<ng-template #tplUnableRead>
+  <div class="no-chat-message">
+    <div>
+      <span class="badge-icon">
+        <i class="icon-medium-line-no-chat"></i>
+      </span>
+    </div>
+    <div class="child-grid">
+      <ng-container *ngIf="room.value.conversationType === 'One'">
+        <div class="text-center">
+          <span [ngClass.gt-xs]="'desktop-heading-3'" [ngClass.xs]="'mobile-text-emphasis-1'" class="text-gray-cool-1">
+            {{'Conversation.CHAT.nonpremium_title' | translate}}
+          </span>
+        </div>
+        <div>
+          <p [ngClass.xs]="'mobile-paragraph-2'" [ngClass.gt-xs]="'desktop-paragraph-1'"
+            class="text-gray-cool-3 text-center m-0">
+            {{'Conversation.CHAT.nonpremium_description' | translate}}
+          </p>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="room.value.conversationType === 'Group'">
+        <div class="text-center">
+          <span [ngClass.gt-xs]="'desktop-heading-3'" [ngClass.xs]="'mobile-text-emphasis-1'" class="text-gray-cool-1">
+            {{'Conversation.CHAT.nonpremium_title_group' | translate}}
+          </span>
+        </div>
+        <div>
+          <p [ngClass.xs]="'mobile-paragraph-2'" [ngClass.gt-xs]="'desktop-paragraph-1'"
+            class="text-gray-cool-3 text-center m-0">
+            {{'Conversation.CHAT.nonpremium_description_group' | translate}}
+          </p>
+        </div>
+      </ng-container>
+    </div>
+    <button fxHide.xs="true" class="btn-block btn-upgrade-premium" (click)="gotoPayment()" [ngClass]="{'btn-shake' : (isShakeBtn$ | async)}" appBtnCoral2>
+      {{'Conversation.CHAT.nonpremium_button' | translate}}
+    </button>
+  </div>
+  <div class="box-input" fxHide.xs="true">
+    <div class="formgroup-messages">
+      <div class="section-emoji">
+        <button class="btn">
+          <i class="icon-medium-line-smily"></i>
+        </button>
+      </div>
+      <div class="layout-input-box">
+        <div class="input-message">
+          <textarea style="height: 50px;" class="form-control" 
+          autocomplete="disabled" placeholder="Type a messsage" 
+          disabled="disabled"></textarea>
+          <div class="overlay" (click)="shakeBtn()"></div>
+        </div>
+        <div class="section-button-send">
+          <button class="btn">
+            <i class="icon-small-solid-send"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #tplLabelTime let-date='date'>
+  <div class="label-message-time">
+    <div class="label-message-time-badge">
+      <span class="lbl-message">{{date}}</span>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #tplLabelUnreadTick let-number='number'>
+  <div class="label-message-unread-tick">
+    <div class="label-message-unread">
+      <span class="lbl-message">
+        <ng-container *ngIf="number === 1; else keyMoreMessage">
+          {{'Conversation.CHAT.unread_1_message' | translate}}
+        </ng-container>
+
+        <ng-template #keyMoreMessage>
+          {{'Conversation.CHAT.unread_n_messages' | translate:{number : number } }}
+        </ng-template>
+      </span>
+    </div>
+  </div>
+</ng-template>

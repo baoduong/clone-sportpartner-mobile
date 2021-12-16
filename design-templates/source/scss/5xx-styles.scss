@@ -1,0 +1,853 @@
+@import "animate-master/animate";
+
+.sportpartners-header {
+  background: #440778;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center; // position: absolute;
+
+  // right: 0;
+  // left: 0;
+  .text-header {
+    font-family: $font-gilroy;
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: $orangey-red;
+    margin: 0;
+
+    @include style-mobile {
+      font-size: 20px;
+    }
+  }
+}
+
+#payment-method {
+  min-height: calc(var(--vh100) - 80px);
+
+  @include style-mobile {
+    min-height: auto;
+    flex: auto;
+    background: #f7f5f2;
+  }
+
+  .tick {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+    position: absolute;
+    background: url(../images/icons-solid/tick-white.svg) no-repeat center center, #ff5533;
+    margin: 0;
+    background-size: 7px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: -1px;
+
+    @include style-mobile {
+      width: 30px;
+      height: 30px;
+      background-size: 14px;
+      left: -10px;
+    }
+  }
+
+  .get-more-get-premium {
+    font-family: $font-gilroy;
+    font-size: 60px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #430073;
+    margin: 0 0 20px;
+  }
+
+  .with-sportpartner-yo {
+    font-size: 22px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: #262f40;
+    margin-bottom: 45px;
+  }
+
+  .premium-search-get {
+    margin-bottom: 20px;
+    font-family: $font-family-base;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    display: flex;
+    align-items: center;
+
+    .oval {
+      position: relative;
+      min-width: 80px;
+      min-height: 80px;
+      background-color: #fff;
+      border-radius: 50%;
+      justify-content: center;
+      text-align: center;
+      display: flex;
+      margin-right: 20px;
+      img {
+        opacity: 0.8;
+      }
+      @include style-mobile {
+        margin-bottom: 20px;
+        margin-right: 0;
+        img {
+          opacity: 1;
+        }
+      }
+    }
+
+    @include style-mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  }
+
+  .sportpartners-added-content {
+    width: 50%;
+    background: #f7f5f2;
+
+    .title {
+      font-family: $font-gilroy;
+      font-size: 20px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.4;
+      letter-spacing: normal;
+      color: #262f40;
+      @include style-mobile {
+        text-align: center;
+      }
+    }
+
+    .faqs {
+      @include style-mobile {
+        margin: 0 10px;
+      }
+
+      .card {
+        margin-bottom: 10px;
+        border-radius: 3px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background: transparent;
+        display: flex;
+        flex-direction: column-reverse;
+
+        @include style-mobile {
+          border: 0;
+        }
+        .card-header {
+          padding: 0;
+          border-radius: 0;
+          border: 0;
+          border-radius: 3px;
+          background-color: #f7f5f2;
+          @include style-mobile {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+          }
+
+          h2 {
+            button {
+              min-height: 80px;
+              font-family: $font-family-base;
+              font-size: 18px;
+              font-weight: normal;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: 1.44;
+              letter-spacing: normal;
+              color: #525866;
+              width: 100%;
+              text-align: left;
+              padding: 26px 60px 26px 30px;
+              white-space: normal;
+              height: auto;
+
+              background-image: url("../images/plus.svg");
+              background-size: 16px;
+              background-position: right 20px center;
+              background-repeat: no-repeat !important;
+
+              @include style-mobile {
+                padding: 10px 60px 10px 20px;
+                min-height: 60px;
+              }
+            }
+          }
+        }
+
+        .card-body {
+          font-family: $font-family-base;
+          font-size: 18px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.56;
+          letter-spacing: normal;
+          color: #525866;
+          background-color: #f0ede9 !important;
+          padding-left: 30px;
+          padding-right: 30px;
+          @include style-mobile {
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+        }
+
+        .collapse {
+          background-color: #f0ede9;
+          margin: 0;
+
+          & ~ .card-header {
+            background-color: #f7f5f2;
+            @include style-mobile {
+              background-color: #fff;
+            }
+          }
+
+          &.show ~ .card-header {
+            box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.05);
+            background-color: #f0ede9;
+            border-radius: 0;
+
+            h2 button {
+              background-image: url("../images/min.svg");
+            }
+          }
+        }
+
+        .collapsing {
+          & ~ .card-header {
+            border-radius: 0;
+            background-color: #f0ede9;
+            @include style-mobile {
+              background-color: #f0ede9;
+              box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.05);
+            }
+            h2 button {
+              background-image: url("../images/min.svg");
+            }
+          }
+        }
+      }
+    }
+
+    @include style-mobile {
+      width: 100%;
+      // background: #f7f5f2;
+      padding-bottom: 160px;
+    }
+
+    .shadow-inner {
+      box-shadow: inset -1px 0 0 0 rgba(0, 0, 0, 0.1);
+      margin-top: 80px;
+    }
+    .content {
+      max-width: 660px;
+      padding: 0 60px;
+      margin: 0 auto;
+      @include style-mobile {
+        width: auto;
+        margin: 0 30px 30px;
+      }
+    }
+  }
+
+  .bottom-logo {
+    background: url("../images/spieren.svg") no-repeat center center;
+    width: 200px;
+    height: 120px;
+    background-size: 100%;
+    margin-top: 50px;
+
+    @include style-mobile {
+      margin: 20px auto;
+    }
+  }
+
+  .sport-payment-land {
+    display: flex;
+    max-width: 1440px;
+    margin: 0 auto;
+    min-height: calc(var(--vh100) - 80px);
+
+    @include style-mobile {
+      flex-direction: column;
+      min-height: auto;
+    }
+  }
+
+  .choose-options-method {
+    width: 50%;
+    background: #f7f5f2;
+
+    @include style-mobile {
+      width: 100%;
+    }
+
+    .content {
+      max-width: 660px;
+
+      margin: 80px auto 0;
+      @include style-desktop {
+        padding: 0 60px;
+      }
+      @include style-mobile {
+        margin-top: 0;
+      }
+    }
+
+    .customize-checkbox {
+      height: 130px;
+      border-radius: 4px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(0, 0, 0, 0.1);
+      display: flex;
+      width: 100%;
+      align-items: center;
+      padding-left: 35px;
+      margin-bottom: 20px;
+
+      @include style-mobile {
+        margin: 10px;
+        width: calc(100vw - 20px);
+        max-width: calc(100% - 20px);
+        height: 80px;
+      }
+
+      .custom-control.custom-radio {
+        padding-left: 46px !important;
+      }
+
+      .custom-control-label {
+        font-family: $font-gilroy;
+        font-size: 20px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.3;
+        letter-spacing: normal;
+        color: #262f40;
+
+        &::before {
+          box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+          background-color: #ffffff !important;
+          border: solid 1px rgba(0, 0, 0, 0.1);
+          top: calc(50% - 10px) !important;
+        }
+
+        .price {
+          display: block;
+          font-size: 26px;
+          // margin-top: 10px;
+
+          @include style-mobile {
+            font-size: 20px;
+            margin-top: 5px;
+            font-family: $font-gilroy !important;
+            font-weight: 700;
+          }
+        }
+
+        .save {
+          font-family: calibre;
+          font-size: 20px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.1;
+          letter-spacing: normal;
+          color: $orangey-red;
+        }
+
+        @include style-mobile {
+          font-size: 18px;
+          font-weight: 400;
+          font-family: $font-family-base;
+        }
+      }
+
+      &.active {
+        background-color: #f0ede9;
+        box-shadow: none;
+        background-image: url(../images/payment-check.svg);
+        background-repeat: no-repeat;
+        background-position: right 25px top 50%;
+        @include style-small-mobile {
+          background-size: 35px;
+          background-position: right 15px top 50%;
+        }
+        .price {
+          color: $orangey-red;
+        }
+      }
+    }
+
+    .custom-radio .custom-control-input:checked ~ .custom-control-label::after {
+      background-image: none;
+      background-color: $orangey-red;
+      border-radius: 50%;
+      width: 8px !important;
+      height: 8px !important;
+      margin-top: 6px;
+      left: 6px;
+      top: calc(50% - 10px) !important;
+    }
+  }
+
+  .btn.orangey-red {
+    font-size: 16px;
+    padding-top: 13px;
+    background-image: url(../images/icons-solid-white/white-arrow.svg);
+    background-repeat: no-repeat;
+    background-position: right 11px top 15px;
+
+    @include style-mobile {
+      // margin-left: 10px;
+      // margin-right: 10px;
+      // width: calc(100vw - 60px);
+      // max-width: calc(100% - 20px);.btn.orangey-red
+      padding-right: 40px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      background-image: none;
+    }
+  }
+
+  .lt-text {
+    margin-top: 27px;
+    font-family: $font-family-base;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: $slate-grey;
+
+    img {
+      opacity: 0.5;
+      vertical-align: -3px;
+    }
+
+    @include style-mobile {
+      margin: 30px 10px 40px;
+      // width: calc(100vw - 60px);
+      max-width: calc(100% - 20px);
+      // font-size: 16px;
+      border-radius: 4px;
+      border: solid 1px rgba(0, 0, 0, 0.1);
+      padding: 20px 25px 15px;
+      text-align: center;
+      position: relative;
+      line-height: 1.5;
+
+      .mask {
+        width: 30px;
+        height: 25px;
+        background-color: #f7f5f2;
+        display: block;
+        position: absolute;
+        top: -11px;
+        right: calc(50% - 15px);
+      }
+    }
+  }
+
+  .input-field {
+    height: 50px;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 0 10px;
+    margin-top: 10px;
+  }
+
+  .Field-label {
+    font-family: $font-family-base;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.44;
+    color: #262f40;
+
+    &.underline {
+      position: relative;
+
+      &:before {
+        content: "";
+        border-bottom: 1px dashed #adadad;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        height: 1px;
+      }
+    }
+  }
+}
+
+#page-payment-result-confirm {
+  margin-top: 160px;
+
+  @include style-mobile {
+    margin-top: 20px; // padding-bottom: 30px;
+  }
+
+  .btn-payment-st-success {
+    width: 360px;
+    padding-left: 0;
+    padding-right: 0;
+
+    @include style-mobile {
+      width: calc(100vw - 60px);
+      max-width: calc(#{$max-width-mobile} - 60px);
+
+      padding: {
+        left: 10px;
+        right: 10px;
+      }
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .payment-success-content {
+    opacity: 0.5; // font-family: $font-family-base;
+    font-size: 18px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.3;
+    letter-spacing: normal;
+    text-align: center; // color: #ffffff;
+    margin: 0 auto;
+    max-width: 720px;
+  }
+}
+
+#help-page {
+  &.help-page {
+    max-width: 1080px;
+    display: flex;
+    min-height: calc(var(--vh100) - 408px);
+
+    margin: {
+      left: auto;
+      right: auto;
+      top: 7px;
+    }
+
+    @include style-mobile {
+      min-height: initial;
+      display: block;
+    }
+
+    .cl-left {
+      flex: 33.33%;
+
+      > ul.list-unstyled {
+        margin-top: 63px;
+        padding: 0;
+
+        > li {
+          margin-bottom: 0;
+
+          a {
+            font-size: 16px;
+            color: $slate-grey;
+            margin-bottom: 13px;
+            display: inline-block;
+            text-decoration: none !important;
+
+            &[aria-expanded="true"] {
+              color: $orangey-red;
+            }
+
+            + div {
+              ul {
+                padding: 0;
+
+                li {
+                  a {
+                    font-size: 16px;
+                    font-family: Calibre;
+
+                    &.active {
+                      color: #262f40;
+                      font-weight: 500;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .cl-right {
+      flex: 66.67%;
+      min-width: 720px;
+
+      @include style-mobile {
+        min-width: initial;
+        position: fixed;
+        top: 70px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: #fff;
+        padding: 20px; // height: calc(var(--vh100) - 70px);
+        overflow: auto;
+        overflow-y: scroll;
+        /* has to be scroll, not auto */
+        -webkit-overflow-scrolling: touch;
+        z-index: 9999;
+
+        &:not(.d-none) {
+          @include fadeInRightBig;
+        }
+
+        &.fadeOutRightBig {
+          @include fadeOutRightBig;
+        }
+      }
+    }
+  }
+}
+
+.expired-time {
+  font-family: $font-gilroy;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.3;
+  letter-spacing: normal;
+  color: #262f40;
+  margin-bottom: 10px;
+
+  @include style-mobile {
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 30px;
+    font-family: $font-family-base;
+  }
+}
+
+#displayAmount {
+  font-family: $font-gilroy;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: left;
+  color: #ff5533;
+  margin-bottom: 30px;
+
+  @include style-mobile {
+    font-size: 20px;
+    padding: 0 30px;
+    margin-bottom: 10px;
+  }
+}
+
+#choose-payment-method {
+  .card {
+    border: 0;
+    margin-bottom: 10px;
+    background-color: #f0ede9;
+
+    @include style-mobile {
+      background-color: #f7f5f2;
+    }
+
+    .payment-method-header {
+      width: 100%;
+      height: 90px;
+      box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.05);
+      border-radius: 4px 4px 0 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: {
+        left: 30px;
+        right: 30px;
+      }
+
+      @include style-mobile {
+        height: 60px;
+        background: #f0ede9;
+        border-radius: 0;
+      }
+
+      &.collapsed {
+        border-radius: 4px;
+        background-color: #ffffff;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(0, 0, 0, 0.1);
+
+        @include style-mobile {
+          margin-left: 10px;
+          margin-right: 10px;
+          width: auto;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+    }
+
+    div.collapse {
+      @include style-mobile {
+        background-color: #f0ede9;
+      }
+    }
+
+    .custom-control {
+      padding-right: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+
+      padding: {
+        left: 30px;
+        right: 30px;
+      }
+
+      .form-field {
+        margin-bottom: 15px;
+
+        @include style-mobile {
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    .custom-control-label {
+      font-family: $font-gilroy;
+      font-size: 20px;
+      font-weight: bold;
+      vertical-align: 5px;
+      padding-left: 25px;
+      color: #262f40;
+      margin-top: 5px;
+
+      &::before {
+        border: solid 1px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        top: 7px;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      @include style-mobile {
+        font-size: 18px;
+        font-weight: 400;
+        margin-top: 7px;
+        padding-left: 10px;
+        font-family: $font-family-base;
+        color: #525866;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &:before {
+          top: 9px;
+        }
+      }
+    }
+  }
+}
+
+.showUpFromBottomOptions {
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  // display: none;
+  position: fixed;
+  width: 100%;
+  padding: 10px 0;
+  bottom: 0;
+  transform: translateY(300px);
+  transition: all 0.5s 0.1s linear;
+  &.active {
+    // display: block;
+    transform: translateY(0);
+  }
+
+  .howwould {
+    background-color: #fff;
+    box-shadow: none;
+    background-image: url(../images/payment-check.svg);
+    background-repeat: no-repeat;
+    background-position: right 25px top 50%;
+    display: flex;
+    padding: 10px 30px;
+    flex-direction: column;
+  }
+
+  .maanden {
+    font-family: $font-family-base;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.56;
+    letter-spacing: normal;
+    color: #525866;
+  }
+
+  .price {
+    font-family: $font-gilroy;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.3;
+    letter-spacing: normal;
+    color: #ff5533;
+    margin-top: 5px;
+  }
+}
+
+.payment-collapse-child-description {
+  opacity: 0.5;
+  font-family: $font-family-base;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  color: #716e6c;
+  margin-top: 20px;
+
+  @include style-mobile {
+    opacity: 0.6;
+  }
+}

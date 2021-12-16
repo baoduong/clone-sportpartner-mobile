@@ -1,0 +1,30 @@
+@import "media";
+@import "app-colorpalette";
+
+.wrap-icon {
+  margin-bottom: 20px;
+  @include gt-mobile {
+    margin-bottom: 30px;
+  }
+  .badge {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 30px;
+    margin: auto;
+  }
+  i {
+    font-size: 40px;
+    color: map-get($color-pallets, coral-2);
+  }
+}
+
+.heading-3 {
+  margin-bottom: 10px;
+  @include gt-mobile {
+    margin-bottom: 20px;
+  }
+}

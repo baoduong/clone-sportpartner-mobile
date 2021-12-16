@@ -1,0 +1,150 @@
+@import "variables";
+
+@font-face {
+  font-family: "#{$icomoon-font-family}";
+  src: url("#{$icomoon-font-path}/sportpartner.eot?eqcl4f");
+  src: url("#{$icomoon-font-path}/sportpartner.eot?eqcl4f#iefix") format("embedded-opentype"),
+    url("#{$icomoon-font-path}/sportpartner.ttf?eqcl4f") format("truetype"),
+    url("#{$icomoon-font-path}/sportpartner.woff?eqcl4f") format("woff"),
+    url("#{$icomoon-font-path}/sportpartner.svg?eqcl4f#sportpartner") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-sport-"],
+[class*="icon-sport-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "#{$icomoon-font-family}" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sport-badminton-racket {
+  &:before {
+    content: $icon-sport-badminton-racket;
+  }
+}
+.icon-sport-badminton {
+  &:before {
+    content: $icon-sport-badminton;
+  }
+}
+.icon-sport-cards-duo {
+  &:before {
+    content: $icon-sport-cards-duo;
+  }
+}
+.icon-sport-cards {
+  &:before {
+    content: $icon-sport-cards;
+  }
+}
+.icon-sport-climbing {
+  &:before {
+    content: $icon-sport-climbing;
+  }
+}
+.icon-sport-cycling {
+  &:before {
+    content: $icon-sport-cycling;
+  }
+}
+.icon-sport-dancing {
+  &:before {
+    content: $icon-sport-dancing;
+  }
+}
+.icon-sport-fishing {
+  &:before {
+    content: $icon-sport-fishing;
+  }
+}
+.icon-sport-fitness {
+  &:before {
+    content: $icon-sport-fitness;
+  }
+}
+.icon-sport-golf {
+  &:before {
+    content: $icon-sport-golf;
+  }
+}
+.icon-sport-hiking {
+  &:before {
+    content: $icon-sport-hiking;
+  }
+}
+.icon-sport-iceskating {
+  &:before {
+    content: $icon-sport-iceskating;
+  }
+}
+.icon-sport-padel-racket {
+  &:before {
+    content: $icon-sport-padel-racket;
+  }
+}
+.icon-sport-rollerblading {
+  &:before {
+    content: $icon-sport-rollerblading;
+  }
+}
+.icon-sport-running {
+  &:before {
+    content: $icon-sport-running;
+  }
+}
+.icon-sport-sailing {
+  &:before {
+    content: $icon-sport-sailing;
+  }
+}
+.icon-sport-skiing {
+  &:before {
+    content: $icon-sport-skiing;
+  }
+}
+.icon-sport-squash-racket {
+  &:before {
+    content: $icon-sport-squash-racket;
+  }
+}
+.icon-sport-squash {
+  &:before {
+    content: $icon-sport-squash;
+  }
+}
+.icon-sport-surfiing {
+  &:before {
+    content: $icon-sport-surfiing;
+  }
+}
+.icon-sport-swimming {
+  &:before {
+    content: $icon-sport-swimming;
+  }
+}
+.icon-sport-tennis-racket {
+  &:before {
+    content: $icon-sport-tennis-racket;
+  }
+}
+.icon-sport-tennis {
+  &:before {
+    content: $icon-sport-tennis;
+  }
+}
+.icon-sport-walking {
+  &:before {
+    content: $icon-sport-walking;
+  }
+}

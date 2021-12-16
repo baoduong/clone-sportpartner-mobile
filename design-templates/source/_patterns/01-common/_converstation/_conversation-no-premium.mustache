@@ -1,0 +1,72 @@
+<div class="panel-conversation equalHeight">
+  <div class="header-conversation">
+    <div class="d-flex">
+      <h3 class="name m-0">Conversation with Charlotte</h3>
+    </div>
+  </div>
+  <div class="body-conversation">
+    <div class="content">
+      {{#requestPhotoInNoPremium}}
+      <div class="request-panel no-premium">
+        <div class="request-content">
+          <div class="img">
+            <img src="/images/icons-solid/photo-request.svg" alt="">
+          </div>
+          <div class="content">
+            <div>
+              Claudia is interested in your photo and has send you a photo request. Did you know that members with a photo have 6 times
+              more chance to find a sport partner?
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/requestPhotoInNoPremium}} 
+      {{#chatInNoPremium}}
+      <!-- <div class="history-time">yesterday</div> -->
+      <div class="you-talk">
+        <div class="avatar"></div>
+        <div class="message">
+          Hoi ik zag je profiel en dacht lorem ipsum dolor amet lorem ipsum nog meer tekst
+        </div>
+      </div>
+      {{/chatInNoPremium}} 
+      {{#requestHighFiveInNoPremium}}
+      <div class="request-panel no-premium">
+        <div class="request-content">
+          <div class="img">
+            <img src="/images/icons-solid/high-five.svg" alt="">
+          </div>
+          <div class="content">
+            <div>
+              Claudia is interested in your photo and has send you a photo request. Did you know that members with a photo have 6 times
+              more chance to find a sport partner?
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/requestHighFiveInNoPremium}}
+      <div class="no-premium-want-to-chat">
+        <h3 class="title text-center">
+          Want to start a conversation with Claudia?
+        </h3>
+        <div class="space-30"></div>
+        <p class="text-center desc">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit.
+        </p>
+        <div class="space-40"></div>
+        <button style="min-width: 270px" class="btn deep-sky-blue btn-round">Upgrade to Premium</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-conversation disabled">
+    <div class="talk-block">
+      <form disabled="disabled">
+        <textarea class="message-input form-control" name="" id="" rows="1" placeholder="Type your message here"></textarea>
+        <!-- <button type="button" class="btn btn-emoticon">
+                    emotions
+                </button> -->
+        <button class="btn black-two btn-send" disabled type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+</div>

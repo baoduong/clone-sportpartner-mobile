@@ -1,0 +1,11 @@
+@import "./app-colorpalette";
+
+@each $key, $color in $color-pallets {
+  .background-#{$key} {
+    background-color: $color;
+  }
+}
+
+.background-transparent {
+  background: none !important;
+}

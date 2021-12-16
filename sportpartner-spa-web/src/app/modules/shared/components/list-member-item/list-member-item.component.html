@@ -1,0 +1,37 @@
+<div fxLayout.xs="row" fxLayoutGap="15px" fxLayoutAlign="start center">
+    <img src="{{ memberProfile.avatar }}" alt="" (click)="gotoMemberProfile()">
+    <div class="member-box" fxLayout="column" fxLayoutGap="4px">
+        <div class="name-member-box" fxLayout="row" fxLayoutGap="6px" (click)="gotoMemberProfile()">
+            <span class="name break-line" [ngClass]="'mobile-button-1'">{{ memberProfile.screenName }}</span>
+            <div *ngIf="memberProfile.isNew && isFollowing" class="icon-new-member">
+                <div class="new" [ngClass]="'mobile-paragraph-4'">new</div>
+            </div>
+        </div>
+        <div class="info-member" [ngClass]="'mobile-paragraph-2'">
+            <!-- <span class="old">({{ item.gender === 'M' ? 'Web-Group.VISITING-PROFILE.Generic.GENDER_ABBR.male' | translate : 'Web-Group.VISITING-PROFILE.Generic.GENDER_ABBR.female' | translate }}/{{ item.age }})</span> -->
+            <span class="old">(<div *ngIf="memberProfile.gender === 'M'" style="display: inline;">{{ 'Generic.GENDER_ABBR.male' | translate }}</div><div *ngIf="memberProfile.gender === 'F'" style="display: inline;">{{ 'Generic.GENDER_ABBR.female' | translate }}</div>/{{ memberProfile.age }})</span>
+            <span class="address break-line">{{ memberProfile.address }}</span>
+        </div>
+    </div>
+</div>
+<div *ngIf="myProfile.memberType === 'S'; then isHighfivedBlock else checkIsHighfive"></div>
+<ng-template #checkIsHighfive>
+    <div *ngIf="memberProfile.isHighFive === false && memberProfile.id !== myProfile.id ; then HighFiveBlock else HighfivedBlock"></div>
+    <ng-template #HighFiveBlock>
+        <button class="icon-highfive btn" (click)="sendHiveFive()">
+            <i class="icon-medium-solid-hf"></i>
+        </button>
+    </ng-template>
+    <ng-template #HighfivedBlock>
+        <button class="icon-highfived btn">
+            <i class="icon-medium-line-check icon-check"></i>
+            <i class="icon-medium-solid-hf icon-high-five"></i>
+        </button>
+    </ng-template>
+</ng-template>
+<ng-template #isHighfivedBlock>
+    <button class="icon-highfived btn">
+        <i class="icon-medium-line-check icon-check"></i>
+        <i class="icon-medium-solid-hf icon-high-five"></i>
+    </button>
+</ng-template>

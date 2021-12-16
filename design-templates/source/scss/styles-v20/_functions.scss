@@ -1,0 +1,12 @@
+@import "app-colorpalette";
+@function getColor($key) {
+  $result: map-get($color-pallets, $key);
+  @return $result;
+}
+
+@function pxToPoint($value) {
+  // 8px == 6pt
+  $basePoint: 0.75;
+  // @return $basePoint * $value + 0pt;
+  @return $value + 0px;
+}

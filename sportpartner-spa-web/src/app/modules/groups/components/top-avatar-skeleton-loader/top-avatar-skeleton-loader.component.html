@@ -1,0 +1,9 @@
+<div class="d-flex">
+  <div fxLayout="row" fxLayoutGap="-10px">
+    <ng-container *ngFor="let item of listAvatar | async">
+      <div class="item-image-placeholder">
+        <img appImgLazyLoad src="{{item}}">
+      </div>
+    </ng-container>
+  </div>
+</div>

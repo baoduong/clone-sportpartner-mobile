@@ -1,0 +1,73 @@
+<div class="background-gray-warm-4" fxLayout="column" fxLayoutGap.xs="20px" fxLayoutGap.gt-xs="30px">
+  <div fxFill>
+    <div [ngClass.gt-md]="'max-width-content'">
+      <div class="background" style="background-image: url('/assets/images/groups/group-1.jpg');"></div>
+    </div>
+  </div>
+
+  <div fxFill>
+    <div class="max-width-content">
+      <div fxLayoutGap.xs="20px" fxLayout.xs="column" fxLayout.gt-xs="row" fxLayoutGap.gt-xs="30px">
+        <div fxFlex.gt-xs="auto" class="card">
+          <div class="card-body">
+            <h5 class="card-title">Title</h5>
+            <p class="card-text">Content</p>
+
+            <div class="form-group">
+              <button appBtnCoral2Large>appBtnCoral2Large</button>
+              <button appBtnCoral2Large disabled>appBtnCoral2Large</button>
+              <a [routerLink]="['member-profile']" routerLinkActive="router-link-active">Memeber profile</a>
+              <a [routerLink]="['/shares']" routerLinkActive="router-link-active">Share</a>
+            </div>
+
+            <div class="form-group">
+              <button appBtnAzure2Large>appBtnAzure2Large</button>
+              <button appBtnAzure2Large disabled>appBtnAzure2Large</button>
+            </div>
+
+            <div class="form-group">
+              <button appBtnCoral2>appBtnCoral2</button>
+              <button appBtnCoral2 disabled>appBtnCoral2</button>
+            </div>
+
+            <div class="form-group">
+              <button appBtnAzure2>appBtnAzure2</button>
+              <button appBtnAzure2 disabled>appBtnAzure2</button>
+            </div>
+
+            <div class="form-group">
+              <button appBtnAzure6>appBtnAzure6</button>
+              <button appBtnAzure6 disabled>appBtnAzure6</button>
+            </div>
+
+            <div class="form-group">
+              <button appBtnIconCoral2 [IconName]="'outline-members'">appBtnIconCoral2</button>
+              <button appBtnIconCoral2 [IconName]="'outline-members'" disabled>appBtnIconCoral2</button>
+            </div>
+
+            <div class="form-group">
+              <button appBtnIconAzure2 [IconName]="'outline-members'">appBtnIconAzure2</button>
+              <button appBtnIconAzure2 [IconName]="'outline-members'" disabled>appBtnIconAzure2</button>
+            </div>
+
+            <div class="form-group">
+              <button appBtnOutlineAzure2>appBtnOutlineAzure2</button>
+              <button appBtnOutlineAzure2 disabled>appBtnOutlineAzure2</button>
+            </div>
+            <div class="form-group">
+              <input type="text" appInputRegular placeholder="input regular text field">
+            </div>
+          </div>
+        </div>
+
+        <div fxFlex.gt-xs="auto" class="card">
+          <div class="card-body">
+            <h5 class="card-title">Title</h5>
+            <p class="card-text">Content</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div></div>
+</div>

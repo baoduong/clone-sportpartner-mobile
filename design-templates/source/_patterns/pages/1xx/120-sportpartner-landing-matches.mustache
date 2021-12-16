@@ -1,0 +1,89 @@
+{{> common-header-landing }}
+<div id="landing-city">
+  <div class="space-80"></div>
+  <div id="landing-matches">
+    <div class="space-40"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="m-0 text-center font-family-gilroy font-weight-bold text-color-white">Find your cycling partner near Amersfoort today!</h2>
+          <div class="space-20"></div>
+          <p class="m-0 text-center text-color-white font-size-24 font-weight-300">Lorem ipsum cycling partner Abcoude dolor sit amet, consectetuer adipiscing.</p>
+          <div class="space-40"></div>
+          <div class="line-breadcrumb">
+            <ul class="m-0 list-inline breadcrumb">
+              <li class="list-inline-item breadcrumb-item">
+                <a href="#">Home</a>
+              </li>
+              <li class="list-inline-item breadcrumb-item">
+                <span>Cycling partner</span>
+              </li>
+              <li class="list-inline-item breadcrumb-item active" aria-current="page">
+                <span>Amersfoort</span>
+              </li>
+            </ul>
+          </div>
+          <div class="space-40"></div>
+          <div class="find-matches-panel text-center">
+            <a class="btn btn-round-link btn-link black-two" style="width: 280px" href="#">Find your match</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- matches 1 -->
+    <div class="section-matches">
+      <div class="space-60"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="match-items-panel">
+              {{# matchItems}} {{> common-match-item }} {{/ matchItems}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="space-90"></div>
+    <div class="big-banner" style="background-image: url('/images/home-image-landing.jpg'); background-attachment: inherit">
+      <div class="section-content">
+        <h2 class="font-size-60 font-weight-bold font-family-gilroy">3.500 members looking for a sport buddy</h2>
+        <div class="space-20"></div>
+        <h3 class="font-size-40 font-weight-light font-family-calibre">Find your cycling partner near Amersfoort today!</h3>
+        <div class="space-60"></div>
+        <a href="#" class="btn btn-round deep-sky-blue">Find your match</a>
+        <div class="space-280"></div>
+      </div>
+    </div>
+
+    <div class="space-80"></div>
+    <!-- matches 2 -->
+    <div class="section-matches">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="match-items-panel">
+              {{# matchItems1}} {{> common-matched-item }} {{/ matchItems1}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-60"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="text-center m-0 font-size-24 font-weight-300 text-color-dark">Would you like to see more people looking for a cycling partner near Amersfoort?</p>
+          <div class="space-30"></div>
+          <div class="text-center">
+            <a class="btn orangey-red btn-round" href="#">Discover more members</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="space-90"></div>
+    {{> common-panel-member-preview}} {{> common-together-is-more }}
+  </div>
+</div>
+{{> common-footer-landing }}

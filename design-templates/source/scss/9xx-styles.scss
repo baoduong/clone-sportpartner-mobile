@@ -1,0 +1,31 @@
+.avatar-discount {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  text-align: center;
+  display: inline-flex;
+  transform: translateX(10px);
+
+  img {
+    object-fit: cover;
+    max-height: 100px;
+    min-width: 100px;
+  }
+}
+
+.icon-discount {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+  transform: translateX(-10px);
+
+  img {
+    width: 30px;
+  }
+}

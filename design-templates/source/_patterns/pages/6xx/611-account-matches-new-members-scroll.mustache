@@ -1,0 +1,32 @@
+{{> common-request-permission-notification }}
+{{> common-header }}
+<div class="bg-white-f8">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="space-40"></div>
+                <input type="text" class="inputfield-search form-control" placeholder="Leuk dat je lid bent hier. Zou je mijn profiel willen bekijken en mij een bericht sturen als je geïnteresseerd bent? Groeten, Jorrit">
+                <div class="space-20"></div>
+                <div class="text-center">
+                    <button class="btn btn-round black-two" style="min-width: 285px;">Send message and say hello</button>
+                </div>
+                <div class="space-60"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="space-20"></div>
+<div>
+    <hr class="m-0" style="margin-bottom: -1px; position: relative; z-index: 999;">
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-block-new-member">
+                {{# NewMembersMatches}}
+                    {{> common-new-member-matches}}
+                {{/ NewMembersMatches}}
+            </div>
+        </div>
+    </div>
+</div>

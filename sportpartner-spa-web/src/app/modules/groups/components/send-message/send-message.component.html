@@ -1,0 +1,31 @@
+<div class="bg-white">
+    <div [ngClass.gt-xs]="'max-width-content'">
+        <div class="post-text-wrrap" *ngIf="isClickSend" [@TypeMessage] (click)="hide()" fxHide.gt-xs="true">
+            <div class="post-text text-center">
+                <span class="mobile-text-emphasis-2">{{ 'Web-Group.GROUP-PAGE.message_post_new' | translate }}</span>
+            </div>
+            <hr style="margin:0">
+            <button class="btn">
+                <i class="icon-small-line-cross1"></i>
+            </button>
+        </div>
+        <div class="type-msg-wrap">
+                <div fxLayout="row" fxLayoutAlign=" end">
+                    <img class="avatar-user" [src]="userProfile.avatarUrl" 
+                        [@ShowHide]="!isClickSend ? 'show' : 'hide'" 
+                        [style.margin-right]="isClickSend ? '0px' : ''">
+                    <div class="send-msg-wrrap" [ngClass]="!isClickSend ? 'is-send':''">
+                        <div *ngIf="!isClickSend && !hideElement" class="icon-push-msg" fxLayoutGap="10px" (click)="changeIsSend(!isClickSend)">
+                            <i class="icon-small-line-new-message1"></i>
+                            <span class="desktop-paragraph-2">{{ 'Web-Group.GROUP-PAGE.message_post_new' | translate }}</span>
+                        </div>
+                        <textarea #inputTextArea id="text-area" (focus)="show()" (blur)="hide()" rows="5" placeholder="{{ 'Conversation.CHAT.type_message' | translate }}"></textarea>
+                    </div>
+                    <button class="btn msg-group-submit" 
+                        (mousedown)="sendMessage();" 
+                        [@ShowHide]="isClickSend ? 'show' : 'hide'">
+                    </button>
+                </div>
+        </div>
+    </div>
+</div>

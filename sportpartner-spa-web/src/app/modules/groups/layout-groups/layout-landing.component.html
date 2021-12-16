@@ -1,0 +1,11 @@
+<div [ngClass.xs]="'background-gray-warm-5'" [ngClass.gt-xs]="'background-gray-warm-6'">
+  <app-quick-search-group></app-quick-search-group>
+</div>
+<hr fxHide.xs="true" class="m-0">
+<div [@routeAnimationsGroups]="prepareRoute(frontendSubOutlet)">
+  <router-outlet #frontendSubOutlet="outlet"></router-outlet>
+</div>
+
+<!-- <div>
+  <router-outlet></router-outlet>
+</div> -->

@@ -1,0 +1,62 @@
+<div class="popup-user-profile">
+    <div class="popup-header" fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="profile-name">
+            <span class="mobile-text-emphasis-2 text-gray-cool-1">{{ (memberProfile$ | async).screenName }}</span>
+        </div>
+        <button class="btn" (click)="closePanel()">
+            <i class="icon-small-line-cross1"></i>
+        </button>
+    </div>
+    <ng-container *ngIf="!(memberProfile$ | async).isDeletedUser">
+        <ng-container *ngIf="!isUserBlocked">
+            <div class="popup-content">
+                <button (click)="viewProfile()" class="btn">
+                    <i class="icon-small-line-arrow-right"></i>
+                    <span class="mobile-paragraph-2">
+                        {{'Conversation.CHAT.menu_1on1chat_view_profile' | translate: { member: (memberProfile$ |
+                        async).screenName } }}
+                    </span>
+                </button>
+                <ng-container *ngIf="(memberProfile$ | async).conversation.conversationId !== null">
+                    <button (click)="sendAMessage()" class="btn">
+                        <i class="icon-small-line-new-message1"></i>
+                        <span class="mobile-paragraph-2">
+                            <!-- Send user a message -->
+                            {{'Conversation.CHAT.send_user_a_message' | translate: { member: (memberProfile$ |
+                            async).screenName } }}
+                        </span>
+                    </button>
+                </ng-container>
+                <ng-container *ngIf="(memberProfile$ | async).conversation.conversationId === null">
+                    <button (click)="sendHighFive()" class="btn">
+                        <i style="font-size: 24px;" class="icon-medium-solid-hf"></i>
+                        <span class="mobile-paragraph-2">
+                            <!-- Send High five -->
+                            {{'Conversation.CHAT.panel_highfive_button' | translate }}
+                        </span>
+                    </button>
+                </ng-container>
+            </div>
+        </ng-container>
+        <!-- UnBlock -->
+        <ng-container *ngIf="isUserBlocked">
+            <div class="popup-content">
+                <button (click)="unBlockUser()" class="btn">
+                    <i class="icon-small-line-arrow-right"></i>
+                    <span class="mobile-paragraph-2">
+                        {{'Account.PROFILE-SETTINGS.unblock' | translate }}
+                    </span>
+                </button>
+            </div>
+        </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="(memberProfile$ | async).isDeletedUser">
+        <div class="popup-content-user-deleted">
+            <p class="m-0 text-center mobile-paragraph-1 text-black-60">
+                {{'Conversation.CHAT.deleted_user_short_description' | translate:{member: (memberProfile$
+                |async).screenName} }}
+            </p>
+        </div>
+    </ng-container>
+</div>

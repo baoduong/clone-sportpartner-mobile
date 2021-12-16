@@ -1,0 +1,257 @@
+#page-static,
+#page-blog-stories {
+  .big-banner {
+    background: linear-gradient(180deg, #430073 860px, #f7f5f2 0);
+    padding-bottom: 80px;
+
+    ._hr-header {
+      border-color: rgba($color: #fff, $alpha: 0.1);
+      margin: 0 15px;
+    }
+
+    ._hr-orange {
+      border-color: #ff5533;
+      border-width: 4px;
+      width: 90px;
+      border-radius: 4px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .desc-content {
+      font-family: $font-gilroy;
+      font-size: 60px;
+      font-weight: 700;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.1;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+      margin: 0 auto;
+      max-width: 900px;
+      padding: 80px 0 60px;
+
+      @include style-mobile {
+        text-align: left;
+        color: #440778;
+        font-size: 30px;
+        line-height: 1.2;
+        padding: 0 0 20px;
+      }
+    }
+
+    .date {
+      font-size: 14px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.86;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+      margin: 0;
+      opacity: 0.5;
+      margin-bottom: 40px;
+    }
+
+    .message-first {
+      font-family: $font-gilroy;
+      font-size: 24px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.42;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ff5533;
+      margin: 60px auto;
+      max-width: 900px;
+
+      @include style-mobile {
+        text-align: left;
+        color: #440778;
+        font-size: 20px;
+        line-height: 1.5;
+        font-weight: 300;
+        margin: 30px auto;
+      }
+    }
+
+    .big-image {
+      border-radius: 10px 10px 0 0;
+      max-width: 900px;
+      margin: 0 auto;
+      overflow: hidden;
+
+      img {
+        max-width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .block-content {
+      border-radius: 0 0 10px 10px;
+      background-color: #ffffff;
+      padding: 80px 90px;
+      max-width: 900px;
+      margin: 0 auto;
+
+      @include style-mobile {
+        padding: 0;
+        border-radius: 0;
+      }
+
+      .message {
+        font-size: 18px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.56;
+        letter-spacing: normal;
+        color: #525866;
+        margin-bottom: 40px;
+      }
+
+      img {
+        max-width: 100%;
+        margin: 0 auto 40px;
+      }
+
+      .title {
+        font-family: $font-gilroy;
+        font-size: 26px;
+        font-weight: 800;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.31;
+        letter-spacing: normal;
+        color: #262f40;
+        margin-bottom: 20px;
+      }
+
+      .block-signup {
+        height: 290px;
+        border-radius: 4px;
+        background-color: #f7f5f2;
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 55px;
+
+        .title {
+          font-family: $font-gilroy;
+          font-size: 26px;
+          font-weight: 800;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.31;
+          letter-spacing: normal;
+          text-align: center;
+          color: #262f40;
+          margin-bottom: 15px;
+        }
+
+        .text {
+          font-size: 22px;
+          font-weight: 300;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.45;
+          letter-spacing: normal;
+          text-align: center;
+          color: #262f40;
+          margin-bottom: 30px;
+        }
+
+        .btn {
+          min-width: 180px;
+        }
+      }
+
+      .tags {
+        .title {
+          opacity: 0.5;
+          font-size: 14px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.86;
+          letter-spacing: normal;
+          color: #716e6c;
+          margin: 0;
+        }
+
+        .tag {
+          font-size: 18px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.22;
+          letter-spacing: normal;
+          color: #ff5533;
+        }
+      }
+    }
+
+    ._hr {
+      border-color: #e5e5e5;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .container-button {
+      display: flex;
+      justify-content: space-between;
+
+      @include style-mobile {
+        display: block;
+        text-align: center;
+
+        .btn {
+          min-width: 100% !important;
+          + .btn {
+            margin-top: 10px;
+          }
+        }
+      }
+
+      .btn {
+        font-size: 16px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 13px;
+        min-width: 350px;
+        word-spacing: 4px;
+      }
+    }
+  }
+}
+
+#page-blog-stories {
+  @include style-mobile {
+    margin-top: -70px;
+    .banner-1 {
+      background-image: url("../images/senior-hikers-resting-at-autumnal-dawn-in-southern-julian-alps-europe-1081662132_320x600.jpg");
+      background-repeat: no-repeat;
+      padding-bottom: 0;
+      background-size: cover;
+      // background-attachment: fixed;
+      background-position: center;
+    }
+
+    .banner-2 {
+      background: url("../images/senior-couple-hiking-at-autumnal-dawn-in-southern-julian-alps-italy-europe-1081662134_720x400.jpeg");
+      min-height: 360px;
+      background-position: center;
+    }
+
+    .banner-3 {
+      background: url("../images/senior-hikers-resting-at-autumnal-dawn-in-southern-julian-alps-europe-955728684_720x400.jpeg");
+      min-height: 360px;
+      background-position: center;
+    }
+  }
+}

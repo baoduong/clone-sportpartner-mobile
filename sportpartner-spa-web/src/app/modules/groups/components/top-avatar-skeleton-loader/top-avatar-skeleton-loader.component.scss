@@ -1,0 +1,41 @@
+$sizeAvatar: 54px;
+.item-image-placeholder {
+  // box-shadow: 0 4px 10px 0 rgba(33, 33, 33, 0.15);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #fff;
+  z-index: 0;
+  background-color: #fff;
+  width: $sizeAvatar;
+  height: $sizeAvatar;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    border-radius: 50%;
+  }
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -150px;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(to right, transparent 0%, #e8e8e8 50%, transparent 100%);
+    animation: load 1s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@keyframes load {
+  from {
+    left: -150px;
+  }
+  to {
+    left: 100%;
+  }
+}

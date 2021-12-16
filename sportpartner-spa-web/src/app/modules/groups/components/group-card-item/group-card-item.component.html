@@ -1,0 +1,56 @@
+<ng-container *ngIf="groupDetail; else tplSkeletonGroupCard">
+  <div [@toggleShowGroupCard] class="box-shadow-elevation-4 group-item"
+    [ngStyle]="{'background-image': 'url(' + groupDetail.backgroundImage + ')'}" (click)="goDetaiGroup()">
+    <div class="overlay">
+      <!-- <div class="paragraph-2 number-messages rounded" [ngClass.xs]="'mobile-paragraph-2'"
+      [ngClass.gt-xs]="'desktop-paragraph-2'">
+      <i class="icon-small-line-messages1"></i><div class="number-new-msg">11</div>
+      <span class="text-message" fxHide fxShow.gt-sm="true">&nbsp;
+        <ng-container *ngIf="groupDetail.totalMessage <= 1; else textPluralMessages">
+          {{ 'Web-Group.GENERIC.message' | translate }}
+        </ng-container>
+      </span>
+    </div> -->
+      <div class="city-group-name text-white" [ngClass.xs]="'mobile-heading-2'" [ngClass.gt-xs]="'desktop-heading-2'">
+        {{groupDetail.sportName}} <br>
+        {{groupDetail.cityName}}
+      </div>
+
+      <div class="count-member-total-messages">
+        <div class="members paragraph-2 text-white-80" [ngClass.xs]="'mobile-paragraph-2'"
+          [ngClass.gt-xs]="'desktop-paragraph-2'">
+          <ng-container *ngIf="groupDetail.totalMember <= 1; else textPluralMembers">
+            {{ 'Web-Group.GENERIC.member' | translate }}
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #textPluralMessages>
+  {{ 'Web-Group.GENERIC.messages' | translate:{number : 11} }}
+</ng-template>
+
+<ng-template #textCountMessages>
+  {{ 'Web-Group.GENERIC.messages' | translate:{number : groupDetail.totalMessage} }}
+</ng-template>
+
+<ng-template #textPluralMembers>
+  {{ 'Web-Group.GENERIC.members' | translate:{number : groupDetail.totalMember} }}
+</ng-template>
+
+<ng-template #tplSkeletonGroupCard>
+  <div [@toggleShowGroupCard] class="box-shadow-elevation-4 group-item">
+    <div class="overlay">
+      <div class="city-group-name text-white" [ngClass.xs]="'mobile-heading-2'" [ngClass.gt-xs]="'desktop-heading-2'">
+        <span class="sportname-skeleton _skeleton"></span> <br>
+        <span class="cityname-skeleton _skeleton"></span>
+      </div>
+      <div class="members paragraph-2 text-white-80">
+        <span class="memeber-total-skeleton _skeleton"></span> <span class="line-skeleton"></span> <span
+          class="memeber-total-skeleton _skeleton"></span>
+      </div>
+    </div>
+  </div>
+</ng-template>

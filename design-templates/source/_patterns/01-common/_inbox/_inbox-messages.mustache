@@ -1,0 +1,14 @@
+<div class="messages-list {{^noPremium}}custom-no-premium{{/noPremium}}">
+  <div class="information equalHeight">
+    {{#inbox-messages}} 
+      {{> common-inbox-item}} 
+    {{/inbox-messages}}
+  </div>
+  {{#noPremium}} 
+  {{/noPremium}} 
+  {{^noPremium}}
+  <div class="panel-upgrade-premium-ib">
+    <button class="btn deep-sky-blue btn-block">Become a Premium member today</button>
+  </div>
+  {{/noPremium}}
+</div>

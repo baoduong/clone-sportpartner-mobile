@@ -1,0 +1,199 @@
+<div [@animationOverlay] [@.disabled]="(deviceType | async) ==='desktop' || (deviceType | async) ==='tablet'"
+    *ngIf="isShowListButton" (click)="closeMenuButton()" class="list-button-converstation" appClickOutside
+    (clickOutside)="clickOutside($event)">
+    <div [@animationMobileListButtonConversation] class="list-button">
+        <ng-container *ngIf="room.value.conversationType === 'One'">
+            <ng-container *ngTemplateOutlet="tplListButtonOneOne"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="room.value.conversationType === 'Group'">
+            <ng-container *ngIf="(groupDetail$ | async).isFollowing; else templateListBtnUnJoin">
+                <ng-container *ngTemplateOutlet="tplListButtonGroupUserJoin"></ng-container>
+            </ng-container>
+            <ng-template #templateListBtnUnJoin>
+                <ng-container *ngTemplateOutlet="tplListButtonGroupUserUnJoin"></ng-container>
+            </ng-template>
+        </ng-container>
+    </div>
+</div>
+
+<div *ngIf="isShowDialogBlock" [@animationToggleDialogConfirm] class="dialog-block" fxLayout="column"
+    fxLayoutAlign="center center">
+    <div class="overlay-dialog" (click)="toggleDialogBlock(false)"></div>
+    <div class="box-detail" fxLayout="column" fxLayoutAlign="center center">
+        <div class="dialog-head">
+            <button class="btn" (click)="toggleDialogBlock(false)">
+                <i class="icon-small-line-cross1 text-gray-cool-3"></i>
+            </button>
+        </div>
+        <div class="dialog-content">
+            <div>
+                <!-- Are you sure you want to block this member -->
+                <h2 [innerHTML]="'Conversation.CHAT.menu_1on1chat_block_user_popup_title' | translate"
+                    class="text-gray-cool-1 text-center heading" [ngClass.gt-xs]="'desktop-heading-2'"
+                    [ngClass.xs]="'mobile-heading-1'">
+                </h2>
+            </div>
+            <div>
+                <!-- Cras in ultricies molestie at cras posuere. -->
+                <p [innerHTML]="'Conversation.CHAT.menu_1on1chat_block_user_popup_description' | translate"
+                    class="text-gray-cool-2 text-center sub-title" [ngClass.gt-xs]="'desktop-paragraph-1'"
+                    [ngClass.xs]="'mobile-paragraph-1'">
+                </p>
+            </div>
+            <button class="btn-block" (click)="toggleDialogBlock(false)" appBtnAzure2>
+                <!-- Cancel -->
+                {{ 'Conversation.CHAT.menu_1on1chat_block_user_popup_cancel_button' | translate }}
+            </button>
+            <button class="btn-block btn-confirm" appBtnOutlineAzure2 (click)="blockConversation()">
+                <!-- Yes, block this member -->
+                {{ 'Conversation.CHAT.menu_1on1chat_block_user_popup_yes_button' | translate }}
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- <div *ngIf="isShowDialogDelete" [@animationToggleDialogConfirm] class="dialog-delete" fxLayout="column"
+    fxLayoutAlign="center center">
+    <div class="overlay-dialog" (click)="toggleDialogDelete(false)"></div>
+    <div class="box-detail" fxLayout="column" fxLayoutAlign="center center">
+        <div class="dialog-head">
+            <button class="btn" (click)="toggleDialogDelete(false)">
+                <i class="icon-small-line-cross1 text-gray-cool-3"></i>
+            </button>
+        </div>
+        <div class="dialog-content">
+            <div>
+                <!-- Are you sure you want to delete this conversation? --!>
+                <h2 [innerHTML]="'Conversation.CHAT.menu_1on1chat_delete_conversation_popup_title' | translate"
+                    class="text-gray-cool-1 text-center heading" [ngClass.gt-xs]="'desktop-heading-2'"
+                    [ngClass.xs]="'mobile-heading-1'">
+                </h2>
+            </div>
+            <div>
+                <!-- Cras in ultricies molestie at cras posuere. --!>
+                <p [innerHTML]="'Conversation.CHAT.menu_1on1chat_delete_conversation_popup_description' | translate"
+                    class="text-gray-cool-2 text-center sub-title" [ngClass.gt-xs]="'desktop-paragraph-1'"
+                    [ngClass.xs]="'mobile-paragraph-1'">
+                </p>
+            </div>
+            <button class="btn-block" (click)="toggleDialogDelete(false)" appBtnAzure2>
+                <!-- Cancel--!>
+                {{ 'Conversation.CHAT.menu_1on1chat_delete_conversation_popup_cancel_button' | translate }}
+            </button>
+            <button class="btn-block btn-confirm" appBtnOutlineAzure2 (click)="deleteConversation()">
+                <!-- Yes, delete it --!>
+                {{ 'Conversation.CHAT.menu_1on1chat_delete_conversation_popup_yes_button' | translate }}
+            </button>
+        </div>
+    </div>
+</div> -->
+
+<app-dialog-confirm-delete-conversation *ngIf="(isShowDialogDelete | async)"
+    (toggleDialogDeleted)="toggleDialogDelete()"></app-dialog-confirm-delete-conversation>
+
+<ng-template #tplListButtonGroupUserJoin>
+    <div class="title-conversation" *ngIf="(deviceType | async) === 'mobile'">
+        <div class="conversation-name">
+            <span class="mobile-text-emphasis-2 text-gray-cool-1">{{ room.value.conversationName }}</span>
+        </div>
+        <button class="btn btn-close" (click)="closeMenuButton()">
+            <i class="icon-small-line-cross1"></i>
+        </button>
+    </div>
+    <button class="btn btn-block" (click)="gotoDetaiGroup()">
+        <i class="icon-small-line-arrow-right text-gray-cool-2"></i>
+        <span class="mobile-paragraph-2 text-gray-cool-2">
+            <!-- Go to group page -->
+            {{ 'Conversation.CHAT.menu_groupchat_goto_group' | translate: { group_name: room.value.conversationName } }}
+        </span>
+    </button>
+
+    <button class="btn btn-block" (click)="showDialogLeaveGroup()">
+        <i class="icon-small-line-cross1 text-gray-cool-2"></i>
+        <span class="mobile-paragraph-2 text-gray-cool-2">
+            <!-- Leave this group -->
+            {{ 'Conversation.CHAT.menu_groupchat_leave_conversation' | translate }}
+        </span>
+    </button>
+    <!-- <button class="btn btn-block" fxHide.xs="true">
+        <i class="icon-small-line-delete text-gray-cool-2"></i>
+        <span class="mobile-paragraph-2 text-gray-cool-2">
+            {{ 'Conversation.CHAT.menu_1on1chat_delete_conversation' | translate }}
+        </span>
+    </button> -->
+    <div fxLayout="row" fxLayoutAlign="center center" class="btn-invite">
+        <button class="btn btn-coral-2 desktop-button-1" (click)="inviteFriends(room.value.referenceId)">
+            <!-- Invite your friend -->
+            {{ 'Conversation.CHAT.menu_groupchat_invite_button' | translate }}
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #tplListButtonGroupUserUnJoin>
+    <div class="title-conversation" *ngIf="(deviceType | async) === 'mobile'">
+        <div class="conversation-name">
+            <span class="mobile-text-emphasis-2 text-gray-cool-1">{{ room.value.conversationName }}</span>
+        </div>
+        <button class="btn btn-close" (click)="closeMenuButton()">
+            <i class="icon-small-line-cross1"></i>
+        </button>
+    </div>
+    <button class="btn btn-block" (click)="gotoDetaiGroup()">
+        <i class="icon-small-line-arrow-right text-gray-cool-2"></i>
+        <span class="mobile-paragraph-2 text-gray-cool-2">
+            <!-- Go to group page -->
+            {{ 'Conversation.CHAT.menu_groupchat_goto_group' | translate: { group_name: room.value.conversationName } }}
+        </span>
+    </button>
+    <button class="btn btn-block" (click)="joinGroup(room.value.referenceId)">
+        <i class="icon-small-line-plus text-gray-cool-2"></i>
+        <span class="mobile-paragraph-2 text-gray-cool-2">
+            <!-- Re-join this group -->
+            {{ 'Conversation.CHAT.menu_groupchat_rejoin_conversation' | translate }}
+        </span>
+    </button>
+</ng-template>
+
+<ng-template #tplListButtonOneOne>
+    <div *ngIf="(deviceType | async) === 'mobile'" class="title-conversation">
+        <div class="conversation-name">
+            <span class="mobile-text-emphasis-2 text-gray-cool-1">
+                <!-- Conversation with name -->
+                {{ 'Conversation.CHAT.menu_1on1chat_title' | translate: { receiver: room.value.conversationName } }}
+            </span>
+        </div>
+        <button class="btn btn-close" (click)="closeMenuButton()">
+            <i class="icon-small-line-cross1"></i>
+        </button>
+    </div>
+    <button class="btn btn-block btn-view-profile" (click)="showPanelProfile()">
+        <i class="icon-small-line-arrow-right text-gray-cool-2"></i>
+        <div class="name-profile">
+            <span class="mobile-paragraph-2 text-gray-cool-2">
+                <!-- View jennifer profile -->
+                {{ 'Conversation.CHAT.menu_1on1chat_view_profile' | translate: { member: room.value.conversationName }
+                }}
+            </span>
+        </div>
+    </button>
+    <button class="btn btn-block" (click)="toggleDialogBlock(true)"
+        [disabled]="(memberProfile$ | async).conversation.isBlocked">
+        <i class="icon-small-line-block text-gray-cool-2"></i>
+        <span class="mobile-paragraph-2 text-gray-cool-2">
+            <!-- Block user -->
+            {{ 'Conversation.CHAT.menu_1on1chat_block_user' | translate }}
+        </span>
+    </button>
+    <button class="btn btn-block" (click)="toggleDialogDelete()"
+        [disabled]="listBoxType === 'Deleted' ? 'disabled' : (memberProfile$ | async).conversation.isBlocked ? 'disabled' : (memberProfile$ | async).conversation.isDeleted ? 'disabled' : null">
+        <i class="icon-small-line-delete text-gray-cool-2"></i>
+        <span class="mobile-paragraph-2 text-gray-cool-2">
+            <!-- Delete conversation -->
+            {{ 'Conversation.CHAT.menu_1on1chat_delete_conversation' | translate }}
+        </span>
+    </button>
+</ng-template>
+
+<app-dialog-confirm-leave-group [isShowDialog]="isShowDialog" [groupId]="room.value.referenceId"
+    (isCloseDialog)="closeDialogLeaveGroup($event)" (confirmLeaveGroup)="onLeaveGroup($event)">
+</app-dialog-confirm-leave-group>

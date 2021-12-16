@@ -1,0 +1,82 @@
+{
+  "activeTabMatches": false,
+  "activeTabMessage": false,
+  "showFcButton": false,
+  "showUploadMyProfile": true,
+  "showStatusMariedProfile": false,
+  "active-my-profile": "",
+  "active-settings": "active",
+  "active-help": "",
+  "isPremium" : false,
+  "basicMember": true,
+  "profileSettings": [{
+      "title": "Show all matches",
+      "desc": "This will also show 'non exact' matches"
+    },
+    {
+      "title": "Are you open to meet singles?",
+      "desc": "Sportpartner works really well for dating"
+    }, {
+      "title": "Are you active on Sportpartner?",
+      "desc": "Turning this off will hide your profile for other members"
+    }, {
+      "title": "Allow search engines to list your profile",
+      "desc": "When this setting is on, search engines may link to your profile"
+    }
+  ],
+  "emailSettings": [{
+      "title": "Visitors alert",
+      "desc": "Send me an email when someone visits my profile"
+    },
+    {
+      "title": "Message alert",
+      "desc": "Send me and email when someone has send me a message"
+    }, {
+      "title": "Match alert",
+      "desc": "Send me and email when I have a new match"
+    }
+  ],
+  "memberblocks": [{
+      "city": "Tay",
+      "name": "Garrett, Hop N.",
+      "isBlocked": true,
+      "isUnBlocked": false
+    }, {
+      "city": "Gaithersburg",
+      "name": "Knox, Honorato X.",
+      "isBlocked": true,
+      "isUnBlocked": false
+    }, {
+      "city": "West Jordan",
+      "name": "Kelly, Marcia E.",
+      "isBlocked": false,
+      "isUnBlocked": true
+    }, {
+      "city": "Dreieich",
+      "name": "Wilder, Eliana R.",
+      "isBlocked": true,
+      "isUnBlocked": false
+    }
+  ],
+  "showMoreUserBlocks": [{
+      "city": "Mülheim",
+      "name": "Davidson, Abbot S."
+    },
+    {
+      "city": "Gold Coast",
+      "name": "William, Reagan N."
+    },
+    {
+      "city": "Vaughan",
+      "name": "Wood, Hanae N."
+    },
+    {
+      "city": "NeuprŽ",
+      "name": "Barnett, Sheila W."
+    },
+    {
+      "city": "Columbus",
+      "name": "Cervantes, Ray S."
+    }
+  ]
+}

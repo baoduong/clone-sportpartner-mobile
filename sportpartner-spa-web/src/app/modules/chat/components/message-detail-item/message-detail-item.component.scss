@@ -1,0 +1,383 @@
+@import "functions";
+@import "media";
+@import "app-colorpalette";
+:host {
+  display: block;
+}
+.me-list-message-item,
+.friend-list-message-item {
+  display: grid;
+  column-gap: 10px;
+  align-items: end;
+  width: 100%;
+}
+.list-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.sent-time {
+  font-family: heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 150%;
+  float: right;
+  // position: relative;
+  // bottom: -5px;
+  transform: translateY(5px);
+  margin-left: 15px;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  i {
+    font-size: 20px;
+    color: inherit;
+  }
+}
+
+.me-list-message-item {
+  align-self: flex-end;
+  grid-template-columns: auto 40px;
+  .message-content {
+    background: map-get($azures, azure-3);
+    color: #ffffff;
+    float: right;
+    /* @include gt-mobile {
+      margin-left: 50px;
+    } */
+  }
+  .sent-time {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.friend-list-message-item {
+  align-self: flex-start;
+  grid-template-columns: 40px auto;
+  .label-message-time {
+    margin-left: -50px;
+  }
+  .message-content {
+    float: left;
+    background: map-get($grayWarms, gray-warm-5);
+    color: map-get($grayCools, gray-cool-1);
+    /*  @include gt-mobile {
+      margin-right: 50px;
+    } */
+  }
+  .sent-time {
+    color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.message-content {
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-family: heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 150%;
+  // margin-top: 5px;
+  display: inline-block;
+  max-width: 380px;
+  word-break: break-word;
+}
+
+.avatar {
+  display: block;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  object-fit: cover;
+  img {
+    height: 100%;
+    min-width: 100%;
+  }
+  &.avtafriend {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.row-message {
+  display: flex;
+  flex-direction: column;
+  // margin-top: 5px;
+  &.notify-center {
+    justify-content: center;
+    align-items: center;
+    // margin-top: 20px;
+  }
+}
+.wrap-showUpAnimation {
+  overflow: hidden;
+  position: relative;
+}
+.showUpAnimation {
+  animation: showUpAnimation 0.3s ease 1;
+}
+
+@keyframes showUpAnimation {
+  from {
+    // transform: translateY(100px);
+    max-height: 0;
+  }
+  to {
+    max-height: 500px;
+  }
+}
+
+.label-message-time {
+  text-align: center;
+  width: calc(100% + 50px);
+}
+.label-message-time-badge {
+  background: map-get($grayWarms, gray-warm-6);
+  border-radius: 20px;
+  display: inline-block;
+  padding: 5px 15px;
+  @include gt-mobile {
+    padding: 10px 20px;
+  }
+  .lbl-message {
+    color: rgba(0, 0, 0, 0.6);
+    font-family: heebo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    @include gt-mobile {
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+.photo-request {
+  padding: 30px;
+  background: map-get($grayWarms, gray-warm-6);
+  border-radius: 8px;
+  overflow: hidden;
+  .grid {
+    display: grid;
+    row-gap: 20px;
+    justify-items: center;
+    > div {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      display: flex;
+    }
+    .icon {
+      border-radius: 40px;
+      width: 70px;
+      height: 70px;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i {
+        font-size: 40px;
+        color: map-get($grayCools, gray-cool-2);
+      }
+    }
+  }
+  .btn-upload-photo {
+    display: block;
+    width: 100%;
+    @include gt-mobile {
+      width: auto;
+      min-width: 275px;
+      display: inline-block;
+    }
+  }
+}
+
+.wrapper-my-hf {
+  .icon-medium-solid-hf {
+    font-size: 40px;
+    vertical-align: bottom;
+  }
+  & + span {
+    margin-top: 6px;
+  }
+  &.friend-hf-back {
+    .icon-medium-solid-hf {
+      color: map-get($grayCools, gray-cool-2);
+    }
+  }
+}
+
+.friend-sent-hf-container {
+  background: #faf9f7;
+  padding: 30px;
+  border-radius: 8px;
+  .avatar-hf {
+    .user-avatar {
+      position: relative;
+      width: 120px;
+      margin: 0 auto;
+      .user-icon-hf {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        left: calc(50% - 70px / 2 + 70px);
+        top: calc(50% - 70px / 2);
+        background: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i {
+          font-size: 40px;
+          color: map-get($corals, coral-2);
+        }
+      }
+      .round {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+          max-width: 100%;
+          object-fit: contain;
+          height: auto;
+        }
+      }
+    }
+  }
+  .member-details {
+    margin-top: 20px;
+    display: grid;
+    row-gap: 4px;
+    .name {
+      font-family: Heebo;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 20px;
+      /* identical to box height, or 111% */
+
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      /* Gray Cool 1 */
+      color: #262f40;
+    }
+    .location {
+      font-family: Heebo;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 150%;
+      /* identical to box height, or 24px */
+
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      /* Black 40 */
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
+  .desc-text {
+    margin-top: 20px;
+    font-family: Heebo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+    @include gt-mobile {
+      font-size: 18px;
+      padding: 0 60px;
+    }
+    /* or 24px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    /* Gray Cool 2 */
+    color: #525866;
+  }
+  .give-back-hf {
+    margin-top: 20px;
+    button {
+      display: block;
+      width: 100%;
+      @include gt-mobile {
+        max-width: 275px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.notice-label {
+  background: map-get($corals, coral-6);
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-flex;
+
+  .lbl-message {
+    color: map-get($corals, coral-2);
+    width: 100%;
+    .say-hello-box,
+    .say-hi-box {
+      .user-info {
+        @include gt-mobile {
+          min-width: 215px;
+          margin-right: 10px;
+        }
+        .avatar {
+          margin-right: 15px;
+          min-width: 40px;
+        }
+        .mesage-join {
+          max-width: 100%;
+        }
+      }
+      .btn-welcome {
+        max-width: 100%;
+        button {
+          min-width: 110px;
+          max-width: 100%;
+        }
+        @include gt-mobile {
+          max-width: 40%;
+        }
+        @include tablet {
+          max-width: 35%;
+        }
+      }
+    }
+  }
+
+  &.join-conversation {
+    background: map-get($grayWarms, gray-warm-6);
+    padding: 13px 15px 13px 20px;
+    width: 100%;
+    @include mobile {
+      padding: 20px;
+    }
+  }
+}
+
+.HighFive-message,
+.PhotoRequest-message,
+.LeftConversation-message,
+.JoinConversation-message {
+  margin-top: 20px;
+}
+
+.HighFive-message.my-message,
+.FirstMessage-message,
+.HighFiveBack-message,
+.Normal-message,
+.HelloEveryone-message,
+.SayHi-message {
+  margin-top: 5px;
+}

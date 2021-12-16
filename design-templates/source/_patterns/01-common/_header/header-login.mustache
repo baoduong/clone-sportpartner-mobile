@@ -1,0 +1,27 @@
+<div class="header-bar {{ customHeaderClass }}">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="ma-0 list-inline">
+          {{> common-menu }}
+          <li class="list-inline-item">
+            <h1 class="sportpartner">
+              sportpartner
+            </h1>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <ul class="ma-0 list-inline float-right">
+          <li class="list-inline-item">
+            <label class="New-to-Sportpartner ma-0">New to Sportpartner?</label>
+          </li>
+          <li class="list-inline-item">
+            {{> elements-link(href: "#", class: "btn btn-link black-two", linkText: "Sign up") }}            
+          </li>          
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{{> common-navigation }}

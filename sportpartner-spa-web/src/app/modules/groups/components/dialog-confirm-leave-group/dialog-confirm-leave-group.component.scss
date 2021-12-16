@@ -1,0 +1,100 @@
+@import "media";
+@import "app-colorpalette";
+
+.overlay-dialog {
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  @include gt-mobile {
+    align-items: center;
+  }
+  .dialog-confirm {
+    background: #ffffff;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    padding: 77px 0;
+    width: 100vw;
+    @include mobile {
+      animation: animationSlideUp 0.3s 1;
+    }
+    @include gt-mobile {
+      min-width: 520px;
+      max-width: 520px;
+      padding: 50px 30px;
+      width: auto;
+      border-radius: 8px;
+      animation: animationFadeIn 0.3s 1;
+      .desktop-paragraph-1 {
+        padding: {
+          left: 30px;
+          right: 30px;
+        }
+      }
+    }
+    .btn-close {
+      width: 20px;
+      height: 20px;
+      right: 30px;
+      top: 30px;
+      position: absolute;
+      font-size: 20px;
+      color: rgba(0, 0, 0, 0.2);
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .alert-content {
+      display: grid;
+      row-gap: 30px;
+      @include gt-mobile {
+        padding: 0;
+      }
+      .messages {
+        display: grid;
+        padding: 0px 30px;
+        row-gap: 20px;
+        @include gt-mobile {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+  .ctas {
+    padding: 0 30px;
+    display: grid;
+    row-gap: 10px;
+    @include gt-mobile {
+      max-width: 240px;
+      margin: 0 auto;
+      padding: 10px 0px;
+      width: 100%;
+    }
+  }
+}
+
+@keyframes animationSlideUp {
+  from {
+    bottom: -100vh;
+  }
+  to {
+    bottom: 0;
+  }
+}
+
+@keyframes animationFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

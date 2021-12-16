@@ -1,0 +1,31 @@
+<div fxLayout="column" id="start-groups-layout" class="background-indigo-2">
+  <div fxFlex="auto" class="wrapper-content">
+    <div>
+      <div class="step-slide" style="opacity: 0;" [@changeStepWelcome]="initState == 'step1' ? 'step1' : 'hide'">
+        <app-start-group-slider-item [IconName]="'icon-medium-line-groups'"
+          [Content]="'Web-Group.INTRODUCTION.description1'" [Title]="'Web-Group.INTRODUCTION.title1'">
+        </app-start-group-slider-item>
+      </div>
+      <div class="step-slide" style="opacity: 0;" [@changeStepWelcome]="initState == 'step2' ? 'step2' : 'hide'">
+        <app-start-group-slider-item [IconName]="'icon-medium-line-location'"
+          [Content]="'Web-Group.INTRODUCTION.description2'" [Title]="'Web-Group.INTRODUCTION.title2'">
+        </app-start-group-slider-item>
+      </div>
+
+      <div class="step-slide" style="opacity: 0;" [@changeStepWelcome]="initState == 'step3' ? 'step3' : 'hide'">
+        <app-start-group-slider-item [IconName]="'icon-medium-line-chat'" [Content]="'Web-Group.INTRODUCTION.description3'" [Title]="'Web-Group.INTRODUCTION.title3'">
+        </app-start-group-slider-item>
+      </div>
+    </div>
+  </div>
+  <div class="slider-button">
+    <div class="dots">
+      <span [class.active]="initState == 'step1'"></span>
+      <span [class.active]="initState == 'step2'"></span>
+      <span [class.active]="initState == 'step3'"></span>
+    </div>
+    <button (click)="changeStep()" appBtnCoral2Large class="btn-block btn-next-slide">
+      {{labelButton | translate}}
+    </button>
+  </div>
+</div>

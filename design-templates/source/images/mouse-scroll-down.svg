@@ -1,0 +1,8 @@
+<svg width="20" height="30" viewBox="0 0 20 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Canvas" fill="none">
+<g id="scroll down">
+<path id="Stroke 1" d="M 8.11268 28L 8.11268 28C 3.63245 28 0 24.418 0 20L 0 8C 0 3.582 3.63245 0 8.11268 0C 12.5929 0 16.2254 3.582 16.2254 8L 16.2254 20C 16.2254 24.418 12.5929 28 8.11268 28Z" transform="translate(1.88733 1)" stroke="white" stroke-width="2"/>
+<path id="Stroke 3" d="M 0 0L 0 4" transform="translate(10 6)" stroke="white" stroke-width="2" stroke-linecap="round"/>
+</g>
+</g>
+</svg>

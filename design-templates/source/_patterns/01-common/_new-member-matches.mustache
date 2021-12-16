@@ -1,0 +1,29 @@
+<div class="block-new-member {{# showRemove}}unselected{{/ showRemove}}{{^ showRemove}}{{/ showRemove}}">
+  <div class="partition-head">
+    <div class="name">
+      <div class="img">
+        <div class="avatar">
+          <img src="" alt="">
+        </div>
+      </div>
+      <div class="add">
+        <p class="m-0 add-name">Name Lorem Ipsum dorlor sit amet</p>
+        <p class="m-0 add-city">City M30 Lorem Ipsum dorlor sit amet</p>
+      </div>
+    </div>
+    <div class="check">
+      <button type="button" class="btn round">
+        {{# showRemove}}
+          <img class="img-remove" src="/images/icons-solid/close.svg" alt="">
+        {{/ showRemove}}
+        {{^showRemove}}
+          <img src="/images/icons-solid/tick.svg" alt="">
+        {{/ showRemove}}
+      </button>
+    </div>
+  </div>
+  <div class="space-20"></div>
+  <div class="partition-desc">
+    <p class="m-0">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada</p>
+  </div>
+</div>

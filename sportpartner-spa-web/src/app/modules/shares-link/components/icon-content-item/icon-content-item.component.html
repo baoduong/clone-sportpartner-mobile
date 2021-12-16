@@ -1,0 +1,15 @@
+<div class="">
+  <div class="wrap-icon">
+    <span class="badge">
+      <i class="{{item.icon}}"></i>
+    </span>
+  </div>
+  <h3 class="text-gray-cool-1 text-center heading-3" [ngClass.xs]="'mobile-heading-3'"
+    [ngClass.gt-xs]="'desktop-heading-3'">
+    {{item.title | translate }}
+  </h3>
+
+  <p class="text-gray-cool-2 text-center" [ngClass.xs]="'mobile-paragraph-1'" [ngClass.gt-xs]="'desktop-paragraph-1'">
+    {{item.description | translate }}
+  </p>
+</div>

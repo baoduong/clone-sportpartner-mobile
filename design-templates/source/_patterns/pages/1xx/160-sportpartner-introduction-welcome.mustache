@@ -1,0 +1,36 @@
+<div id="introduce-page">
+    <div class="sportpartner-wellcome-title">
+        <span class="m-0 text-center font-weight-bold font-size-24 font-family-gilroy text-color-orangey-red">
+            Sportpartner
+        </span>
+    </div>
+    <div class="content-introduce">
+        <div class="content active" data-step="1">
+            {{> common-content-1 }}
+        </div>
+        <div class="content" data-step="2">
+            {{> common-content-2 }}
+        </div>
+        <div class="content" data-step="3">
+            {{> common-content-3 }}
+        </div>
+        <div class="wrap-btn-next text-center">
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <span data-step="1" class="round active"></span>
+                </li>
+                <li class="list-inline-item">
+                    <span data-step="2" class="round"></span>
+                </li>
+                <li class="list-inline-item">
+                    <span data-step="3" class="round"></span>
+                </li>
+            </ul>
+            <div class="position-relative">
+                <button id="intro-next-step" type="button" class="m-0 active btn font-size-16 orangey-red btn-block">Continue</button>
+                <a href="#" id="next-matches" class="m-0 btn font-size-16 orangey-red btn-block">Show my matches</a>
+            </div>
+        </div>
+    </div>
+    <a class="skip-introduction" href="#">skip introduction</a>
+</div>

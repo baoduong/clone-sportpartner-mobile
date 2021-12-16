@@ -1,0 +1,40 @@
+<div [ngClass]="{
+    'input-message-layout-desktop': (deviceType | async)==='desktop',
+    'input-message-layout-mobile':(deviceType | async)=='mobile' || (deviceType | async)==='tablet' }" appClickOutside
+    (clickOutside)="clickOutside($event)">
+    <ng-container *ngIf="(deviceType | async)==='desktop'">
+        <div class="emoji-list" [ngClass]="{'show': (isShowSelectingEmoji | async)}">
+            <div class="emoji-list-content">
+                <button (click)="toggleSelectingEmoji()" class="btn btn-link btn-close-choose-emoji">
+                    <i class="icon-small-line-cross1"></i>
+                </button>
+                <ul>
+                    <li *ngFor="let emoj of emojiIcons">
+                        <button class="btn btn-link" (click)="onSelectEmoji(emoj.key)">
+                            <img [src]="'/spa-web/assets/images/emoticons/'+emoj.img">
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ng-container>
+    <div class="formgroup-messages">
+        <div *ngIf="(deviceType | async)==='desktop'" class="section-emoji">
+            <button (click)="toggleSelectingEmoji()" class="btn" [ngClass]="{'active': (isShowSelectingEmoji | async)}" [disabled]="isDisableSend">
+                <i class="icon-medium-line-smily"></i>
+            </button>
+        </div>
+        <div class="layout-input-box">
+            <div class="input-message">
+                <textarea id="txtTextareaMessage" style="height: 50px;" #textarea class="form-control"
+                    (focus)="onFocusInput()" (blur)="onBlurInput()" (keydown.enter)="onKeydownEnter($event)" autocomplete="disabled"
+                    placeholder="Type a messsage" [disabled]="isDisableSend"></textarea>
+            </div>
+            <div class="section-button-send">
+                <button (click)="sendMessage()" class="btn" [disabled]="isDisableSend">
+                    <i class="icon-small-solid-send"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

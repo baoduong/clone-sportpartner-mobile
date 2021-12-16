@@ -1,0 +1,186 @@
+@import "app-colorpalette";
+
+.dropdown-menu-account {
+  padding: 0 0 3px 0;
+  width: 300px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border: solid 1px #939393;
+  margin-top: -8px;
+  .title-item-account {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #f0f0f0;
+    .menu-upgrade-button {
+      display: flex;
+      align-items: center;
+      margin: 0 auto 20px;
+      height: 40px;
+      width: 260px;
+      padding: 7px 12px;
+      font-size: 16px;
+      background-color: #0d86ff;
+      color: #fff;
+      font-weight: normal;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border-radius: 4px;
+      img {
+        margin-right: 8px;
+        width: 28px;
+        vertical-align: -10px;
+      }
+    }
+    .block-avatar {
+      display: flex;
+      height: 100px;
+      padding: 20px;
+
+      .bl-name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .title {
+          max-width: 191px;
+          margin: 0;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          font-size: 20px;
+          font-weight: bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.3;
+          letter-spacing: normal;
+          text-align: left;
+          color: #262f40;
+          font-family: "gilroy";
+        }
+        .user-type-box {
+          position: relative;
+          small {
+            font-size: 16px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            text-align: left;
+            color: #525866;
+          }
+          .tooltip-user-type {
+            display: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: #262f40;
+            text-align: center;
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            bottom: 100%;
+            margin-bottom: 2px;
+            font-size: 15px;
+            min-width: 100%;
+            z-index: 99;
+            &::after {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: map-get($grayCools, gray-cool-1) transparent transparent transparent;
+            }
+            small {
+              color: #FFFFFF;
+            }
+          }
+          &:hover {
+            .tooltip-user-type {
+              display: block;
+            }
+          }
+        }
+      }
+      .block-img {
+        position: relative;
+        padding-right: 20px;
+        .oval-avatar {
+          overflow: hidden;
+          width: 60px;
+          height: 60px;
+          background-color: #939393;
+          position: relative;
+          display: block;
+          border-radius: 50%;
+          img {
+            max-width: 100%;
+            object-fit: contain;
+            height: auto;
+            min-width: 60px;
+          }
+        }
+        .is-premium {
+          position: absolute;
+          z-index: 99;
+          top: 0;
+          right: 8px;
+          width: 30px;
+          height: 30px;
+          background-color: #f53;
+          display: flex;
+          border-radius: 50%;
+          justify-content: center;
+          align-items: center;
+          color: #fff;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  .dropdown-item {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.63;
+    letter-spacing: normal;
+    text-align: left;
+    color: #807e7c;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+    width: auto;
+    border-radius: 2px;
+    padding: 0.25rem 1.5rem;
+    padding-left: 15px;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+
+    &:hover {
+      color: #ff5533 !important;
+      background-color: #f8f8f8 !important;
+    }
+  }
+
+  .dropdown-divider {
+    margin-top: 5px;
+    margin-bottom: 3px;
+    height: 0;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #e9ecef;
+  }
+}
+
+.crop-text {
+  display: inline-block;
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}

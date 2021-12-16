@@ -1,0 +1,244 @@
+@import "functions";
+@import "app-colorpalette";
+@import "media";
+
+:host {
+  //background: map-get($color-pallets, indigo-2);
+  display: block;
+  z-index: 2000;
+
+  .dropdown-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: {
+      left: 30px;
+    }
+    box-shadow: none !important;
+    &:after {
+      border: 0;
+      font-family: "icon-small-line";
+      content: "\e93c";
+      color: map-get($color-pallets, white-60);
+      line-height: 1;
+      margin-left: 15px;
+    }
+  }
+}
+
+.navigation-box {
+  height: 70px;
+  background: map-get($color-pallets, indigo-2);
+
+  @include mobile {
+    /* position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+      --safe-area-inset-bottom: env(safe-area-inset-bottom);
+      padding-bottom: var(--safe-area-inset-bottom) !important;
+      height: calc(71px + var(--safe-area-inset-bottom)) !important;
+      // max-height: 90px;
+    }
+  }
+
+  @include gt-mobile {
+    height: 80px;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1);
+  }
+
+  .navigation-wrap {
+    position: relative;
+  }
+}
+
+.nav-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  position: relative;
+  text-decoration: none !important;
+
+  content: none;
+  @include gt-mobile {
+    border-bottom: 4px solid transparent;
+    padding-top: 4px;
+  }
+
+  &.router-link-active {
+    color: map-get($color-pallets, coral-2);
+    @include mobile {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        width: 40px;
+        margin: auto;
+        background-color: map-get($color-pallets, coral-2);
+      }
+    }
+    @include gt-mobile {
+      border-bottom-color: map-get($color-pallets, coral-2);
+    }
+  }
+  ::ng-deep {
+    [class^="icon-medium-line-"] {
+      font-size: 40px;
+    }
+
+    .count {
+      $size: 14px;
+      position: absolute;
+      font-size: pxToPoint(12);
+      width: $size;
+      height: $size;
+      left: calc(50% - 14px / 2 + 12.5px);
+      top: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white !important;
+      $borderColor: map-get($color-pallets, indigo-2);
+      border: 2px solid $borderColor;
+      line-height: 1;
+      @include gt-mobile {
+        top: 20px;
+      }
+    }
+
+    .avatar {
+      $size: pxToPoint(30);
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      display: inline-flex;
+      overflow: hidden;
+      justify-content: center;
+      align-items: center;
+      @include gt-mobile {
+        $size: pxToPoint(40);
+        width: $size;
+        height: $size;
+      }
+      img {
+        // max-width: 100%;
+        height: 100%;
+        object-position: center;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.custom-2,
+.custom-1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.custom-1 {
+  left: 0;
+}
+
+.custom-2 {
+  right: 0;
+}
+
+.hamburger-logo {
+  margin: 0;
+  height: 80px;
+  @include gt-mobile {
+    display: flex;
+  }
+  .btn {
+    i {
+      font-size: 40px;
+      color: map-get($color-pallets, white-60);
+    }
+  }
+  .list-inline-item {
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0;
+    &:first-child {
+      width: 80px;
+      .btn {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    &:last-child {
+      &::before {
+        content: "";
+        width: 1px;
+        height: 30px;
+        background-color: map-get($color-pallets, white-60);
+        display: inline-block;
+        margin-right: 30px;
+      }
+    }
+  }
+}
+
+.menu-1 {
+  height: 100%;
+  width: 100%;
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 auto;
+  max-width: 80%;
+  .nav-items {
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    max-width: 25%;
+    @include gt-mobile {
+      width: 80px !important;
+      max-width: 80px !important;
+    }
+  }
+  &.disable-group {
+    max-width: 75%;
+    .nav-items {
+      max-width: calc(100% / 3);
+    }
+  }
+  @include gt-mobile {
+    max-width: 100% !important;
+  }
+}
+
+.menu-2 {
+  flex: 1 1 100%;
+  box-sizing: border-box;
+  max-width: 20%;
+  flex-direction: row;
+  display: flex;
+  &.disable-group {
+    max-width: 25%;
+  }
+
+  @include gt-mobile {
+    width: 160px;
+  }
+
+  @include tablet {
+    width: 80px;
+  }
+}

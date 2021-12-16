@@ -1,0 +1,104 @@
+<div class="my-profile-settings" id="page-my-profile-form">
+  <form action="">
+    <div class="field">
+      <label class="m-0 Paragraph-1-form-label d-md-block">Name</label>
+      <label class="Description d-md-block">This is what other will see when viewing your profile</label>
+      <div class="field-panel">
+        <div class="select-sport-panel input full-width m-0">
+          {{> elements-input(type: "text", placeholder: "Type your name here") }}
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label class="Paragraph-1-form-label d-md-block">Select gender</label>
+      <div class="field-panel">
+        <label class="select-sport-panel customize-checkbox m-0">
+          {{> elements-radiobutton(rbName: "fml", checkboxId: "Male", checkboxText: "Male")}}
+        </label>
+        <label class="select-sport-panel customize-checkbox m-0">
+          {{> elements-radiobutton(rbName: "fml", checkboxId: "Female", checkboxText: "Female")}}
+        </label>
+      </div>
+    </div>
+    <div class="field">
+      <label for="" class="Paragraph-1-form-label d-md-block">What is your age?</label>
+      <div class="field-panel">
+        <div class="select-sport-panel dropdown m-0">
+          <select class="custom-select" id="">
+            <option selected value="1">Select age</option>
+            <option value="1">20</option>
+            <option value="2">21</option>
+            <option value="3">22</option>
+            <option value="4">23</option>
+            <option value="5">24</option>
+            <option value="6">25</option>
+            <option value="7">26</option>
+            <option value="8">27</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="field" id="age-range-settings">
+      <div class="inline-label">
+        <label for="" class="ma-0 Paragraph-1-form-label d-md-inline-block">Age range</label>
+        <label for="" class="Description d-md-inline-block">
+          <span class="minValue">20</span> -
+          <span class="maxValue">30</span> year</label>
+      </div>
+      <div class="slider-panel">
+        <input type="text" name="range-age" data-slider-min="18" data-slider-max="99" data-slider-step="1" data-slider-tooltip="hide"
+          data-slider-value="[20,30]">
+      </div>
+    </div>
+    <div class="space-10"></div>
+    <div class="field">
+      <label for="" class="Paragraph-1-form-label d-md-block">What city do you live in?</label>
+      <div class="field-panel">
+        <div class="select-sport-panel input full-width m-0">
+          {{> elements-input(type: "text", placeholder: "Type your city here") }}
+        </div>
+      </div>
+    </div>
+    <div class="field" id="distance-settings">
+      <div class="inline-label">
+        <label for="" class="ma-0 Paragraph-1-form-label d-md-inline-block">Search distance</label>
+        <label for="" class="Description d-md-inline-block">
+          <span class="value">20</span> km
+      </div>
+      <div class="slider-panel">
+        <input type="text" name="range-distance" data-slider-min="1" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide"
+          data-slider-value="20">
+      </div>
+    </div>
+    <div class="space-10"></div>
+    <div class="field">
+      <label for="" class="Paragraph-1-form-label d-md-block">You are looking for?</label>
+      <div class="field-panel">
+        <label class="select-sport-panel customize-checkbox m-0">
+          {{> elements-checkbox(checkboxId: "Man", checkboxText: "Man")}}
+        </label>
+        <label class="select-sport-panel customize-checkbox m-0">
+          {{> elements-checkbox(checkboxId: "Woman", checkboxText: "Woman")}}
+        </label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="m-0 Paragraph-1-form-label d-md-block">Write something about yourself</label>
+      <label class="Description d-md-block">Field input extra information</label>
+      <textarea style="min-height: 155px;" class="form-control inputfield " name="" rows="5"></textarea>
+    </div>
+    <div class="space-10"></div>
+    <div class="field">
+      <label for="" class="ma-0 Paragraph-1-form-label d-md-block">Which sports are you interested in?</label>
+      <label for="" class="Description d-md-block">You can select as many as you want</label>
+      <div class="field-panel">
+        {{# sports }}
+        <label class="select-sport-panel customize-checkbox">
+          {{> elements-checkbox(checkboxId: "{{ name }}", checkboxText: "{{ name }}")}}
+          <span class="Rectangle-3"></span>
+        </label>
+        {{/ sports }}
+      </div>
+    </div>
+  </form>
+</div>

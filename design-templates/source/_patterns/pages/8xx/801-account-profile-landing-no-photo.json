@@ -1,0 +1,56 @@
+{
+  "activeTabMatches": false,
+  "activeTabMessage": false,
+  "showFcButton": false,
+  "showUploadMyProfile": true,
+  "accountNoPhoto": true,
+  "sports": [{
+      "name": "Dansen"
+    },
+    {
+      "name": "Squash"
+    },
+    {
+      "name": "Hardlopen"
+    },
+    {
+      "name": "Schaatsen"
+    },
+    {
+      "name": "Wandelen"
+    },
+    {
+      "name": "Zwemmen"
+    },
+    {
+      "name": "Fietsen"
+    },
+    {
+      "name": "Skeeleren"
+    },
+    {
+      "name": "Golf"
+    },
+    {
+      "name": "Bridgen"
+    },
+    {
+      "name": "Fitness"
+    },
+    {
+      "name": "Zeilen"
+    },
+    {
+      "name": "Hiken"
+    },
+    {
+      "name": "Badminton"
+    },
+    {
+      "name": "Vissen"
+    },
+    {
+      "name": "Skiën"
+    }
+  ]
+}

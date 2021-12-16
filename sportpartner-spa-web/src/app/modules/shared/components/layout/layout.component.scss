@@ -1,0 +1,18 @@
+@import "media";
+
+.gird-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  @include mobile {
+    padding-bottom: 70px;
+  }
+}
+
+/* :host {
+  z-index: 1;
+} */
+
+.hideLayout{
+  // display: none;
+}

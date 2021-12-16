@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>icons small / premium small</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M15.878,8.65995 C15.746,8.50795 15.534,8.44795 15.342,8.51395 L12.692,9.39595 L10.407,6.19695 C10.22,5.93395 9.78,5.93395 9.593,6.19695 L7.308,9.39595 L4.658,8.51395 C4.467,8.44895 4.255,8.50795 4.122,8.65995 C3.99,8.81295 3.962,9.03095 4.053,9.21095 L6.053,13.21095 C6.138,13.38095 6.311,13.48795 6.5,13.48795 L13.5,13.48795 C13.69,13.48795 13.862,13.38095 13.947,13.21095 L15.947,9.21095 C16.038,9.03095 16.01,8.81295 15.878,8.65995" id="path-1"></path>
+    </defs>
+    <g id="icons-small-/-premium-small" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Fill-1" fill="#000000" xlink:href="#path-1"></use>
+        <g id="colours-/-dark" mask="url(#mask-2)" fill="#000000">
+            <rect id="Rectangle-4" x="0" y="0" width="20" height="20"></rect>
+        </g>
+    </g>
+</svg>

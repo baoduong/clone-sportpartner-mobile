@@ -1,0 +1,168 @@
+@import "media";
+@import "app-colorpalette";
+
+.overlay-list-member {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1020;
+  background: #000;
+  opacity: 0.5;
+  position: fixed;
+
+  @include mobile{
+    background: rgba(0,0,0,0);
+  }
+}
+
+
+.lits-member-group {
+  position: fixed;
+  background: #fff;
+
+  @include gt-mobile {
+    z-index: 1021;
+    border-radius: 8px;
+    right: 50%;
+    top: 50%;
+    transform: translateX(50%) translateY(-50%);
+    height: 560px;
+    width: 640px;
+
+    animation: animationFadeIn 0.4s 1;
+  }
+
+  @include mobile{
+    border-radius: 8px 8px 0 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(var(--vh100) - 20%);
+    z-index: 1021;
+
+    animation: animationSlide 0.3s 1;
+  }
+
+  .total-member {
+    padding: 23px 0;
+    position: relative;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+  
+    @include mobile {
+      text-align: center;
+    }
+  
+    @include gt-mobile {
+      padding: 30px;
+      height: 80px;
+    }
+  
+    .close {
+      position: absolute;
+      right: 29px;
+      cursor: pointer;
+    }
+  
+    .title-member {
+      color: map-get($grayCools, gray-cool-1);
+    }
+  
+    .title-recently {
+      color: map-get($grayCools, gray-cool-1);
+    }
+  }
+  
+  .content-list-member {
+    height: var(--vh100);
+  
+    @include gt-mobile {
+      height: 480px;
+    }
+  
+    .list-member-box {
+      height: calc(var(--vh100) - (20% + 70px));
+      padding: 0 20px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+  
+      @include gt-mobile {
+        height: 470px;
+        padding: 0 30px;
+  
+        &::-webkit-scrollbar {
+          width: 4px;
+          height: 95%;
+          background-color: #f5f5f5;
+        }
+  
+        &::-webkit-scrollbar-thumb {
+          background-color: gray;
+        }
+  
+        &::-webkit-scrollbar-track-piece {
+          opacity: 0;
+        }
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 31px;
+        margin-bottom: 25px;
+  
+        @include gt-mobile {
+          margin-top: 35px;
+        }
+  
+        li {
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+@keyframes animationSlide {
+  from {
+    bottom: -100vh;
+  }
+
+  to{
+    bottom: 0;
+  }
+}
+
+@keyframes animationFadeIn {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+
+.loading-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  .loading-icon {
+    transform: translateX(-50%);
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #ff5533;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

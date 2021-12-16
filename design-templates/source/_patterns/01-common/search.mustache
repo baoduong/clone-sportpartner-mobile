@@ -1,0 +1,73 @@
+<div id="search-match">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <form class="frm-search-panel">
+          <div class="search-panel-left">
+            <div class="btn-group filter-dropdown">
+              <button type="button" class="btn btn-block text-left outline-white-four dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Filter resultaten
+              </button>
+              <div class="dropdown-for-filter dropdown-menu">
+                <ul class="list-unstyled m-0">
+                  <li>
+                    <label class="customize-checkbox">
+                      <div class="custom-control custom-checkbox" data-value="only-show-photo">
+                        <input type="checkbox" class="custom-control-input" id="only-show-photo">
+                        <label class="custom-control-label text-nowrap" for="only-show-photo">
+                          <!-- <img src="/images/icons-solid/photo.svg" alt="" class="search-bar-filter-img">  -->
+                          <span class="sport-icons photo"></span>
+                          Only show members with photo</label>
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <div class="custom-control custom-checkbox customize-checkbox" data-value="only-show-singles">
+                      <input type="checkbox" class="custom-control-input" id="only-show-singles">
+                      <label class="custom-control-label text-nowrap" for="only-show-singles">
+                        <!-- <img src="/images/icons-solid/singles.svg" alt="" class="search-bar-filter-img"> -->
+                        <span class="sport-icons heart"></span>
+                         Only show singles</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="custom-control custom-checkbox customize-checkbox" data-value="only-show-premium">
+                      <input type="checkbox" class="custom-control-input" id="only-show-premium">
+                      <label class="custom-control-label text-nowrap" for="only-show-premium">
+                        <!-- <img src="/images/icons-solid/premium-member.svg" alt="" class="search-bar-filter-img">  -->
+                        <span class="sport-icons premium"></span>
+                        Only show Premium members</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="custom-control custom-checkbox customize-checkbox" data-value="only-show-favorites">
+                      <input type="checkbox" class="custom-control-input" id="only-show-favorites">
+                      <label class="custom-control-label text-nowrap" for="only-show-favorites">
+                        <!-- <img src="/images/icons-solid/star-filled.svg" alt="" class="search-bar-filter-img"> -->
+                        <span class="sport-icons favorites-filled"></span>
+                         Only show favorites</label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="search-panel">
+              <input type="text" class="form-control inputfield input-search" placeholder="Search for members" /> {{> common-banner-matched-page }}
+            </div>
+          </div>
+          <div class="search-panel-right">
+            <input id="txtSearch" type="text" class="form-control inputfield" placeholder="Utrecht" />
+            <select name="slDistance" id="" class="form-control custom-select">
+              <option value="15" selected>+ 15km</option>
+              <option value="20" selected>+ 20km</option>
+              <option value="35" selected>+ 35km</option>
+              <option value="50" selected>+ 50km</option>
+              <option value="75" selected>+ 75km</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

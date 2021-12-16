@@ -1,0 +1,174 @@
+@mixin customButtonStyle($background, $colorText, $keyStyle) {
+  background-color: $background;
+  color: $colorText;
+
+  @if $keyStyle==white-zero or $keyStyle==white-three {
+    @include style-desktop {
+      &:not(.status-disabled):hover {
+        background-color: $orangey-red;
+        color: #fff;
+
+        img {
+          filter: invert(100%);
+          -webkit-filter: invert(100%);
+          -ms-filter: invert(100%);
+        }
+      }
+    }
+  } @else {
+    @include style-desktop {
+      &:hover:not(.btn-link),
+      &:hover:not(.status-disabled) {
+        background-color: darken($color: $background, $amount: 5);
+        box-shadow: 0 10px 20px 0 rgba($color: $background, $alpha: 0.25);
+        color: $colorText;
+      }
+
+      &.transparent:hover {
+        box-shadow: none !important;
+      }
+    }
+  }
+
+  &:disabled {
+    // opacity: 0.2 !important;
+    &:hover {
+      background-color: $background;
+    }
+  }
+}
+
+.btn {
+  height: 50px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @include style-mobile {
+    min-width: 40px;
+    // min-height: 40px;
+  }
+
+  .sport-icons {
+    font-size: inherit;
+
+    &::before {
+      font-size: 30px;
+    }
+  }
+
+  @each $keyStyle in map-keys($buttonStyle) {
+    $objStyle: map-get($buttonStyle, $keyStyle);
+    $background: map-get($objStyle, "bg");
+    $color: map-get($objStyle, "cl");
+
+    &.#{$keyStyle} {
+      @include button-text-light;
+      @include customButtonStyle($background, $color, $keyStyle);
+      padding-top: 11px;
+      padding-bottom: 12px;
+    }
+
+    &.outline-#{$keyStyle} {
+      @include button-text-light;
+
+      @if $keyStyle==white-four {
+        border: 1px solid #e5e5e5;
+      } @else {
+        border: 1px solid $background;
+      }
+
+      @if $keyStyle==white-line-50 {
+        color: #fff;
+      } @else {
+        color: $background;
+      }
+
+      background-color: transparent;
+      padding-top: 10px;
+      padding-bottom: 12px;
+
+      &:hover {
+        background-color: transparent;
+        color: $orangey-red;
+        border-color: $orangey-red;
+
+        img {
+          filter: invert(100%);
+          -webkit-filter: invert(100%);
+        }
+      }
+
+      &:active {
+        color: #fff;
+        background-color: $orangey-red;
+      }
+
+      &:disabled {
+        opacity: 0.2 !important;
+
+        &:hover {
+          background-color: $background;
+        }
+      }
+    }
+  }
+
+  &.btn-round {
+    border-radius: 30px !important;
+    min-height: 60px;
+    padding-left: 30px;
+    padding-right: 30px; // min-width: 388px;
+    // padding-top: 16px;
+    // padding-bottom: 12px;
+  }
+
+  &.btn-round-link {
+    border-radius: 30px !important;
+    min-height: 60px; // padding-top: 16px;
+    // padding-bottom: 12px;
+    padding-left: 30px;
+    padding-right: 30px; // min-width: 388px;
+    padding-top: 15px;
+  }
+
+  &.dropdown-toggle {
+    position: relative;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &:after {
+      width: 20px !important;
+      height: 20px !important;
+      background: url(../images/icons-solid/down-arrow.svg) no-repeat center center;
+      background-size: 12px;
+      border: 0 !important;
+      vertical-align: 10px !important;
+      position: absolute;
+      right: 10px;
+    }
+  }
+
+  &.close {
+    opacity: 0.6;
+
+    .sport-icons.close::before {
+      color: inherit;
+      font-size: 14px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &.btn-link {
+    text-decoration: none !important;
+  }
+}
+
+a.btn.btn-round {
+  padding-top: 15px;
+  padding-bottom: 14px;
+}

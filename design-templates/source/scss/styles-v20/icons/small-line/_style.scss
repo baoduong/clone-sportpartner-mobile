@@ -1,0 +1,200 @@
+@import "variables";
+
+@font-face {
+  font-family: "#{$icomoon-font-family}";
+  src: url("#{$icomoon-font-path}/sportpartner.eot?6rgplu");
+  src: url("#{$icomoon-font-path}/sportpartner.eot?6rgplu#iefix") format("embedded-opentype"),
+    url("#{$icomoon-font-path}/sportpartner.ttf?6rgplu") format("truetype"),
+    url("#{$icomoon-font-path}/sportpartner.woff?6rgplu") format("woff"),
+    url("#{$icomoon-font-path}/sportpartner.svg?6rgplu#sportpartner") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-small-line-"],
+[class*="icon-small-line-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "#{$icomoon-font-family}" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-small-line-arrow-down {
+  &:before {
+    content: $icon-small-line-arrow-down;
+  }
+}
+.icon-small-line-arrow-left {
+  &:before {
+    content: $icon-small-line-arrow-left;
+  }
+}
+.icon-small-line-arrow-right {
+  &:before {
+    content: $icon-small-line-arrow-right;
+  }
+}
+.icon-small-line-arrow-up {
+  &:before {
+    content: $icon-small-line-arrow-up;
+  }
+}
+.icon-small-line-block {
+  &:before {
+    content: $icon-small-line-block;
+  }
+}
+.icon-small-line-calendar-add {
+  &:before {
+    content: $icon-small-line-calendar-add;
+  }
+}
+.icon-small-line-caret-down {
+  &:before {
+    content: $icon-small-line-caret-down;
+  }
+}
+.icon-small-line-caret-left {
+  &:before {
+    content: $icon-small-line-caret-left;
+  }
+}
+.icon-small-line-caret-right {
+  &:before {
+    content: $icon-small-line-caret-right;
+  }
+}
+.icon-small-line-caret-up {
+  &:before {
+    content: $icon-small-line-caret-up;
+  }
+}
+.icon-small-line-check1 {
+  &:before {
+    content: $icon-small-line-check1;
+  }
+}
+.icon-small-line-copy {
+  &:before {
+    content: $icon-small-line-copy;
+  }
+}
+.icon-small-line-cross1 {
+  &:before {
+    content: $icon-small-line-cross1;
+  }
+}
+.icon-small-line-delete {
+  &:before {
+    content: $icon-small-line-delete;
+  }
+}
+.icon-small-line-fav {
+  &:before {
+    content: $icon-small-line-fav;
+  }
+}
+.icon-small-line-filter {
+  &:before {
+    content: $icon-small-line-filter;
+  }
+}
+.icon-small-line-hamburger1 {
+  &:before {
+    content: $icon-small-line-hamburger1;
+  }
+}
+.icon-small-line-inbox1 {
+  &:before {
+    content: $icon-small-line-inbox1;
+  }
+}
+.icon-small-line-mail {
+  &:before {
+    content: $icon-small-line-mail;
+  }
+}
+.icon-small-line-member-add {
+  &:before {
+    content: $icon-small-line-member-add;
+  }
+}
+.icon-small-line-member {
+  &:before {
+    content: $icon-small-line-member;
+  }
+}
+.icon-small-line-members1 {
+  &:before {
+    content: $icon-small-line-members1;
+  }
+}
+.icon-small-line-messages1 {
+  &:before {
+    content: $icon-small-line-messages1;
+  }
+}
+.icon-small-line-min {
+  &:before {
+    content: $icon-small-line-min;
+  }
+}
+.icon-small-line-more1 {
+  &:before {
+    content: $icon-small-line-more1;
+  }
+}
+.icon-small-line-new-message1 {
+  &:before {
+    content: $icon-small-line-new-message1;
+  }
+}
+.icon-small-line-photo1 {
+  &:before {
+    content: $icon-small-line-photo1;
+  }
+}
+.icon-small-line-plus {
+  &:before {
+    content: $icon-small-line-plus;
+  }
+}
+.icon-small-line-rotate-ccw {
+  &:before {
+    content: $icon-small-line-rotate-ccw;
+  }
+}
+.icon-small-line-rotate-cw {
+  &:before {
+    content: $icon-small-line-rotate-cw;
+  }
+}
+.icon-small-line-search1 {
+  &:before {
+    content: $icon-small-line-search1;
+  }
+}
+.icon-small-line-send-member {
+  &:before {
+    content: $icon-small-line-send-member;
+  }
+}
+.icon-small-line-share1 {
+  &:before {
+    content: $icon-small-line-share1;
+  }
+}
+.icon-small-line-sorting {
+  &:before {
+    content: $icon-small-line-sorting;
+  }
+}

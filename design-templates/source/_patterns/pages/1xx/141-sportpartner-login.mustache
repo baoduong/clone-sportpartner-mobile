@@ -1,0 +1,39 @@
+{{> common-header-login }}
+<div class="space-40"></div>
+<div class="page-login-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="Heading-1">
+          Welcome back to Sportpartner
+        </h2>
+      </div>
+    </div>
+    <div class="space-40"></div>
+    <div class="row">
+      <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+        {{> elements-button(class: "btn-block brownish-grey", buttonText: "Login with Facebook") }}
+        <div class="space-40"></div>
+        <label class="ma-0 or Paragraph-1-center">or</label>
+        <div class="space-30"></div>
+        <form>
+          <div class="field">
+            {{> elements-label(lblClass: "Paragraph-1-form-label", lblText: "Email") }} 
+            {{> elements-input(type: "text", placeholder: "Your email address") }}
+          </div>
+          <div class="field">
+            {{> elements-label(lblClass: "Paragraph-1-form-label", lblText: "Password") }} 
+            {{> elements-password(idPasswordToggle: "input-password", placeholder: "Your password") }}
+          </div>
+          <div class="field">
+            {{> elements-checkbox(checkboxId: "cbRemember" ,checkboxText: "Remember me") }}
+          </div>
+          {{> elements-button(class: "btn-block black-two", buttonText: "Login to Sportpartner") }}
+        </form>
+        <div class="space-20"></div>
+        {{> elements-link(linkClass: "text-link-2", linkText: "Forgot your password?")}}
+      </div>
+    </div>
+  </div>
+</div>
+{{> common-footer }}

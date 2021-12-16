@@ -1,0 +1,56 @@
+@import "functions";
+@import "media";
+@import "app-colorpalette";
+
+:host {
+  width: 100%;
+}
+
+.popup-user-profile {
+  background: #ffffff;
+  overflow: hidden;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  .popup-header {
+    position: relative;
+    height: 70px;
+    padding: 23px 30px;
+    border-bottom: 1px solid map-get($grayWarms, gray-warm-5);
+    button {
+      width: 70px;
+      height: 70px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  .popup-content {
+    button {
+      width: 100%;
+      text-align: left;
+      padding: 23px 26px;
+      border: none;
+      display: flex;
+      align-items: center;
+      i {
+        color: map-get($grayCools, gray-cool-2);
+        margin-right: 20px;
+        font-size: 18px;
+      }
+      span {
+        color: map-get($grayCools, gray-cool-2);
+      }
+      &:first-child {
+        border-bottom: 1px solid map-get($grayWarms, gray-warm-5);
+      }
+    }
+  }
+
+  .popup-content-user-deleted {
+    padding: 23px 30px;
+  }
+}

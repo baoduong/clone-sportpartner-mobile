@@ -1,0 +1,84 @@
+@import "media";
+@import "app-colorpalette";
+
+img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.member-box {
+    margin-right: 45px;
+    .name-member-box {
+        cursor: pointer;
+
+        .name {
+            color: map-get($grayCools, gray-cool-1);
+        }
+
+        .icon-new-member {
+            padding: 1px 6px;
+            background: map-get($corals, coral-6);
+            border-radius: 4px;
+
+            .new {
+                color: map-get($corals, coral-2);
+                line-height: 160% !important;
+            }
+        }
+    }   
+
+    .info-member {
+        color: map-get($color-pallets, black-40);
+        display: flex;
+        .old {
+            margin-right: 5px;
+        }
+    }
+}
+
+.icon-highfive {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+
+    i {
+        color: map-get($corals, coral-2);
+        font-size: 30px;
+    }
+}
+
+.icon-highfived {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+
+    .icon-high-five {
+        color: map-get($grayCools, gray-cool-2);
+        font-size: 30px;
+        opacity: 0.2;
+    }
+
+    .icon-check {
+        color: map-get($grayCools, gray-cool-2);
+        font-size: 14px;
+        font-weight: 900;
+        position: absolute;
+        top: 25%;
+        left: 30%;
+    }
+}
+
+.break-line {
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}

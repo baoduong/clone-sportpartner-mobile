@@ -1,0 +1,103 @@
+{{> common-header-landing(customHeaderClass: "bg-purple") }}
+<div id="sportpartner-review-page">
+    <div class="space-80"></div>
+    <hr class="m-0 border-white-opacity">
+    <div class="container-fluid max-width-initial">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row-nav-review">
+                    <ul class="list-inline m-0 ">
+                        <li class="list-inline-item">
+                            <a href="#">Blog</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Succes stories</a>
+                        </li>
+                        <li class="list-inline-item active">
+                            <a href="#">Reviews</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="space-20"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="m-0 text-center font-family-gilroy font-weight-bold text-color-white">This is what others are saying about Sportpartner</h2>
+                <div class="space-10"></div>
+                <p class="m-0 text-center text-color-white font-size-18 opacity-50 font-weight-300">Lorem ipsum cycling partner Abcoude dolor sit amet, consectetuer adipiscing.</p>
+            </div>
+        </div>
+        <div class="space-60"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="grid-people-said">
+                    {{# dataReviewPage }} {{> common-block-member-said }} {{/ dataReviewPage }}
+                </div>
+                <div class="space-60"></div>
+                <div class="text-center">
+                    <button class="btn btn-round outline-white-four btn-load-more-review">
+                        Show more
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="sportpartner-review-extend">
+    <div class="review-extend">
+        <div class="flex-left">
+            <ul class="list-unstyled">
+                <li>
+                    Sportpartner bestaat al 9 jaar
+                </li>
+                <li>
+                    Gratis Basis Lidmaatschap
+                </li>
+                <li>
+                    Meer dan 4.500 dagelijkse actieve leden
+                </li>
+                <li>
+                    Je eerste match al binnen één dag
+                </li>
+                <li>
+                    Veilig en anoniem zoeken
+                </li>
+            </ul>
+        </div>
+        <div class="flex-right">
+            <div class="content-right">
+                <div class="item">
+                    <div class="title">
+                        Afgelopen zondag aangemeld bij Sportpartner en al binnen een week mijn favoriete wandel maatje gevonden!
+                    </div>
+                    <div class="space-30"></div>
+                    <div class="small-avatar">
+                        <div class="avatar">
+                            <img src="" alt="">
+                        </div>
+                        <div class="ct-right">
+                            <div class="title">Dorien</div>
+                            <div class="city">Amstelveen</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="review-page-let-signup">
+    <h3>
+        Al meer dan 35.000 leden zijn je voor gegaan!
+    </h3>
+    <div class="text-center">
+        <button class="btn btn-round royal-purple">Sign up today</button>
+    </div>
+    <div class="already-acc">
+        <p class="m-0">Already have an account?
+            <a class="text-white" href="#">Login</a>
+        </p>
+    </div>
+</div>
+{{> common-footer-landing }}

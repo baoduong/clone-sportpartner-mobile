@@ -1,0 +1,252 @@
+#sign-up.show {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+}
+
+.modal-dialog.modal-login {
+  .modal-content {
+    border-radius: 10px;
+    display: block;
+  }
+
+  @media (min-width: 576px) {
+    max-width: 720px;
+  }
+  @include fixed-ie {
+    margin: 0;
+    width: 720px;
+  }
+}
+
+.login-modal {
+  margin: 0 auto;
+  min-height: 600px;
+  @include style-mobile {
+    min-height: 0;
+  }
+  .btn {
+    border-radius: 4px;
+    font-family: $font-family-base;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+    max-width: 360px;
+    // padding: 15px 0 0;
+    margin: 0 auto;
+
+    .sport-icons {
+      margin-right: 17px;
+      line-height: 1.23;
+      vertical-align: -1px;
+    }
+
+    .sport-icons.envelope:before,
+    .sport-icons.facebook:before {
+      font-size: 16px !important;
+    }
+  }
+
+  .main-form {
+    padding: 0 90px;
+  }
+
+  h2.Get-started-today {
+    font-family: $font-gilroy;
+    font-size: 40px;
+    font-weight: 800;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.1;
+    letter-spacing: normal;
+    text-align: center;
+    color: #430073;
+  }
+
+  .alogin {
+    @include button-text-big-black;
+    text-align: center;
+    text-decoration: none !important;
+  }
+
+  label {
+    &.Dont-worry-we-wont {
+      @include Description-center;
+    }
+  }
+
+  .button-close-modal {
+    width: 50px;
+    height: 50px;
+    float: right;
+    color: #716e6c;
+
+    img {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+.page-login-form {
+  margin: 0 15px 20px;
+  border-radius: 4px;
+  background-color: #f7f5f2;
+  padding: 60px 0;
+
+  @include style-mobile {
+    padding: 0;
+    margin: 0;
+
+    .mb-login-form {
+      // height: calc(var(--vh100) - 70px);
+      padding: 25px 30px 30px;
+      // overflow: auto;
+    }
+
+    .recommend-signup {
+      // position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 160px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      flex-direction: column;
+      // box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .forgot-password {
+    font-family: $font-family-base;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    text-align: left;
+    color: #303030;
+    text-decoration: none !important;
+  }
+
+  .field {
+    margin-bottom: 20px;
+
+    @include style-mobile {
+      margin-bottom: 15px;
+    }
+  }
+
+  .or {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      height: 1px;
+      border-bottom: 1px solid #e1e1e1;
+      flex: 1;
+      margin-right: 17px;
+    }
+
+    &:after {
+      content: "";
+      display: inline-block;
+      height: 1px;
+      border-bottom: 1px solid #e1e1e1;
+      flex: 1;
+      margin-left: 17px;
+    }
+  }
+
+  .btn.black-two {
+    font-size: 16px !important;
+    padding-top: 13px;
+
+    @include style-mobile {
+      font-size: 18px !important;
+      padding-top: 12px;
+    }
+  }
+}
+
+.btn-facebook {
+  border-radius: 4px;
+  background-color: #3a589b; // font-family: calibre;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0 !important;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+
+  @include style-mobile {
+    display: flex;
+  }
+
+  @include style-small-mobile {
+    display: block;
+  }
+
+  @include style-desktop {
+    justify-content: center;
+    align-items: center;
+  }
+  &:hover {
+    background-color: #5376c3;
+  }
+
+  .sport-icons.facebook::before {
+    font-size: 16px !important;
+  }
+
+  .sport-icons.facebook {
+    margin-right: 17px;
+    @include style-mobile {
+      margin-right: 0;
+    }
+  }
+
+  @include style-mobile {
+    font-size: 18px !important;
+    padding: 0;
+    // display: flex;
+    align-items: center;
+    justify-content: center;
+    .block-icon {
+      display: inline-flex;
+      width: 50px;
+      height: 50px;
+      margin-top: -1px;
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+      vertical-align: middle;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &.btn-signup-fb {
+    span + span {
+      flex: 1;
+    }
+  }
+}
+
+#termAndCondition {
+  .modal-content {
+    padding: 11px;
+  }
+}

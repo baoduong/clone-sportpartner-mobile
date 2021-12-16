@@ -1,0 +1,28 @@
+{{> common-header }}
+<div>
+  <hr class="m-0">
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 header-notification-visitor">
+      <h3 class="sm-title text-center">These people have visited your profile</h3>
+    </div>
+  </div>
+</div>
+
+<div id="landing-matches" class="custom-center-block">
+  <div class="pagging">
+    <div class="section-matches">
+      <div class="space-40"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="match-items-panel">
+              {{# matchedItems}} {{> common-matched-item }} {{/ matchedItems}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

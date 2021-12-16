@@ -1,0 +1,17 @@
+@import 'calibre';
+@import 'gilroy';
+// ---
+@font-face {
+  font-family: 'sportpartnerfonts';
+  src:  local('sportpartnerfonts'),
+        url('../fonts/sportpartner-icons/sportpartnerfonts.eot');
+  src:  url('../fonts/sportpartner-icons/sportpartnerfonts.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/sportpartner-icons/sportpartnerfonts.woff') format('woff'),
+        url('../fonts/sportpartner-icons/sportpartnerfonts.ttf') format('truetype'),
+        url('../fonts/sportpartner-icons/sportpartnerfonts.svg#sportpartnerfonts') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// @import 'inter';
+// @import 'heebo';

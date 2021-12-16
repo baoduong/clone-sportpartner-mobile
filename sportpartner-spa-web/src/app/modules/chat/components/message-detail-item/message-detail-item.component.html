@@ -1,0 +1,285 @@
+<!-- [@.disabled]="!isAnimate.value" -->
+<div class="wrap-showUpAnimation" [class]="(message | async).messageType + '-message'"
+  [ngClass]="{'my-message': isMyMessage}">
+  <div class="showUpAnimation">
+    <ng-container *ngIf="message">
+      <ng-container [ngSwitch]="(message | async).messageType">
+
+        <ng-container *ngSwitchCase="'PhotoRequest'">
+          <ng-container *ngIf="isMyMessage;else tplLetGoToUploadPhoto">
+            <ng-container *ngTemplateOutlet="tplSentPhotoRequest"></ng-container>
+          </ng-container>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'HighFive'">
+          <ng-container *ngIf="isMyMessage; else tplFriendSentHighFive">
+            <ng-container *ngTemplateOutlet="tplMeMessage"></ng-container>
+          </ng-container>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'JoinConversation'">
+          <div class="row-message notify-center">
+            <div class="notice-label join-conversation">
+              <div class="lbl-message">
+                <ng-container *ngIf="isMyMessage">
+                  <!-- {{ 'Conversation.CHAT.message_group_join_by_you' | translate }} -->
+                  <ng-container *ngTemplateOutlet="tplYouJoinGroup"></ng-container>
+                </ng-container>
+                <ng-container *ngIf="!isMyMessage">
+                  <!-- {{ 'Conversation.CHAT.message_group_join' | translate: {member: (message | async).senderName} }} -->
+                  <ng-container *ngTemplateOutlet="tplFriendJoinGroup"></ng-container>
+                </ng-container>
+
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'LeftConversation'">
+          <div class="row-message notify-center">
+            <div class="notice-label">
+              <div class="lbl-message">
+                <ng-container *ngIf="isMyMessage">
+                  {{ 'Conversation.CHAT.message_group_left_by_you' | translate }}
+                </ng-container>
+                <ng-container *ngIf="!isMyMessage">
+                  {{ 'Conversation.CHAT.message_group_left' | translate: {member: (message | async).senderName} }}
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngSwitchDefault>
+          <ng-container *ngIf="isMyMessage;else tplFriendMessage">
+            <ng-container *ngTemplateOutlet="tplMeMessage"></ng-container>
+          </ng-container>
+        </ng-container>
+
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
+
+
+<ng-template #tplFriendMessage>
+  <div class="row-message">
+    <div class="friend-list-message-item">
+
+      <div [@.disabled]="!isAnimate.value">
+        <ng-container *ngIf="(isShowAvatar | async) && (message | async).messageType !== 'JoinConversation'">
+          <span [@animationHideAvatar] class="avatar avtafriend" (click)="clickAvatar()"
+            [ngStyle]="(message | async).conversationType === 'One' && {'cursor': 'pointer'}">
+            <img [src]="senderPhoto">
+          </span>
+        </ng-container>
+      </div>
+      <div class="list-message">
+        <ng-container *ngTemplateOutlet="tplMessage"></ng-container>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #tplMeMessage>
+  <div [@.disabled]="!isAnimate.value" class="row-message">
+    <div class="me-list-message-item">
+      <div class="list-message">
+        <ng-container *ngTemplateOutlet="tplMessage"></ng-container>
+      </div>
+      <div>
+        <ng-container *ngIf="(isShowAvatar | async) && (message | async).messageType !== 'JoinConversation'">
+          <span [@animationHideAvatar] class="avatar">
+            <img [src]="senderPhoto">
+          </span>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #tplMessage>
+  <div [@showUpAnimation]>
+    <span class="message-content">
+      <ng-container *ngIf="!isMyMessage && (message | async).conversationType === 'Group'">
+        <b>{{(message | async).senderName}} - </b>
+      </ng-container>
+      <ng-container *ngIf="(message | async).messageType === 'Normal' || 
+        (message | async).messageType === 'FirstMessage' || 
+        (message | async).messageType === 'Welcome' || 
+        (message | async).messageType === 'SayHi' || 
+        (message | async).messageType === 'HelloEveryone'">
+        <span [innerHTML]="(message | async).messageBody | decodeContent"></span>
+      </ng-container>
+
+      <ng-container
+        *ngIf="(message | async).messageType === 'HighFive' || (message | async).messageType === 'HighFiveBack'">
+        <span [ngClass]="{'friend-hf-back': !isMyMessage}" class="wrapper-my-hf">
+          <i class="icon-medium-solid-hf"></i>
+        </span>
+      </ng-container>
+
+      <span class="sent-time">
+        <ng-container *ngIf="(message | async).sentOnTime; else tplCurrentTime">
+          <!-- {{(message | async).sentOnDate}} -->
+          {{EpochToDate((message | async).sentOnTime) | date: 'hh:mm' }}
+        </ng-container>
+        <i *ngIf="(messageStatus | async) === 'SENT'" class="icon-inline-check"></i>
+      </span>
+    </span>
+  </div>
+</ng-template>
+
+<ng-template #tplCurrentTime>
+  {{currentTime | date: 'hh:mm'}}
+</ng-template>
+
+<!-- Template YOU go to upload photo -->
+<ng-template #tplLetGoToUploadPhoto>
+  <ng-container *ngIf="(senderProfile$ | async); let senderProfile">
+    <div class="row-message">
+
+      <div class="photo-request">
+        <div class="grid">
+          <div>
+            <div class="icon">
+              <i class="icon-medium-solid-photo"></i>
+            </div>
+          </div>
+          <div>
+            <p [ngClass.xs]="'mobile-paragraph-2'" [ngClass.gt-xs]="'desktop-paragraph-1'"
+              class="m-0 text-gray-cool-2 text-center">
+              {{'Conversation.CHAT.message_photorequest' | translate:{sender : senderProfile.screenName} }}
+            </p>
+          </div>
+          <div *ngIf="!senderProfile.isDeletedUser">
+            <button (click)="gotoUploadPhotoProfile()" class="btn-upload-photo" appBtnCoral2>
+              {{'Conversation.CHAT.message_photorequest_button' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<!-- Template FRIEND sent photo request -->
+<ng-template #tplSentPhotoRequest>
+  <div class="row-message">
+    <div class="photo-request">
+      <div class="grid">
+        <div>
+          <div class="icon">
+            <i class="icon-medium-solid-photo"></i>
+          </div>
+        </div>
+        <div>
+          <p [ngClass.xs]="'mobile-paragraph-2'" [ngClass.gt-xs]="'desktop-paragraph-1'"
+            class="m-0 text-gray-cool-2 text-center">
+            {{'Conversation.CHAT.message_photorequest_send' | translate:{receiver: (conversation |
+            async).conversationName} }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #tplFriendSentHighFive>
+  <ng-container *ngIf="(senderProfile$ | async); let senderProfile">
+    <div class="row-message">
+      <div class="friend-sent-hf-container">
+        <div class="avatar-hf">
+          <div class="user-avatar">
+            <div class="user-icon-hf">
+              <i class="icon-medium-solid-hf"></i>
+            </div>
+            <div class="round">
+              <img [src]="(conversation | async).conversationPhoto">
+            </div>
+          </div>
+        </div>
+        <div class="member-details">
+          <div class="name">
+            {{(message | async).senderName}}
+          </div>
+          <div *ngIf="!senderProfile.isDeletedUser" class="location">
+            (<ng-container *ngTemplateOutlet="tplGender; context:{gender: senderProfile.gender}">
+            </ng-container>/{{senderProfile.age}}) {{senderProfile.address}}
+          </div>
+        </div>
+        <div class="desc-text">
+          {{'Conversation.CHAT.message_highfive' | translate:{sender: (message | async).senderName} }}
+        </div>
+        <div *ngIf="!(conversation | async).hasHighFiveBack && !senderProfile.isDeletedUser" #btnGiveHFBack
+          class="give-back-hf">
+          <button (click)="hightFiveBack()" appBtnCoral2>
+            {{'Conversation.CHAT.message_highfive_button' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template let-gender="gender" #tplGender>
+  <ng-container *ngIf="gender=== 'M'">{{ 'Generic.GENDER_ABBR.male' | translate }}</ng-container>
+  <ng-container *ngIf="gender=== 'F'">{{ 'Generic.GENDER_ABBR.female' | translate }}</ng-container>
+</ng-template>
+
+<ng-template #tplYouJoinGroup>
+  <!-- <div>
+    {{ 'Conversation.CHAT.message_group_join_by_you' | translate }}
+  </div> -->
+  <div class="say-hi-box" fxLayout.gt-xs="row" fxLayout.xs="column" fxLayoutAlign.gt-xs="space-between center"
+    fxLayoutGap.xs="20px">
+    <div class="user-info" fxLayout="row" fxLayoutAlign.gt-xs="center center" fxLayoutAlign.xs=" center">
+      <div class="avatar">
+        <img [src]="userProfile.avatarUrl" [alt]="userProfile.screenName">
+      </div>
+      <span class="mesage-join text-black-40" [ngClass.xs]="'mobile-paragraph-3'" [ngClass.gt-xs]="'desktop-paragraph-3'">
+        {{ 'Conversation.CHAT.message_group_join_by_you' | translate }}
+      </span>
+    </div>
+    <div class="btn-welcome">
+      <ng-container *ngIf="(isFollowing$ | async)">
+        <button [hidden]="!(ableClickSayHello | async)" appBtnOutlineAzure2 #btnGreet (click)="hiEveryone()">
+          <!-- Say Hi -->
+          {{'Conversation.CHAT.sayhi_button' | translate}}
+        </button>
+      </ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #tplFriendJoinGroup>
+  <!-- <div>
+    {{ 'Conversation.CHAT.message_group_join' | translate: {member: (message | async).senderName} }}
+  </div> -->
+  <div class="say-hello-box" fxLayout.gt-xs="row" fxLayout.xs="column" fxLayoutAlign.gt-xs="space-between center"
+    fxLayoutGap.xs="20px">
+    <div class="user-info" fxLayout="row" fxLayoutAlign=" center">
+      <div class="avatar" (click)="clickAvatar()" style="cursor: pointer;">
+        <img [src]="(message | async).senderPhoto" [alt]="(message | async).senderName">
+      </div>
+      <div class="notify" fxLayout="column" fxLayoutGap.gt-xs="2px">
+        <span class="text-gray-cool-1" [ngClass.xs]="'mobile-text-emphasis-2'"
+          [ngClass.gt-xs]="'desktop-text-emphasis-2'">{{ (message | async).senderName }}</span>
+        <span class="mesage-join text-black-40" [ngClass.xs]="'mobile-paragraph-3'" [ngClass.gt-xs]="'desktop-paragraph-3'">
+          <!-- {{member}} just joined the group -->
+          {{'Conversation.CHAT.message_group_join' | translate }}
+        </span>
+      </div>
+    </div>
+    <div class="btn-welcome">
+      <ng-container
+        *ngIf="(message | async) && (latestMessage$ | async) && (latestMessage$ | async).tick === (message | async).tick && (isFollowing$ | async)">
+        <button [hidden]="!(ableClickSayHello | async)" appBtnOutlineAzure2 #btnGreet class="btn-hello-member"
+          (click)="helloMember()">
+          <!-- Say Hello! -->
+          {{'Conversation.CHAT.sayhello_button' | translate}}
+        </button>
+      </ng-container>
+    </div>
+  </div>
+</ng-template>

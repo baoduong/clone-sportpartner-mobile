@@ -1,0 +1,148 @@
+<div class="match-block {{^ photoExisted}}showRequestPhotoPanel{{/photoExisted}}">
+  {{# isMatched}}
+  <div class="basic-block">
+    <div class="avatar-block">
+      <div class="deleting-item">
+        <div class="d-flex">
+          {{> elements-close-button(close-for: "") }} 
+          {{> elements-favorite-button }}
+        </div>
+      </div>
+      <div class="match-avatar"></div>
+      <div class="container-send-photo-request">
+        <div class="space-60"></div>
+        <button class="btn-block btn white-zero btn-request-photo">
+          <img src="/images/icons-solid/photo-request.svg" alt=""> Send a photo request
+        </button>
+      </div>
+    </div>
+    <div class="match-info">
+      <label class="Heading-2-diap ma-0 d-block">Lorem Ipsum dorlor sit amet</label>      
+      <label class="Paragraph-1-diap ma-0 d-flex">
+        <span class="city">M/30 City Lorem Ipsum dorlor sit amet</span>
+        <span class="float-right match-info-pre-singles">
+          {{# singles}}
+          <!-- <img src="/images/icons-solid/singles.svg" alt="">  -->
+          <span class="sport-icons heart"></span>
+          {{/ singles}} 
+          {{^ singles}}
+          <!-- <img style="width: 20px" src="/images/icons-solid/not-single.svg" alt="">  -->
+          <span class="sport-icons heart-slash"></span>
+          {{/ singles}}
+          <!-- <img style="width: 20px" src="/images/icons-solid/premium-member.svg" alt=""> -->
+          <span class="sport-icons premium"></span>
+        </span>
+      </label>
+    </div>
+    <div class="match-image clearfix">
+      <div class="image float-left">
+        <span class="sport-icons running"></span>
+      </div>
+      <div class="image float-left">
+        <span class="sport-icons bicycle"></span>
+      </div>
+      <div class="image float-left">
+        <span class="sport-icons tennis"></span>
+      </div>
+      <div class="image float-left">
+        <span class="sport-icons running"></span>
+      </div>
+      <div class="more-image float-left">+5</div>
+    </div>
+    <div class="match-description">
+      <span class="Description ma-0 d-block clearfix">
+        <span class="truncate">{{ description }}</span>
+        <a class="text-color-orangey-red read-more float-right" href="javascript:;">
+          <span class="sport-icons drow-arrow"></span>
+        </a>
+      </span>
+    </div>
+    <!-- <div class="space-10"></div> -->
+    <div class="match-button">
+      {{# matchedItemNormalButton}}
+      <a href="#" class="p-0 btn btn-show-panel-high-5 outline-white-four">
+        <!-- <img style="width:34px;" src="/images/icons-solid/high-five.svg" alt=""> -->
+        <span class="sport-icons highfive"></span>
+      </a>
+      <button class="p-0 btn btn-show-message-panel outline-white-four">
+        <!-- <img src="/images/icons-solid/envelope.svg" alt=""> -->
+        <span class="sport-icons envelope"></span>
+      </button>
+      {{/ matchedItemNormalButton}}
+      {{# fullSendMessage}}
+      <button class="btn btn-block btn-show-message-panel outline-white-four">
+        <!-- <img src="/images/icons-solid/envelope.svg" alt="">  -->
+        <span class="sport-icons envelope"></span>
+        <span class="text">Send a new message!</span>
+      </button>
+      {{/ fullSendMessage}}
+      {{# messageRecived}}
+      <button class="btn btn-block btn-show-message-panel outline-white-four">
+        <span class="count-message">
+            <span class="round">1</span>
+            <!-- <img src="/images/icons-solid/messages-new.svg" alt=""> -->
+            <span class="sport-icons mail-comming"></span>
+        </span>
+        <span class="text">Message received!</span>
+      </button>
+      {{/ messageRecived}}
+      {{# hadSend}}
+      <div class="p-0 btn btn-show-panel-high-5 outline-white-four status-disabled">
+        <!-- <img style="width:34px;" src="/images/icons-solid/high-five.svg" alt=""> -->
+        <span class="sport-icons highfive"></span>
+        <img style="width:20px;" src="/images/icons-solid/tick.svg" alt="">
+      </div>
+      <div class="p-0 btn btn-show-message-panel outline-white-four status-disabled">
+        <!-- <img src="/images/icons-solid/envelope.svg" alt=""> -->
+        <span class="sport-icons envelope"></span>
+        <img style="width:20px;" src="/images/icons-solid/tick.svg" alt="">
+      </div>
+      {{/ hadSend}}
+    </div>
+  </div>
+  <div class="panel-send-message">
+    <div class="d-flex">
+      <label class="label-send-message">Send message</label> {{> elements-close-button(close-for: "close-panel-send-message") }}
+    </div>
+    <form>
+      <textarea rows="5" class="form-control inputfield" placeholder="Type your message here"></textarea>      
+      <div class="space-10"></div>
+      {{> elements-checkbox(checkboxId: "{{ name }}", checkboxText: "Copy this message for other chats") }}
+      <div class="space-10"></div>
+      <button class="btn btn-block black-two">Send message</button>      
+    </form>
+  </div>
+  <div class="panel-full-description">
+    <div class="match-info">
+      <label class="Heading-2-diap ma-0 d-flex">
+        <span class="t-name">Name Lorem Ipsum dorlor sit amet</span>
+        <span class="float-right match-info-pre-singles">
+          {{# singles}}
+          <img src="/images/icons-solid/singles.svg" alt=""> {{/ singles}} {{^ singles}}
+          <img style="width: 20px" src="/images/icons-solid/not-single.svg" alt=""> {{/ singles}}
+          <img style="width: 20px" src="/images/icons-solid/premium-member.svg" alt="">
+        </span>
+      </label>
+      <label class="Paragraph-1-diap ma-0 d-block">
+        <span class="city">M/30 City Lorem Ipsum dorlor sit amet</span>
+      </label>
+    </div>
+    <div class="panel-description">
+      <div class="content">
+        <p class="m-0 Description">
+          {{ description }}
+        </p>
+      </div>
+      <div>
+          <a href="#">View full profile</a>
+      </div>
+    </div>
+  </div>
+  {{/ isMatched}} 
+  {{^ isMatched}}
+  <div class="un-remove-panel">
+    <label class="m-0 p-0">This member has been removed from your matches.</label>
+    <button class="btn pl-5 pr-5 black-two">Undo</button> <button class="btn btn-link">close</button>
+  </div>
+  {{/ isMatched}}
+</div>

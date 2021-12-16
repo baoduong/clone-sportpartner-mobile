@@ -1,0 +1,47 @@
+@import "media";
+
+.badge-icon {
+  border-radius: 30px;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 60px auto 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  i {
+    font-size: 40px;
+  }
+  @include gt-mobile {
+    margin: {
+      top: 104px;
+      bottom: 50px;
+    }
+  }
+}
+
+.slider-content {
+  padding: {
+    left: 20px;
+    right: 20px;
+  }
+  text-align: center;
+}
+
+[class$="heading-1"] {
+  margin: auto;
+  margin-bottom: 20px;
+  @include gt-mobile {
+    max-width: 700px;
+    margin {
+      bottom: 30px;
+    }
+  }
+}
+
+.paragraph-1 {
+  @include gt-mobile {
+    margin: auto;
+    max-width: 700px;
+  }
+}

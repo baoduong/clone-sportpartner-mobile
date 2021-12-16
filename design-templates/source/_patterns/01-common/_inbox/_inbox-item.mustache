@@ -1,0 +1,36 @@
+<div class="inbox-item-messages {{#inbox-item-selected}} selected {{/inbox-item-selected}}">
+    <div class="item-fav-btn">
+        <button class="btn btn-link btn-fav">
+            {{#inbox-fav}}
+                <img src="/images/icons-solid/fav-filled.svg" style="width: 18px;" alt="">
+            {{/inbox-fav}}
+            {{^inbox-fav}}
+            <img src="/images/icons-solid/star.svg" style="width: 18px;" alt="">
+            {{/inbox-fav}}
+        </button>
+    </div>
+    <a href="#" onclick="return false;" class="message-content">
+        <div class="item-avatar-number">
+            {{#showNumberMessage}}
+                <span class="number-message">{{number-message}}</span>
+            {{/showNumberMessage}}
+            <div class="img">
+                <img src="" alt="">
+            </div>
+        </div>
+        <div class="item-name-message-content">
+            <div class="name-time">
+                <div class="b-name">
+                    <span class="name">{{name}}</span>
+                </div>
+                <div class="time">{{time}}</div>
+            </div>
+            <div class="content-message">
+                {{#hasReply}}
+                    <img class="img-replied" src="/images/icons-solid/replied.svg" alt="">
+                {{/hasReply}}
+                {{message-content}}
+            </div>
+        </div>
+    </a>
+</div>

@@ -1,0 +1,100 @@
+@import "functions";
+@import "media";
+@import "app-colorpalette";
+
+.your-group-layout {
+  app-group-card-item {
+    margin-bottom: 20px;
+  }
+
+  @include gt-mobile {
+    margin: {
+      left: -15px;
+      right: -15px;
+    }
+
+    app-group-card-item {
+      width: calc(50% - 30px);
+      margin: {
+        left: 15px;
+        right: 15px;
+        bottom: 30px;
+      }
+    }
+  }
+  @include desktop-md {
+    margin: {
+      left: -15px;
+      right: -15px;
+    }
+    app-group-card-item {
+      width: calc(25% - 30px);
+      margin: {
+        left: 15px;
+        right: 15px;
+        bottom: 30px;
+      }
+    }
+  }
+}
+
+.top-group-content {
+  [class$="heading-1"],
+  [class*=" -heading-1"] {
+    @include gt-mobile {
+      margin-top: 30px;
+    }
+  }
+}
+
+app-loading-icon {
+  display: block;
+  margin-top: -20px;
+  @include desktop {
+    margin-top: -30px;
+  }
+}
+
+.btn-load-more {
+  width: 100%;
+  border: 2px solid map-get($color-pallets, black-10);
+  box-sizing: border-box;
+  margin-bottom: 30px;
+
+  @include mobile {
+    margin-bottom: 20px;
+  }
+
+  i {
+    color: map-get($color-pallets, black-20);
+  }
+
+  span {
+    color: map-get($color-pallets, black-40);
+  }
+
+  &:hover {
+    border: 2px solid map-get($azures, azure-2);
+    i,
+    span {
+      color: map-get($azures, azure-2);
+    }
+  }
+
+  &:active {
+    background: map-get($azures, azure-2);
+    border: 2px solid map-get($azures, azure-2);
+    i,
+    span {
+      color: #fff;
+    }
+  }
+
+  &:disabled {
+    border: 2px solid map-get($azures, azure-2);
+    i,
+    span {
+      color: map-get($color-pallets, white);
+    }
+  }
+}

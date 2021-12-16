@@ -1,0 +1,300 @@
+@import "variables";
+
+@font-face {
+  font-family: "#{$icomoon-font-family}";
+  src: url("#{$icomoon-font-path}/sportpartner.eot?2oclle");
+  src: url("#{$icomoon-font-path}/sportpartner.eot?2oclle#iefix") format("embedded-opentype"),
+    url("#{$icomoon-font-path}/sportpartner.ttf?2oclle") format("truetype"),
+    url("#{$icomoon-font-path}/sportpartner.woff?2oclle") format("woff"),
+    url("#{$icomoon-font-path}/sportpartner.svg?2oclle#sportpartner") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-medium-line-"],
+[class*="icon-medium-line-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "#{$icomoon-font-family}" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-medium-line-visible-on {
+  &:before {
+    content: $icon-medium-line-visible-on;
+  }
+}
+.icon-medium-line-visible-off {
+  &:before {
+    content: $icon-medium-line-visible-off;
+  }
+}
+.icon-medium-line-trophy {
+  &:before {
+    content: $icon-medium-line-trophy;
+  }
+}
+.icon-medium-line-trophy-check {
+  &:before {
+    content: $icon-medium-line-trophy-check;
+  }
+}
+.icon-medium-line-time {
+  &:before {
+    content: $icon-medium-line-time;
+  }
+}
+.icon-medium-line-thumb {
+  &:before {
+    content: $icon-medium-line-thumb;
+  }
+}
+.icon-medium-line-start-small {
+  &:before {
+    content: $icon-medium-line-start-small;
+  }
+}
+.icon-medium-line-star-large {
+  &:before {
+    content: $icon-medium-line-star-large;
+  }
+}
+.icon-medium-line-smily {
+  &:before {
+    content: $icon-medium-line-smily;
+  }
+}
+.icon-medium-line-share {
+  &:before {
+    content: $icon-medium-line-share;
+  }
+}
+.icon-medium-line-search {
+  &:before {
+    content: $icon-medium-line-search;
+  }
+}
+.icon-medium-line-profile {
+  &:before {
+    content: $icon-medium-line-profile;
+  }
+}
+.icon-medium-line-profile-photo {
+  &:before {
+    content: $icon-medium-line-profile-photo;
+  }
+}
+.icon-medium-line-profile-add-photo {
+  &:before {
+    content: $icon-medium-line-profile-add-photo;
+  }
+}
+.icon-medium-line-premium {
+  &:before {
+    content: $icon-medium-line-premium;
+  }
+}
+.icon-medium-line-premium-badge {
+  &:before {
+    content: $icon-medium-line-premium-badge;
+  }
+}
+.icon-medium-line-place {
+  &:before {
+    content: $icon-medium-line-place;
+  }
+}
+.icon-medium-line-photo {
+  &:before {
+    content: $icon-medium-line-photo;
+  }
+}
+.icon-medium-line-no-search {
+  &:before {
+    content: $icon-medium-line-no-search;
+  }
+}
+.icon-medium-line-no-chat {
+  &:before {
+    content: $icon-medium-line-no-chat;
+  }
+}
+.icon-medium-line-new-message {
+  &:before {
+    content: $icon-medium-line-new-message;
+  }
+}
+.icon-medium-line-mouse {
+  &:before {
+    content: $icon-medium-line-mouse;
+  }
+}
+.icon-medium-line-more {
+  &:before {
+    content: $icon-medium-line-more;
+  }
+}
+.icon-medium-line-messages {
+  &:before {
+    content: $icon-medium-line-messages;
+  }
+}
+.icon-medium-line-message-read {
+  &:before {
+    content: $icon-medium-line-message-read;
+  }
+}
+.icon-medium-line-members {
+  &:before {
+    content: $icon-medium-line-members;
+  }
+}
+.icon-medium-line-members-group {
+  &:before {
+    content: $icon-medium-line-members-group;
+  }
+}
+.icon-medium-line-member-no-photo {
+  &:before {
+    content: $icon-medium-line-member-no-photo;
+  }
+}
+.icon-medium-line-location {
+  &:before {
+    content: $icon-medium-line-location;
+  }
+}
+.icon-medium-line-jump-to-message {
+  &:before {
+    content: $icon-medium-line-jump-to-message;
+  }
+}
+.icon-medium-line-inbox {
+  &:before {
+    content: $icon-medium-line-inbox;
+  }
+}
+.icon-medium-line-image {
+  &:before {
+    content: $icon-medium-line-image;
+  }
+}
+.icon-medium-line-high-five {
+  &:before {
+    content: $icon-medium-line-high-five;
+  }
+}
+.icon-medium-line-heart {
+  &:before {
+    content: $icon-medium-line-heart;
+  }
+}
+.icon-medium-line-hamburger {
+  &:before {
+    content: $icon-medium-line-hamburger;
+  }
+}
+.icon-medium-line-groups {
+  &:before {
+    content: $icon-medium-line-groups;
+  }
+}
+.icon-medium-line-gift {
+  &:before {
+    content: $icon-medium-line-gift;
+  }
+}
+.icon-medium-line-finger {
+  &:before {
+    content: $icon-medium-line-finger;
+  }
+}
+.icon-medium-line-cross {
+  &:before {
+    content: $icon-medium-line-cross;
+  }
+}
+.icon-medium-line-close {
+  &:before {
+    content: $icon-medium-line-close;
+  }
+}
+.icon-medium-line-check {
+  &:before {
+    content: $icon-medium-line-check;
+  }
+}
+.icon-medium-line-chat {
+  &:before {
+    content: $icon-medium-line-chat;
+  }
+}
+.icon-medium-line-caret {
+  &:before {
+    content: $icon-medium-line-caret;
+  }
+}
+.icon-medium-line-calendar {
+  &:before {
+    content: $icon-medium-line-calendar;
+  }
+}
+.icon-medium-line-button-photo {
+  &:before {
+    content: $icon-medium-line-button-photo;
+  }
+}
+.icon-medium-line-button-check {
+  &:before {
+    content: $icon-medium-line-button-check;
+  }
+}
+.icon-medium-line-button-arrow-up {
+  &:before {
+    content: $icon-medium-line-button-arrow-up;
+  }
+}
+.icon-medium-line-button-arrow-down {
+  &:before {
+    content: $icon-medium-line-button-arrow-down;
+  }
+}
+.icon-medium-line-button-add {
+  &:before {
+    content: $icon-medium-line-button-add;
+  }
+}
+.icon-medium-line-button-add-photo {
+  &:before {
+    content: $icon-medium-line-button-add-photo;
+  }
+}
+.icon-medium-line-arrow {
+  &:before {
+    content: $icon-medium-line-arrow;
+  }
+}
+.icon-medium-line-alert {
+  &:before {
+    content: $icon-medium-line-alert;
+  }
+}
+.icon-medium-line-add {
+  &:before {
+    content: $icon-medium-line-add;
+  }
+}
+.icon-medium-line-add-members {
+  &:before {
+    content: $icon-medium-line-add-members;
+  }
+}

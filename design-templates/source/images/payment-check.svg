@@ -1,0 +1,15 @@
+<svg width="40" height="40" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Canvas" fill="none">
+<g id="icons / check">
+<path id="Fill 1" fill-rule="evenodd" clip-rule="evenodd" d="M 10.0002 21.0002C 9.74425 21.0002 9.48825 20.9023 9.29325 20.7073L 0.29325 11.7072C -0.09775 11.3162 -0.09775 10.6842 0.29325 10.2933C 0.68425 9.90225 1.31625 9.90225 1.70725 10.2933L 10.0002 18.5863L 28.2932 0.29325C 28.6842 -0.09775 29.3162 -0.09775 29.7073 0.29325C 30.0983 0.68425 30.0983 1.31625 29.7073 1.70725L 10.7072 20.7073C 10.5122 20.9023 10.2562 21.0002 10.0002 21.0002Z" transform="translate(4.99951 9.99975)" fill="black"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="9" width="32" height="22">
+<path id="Fill 1_2" fill-rule="evenodd" clip-rule="evenodd" d="M 10.0002 21.0002C 9.74425 21.0002 9.48825 20.9023 9.29325 20.7073L 0.29325 11.7072C -0.09775 11.3162 -0.09775 10.6842 0.29325 10.2933C 0.68425 9.90225 1.31625 9.90225 1.70725 10.2933L 10.0002 18.5863L 28.2932 0.29325C 28.6842 -0.09775 29.3162 -0.09775 29.7073 0.29325C 30.0983 0.68425 30.0983 1.31625 29.7073 1.70725L 10.7072 20.7073C 10.5122 20.9023 10.2562 21.0002 10.0002 21.0002Z" transform="translate(4.99951 9.99975)" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<g id="colours / coral">
+<path id="Rectangle 4" fill-rule="evenodd" clip-rule="evenodd" d="M 0 0L 40 0L 40 40L 0 40L 0 0Z" fill="#FF5533"/>
+</g>
+</g>
+</g>
+</g>
+</svg>

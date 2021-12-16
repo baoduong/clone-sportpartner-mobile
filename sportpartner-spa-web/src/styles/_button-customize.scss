@@ -1,0 +1,71 @@
+@import "app-colorpalette";
+@import "functions";
+
+@mixin glows($glow) {
+  @if $glow == "glow-primary" {
+    @include glow-primary-2;
+  }
+
+  @if $glow == "glow-secondary" {
+    @include glow-secondary-2;
+  }
+}
+
+@each $key, $values in $button-pallets {
+  $normal: map-get($values, normal);
+  $hover: map-get($values, hover);
+  $pressed: map-get($values, pressed);
+  $disabled: map-get($values, disabled);
+
+  .btn-#{$key} {
+    background-color: map-get($normal, background);
+    color: map-get($normal, color);
+    border: map-get($normal, border);
+    font-weight: 500;
+    height: 50px;
+    &:hover {
+      background-color: map-get($hover, background);
+      color: map-get($hover, color);
+      &:not(:disabled) {
+        @include glows(map-get($hover, glow));
+      }
+    }
+
+    &:active {
+      background-color: map-get($pressed, background);
+      color: map-get($pressed, color);
+      border: map-get($pressed, border);
+    }
+
+    &:disabled {
+      background-color: map-get($disabled, background);
+      color: map-get($disabled, color);
+      border: map-get($disabled, border);
+    }
+
+    &.btn-large {
+      font-size: 18px;
+      height: 60px;
+      font-weight: normal;
+      max-height: pxToPoint(60);
+      padding: {
+        top: pxToPoint(16);
+        bottom: pxToPoint(16);
+      }
+    }
+
+    &:not(.btn-large) {
+      i {
+        font-size: 20px;
+        margin-right: 10px;
+        vertical-align: -3px; // middle;
+      }
+    }
+  }
+}
+
+.btn {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

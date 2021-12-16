@@ -1,0 +1,11 @@
+<div class="badge-icon">
+  <i [class]="IconName" class="text-white"></i>
+</div>
+<div class="slider-content">
+  <div class="text-white" [ngClass.xs]="'mobile-heading-1'" [ngClass.gt-xs]="'desktop-heading-1'">
+    {{Title | translate}}
+  </div>
+  <div class="paragraph-1 text-white-80" [ngClass.xs]="'mobile-paragraph-1'" [ngClass.gt-xs]="'desktop-paragraph-1'">
+    {{Content | translate}}
+  </div>
+</div>

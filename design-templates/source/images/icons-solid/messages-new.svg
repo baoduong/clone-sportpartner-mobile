@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>icons / messages new</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8,32.9998 L8,18.8958 L19.592,26.8248 C19.762,26.9408 19.959,26.9998 20.157,26.9998 C20.357,26.9998 20.559,26.9388 20.73,26.8188 L32,18.9208 L32.001,32.9998 L8,32.9998 Z M31.258,16.9998 L20.15,24.7838 L8.771,16.9998 L31.258,16.9998 Z M20,7.2618 L31.36,15.9998 L8.64,15.9998 L20,7.2618 Z M33.61,15.207767 L20.61,5.20775035 C20.25,4.93074988 19.75,4.93074988 19.39,5.20775035 L6.39,15.207767 C6.144,15.3957673 6,15.6887678 6,15.9997683 L6,32.9997967 C6,34.1027985 6.897,34.9998 8,34.9998 L32,34.9998 C33.103,34.9998 34,34.1027985 34,32.9997967 L34,15.9997683 C34,15.6887678 33.856,15.3957673 33.61,15.207767 Z" id="path-1"></path>
+    </defs>
+    <g id="icons-/-messages-new" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Page-1" fill="#000000" xlink:href="#path-1"></use>
+        <g id="colours-/-dark" mask="url(#mask-2)" fill="#000000">
+            <g transform="translate(0.000000, -1.000000)" id="Rectangle-4">
+                <rect x="0" y="0" width="40" height="40"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

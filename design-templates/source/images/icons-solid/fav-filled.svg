@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>icons small / fav selected</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M18.9512171,7.9575 C18.8332171,7.5955 18.5202171,7.3315 18.1442171,7.2765 L13.1362171,6.5495 L10.8972171,2.0115 C10.5602171,1.3295 9.44021707,1.3295 9.10321707,2.0115 L6.86421707,6.5495 L1.85621707,7.2765 C1.47921707,7.3315 1.16621707,7.5955 1.04921707,7.9575 C0.931217069,8.3195 1.02921707,8.7165 1.30221707,8.9825 L4.92521707,12.5145 L4.07021707,17.5015 C4.00621707,17.8765 4.16021707,18.2565 4.46821707,18.4795 C4.77721707,18.7045 5.18421707,18.7335 5.52121707,18.5565 L10.0002171,16.2015 L14.4792171,18.5565 C14.6252171,18.6325 14.7852171,18.6705 14.9442171,18.6705 C15.1512171,18.6705 15.3582171,18.6065 15.5322171,18.4795 C15.8402171,18.2565 15.9942171,17.8765 15.9302171,17.5015 L15.0752171,12.5145 L18.6982171,8.9825 C18.9712171,8.7165 19.0692171,8.3195 18.9512171,7.9575" id="path-1"></path>
+    </defs>
+    <g id="icons-small-/-fav-selected" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Fill-1" fill="#000000" xlink:href="#path-1"></use>
+        <g id="colours-/-dark" mask="url(#mask-2)" fill="#303030">
+            <rect id="Rectangle-4" x="0" y="0" width="20" height="20"></rect>
+        </g>
+    </g>
+</svg>

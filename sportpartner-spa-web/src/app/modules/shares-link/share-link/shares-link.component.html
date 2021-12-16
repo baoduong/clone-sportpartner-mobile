@@ -1,0 +1,142 @@
+<app-heading class="d-block sticky-top"></app-heading>
+<div class="background-white share-content-layout">
+  <h2 class="text-gray-cool-1 heading-1" [ngClass.xs]="'mobile-heading-1'"
+    [ngClass.gt-xs]="'desktop-heading-1 text-center'">
+    {{ 'Web-Group.INVITATION-OVERLAY.title' | translate }}
+  </h2>
+  <p class="text-gray-cool-2 paragraph-1" [ngClass.xs]="'mobile-paragraph-1'"
+    [ngClass.gt-xs]="'desktop-subtitle-1 text-center'">
+    {{ 'Web-Group.INVITATION-OVERLAY.description' | translate }}
+  </p>
+  <div class="wrap-button-share">
+    <!-- <ng-container *ngTemplateOutlet="shareLinkButton"></ng-container> -->
+    <!-- Shares link button -->
+    <button (click)="shareByFB()" class="btn btn-facebook btn-block font-weight-normal" [ngClass.xs]="'mobile-button-2'"
+      [ngClass.gt-xs]="'desktop-button-2'">
+      <i class="icon-small-solid-facebook"></i>
+      {{ 'Web-Group.INVITATION-OVERLAY.invite_facebook_button' | translate }}
+    </button>
+    <button (click)="shareByWhatsApp()" #whatsAppButton class="btn btn-whatshapp btn-block font-weight-normal"
+      [ngClass.xs]="'mobile-button-2'" [ngClass.gt-xs]="'desktop-button-2'">
+      <i class="icon-small-solid-whatsapp"></i>
+      {{ 'Web-Group.INVITATION-OVERLAY.invite_whatsapp_button' | translate }}
+    </button>
+    <div style="margin-top: 10px;" [ngStyle.xs]="'min-height: 50px;'" [ngStyle.gt-xs]="'min-height: 60px;'"
+      class="position-relative btn-block">
+      <button [@changeButtonState] (click)="copyLink()" *ngIf="!isCopied"
+        class="btn btn-copylink btn-block font-weight-normal" [ngClass.xs]="'mobile-button-2'"
+        [ngClass.gt-xs]="'desktop-button-2'">
+        <i class="icon-small-line-copy"></i>
+        {{ 'Web-Group.INVITATION-OVERLAY.invite_link_button' | translate }}
+      </button>
+      <button style="margin-top: 0!important;" [@changeButtonState] *ngIf="isCopied" appBtnOutlineAzure2
+        class="btn btn-copied btn-block" [ngClass.xs]="'mobile-button-2'" [ngClass.gt-xs]="'desktop-button-2'">
+        <i class="icon-small-line-check1"></i>
+        {{ 'Web-Group.INVITATION-OVERLAY.invite_copied_link_button' | translate }}
+      </button>
+    </div>
+    <!-- End shares link buttons -->
+
+    <div *ngIf="isCopied" [@showNotification]="isCopied ? 'show': 'hide'"
+      class="btn btn-block notification background-azure-6">
+      <span class="text-azure-2" [ngClass.xs]="'mobile-paragraph-2'" [ngClass.gt-xs]="'desktop-paragraph-2'">
+        {{ 'Web-Group.INVITATION-OVERLAY.invite_copied_link_tip' | translate }}
+      </span>
+    </div>
+  </div>
+</div>
+<div class="background-gray-warm-6 share-content-layout-2">
+  <div [ngClass.gt-xs]="'max-width-content'">
+    <h2 class="text-center heading-1-2" [ngClass.xs]="'mobile-heading-1 text-gray-cool-1'"
+      [ngClass.gt-xs]="'desktop-heading-1 text-indigo-2'">
+      {{ 'Web-Group.INVITATION-OVERLAY.guide_title' | translate }}
+    </h2>
+    <div class="list-item">
+      <ng-container *ngFor="let item of contentIconItems">
+        <div>
+          <app-shares-link-icon-content-item [item]="item"></app-shares-link-icon-content-item>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<div fxHide.lt-sm="true" class="background-white share-content-layout-2">
+  <div class="max-width-content">
+    <h3 class="desktop-subtitle-1 subtitle-1 text-gray-cool-1 text-center">
+      {{ 'Web-Group.INVITATION-OVERLAY.description2' | translate }}
+    </h3>
+    <div class="wrap-button-share">
+      <!-- <ng-container *ngTemplateOutlet="shareLinkButton"></ng-container> -->
+      <!-- Shares link button -->
+      <button (click)="shareByFB()" class="btn btn-facebook btn-block font-weight-normal"
+        [ngClass.xs]="'mobile-button-2'" [ngClass.gt-xs]="'desktop-button-2'">
+        <i class="icon-small-solid-facebook"></i>
+        {{ 'Web-Group.INVITATION-OVERLAY.invite_facebook_button' | translate }}
+      </button>
+      <button (click)="shareByWhatsApp()" #whatsAppButton class="btn btn-whatshapp btn-block font-weight-normal"
+        [ngClass.xs]="'mobile-button-2'" [ngClass.gt-xs]="'desktop-button-2'">
+        <i class="icon-small-solid-whatsapp"></i>
+        {{ 'Web-Group.INVITATION-OVERLAY.invite_whatsapp_button' | translate }}
+      </button>
+      <div style="margin-top: 10px;" [ngStyle.xs]="'min-height: 50px;'" [ngStyle.gt-xs]="'min-height: 60px;'"
+        class="position-relative btn-block">
+        <button [@changeButtonState] (click)="copyLink()" *ngIf="!isCopied"
+          class="btn btn-copylink btn-block font-weight-normal" [ngClass.xs]="'mobile-button-2'"
+          [ngClass.gt-xs]="'desktop-button-2'">
+          <i class="icon-small-line-copy"></i>
+          {{ 'Web-Group.INVITATION-OVERLAY.invite_link_button' | translate }}
+        </button>
+        <button style="margin-top: 0!important;" [@changeButtonState] *ngIf="isCopied" appBtnOutlineAzure2
+          class="btn btn-copied btn-block" [ngClass.xs]="'mobile-button-2'" [ngClass.gt-xs]="'desktop-button-2'">
+          <i class="icon-small-line-check1"></i>
+          {{ 'Web-Group.INVITATION-OVERLAY.invite_copied_link_button' | translate }}
+        </button>
+      </div>
+      <!-- End shares link buttons -->
+
+      <div *ngIf="isCopied" [@showNotification]="isCopied ? 'show': 'hide'"
+        class="btn btn-block notification background-azure-6">
+        <span class="text-azure-2" [ngClass.xs]="'mobile-paragraph-2'" [ngClass.gt-xs]="'desktop-paragraph-2'">
+          {{ 'Web-Group.INVITATION-OVERLAY.invite_copied_link_tip' | translate }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div fxHide.gt-xs="true" #mobileStickyWhapsApp class="mobile-sticky-whatsApp">
+  <div class="wrap-button-share">
+    <button (click)="shareByWhatsApp()" class="btn btn-whatshapp btn-block font-weight-normal"
+      [ngClass.xs]="'mobile-button-2'" [ngClass.gt-xs]="'desktop-button-2'">
+      <i class="icon-small-solid-whatsapp"></i>
+      {{ 'Web-Group.INVITATION-OVERLAY.invite_whatsapp_button' | translate }}
+    </button>
+  </div>
+</div>
+
+<!-- <ng-template #shareLinkButton>
+  <button (click)="shareByFB()" class="btn btn-facebook btn-block font-weight-normal" [ngClass.xs]="'mobile-button-2'"
+    [ngClass.gt-xs]="'desktop-button-2'">
+    <i class="icon-small-solid-facebook"></i>
+    {{ 'Web-Group.INVITATION-OVERLAY.invite_facebook_button' | translate }}
+  </button>
+  <button (click)="shareByWhatsApp()" #whatsAppButton class="btn btn-whatshapp btn-block font-weight-normal"
+    [ngClass.xs]="'mobile-button-2'" [ngClass.gt-xs]="'desktop-button-2'">
+    <i class="icon-small-solid-whatsapp"></i>
+    {{ 'Web-Group.INVITATION-OVERLAY.invite_whatsapp_button' | translate }}
+  </button>
+  <div style="margin-top: 10px;" [ngStyle.xs]="'min-height: 50px;'" [ngStyle.gt-xs]="'min-height: 60px;'"
+    class="position-relative btn-block">
+    <button [@changeButtonState] (click)="copyLink()" *ngIf="!isCopied"
+      class="btn btn-copylink btn-block font-weight-normal" [ngClass.xs]="'mobile-button-2'"
+      [ngClass.gt-xs]="'desktop-button-2'">
+      <i class="icon-small-line-copy"></i>
+      {{ 'Web-Group.INVITATION-OVERLAY.invite_link_button' | translate }}
+    </button>
+    <button style="margin-top: 0!important;" [@changeButtonState] *ngIf="isCopied" appBtnOutlineAzure2
+      class="btn btn-copied btn-block" [ngClass.xs]="'mobile-button-2'" [ngClass.gt-xs]="'desktop-button-2'">
+      <i class="icon-small-line-check1"></i>
+      {{ 'Web-Group.INVITATION-OVERLAY.invite_copied_link_button' | translate }}
+    </button>
+  </div>
+</ng-template> -->

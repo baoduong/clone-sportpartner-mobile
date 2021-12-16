@@ -1,0 +1,35 @@
+<div class="notification-menu">
+  <button class="btn white-two btn-notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <!-- <img style="width:16px; margin-left:10px;" src="/images/icons-solid/notification.svg" alt=""> -->
+    <span class="count">10</span>
+    <span class="sport-icons bell" style="margin-left: 10px;"></span>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
+    <div class="reposition">
+      <label class="m-0 title">Your notifications</label>
+      <div class="dropdown-divider m-0"></div>
+      {{# notification }}
+      <div class="notification-item-block">
+        <div class="dropdown-item">
+          <a class="link-item" href="#">
+            <div class="img">
+              <img src="{{{img}}}" alt="">
+            </div>
+            <div class="content">
+              <p class="m-0">{{title}}
+                <small>{{title_2}}</small>
+              </p>
+            </div>
+          </a>
+          <div class="delete">
+            <button type="button" class="btn btn-link btn-clear">
+              <img src="/images/icons-solid/close.svg">
+            </button>
+          </div>
+        </div>
+      </div>
+      {{/ notification }}
+      <a class="dropdown-item see-all-notification" href="#">See all notifications</a>
+    </div>
+  </div>
+</div>

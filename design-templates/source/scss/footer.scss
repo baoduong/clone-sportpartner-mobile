@@ -1,0 +1,75 @@
+.footer {
+  //border-top: 1px solid $white-two; // border-bottom: 1px solid $white-two;
+  padding-top: 80px;
+  padding-bottom: 40px; //   margin-top: 100px;
+  background-color: $royal-purple;
+  .select-language {
+    font-size: 16px;
+    max-width: 200px;
+    height: 40px;
+    color: #fff;
+    background-color: #430073;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 129 129'%3e%3cg%3e%3cpath fill='%23fff' d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z'/%3e%3c/g%3e%3c/svg%3e") !important;
+    padding-bottom: 0;
+    padding-top: 4px;
+  }
+  .Heading-3 {
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  a {
+    &.link {
+      @include Footer-links;
+    }
+  }
+  .Footer-links {
+    text-decoration: none !important;
+  }
+  .line {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    margin-top: 40px;
+    li.list-inline-item {
+      display: inline-flex;
+      align-items: flex-end;
+    }
+    .social-link {
+      margin-left: 30px;
+      li {
+        margin-left: 30px;
+        margin-right: 0;
+        height: 20px;
+        a {
+          line-height: 1;
+        }
+      }
+    }
+    .Footer-links {
+      color: $orangey-red;
+      font-size: 16px;
+      line-height: 1.88;
+      font-weight: 300;
+      font-family: 'calibre';
+      &:hover {
+        color: #fff;
+      }
+      .sport-icons.facebook::before {
+        font-size: 16px;
+      }
+      .sport-icons.twitter::before {
+        font-size: 16px;
+      }
+      .sport-icons.google-plus::before {
+        font-size: 18px;
+      }
+    }
+  }
+  .copyright {
+    font-size: 16px;
+    line-height: 1.22;
+    color: $light-purple;
+  }
+}

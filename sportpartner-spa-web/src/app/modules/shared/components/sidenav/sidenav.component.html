@@ -1,0 +1,132 @@
+<nav #sideNav [@animationToggleSideNav]="isOpen ? 'open': 'hide'" id="main-navigation">
+    <div class="close-sidenav">
+        <button (click)="closeSideNav()" class="btn btn-close">
+            <i class="icon-medium-line-cross"></i>
+            <span class="menu-title">
+                {{ 'Generic.MENU.menu' | translate }}
+            </span>
+        </button>
+    </div>
+    <div class="nav-login">
+        <ng-container *ngIf="(deviceType | async) === 'desktop'">
+            <div class="nav-header d-flex">
+                <div class="ha-avatar">
+                    <ng-container *ngIf="userProfile.isPremium">
+                        <span class="circle">
+                            <span class="icon-small-solid-premium"></span>
+                        </span>
+                    </ng-container>
+                    <span class="avatar">
+                        <a class="lnkUpload" [href]="userProfile.culture + '/account/uploadphoto'">
+                            <img [src]="userProfile.avatarUrl" [alt]="userProfile.screenName">
+                        </a>
+                    </span>
+                </div>
+                <div class="hd-content">
+                    <p class="screenName">
+                        {{userProfile.screenName}}
+                    </p>
+                    <p class="user_type">
+                        {{user_type}}
+                    </p>
+
+                    <ng-container *ngIf="!userProfile.isPremium">
+                        <div class="space-10"></div>
+                        <p class="p_upgrade_to_Premium m-0">
+                            <a class="btn-block" appBtnAzure2
+                                [href]="userProfile.culture + '/payment/options?src=MenuButton'">
+                                {{ 'Generic.MENU.upgrade_to_Premium' | translate }}
+                            </a>
+                        </p>
+                    </ng-container>
+
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="(deviceType | async) === 'mobile'">
+            <div class="nav-header-mobile">
+                <div class="title-item-account">
+                    <div class="block-avatar">
+                        <div class="block-img">
+                            <span class="oval-avatar">
+                                <a class="lnkUpload" [href]="userProfile.culture + '/account/uploadphoto'">
+                                    <img [src]="userProfile.avatarUrl" [alt]="userProfile.screenName">
+                                </a>
+                            </span>
+                            <ng-container *ngIf="userProfile.isPremium">
+                                <span class="is-premium">
+                                    <span class="icon-small-solid-premium"></span>
+                                </span>
+                            </ng-container>
+                        </div>
+                        <div class="bl-name">
+                            <h3 class="title">
+                                {{userProfile.screenName}}
+                            </h3>
+
+                            <p class="lbl-acc-type">
+                                {{user_type}}
+                            </p>
+                        </div>
+                    </div>
+                    <a *ngIf="!userProfile.isPremium" class="menu-upgrade-button btn deep-sky-blue go-to-package"
+                        data-tracking-id="navigationGoPremium"
+                        [href]="userProfile.culture + '/payment/options?src=MenuButton'">
+                        {{ 'Generic.MENU.upgrade_to_Premium' | translate }}
+                    </a>
+                </div>
+            </div>
+        </ng-container>
+        <div class="space-40"></div>
+        <hr class="hr-1">
+        <div class="space-40"></div>
+        <ul id="panel-menu">
+            <li>
+                <a [href]="userProfile.culture + '/matches'">
+                    <!-- @T["my_matches", "MENU"] -->
+                    {{ 'Generic.MENU.my_matches' | translate }}
+                </a>
+            </li>
+            <li *ngIf="appConfig.config.isShowGroupFeature">
+                <a [routerLink]="[userProfile.culture+'/group']" routerLinkActive="router-link-active">
+                    {{ 'Generic.MENU.group' | translate }}
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="[userProfile.culture+'/chat']" routerLinkActive="router-link-active">
+                    <!-- @T["messages","MENU"] -->
+                    {{ 'Generic.MENU.messages' | translate }}
+                </a>
+            </li>
+        </ul>
+        <div class="space-60"></div>
+        <hr class="hr-2">
+        <div class="space-40"></div>
+        <ul id="second-menu" class="m-0 second-menu">
+            <li>
+                <a [href]="userProfile.culture + '/member'">
+                    <!-- @T["my_profile", "MENU"] -->
+                    {{ 'Generic.MENU.my_profile' | translate }}
+                </a>
+            </li>
+            <li>
+                <a [href]="userProfile.culture + '/member/settings'">
+                    <!-- @T["my_account", "MENU"] -->
+                    {{ 'Generic.MENU.my_account' | translate }}
+                </a>
+            </li>
+            <li>
+                <a [href]="userProfile.culture + '/faq'">
+                    <!-- @T["help", "MENU"] -->
+                    {{ 'Generic.MENU.help' | translate }}
+                </a>
+            </li>
+            <li>
+                <a [href]="userProfile.culture + '/account/logout'">
+                    <!-- @T["logout", "MENU"] -->
+                    {{ 'Generic.MENU.logout' | translate }}
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

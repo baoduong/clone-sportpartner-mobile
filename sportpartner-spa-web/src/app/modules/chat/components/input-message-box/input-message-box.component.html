@@ -1,0 +1,133 @@
+<ng-container *ngIf="(deviceType | async) === 'mobile' || (deviceType | async)==='tablet'">
+  <ng-container [ngSwitch]="category">
+    <ng-container *ngSwitchCase="'Deleted'">
+
+      <ng-container *ngTemplateOutlet="tplRestoreConversation"></ng-container>
+
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+
+      <ng-container *ngIf="(room | async) && (allowChat$ | async); else tplDisabledSendGotoNonPremium">
+        <ng-container *ngTemplateOutlet="tplMobileInputMessage"></ng-container>
+      </ng-container>
+
+    </ng-container>
+  </ng-container>
+
+
+</ng-container>
+
+<ng-container *ngIf="(deviceType | async) === 'desktop'">
+  <ng-container [ngSwitch]="category">
+    <ng-container *ngSwitchCase="'Deleted'">
+      <ng-container *ngTemplateOutlet="tplRestoreConversation"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+
+      <ng-container *ngIf="(room | async) && (allowChat$ | async)">
+        <ng-container *ngTemplateOutlet="tplDesktopInputMessage"></ng-container>
+      </ng-container>
+
+    </ng-container>
+  </ng-container>
+
+</ng-container>
+
+<ng-template #tplMobileInputMessage>
+  <ng-container
+    *ngIf="(room | async).conversationType=== 'Group' && (groupDetail$ | async) && !(groupDetail$ | async).isFollowing; else tplMobileAllowChat">
+    <ng-container *ngTemplateOutlet="tplLeaveGroup"></ng-container>
+  </ng-container>
+  <ng-template #tplMobileAllowChat>
+    <ng-container *ngIf="(room | async) && (friendProfile$ | async).isDeletedUser; else tplAllowChatInMobile">
+      <ng-container *ngTemplateOutlet="tplDeleteUser"></ng-container>
+    </ng-container>
+    <ng-template #tplAllowChatInMobile>
+      <div class="input-message-layout">
+        <div class="avatar">
+          <img [src]="userProfile.avatarUrl">
+        </div>
+        <div class="input-message" (click)="showInputChatBox()">
+          <div class="first-state-input">
+            <i class="icon-small-line-new-message1"></i>
+            <span class="desktop-paragraph-2">{{'Conversation.CHAT.type_message' | translate}}</span>
+          </div>
+        </div>
+      </div>
+      <div [ngClass]="{
+        'chrome-ipad': ipadChrome,
+        'active': isShowInputOnMobile.value, 
+        'tablet-layout': (deviceType | async) === 'tablet'}" class="active-input-message-box">
+        <app-typing-message (sentMessage)="onSendMessage($event)" (blurInput)="onBlurInput()">
+        </app-typing-message>
+      </div>
+    </ng-template>
+  </ng-template>
+</ng-template>
+
+<ng-template #tplDesktopInputMessage>
+  <ng-container
+    *ngIf="(room | async).conversationType=== 'Group' && (groupDetail$ | async) && !(groupDetail$ | async).isFollowing; else tplDesktopAllowChat">
+    <ng-container *ngTemplateOutlet="tplLeaveGroup"></ng-container>
+  </ng-container>
+
+  <ng-template #tplDesktopAllowChat>
+    <ng-container
+      *ngIf="(room | async).conversationType=== 'One' && (friendProfile$ | async).isDeletedUser; else tplAllowChatInDesktop">
+      <ng-container *ngTemplateOutlet="tplDeleteUser"></ng-container>
+    </ng-container>
+    <ng-template #tplAllowChatInDesktop>
+      <app-typing-message (sentMessage)="onSendMessage($event)" (focusInput)="onFocusInput()"
+        (blurInput)="onBlurInput()" [disableChatEmoji$]="disableChatEmoji$">
+      </app-typing-message>
+    </ng-template>
+  </ng-template>
+</ng-template>
+
+
+<ng-template #tplDisabledSendGotoNonPremium>
+  <div *ngIf="(deviceType | async) === 'mobile'" class="become-premium-banner">
+    <div>
+      <p class="text">
+        {{'Conversation.INBOX.nonpremium_title' | translate}}
+      </p>
+    </div>
+    <div>
+      <button (click)="gotoPayment()" class="btn-block" appBtnCoral2>
+        {{'Conversation.INBOX.nonpremium_button' | translate}}
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #tplLeaveGroup>
+  <div class="layout-no-allow-chat">
+    <p class="m-0 desktop-paragraph-2 text-gray-cool-2 text-center">
+      {{'Conversation.CHAT.left_group_description' | translate }}
+    </p>
+  </div>
+</ng-template>
+
+<ng-template #tplDeleteUser>
+  <div class="layout-no-allow-chat delete_conversation">
+    <p class="m-0 desktop-paragraph-2 text-gray-cool-2 text-center">
+      {{'Conversation.CHAT.deleted_user_description' | translate:{member: (friendProfile$ | async).screenName} }}
+    </p>
+    <button appBtnCoral2 (click)="toggleDialogDelete()">
+      {{ 'Conversation.CHAT.menu_1on1chat_delete_conversation' | translate }}
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #tplRestoreConversation>
+  <div class="container-restore-conversation">
+    <div class="text-center">
+      <span class="desktop-paragraph-2 text-gray-cool-2">{{'Conversation.CHAT.nonpremium_title' | translate }}</span>
+    </div>
+    <button appBtnAzure2 (click)="restoreConversation()">{{'Conversation.CHAT.restore_message_button' | translate
+      }}</button>
+  </div>
+</ng-template>
+
+<app-dialog-confirm-delete-conversation *ngIf="(isShowDialogDelete | async)"
+  (toggleDialogDeleted)="toggleDialogDelete()"></app-dialog-confirm-delete-conversation>

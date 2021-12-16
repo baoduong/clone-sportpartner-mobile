@@ -1,0 +1,61 @@
+$font-sizes:(12, 14, 16, 18, 20, 22, 24, 26, 30, 34, 40, 60);
+$font-weights: (300, 400, 500, 600);
+$opacities: (10,20,30,40,50,60,70,80,90,100);
+// .font-family-calibre {
+//     @include font-family-calibre;
+// }
+.font-family-gilroy {
+    @include font-family-gilroy;
+    // font-family: 'Inter' !important;
+}
+
+
+@each $fontSize in $font-sizes {
+    .font-size-#{$fontSize} {
+        font-size: $fontSize + 0px !important;
+    }
+}
+
+@each $fontWeight in $font-weights {
+    .font-weight-#{$fontWeight} {
+        font-weight: $fontWeight !important;
+    }
+}
+
+@each $opacity in $opacities {
+    .opacity-#{$opacity} {
+        opacity: $opacity * 0.01 !important;
+    }
+}
+
+.text-color-coral {
+    color: $coral !important;
+}
+
+.text-color-orangey-red {
+    color: $orangey-red !important;
+}
+
+.text-color-royal-purple {
+    color: $royal-purple !important;
+}
+
+.text-color-dark {
+    color: $dark !important;
+}
+
+.text-color-slate-grey {
+    color: $slate-grey !important;
+}
+
+.text-color-white {
+    color: #fff !important;
+}
+
+.text-color-light-purple {
+    color: $light-purple !important;
+}
+
+.text-color-indigo{
+    color: $indigo !important;
+}

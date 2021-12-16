@@ -1,0 +1,52 @@
+@import "media";
+@import "app-colorpalette";
+
+.btn-back {
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  min-width: 50px;
+  margin-right: 10px;
+  color: inherit;
+  i {
+    font-size: 20px;
+    color: inherit;
+    & ~ span {
+      margin-left: 20px;
+      color: inherit;
+    }
+  }
+  color: map-get($color-pallets, gray-cool-2) !important;
+}
+.heading-page {
+  height: 70px;
+  position: relative;
+  @include gt-mobile {
+    height: 80px;
+  }
+  &.light {
+    background: #ffffff;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+    color: map-get($color-pallets, gray-cool-1);
+    i.icon-small-line-arrow-left {
+      color: map-get($color-pallets, gray-cool-2) !important;
+    }
+  }
+
+  &.dark {
+    background: map-get($color-pallets, indigo-2);
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1);
+    color: map-get($color-pallets, white);
+  }
+}
+.back-button {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: 10px;
+}
+.heading-title {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}

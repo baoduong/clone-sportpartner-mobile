@@ -1,0 +1,42 @@
+<div class="btn-group">
+  <button type="button" class="m-0 p-0 hd-dropdown-avartar btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+    aria-expanded="false">
+    <span class="oval-avatar">
+      <img class="avartar" src="" />
+    </span>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right dropdown-menu-account">
+    <div class="title-item-account">
+      <div class="block-avatar">
+        <div class="block-img">
+          <span class="oval-avatar">
+            <img src="" alt="">
+          </span>
+          {{# isPremium}}
+            <span class="is-premium">
+              <img src="/images/icons-solid/premium-member.svg" alt="">
+            </span>
+            {{/ isPremium}}
+        </div>
+        <div class="bl-name">
+          <h3 class="title">Jorrit, Lorem Ipsum Dolor Sit Amet
+          </h3>
+          {{# isPremium}}
+          <small>Premium member</small>
+          {{/ isPremium}}
+          {{# basicMember}}
+          <small>Basic member</small>
+          {{/ basicMember}}
+        </div>
+      </div>
+      {{# basicMember}}
+        <a href="#" class="menu-upgrade-button btn black-two text-left"><img src="/images/icons-solid/premium-small.svg" alt="">Upgrade to Premium</a>
+      {{/ basicMember}}
+    </div>
+    <a class="dropdown-item {{active-my-profile}}" href="#">My Profile</a>
+    <a class="dropdown-item {{active-settings}}" href="#">Settings</a>
+    <a class="dropdown-item {{active-help}}" href="#">Help</a>
+    <div class="dropdown-divider" style="margin-top: 5px; margin-bottom: 3px"></div>
+    <a class="dropdown-item" href="#">Log out</a>
+  </div>
+</div>

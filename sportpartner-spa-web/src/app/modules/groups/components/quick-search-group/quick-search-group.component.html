@@ -1,0 +1,44 @@
+<div class="p-y p-x" [ngClass.gt-xs]="'position-relative'">
+  <button *ngIf="isShowBackButton" fxHide fxShow.gt-xs="true" class="btn btn-back text-gray-cool-2" (click)="back()">
+    <i class="icon-small-line-arrow-left"></i> <span [ngClass.xs]="'mobile-paragraph-2'"
+      [ngClass.gt-xs]="'desktop-paragraph-2'" class="paragraph-2">Back</span>
+  </button>
+  <div>
+    <div class="mx-auto search-group">
+      <div class="overlay-fixed" [ngClass]="isShow ? 'position-fixed' : ''" (click)="hide()"></div>
+      <div class="search-group-overlay" [ngClass]="isShow ? 'active' : ''">
+        <div class="d-flex">
+          <button *ngIf="isShowBackButton" fxHide.gt-xs="true" class="btn btn-back text-gray-cool-2" (click)="back()"
+            [ngStyle.xs]="'margin-left:-7px'">
+            <i class="icon-small-line-arrow-left"></i>
+          </button>
+          <input (focus)="show()" type="text" class="form-control input-search" placeholder="{{ 'Web-Group.START-PAGE.search_placeholder' | translate }}" disabled>
+          <button fxHide.gt-xs="true" [@ShowHide]='isShow ? "show" : "hide"' (click)="hide()"
+            class="btn btn-close-search text-gray-cool-2">
+            <i class="icon-small-line-cross1"></i>
+          </button>
+        </div>
+        <div class="sub-quick-search-group" [ngClass]="isShow ? '' : 'd-none'">
+          <label fxShow fxHide.xs="true" class="paragraph-3 text-gray-cool-2" [ngClass.xs]="'mobile-paragraph-3'"
+            [ngClass.gt-xs]="'desktop-paragraph-3'" style="margin-bottom: 10px;">
+            Discover in groups
+          </label>
+          <div class="discover-in-groups">
+            <div>
+              <button class="btn btn-azure-6" [ngClass.gt-xs]="'btn-block'">Near me</button>
+            </div>
+            <div>
+              <button class="btn btn-azure-6" [ngClass.gt-xs]="'btn-block'">Newest groups</button>
+            </div>
+            <div>
+              <button class="btn btn-azure-6" [ngClass.gt-xs]="'btn-block'">Most memebers</button>
+            </div>
+            <div>
+              <button class="btn btn-azure-6" [ngClass.gt-xs]="'btn-block'">Most active</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

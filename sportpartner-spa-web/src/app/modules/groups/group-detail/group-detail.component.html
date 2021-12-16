@@ -1,0 +1,312 @@
+<div class="group-detail-wrap">
+  <div [ngClass.gt-xs]="'max-width-content'">
+    <div class="top-group-detail" [style.background-image]="'url(' + (groupDetail$ | async).backgroundImage + ')'">
+
+      <button class="btn btn-back" (click)="goBack()" fxLayout="row" fxLayoutGap="21px">
+        <i class="icon-small-line-arrow-left"></i>
+        <span fxHide fxShow.gt-xs="true" [ngClass.gt-xs]="'desktop-button-2'">{{'Web-Group.GENERIC.back' | translate
+          }}</span>
+      </button>
+
+      <button class="btn btn-share" fxLayout="row" fxLayoutGap="21.9px" (click)="inviteFriends()">
+        <i class="icon-small-line-share1"></i>
+        <span fxHide fxShow.gt-xs="true" [ngClass.xs]="'mobile-button-2'"
+          [ngClass.gt-xs]="'desktop-button-2'">{{'Web-Group.GENERIC.share' | translate }}</span>
+      </button>
+
+      <h2 class="text-center group-name" [ngClass.xs]="'mobile-heading-1'" [ngClass.gt-xs]="'desktop-heading-1'">
+        {{(groupDetail$ | async).sportName}}
+        <br fxHide.gt-xs>
+        {{(groupDetail$ | async).cityName}}
+      </h2>
+      <p class="text-center" [ngClass.xs]="'mobile-paragraph-2'">
+        <ng-container *ngIf="(groupDetail$ | async).totalMember > 1">
+          {{'Web-Group.GENERIC.members' | translate: { number: (groupDetail$ | async).totalMember } }}
+        </ng-container>
+        <ng-container *ngIf="(groupDetail$ | async).totalMember === 1">
+          <!-- You are the first -->
+          <!-- {{'Web-Group.GENERIC.member' | translate }} -->
+          {{'Web-Group.GROUP-PAGE.nomember_you_are_the_first' | translate }}
+        </ng-container>
+      </p>
+
+      <div class="bg-linear-wrap">
+
+        <!-- button leaves group -->
+        <button (click)="showDialogConfirmLeaveGroup(true)" *ngIf="(groupDetail$ | async).isFollowing"
+          class="btn btn-joined" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="13px">
+          <i class="icon-medium-line-check"></i>
+          <span [ngClass.xs]="'mobile-button-2'" [ngClass.gt-xs]="'desktop-button-2'">
+            {{'Web-Group.GROUP-PAGE.you_are_member_button' | translate }}
+          </span>
+        </button>
+
+        <!-- button join group -->
+        <button *ngIf="!(groupDetail$ | async).isFollowing" appBtnAzure2 class="btn-join" fxLayout="row"
+          fxLayoutAlign="center center" fxLayoutGap="13px" (click)="joinGroup()">
+          <i class="icon-small-line-plus"></i>
+          <span [ngClass.xs]="'mobile-button-2'" [ngClass.gt-xs]="'desktop-button-2'">
+            {{'Web-Group.GROUP-PAGE.join_this_group_button' | translate }}
+          </span>
+        </button>
+        <div class="bg-linear">
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-group-detail">
+      <div [ngClass.xs]="'max-width-content'">
+        <div class="member-group-wrap">
+          <div class="member-group-box" fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="space-between center">
+            <div class="d-block d-flex" fxLayoutGap.gt-xs="20px">
+              <div class="member-group-list" fxLayoutAlign="center center" fxLayoutGap="-7px"
+                [ngStyle]="(groupDetail$ | async).totalMember > 1 && {'cursor': 'pointer'}">
+                <app-top-avatar-skeleton-loader [topListImage]="(groupDetail$ | async).recentUserIds"
+                  (click)="showListMember(true)">
+                </app-top-avatar-skeleton-loader>
+                <div *ngIf="(groupDetail$ | async).totalMember - (groupDetail$ | async).numberRecentMembers > 0"
+                  class="more-member btn btn-azure-6" [ngClass.xs]="'mobile-button-2'"
+                  [ngClass.gt-xs]="'desktop-button-2'" (click)="showListMember(!isShowListMember)">
+                  +{{(groupDetail$ | async).totalMember - (groupDetail$ | async).numberRecentMembers}}
+                </div>
+                <div (click)="inviteFriends()" *ngIf="(groupDetail$ | async).totalMember === 1"
+                  class="more-member btn btn-azure-6" [ngClass.xs]="'mobile-button-2'"
+                  [ngClass.gt-xs]="'desktop-button-2'">
+                  {{'Web-Group.GROUP-PAGE.nomember_invite_others' | translate }}
+                </div>
+              </div>
+              <p class="text-center new-member-text" [ngClass]="'mobile-paragraph-2'" (click)="showListMember(true)"
+                [ngStyle]="(groupDetail$ | async).totalMember > 1 && {'cursor': 'pointer'}">
+                <ng-container
+                  *ngIf="(groupDetail$ | async).isFollowing === false || (groupDetail$ | async).numberNewMembers === 0 && (groupDetail$ | async).totalMember > 1">
+                  <!-- View members of this group -->
+                  {{'Web-Group.GROUP-PAGE.members_view_all' | translate }}
+                  <!-- {{'Web-Group.GROUP-PAGE.members_of_this_group' | translate }} -->
+                </ng-container>
+                <ng-container
+                  *ngIf="(groupDetail$ | async).numberNewMembers === 1 && (groupDetail$ | async).totalMember > 1 && (groupDetail$ | async).isFollowing === true">
+                  <!-- 1 new member joined this group -->
+                  <span [innerHtml]="'Web-Group.GROUP-PAGE.member_joined_this_group' | translate"></span>
+                </ng-container>
+                <ng-container
+                  *ngIf="(groupDetail$ | async).numberNewMembers > 1 && (groupDetail$ | async).isFollowing === true">
+                  <!-- 3 new members joined this group -->
+                  <span
+                    [innerHTML]="'Web-Group.GROUP-PAGE.members_joined_this_group' | translate:{ numberNewMembers: (groupDetail$ | async).numberNewMembers }"></span>
+                </ng-container>
+                <ng-container *ngIf="(groupDetail$ | async).totalMember === 1">
+                  <!-- You are the first Invite others to join -->
+                  <strong>{{'Web-Group.GROUP-PAGE.nomember_member_youre_the_first' | translate }}</strong>
+                  {{'Web-Group.GROUP-PAGE.nomember_member_invite_others' | translate }}
+                </ng-container>
+              </p>
+            </div>
+            <div class="btn-invite">
+              <ng-container *ngIf="!(groupDetail$ | async).isFollowing">
+                <button class="btn btn-large btn-coral-2 glow-primary-2 button-1"
+                  [ngClass.xs]="'btn-block mobile-button-1'" [ngClass.gt-xs]="'desktop-button-1'"
+                  (click)="inviteFriends()">{{'Web-Group.GROUP-PAGE.invite_button' | translate }}
+                </button>
+              </ng-container>
+              <ng-container *ngIf="(groupDetail$ | async).isFollowing">
+                <button class="btn btn-large btn-azure-2" [ngClass.xs]="'btn-block mobile-button-1'"
+                  [ngClass.gt-xs]="'desktop-button-1'" (click)="joinTheConversation()">
+                  <!-- Join the conversation -->
+                  {{'Web-Group.START-PAGE.message_join_conversation_button' | translate }}
+                </button>
+              </ng-container>
+            </div>
+            <p class="invite-text text-center text-gray-cool-1" [ngClass.xs]="'mobile-paragraph-1'" fxHide.gt-xs="true">
+              {{'Web-Group.GROUP-PAGE.invite_description' | translate }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="(myProfile$ | async).isPremium == true && (listRecentMessage$ | async).length > 0">
+      <div class="hr-line" [ngClass.xs]="'max-width-content'" [ngStyle.gt-xs]="{'margin-top': '30px'}">
+        <hr class="my-0">
+      </div>
+      <h2 class="m-0 label-recent-messages text-center text-sm-left text-indigo-2" [ngClass.xs]="'mobile-heading-2'"
+        [ngClass.gt-xs]="'desktop-heading-2'">
+        {{'Web-Group.GROUP-PAGE.message_title' | translate }}
+      </h2>
+    </ng-container>
+  </div>
+
+  <!-- <ng-container *ngIf="(groupDetail$ | async).recentUserIds.length === 1 && (listRecentMessage$ | async).length === 0; then groupOneMember"></ng-container>
+
+  <ng-container *ngIf="(groupDetail$ | async).recentUserIds.length > 1 && (myProfile$ | async).isPremium == true && (listRecentMessage$ | async).length === 0; then noMessageInGroupAndIsPremium"></ng-container>
+
+  <ng-container *ngIf="(groupDetail$ | async).recentUserIds.length > 1 && (myProfile$ | async).isPremium == false; then nonPremium"></ng-container>
+
+  <ng-container *ngIf="(myProfile$ | async).isPremium == true && (listRecentMessage$ | async).length > 0; then listRecentMessageGroup"></ng-container> -->
+
+  <ng-container *ngIf="(groupDetail$ | async).totalMember === 1; then groupOneMember else groupManyMember">
+  </ng-container>
+  <ng-template #groupOneMember>
+    <ng-container *ngIf="(myProfile$ | async).isPremium === true; else noMessageInGroupNonPremium">
+      <ng-container
+        *ngIf="(listRecentMessage$ | async).length === 0; then groupOneMemberNoMessage else recentMessageGroup">
+      </ng-container>
+    </ng-container>
+  </ng-template>
+  <ng-template #groupManyMember>
+    <ng-container *ngIf="(myProfile$ | async).isPremium === true; else noMessageInGroupNonPremium">
+      <ng-container
+        *ngIf="(listRecentMessage$ | async).length === 0; then groupManyMemberNoMessage else recentMessageGroup">
+      </ng-container>
+    </ng-container>
+  </ng-template>
+
+</div>
+
+<ng-template #recentMessageGroup>
+  <div class="content-recent-msg background-gray-warm-5">
+    <div class="max-width-content">
+      <div class="recent-message-box">
+        <div fxLayout="column" fxLayoutGap="20px">
+
+          <ng-container *ngFor="let item of (listRecentMessage$ | async); let i = index">
+            <ng-container *ngIf="i === 1; then recentMsgAndBanner else recentMsg"></ng-container>
+
+            <ng-template #recentMsgAndBanner>
+              <app-recent-message-item [recentMessage]="item">
+              </app-recent-message-item>
+
+              <ng-container>
+                <app-banner-invite-friends [GroupId]="(groupDetail$ | async).id">
+                </app-banner-invite-friends>
+              </ng-container>
+            </ng-template>
+
+            <ng-template #recentMsg>
+              <app-recent-message-item [recentMessage]="item">
+              </app-recent-message-item>
+            </ng-template>
+          </ng-container>
+          <button class="btn btn-load-more" fxLayoutAlign="center center" fxLayoutGap="13px"
+            (click)="loadMoreRecentMsg()">
+            <i class="icon-small-line-plus"></i>
+            <span [ngClass.xs]="'mobile-button-2'"
+              [ngClass.gt-xs]="'desktop-button-2'">{{'Web-Group.GROUP-PAGE.go_to_this_conversation' | translate
+              }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #groupManyMemberNoMessage>
+  <div class="max-width-content" fxHide.gt-xs="true">
+    <hr style="margin: 0">
+  </div>
+  <div class="first-msg-group-wrap" [ngClass.gt-xs]="'background-gray-warm-5'" fxLayout="column"
+    fxLayoutAlign="center center">
+    <h2 class="label-recent-first-msg text-center text-indigo-2" [ngClass.xs]="'mobile-heading-2'"
+      [ngClass.gt-xs]="'desktop-heading-2'">
+      {{'Web-Group.GROUP-PAGE.message_title' | translate }}
+    </h2>
+    <p class="subtitl-first-msg" [ngClass.gt-xs]="'desktop-subtitle-2'" [ngClass.xs]="'mobile-subtitle-2'">
+      {{'Web-Group.GROUP-PAGE.nomessage_description' | translate:{ group_name : (groupDetail$ | async).groupName } }}
+    </p>
+  </div>
+  <div fxHide.gt-xs="true">
+    <app-banner-invite-friends [GroupId]="(groupDetail$ | async).id" [styleMobile]="{'border':0,'border-radius':0}">
+    </app-banner-invite-friends>
+  </div>
+</ng-template>
+
+<ng-template #noMessageInGroupNonPremium>
+  <div [ngStyle.gt-xs]="{'margin-bottom': '60px'}">
+    <div class="hr-line" fxHide.gt-xs="true">
+      <hr class="my-0">
+    </div>
+    <div [ngClass.gt-xs]="'max-width-content'">
+      <app-statictis-item [backgroundDesktop]="'background-gray-warm-6'" [backgroundMobile]="'background-white'">
+      </app-statictis-item>
+      <app-banner-invite-friends [GroupId]="(groupDetail$ | async).id" [styleMobile]="{'border':0,'border-radius':0}"
+        [styleDesktop]="{'border':0}"></app-banner-invite-friends>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #groupOneMemberNoMessage>
+  <div class="one-member-wrap">
+    <div class="hr-line" fxHide.gt-xs="true">
+      <hr class="my-0">
+    </div>
+    <div class="max-width-content">
+      <div class="content-one-member" fxLayout="column" fxLayoutAlign="center center">
+        <h2 class="title-wrap text-indigo-2 text-center" [ngClass.xs]="'mobile-heading-1'"
+          [ngClass.gt-xs]="'desktop-heading-1'">
+          <!-- Get more motiviation with Sportpartner Group and lorem ipsum dolor sit amet -->
+          {{'Web-Group.INVITATION-LANDING-MOTIVATION.moremotivation_title' | translate }}
+        </h2>
+        <div class="des-wrap" fxLayout.gt-xs="row" fxLayout.xs="column" fxLayoutAlign="center start"
+          fxLayoutGap.xs="45px" fxLayoutGap.gt-xs="90px">
+          <div class="des-block" fxLayout="column" fxLayoutAlign="center center">
+            <i class="icon-medium-line-trophy text-gray-cool-2"></i>
+            <div class="item-title mobile-heading-3 text-gray-cool-1 text-center">
+              <!-- Get more motivated -->
+              {{'Web-Group.INVITATION-LANDING-MOTIVATION.moremotivation_tip1_title' | translate }}
+            </div>
+            <div class="item-des mobile-paragraph-1 text-gray-cool-2 text-center">
+              {{'Web-Group.INVITATION-LANDING-MOTIVATION.moremotivation_description1_title' | translate }}
+            </div>
+          </div>
+          <div class="des-block" fxLayout="column" fxLayoutAlign="center center">
+            <i class="icon-medium-line-high-five text-gray-cool-2"></i>
+            <div class="item-title mobile-heading-3 text-gray-cool-1 text-center">
+              <!-- Your favorite sports together -->
+              {{'Web-Group.INVITATION-LANDING-MOTIVATION.moremotivation_tip2_title' | translate }}
+            </div>
+            <div class="item-des mobile-paragraph-1 text-gray-cool-2 text-center">
+              {{'Web-Group.INVITATION-LANDING-MOTIVATION.moremotivation_description2_title' | translate }}
+            </div>
+          </div>
+          <div class="des-block" fxLayout="column" fxLayoutAlign="center center">
+            <i class="icon-medium-line-groups text-gray-cool-2"></i>
+            <div class="item-title mobile-heading-3 text-gray-cool-1 text-center">
+              <!-- Together is more -->
+              {{'Web-Group.INVITATION-LANDING-MOTIVATION.moremotivation_tip3_title' | translate }}
+            </div>
+            <div class="item-des mobile-paragraph-1 text-gray-cool-2 text-center">
+              {{'Web-Group.INVITATION-LANDING-MOTIVATION.moremotivation_description3_title' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div [ngClass.gt-xs]="'max-width-content'" [ngStyle.gt-xs]="{'margin-bottom': '60px'}">
+      <app-banner-invite-friends [GroupId]="(groupDetail$ | async).id" [styleMobile]="{'border':0,'border-radius':0}"
+        [styleDesktop]="{'border':0}">
+      </app-banner-invite-friends>
+    </div>
+  </div>
+</ng-template>
+
+<ng-container *ngIf="(myProfile$ | async).isPremium && (groupDetail$ | async).totalMember > 1">
+  <div *ngIf="(groupDetail$ | async).isFollowing" class="space-box-msg"></div>
+  <div [@animationMessageBox] *ngIf="(groupDetail$ | async).isFollowing" class="box-msg">
+    <ng-container>
+      <app-send-message [conversationId]="(groupDetail$ | async).conversationId" [groupId]="(groupDetail$ | async).id">
+      </app-send-message>
+    </ng-container>
+  </div>
+</ng-container>
+
+
+<ng-container *ngIf="isShowListMember">
+  <app-list-member [groupId]="(groupDetail$ | async).id" [isFollowing]="(groupDetail$ | async).isFollowing"
+    [totalMember]="(groupDetail$ | async).totalMember" (disableShow)="hideListMember($event)">
+  </app-list-member>
+</ng-container>
+
+
+<app-dialog-confirm-leave-group [isShowing]="isShowingDialog"
+  (listenningIsLeavingGroup)="showDialogConfirmLeaveGroup($event)"
+  (confirmedLeavesGroup)="confirmedLeavesGroup($event)">
+</app-dialog-confirm-leave-group>

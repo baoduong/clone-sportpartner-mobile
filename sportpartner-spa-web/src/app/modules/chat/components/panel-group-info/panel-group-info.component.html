@@ -1,0 +1,133 @@
+<ng-container *ngIf="(groupDetail$ | async)">
+    <div class="panel-group-info">
+        <div class="panel-header" fxHide.xs="true">
+            <i class="icon-small-line-cross1" (click)="closePanel()"></i>
+        </div>
+        <button fxHide.gt-xs="true" class="btn btn-back" (click)="closePanel()">
+            <i class="icon-small-line-arrow-left"></i>
+        </button>
+        <div class="panel-content">
+            <div class="overview-wrap">
+                <div class="group-icon" fxLayoutAlign="center center">
+                    <i class="icon-medium-line-members-group text-gray-cool-3"></i>
+                </div>
+                <div class="group-name">
+                    <span class="mobile-heading-2 text-gray-cool-1 break-line">
+                        {{ (groupDetail$ | async).groupName }}
+                    </span>
+                </div>
+                <div class="total-member">
+                    <span class="mobile-paragraph-1 text-black-40">
+                        <!-- <ng-container *ngIf="(groupDetail$ | async).totalMember > 0">
+                            {{'Web-Group.GENERIC.members' | translate: { number: (groupDetail$ | async).totalMember } }}
+                        </ng-container> -->
+                        <!-- <ng-container *ngIf="(groupDetail$ | async).totalMember === 0">
+                            {{'Web-Group.GROUP-PAGE.nomember_you_are_the_first' | translate }}
+                        </ng-container> -->
+                        <ng-container *ngIf="(groupDetail$ | async).totalMember === 1">
+                            {{'Web-Group.GENERIC.member' | translate }}
+                        </ng-container>
+                        <ng-container *ngIf="(groupDetail$ | async).totalMember !== 1">
+                            {{'Web-Group.GENERIC.members' | translate: { number: (groupDetail$ | async).totalMember } }}
+                        </ng-container>
+                    </span>
+                </div>
+            </div>
+            <ng-container *ngIf="(groupDetail$ | async).totalMember > 0">
+                <div class="list-member-wrap">
+                    <ng-container *ngIf="(listMember$ | async).members.length > 0">
+                        <div class="list-member-box" fxLayout="column" fxLayoutGap="30px">
+                            <div class="list-member-item" *ngFor="let member of (listMember$ | async).members">
+                                <app-list-member-item [memberProfile]="member" [myProfile]="myProfile"
+                                    [isFollowing]="(groupDetail$ | async).isFollowing"></app-list-member-item>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="((groupDetail$ | async).totalMember  > (listMember$ | async).members.length)">
+                        <button class="btn btn-show-more" (click)="lazyLoadGroupMember()"
+                            [disabled]="!(isDisableClick$ | async)">
+                            <i class="icon-small-line-plus text-black-20"></i>
+                            <span class="desktop-button-2 text-black-40 break-line">
+                                <!-- Show more member -->
+                                {{ 'Conversation.CHAT.menu_groupchat_showmore_members' | translate }}
+                            </span>
+                        </button>
+                    </ng-container>
+                </div>
+            </ng-container>
+            <div class="list-btn-group" fxLayout="column" fxLayoutGap="10px">
+                <button class="btn btn-goto-group" (click)="gotoGroupDetail()"
+                    [disabled]="(groupDetail$ | async).totalMember === 0">
+                    <i class="icon-small-line-arrow-right"></i>
+                    <span class="mobile-button-2 break-line">
+                        <!-- Goto group page -->
+                        {{ 'Conversation.CHAT.menu_groupchat_goto_group' | translate: { group_name: (groupDetail$ |
+                        async).groupName } }}
+                    </span>
+                </button>
+                <ng-container *ngIf="(groupDetail$ | async).isFollowing">
+                    <button class="btn btn-leave" (click)="toggleDialogLeaveConversation(true)">
+                        <i class="icon-small-line-cross1"></i>
+                        <span class="mobile-button-2 break-line">
+                            <!-- Leave conversation -->
+                            {{ 'Conversation.CHAT.menu_groupchat_leave_conversation' | translate }}
+                        </span>
+                    </button>
+                </ng-container>
+                <ng-container *ngIf="!(groupDetail$ | async).isFollowing">
+                    <button class="btn btn-leave" (click)="reJoinGroup()">
+                        <i class="icon-small-line-plus"></i>
+                        <span class="mobile-button-2 break-line">
+                            <!-- Re-join this group -->
+                            {{ 'Conversation.CHAT.menu_groupchat_rejoin_conversation' | translate }}
+                        </span>
+                    </button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <div class="banner-invite-friend">
+        <button class="btn btn-coral-2" (click)="inviteFriends()">
+            <span class="desktop-button-2">
+                <!-- Invite your friend -->
+                {{ 'Conversation.CHAT.menu_groupchat_invite_button' | translate }}
+            </span>
+        </button>
+    </div>
+</ng-container>
+
+<div *ngIf="(isShowDialogLeaveConversation$ | async)" [@animationToggleDialogConfirm] class="dialog-leave-conversation"
+    fxLayout="column" fxLayoutAlign="center center">
+    <div class="overlay-dialog" (click)="toggleDialogLeaveConversation(false)"></div>
+    <div class="box-detail" fxLayout="column" fxLayoutAlign="center center">
+        <div class="dialog-head">
+            <button class="btn" (click)="toggleDialogLeaveConversation(false)">
+                <i class="icon-small-line-cross1 text-gray-cool-3"></i>
+            </button>
+        </div>
+        <div class="dialog-content">
+            <div>
+                <!-- Are you sure you want to leave this conversation -->
+                <h2 [innerHTML]="'Conversation.CHAT.menu_groupchat_leave_conversation_popup_title' | translate"
+                    class="text-gray-cool-1 text-center heading" [ngClass.gt-xs]="'desktop-heading-2'"
+                    [ngClass.xs]="'mobile-heading-1'">
+                </h2>
+            </div>
+            <div>
+                <!-- When you leave this group you wont reeceive any notifications anymore -->
+                <p [innerHTML]="'Conversation.CHAT.menu_groupchat_leave_conversation_popup_description' | translate"
+                    class="text-gray-cool-2 text-center sub-title" [ngClass.gt-xs]="'desktop-paragraph-1'"
+                    [ngClass.xs]="'mobile-paragraph-1'">
+                </p>
+            </div>
+            <button class="btn-block" (click)="toggleDialogLeaveConversation(false)" appBtnAzure2>
+                <!-- Woops, cancel please -->
+                {{ 'Conversation.CHAT.menu_groupchat_leave_conversation_popup_cancel_button' | translate }}
+            </button>
+            <button class="btn-block btn-confirm" appBtnOutlineAzure2 (click)="leaveConversation()">
+                <!-- Yes, stop following -->
+                {{ 'Conversation.CHAT.menu_groupchat_leave_conversation_popup_yes_button' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

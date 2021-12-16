@@ -1,0 +1,31 @@
+{
+  "bodyClass":"_landing",
+  "matchItems": [{
+    "name": ""
+  }, {
+    "name": ""
+  }, {
+    "name": ""
+  }],
+  "home-landing-preview": [{
+    "name": "DorienS",
+    "time": "Just now",
+    "rating": "4",
+    "title": "Heb een wandelmaatje gevonden!",
+    "desc": "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis."
+  },
+  {
+    "name": "Wouter",
+    "time": "1 hour ago",
+    "rating": "5",
+    "title": "Samen echt bezig zijn, wat wil je nog meer, dankzij hier op sportpartner",
+    "desc": "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis."
+  },
+  {
+    "name": "Jay-An",
+    "time": "Yesterday",
+    "rating": "4",
+    "title": "Leuke site om een sportmaatje te vinden",
+    "desc": "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis."
+  }]
+}

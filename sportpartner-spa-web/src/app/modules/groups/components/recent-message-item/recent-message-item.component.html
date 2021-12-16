@@ -1,0 +1,52 @@
+<div class="card">
+  <div class="card-body" fxLayout="column" fxLayoutGap.xs="19px" fxLayoutGap="31px">
+    <h5 *ngIf="recentMessage.groupName" class="group-name card-title heading-3 d-flex justify-content-between align-items-center text-gray-cool-1"
+      [ngClass.xs]="'mobile-heading-3'" [ngClass.gt-xs]="'desktop-heading-3'" (click)="gotoDetailGroup()">{{ 'Web-Group.START-PAGE.message_in_group_name' | translate:{ group_name: recentMessage.groupName } }}
+      <a fxHide fxShow.gt-sm="true" class="small-more" href="javascript:;">
+        <i class="outline-small-more"></i>
+      </a>
+    </h5>
+    <div fxLayout="column" fxLayoutGap="15px" fxLayoutGap.gt-xs="20px">
+      <div class="group-avatar">
+        <div>
+          <div class="avatar rounded-circle" (click)="gotoFullProfile()">
+            <img src="{{ recentMessage.senderPhoto }}" alt="">
+          </div>
+        </div>
+        <div class="messeger-city">
+          <div class="sender-name text-gray-cool-1 button-1" [ngClass.xs]="'mobile-button-1'" [ngClass.gt-xs]="'desktop-button-1'" (click)="gotoFullProfile()">
+            {{ recentMessage.senderName }}</div>
+            <div class="text-black-40 paragraph-2" [ngClass.xs]="'mobile-paragraph-2'" [ngClass.gt-xs]="'desktop-paragraph-2'">
+              <span *ngIf="recentMessage.sentOnDateType === 'key'; else dayTimeSend">{{ 'Generic.DATETIME.' + recentMessage.sentOnDate | translate }}</span>
+              <ng-template #dayTimeSend>{{ recentMessage.sentOnDate }}</ng-template>
+            </div>
+        </div>
+      </div>
+      <div #truncateText class="paragraph-1 text-gray-cool-1 truncate-text" [ngClass.xs]="'mobile-paragraph-1'"
+        [ngClass.gt-xs]="'desktop-paragraph-1'">
+        <span [innerHTML]="recentMessage.messageBody | decodeContent"></span>
+      </div>
+      <span class="d-none text-azure-2 mobile-paragraph-2 read-text" #readMoreText (click)="readMore()">{{ 'Web-Group.GENERIC.read_more' | translate }}</span>
+      <span class="d-none text-azure-2 mobile-paragraph-2 read-text" #readLessText (click)="readLess()">{{ 'Web-Group.GENERIC.read_less' | translate }}</span>
+      <div *ngIf="recentMessage.unreadCount !== undefined" class="wrapper-button" [ngClass.gt-xs]="'custom-desktop'">
+        <button *ngIf="recentMessage.unreadCount > 0" appBtnAzure6 class="btn-block text-left font-weight-normal" (click)="joinConerstation()">
+          <i class="icon-small-line-messages1"></i>
+          <span *ngIf="recentMessage.unreadCount === 1; else newManyMessages">
+            <!-- 1 new message -->
+            {{'Web-Group.GENERIC.new_message' | translate }}
+          </span>
+          <ng-template #newManyMessages>
+            <!-- {{number}} new messages -->
+            {{'Web-Group.GENERIC.new_messages' | translate:{number : recentMessage.unreadCount } }}
+          </ng-template>
+        </button>
+  
+        <button *ngIf="recentMessage.unreadCount === 0" appBtnOutlineAzure2 class="btn-block" (click)="joinConerstation()">
+          <!-- Join the conversation -->
+          {{'Web-Group.START-PAGE.message_join_conversation_button' | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

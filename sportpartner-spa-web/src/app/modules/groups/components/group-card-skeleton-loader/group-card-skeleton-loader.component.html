@@ -1,0 +1,7 @@
+<div class="your-group-layout" fxLayout.xs="column" fxLayout.gt-xs="row wrap">
+    <ng-container appLazyLoadGroupCardByIds [ids]="listIds" (eventItems)="finishingLoadingGroupCard($event)">
+    </ng-container>
+    <ng-container *ngFor="let item of (groupsData$ | async)">
+        <app-group-card-item [groupDetail]="item"></app-group-card-item>
+    </ng-container>
+</div>

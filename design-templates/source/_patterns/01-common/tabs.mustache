@@ -1,0 +1,31 @@
+<ul id="matches-tab" class="ma-0 list-inline float-center nav nav-tabs">
+  <li class="nav-item list-inline-item">
+    {{# activeTabMatches}}
+    <a class="nav-link active" id="matches-list-tab" data-toggle="tab" href="#matches-list" role="tab" aria-controls="home" aria-selected="true">
+      <!-- <img src="/images/icons-solid/matches.svg" alt="">  -->
+      <span class="sport-icons pair-persion"></span>
+    </a>
+    {{/ activeTabMatches}}
+    {{^ activeTabMatches}}
+    <a class="nav-link" id="matches-list-tab" data-toggle="tab" href="#matches-list" role="tab" aria-controls="home" aria-selected="true">
+      <!-- <img src="/images/icons-solid/matches.svg" alt=""> -->
+      <span class="sport-icons pair-persion"></span>
+    </a>
+    {{/ activeTabMatches}}
+  </li>
+  <li class="nav-item list-inline-item">
+    {{# activeTabMessage}}
+    <a class="nav-link active" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="home" aria-selected="true">
+      <span class="new-message-count">5</span>
+      <!-- <img src="/images/icons-solid/messages.svg" alt=""> -->
+      <span class="sport-icons mail-comming"></span>
+    </a>
+    {{/ activeTabMessage}}
+    {{^ activeTabMessage}}
+    <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="home" aria-selected="true">
+      <span class="new-message-count">5</span>
+      <span class="sport-icons mail-comming"></span>
+    </a>
+    {{/ activeTabMessage}}
+  </li>
+</ul>

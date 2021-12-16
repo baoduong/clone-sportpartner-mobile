@@ -1,0 +1,142 @@
+<ng-container *ngIf="(deviceType | async) ==='desktop' || (deviceType | async)==='tablet'">
+  <div class="background-gray-warm-4">
+    <div class="chat-layout max-width-content" fxLayout="column" [ngClass]="{
+      'tablet--layout': (deviceType | async)==='tablet',
+      'portrait': (orientationDevice$ | async) === 'portrait',
+      'landscape': (orientationDevice$ | async) === 'landscape'}">
+      <div fxFill fxLayout="row">
+        <div class="chat-box-screen">
+          <!-- [@animationListConversation]="animationPanel" -->
+          <div [ngClass]="{
+            'showDesktopPanelUserprofile': animationPanel === 'showPanel'
+          }" class="wrapper-list-conversation">
+            <app-list-conversation>
+            </app-list-conversation>
+          </div>
+          <!-- [@animationDetailConversation]="animationPanel" -->
+          <div [ngClass]="{'showDesktopPanelUserprofile': animationPanel === 'showPanel'}"
+            class="wrapper-detail-conversation">
+            <ng-container
+              *ngIf="(listConversation$ | async) && (listConversation$ | async).length > 0; else tplNoMessage">
+              <ng-container *ngIf="(selectedConversation$ | async); else tplNoMessageSelected">
+                <div [@animationShowChatBoxDetail]="{value: '*',params:{position: 'absolute'}}"
+                  class="wrapper-detail-conversation-animation">
+                  <app-detail-conversation></app-detail-conversation>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+
+          <ng-container *ngIf="(selectedConversation$ | async)">
+            <!-- [@animationPanelProfile]="animationPanel" -->
+            <div [ngClass]="{
+              'showDesktopPanelUserprofile': animationPanel === 'showPanel',
+              'tablet-layout': (deviceType | async) === 'tablet',
+              'portrait': (orientationDevice$ | async) === 'portrait',
+              'landscape': (orientationDevice$ | async) === 'landscape'}" class="wrapper-panel-user-profile">
+              <div class="position-relative" [@.disabled]="animationPanel === 'hidePanel'">
+                <!-- [@animationClosingPanelProfile] [@animationOpenningPanelProfile] -->
+                <div [@animationClosingPanelProfile] [@animationOpenningPanelProfile]
+                  *ngIf="(panelType$ | async) === 'PANEL_USER_PROFILE'">
+                  <app-panel-user-profile [conversationSelecting]="(selectedConversation$ | async)"
+                    [animationPanelUserProfile]="animationPanel" [listBoxType]="listBoxType">
+                  </app-panel-user-profile>
+                </div>
+                <!-- [@animationClosingPanelGroupInfo] [@animationOpenningPanelGroupInfo] -->
+                <div [@animationClosingPanelGroupInfo] [@animationOpenningPanelGroupInfo]
+                  *ngIf="(panelType$ | async) === 'PANEL_GROUP_INFO'">
+                  <app-panel-group-info></app-panel-group-info>
+                </div>
+
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="(deviceType | async)==='mobile'">
+  <div [ngClass]="{'d-none': mobileIsSelectedConversation}" class="background-gray-warm-4 chat-layout"
+    fxLayout="column">
+    <div class="chat-box-screen">
+      <app-list-conversation [isBackToList$]="backList$">
+      </app-list-conversation>
+    </div>
+  </div>
+  <!-- <div class="wrapper-detail-conversation"> -->
+  <ng-container *ngIf="(listConversation$ | async) && (listConversation$ | async).length > 0; else tplNoMessage">
+    <ng-container *ngIf="(selectedConversation$ | async); else tplNoMessageSelected">
+      <div [@animationShowChatBoxDetail]="{value: '*', params:{position: 'fixed'}}"
+        class="wrapper-detail-conversation-animation mobile-layout-chat-detail">
+        <app-detail-conversation (backToList)="onBackListClicked($event)">
+        </app-detail-conversation>
+        <ng-container *ngIf="(selectedConversation$ | async)">
+
+          <div class="mobile-wrapper-side-panel" [ngClass]="{
+            'showMobilePanelUserprofile': animationPanel === 'showPanel'
+            }">
+
+            <ng-container *ngIf="(panelType$ | async) === 'PANEL_USER_PROFILE'">
+              <app-panel-user-profile *ngIf="(selectedConversation$ | async).conversationType === 'One'"
+                [animationPanelUserProfile]="animationPanel" [conversationSelecting]="(selectedConversation$ | async)"
+                [listBoxType]="listBoxType">
+              </app-panel-user-profile>
+              <div [@animationOverlayMobilePopupUserProfile] class="popup-mobile-user-profile"
+                *ngIf="(selectedConversation$ | async).conversationType === 'Group' && animationPanel === 'showPanel'">
+                <!-- <app-popup-user-profile [@animationMobilePopupUserProfile]
+                  [conversationSelecting]="(selectedConversation$ | async)"></app-popup-user-profile> -->
+                <app-panel-user-profile-in-group [@animationMobilePopupUserProfile]></app-panel-user-profile-in-group>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="(panelType$ | async) === 'PANEL_GROUP_INFO'">
+              <app-panel-group-info>
+              </app-panel-group-info>
+            </ng-container>
+
+          </div>
+
+        </ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+  <!-- </div> -->
+</ng-container>
+
+<ng-template #tplNoMessage>
+  <div fxHide.xs class="section-no-message-desktop">
+    <div class="no-message-item">
+      <div class="icon-bagde">
+        <i class="icon-medium-line-chat"></i>
+      </div>
+      <div class="text-grid">
+        <p class="m-0 desktop-heading-3 text-gray-cool-1 text-center">
+          {{'Conversation.INBOX.nomessage_available_title' | translate}}
+        </p>
+        <p class="m-0 desktop-paragraph-1 text-gray-cool-3 text-center">
+          {{'Conversation.INBOX.nomessage_available_description' | translate}}
+        </p>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #tplNoMessageSelected>
+  <div fxHide.xs class="section-no-message-desktop">
+    <div class="no-message-item">
+      <div class="icon-bagde">
+        <i class="icon-medium-line-chat"></i>
+      </div>
+      <div class="text-grid">
+        <p class="m-0 desktop-heading-3 text-gray-cool-1 text-center">
+          {{'Conversation.INBOX.nomessage_selected_title' | translate}}
+        </p>
+        <p class="m-0 desktop-paragraph-1 text-gray-cool-3 text-center">
+          {{'Conversation.INBOX.nomessage_selected_description' | translate}}
+        </p>
+      </div>
+    </div>
+  </div>
+</ng-template>

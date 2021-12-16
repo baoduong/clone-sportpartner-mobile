@@ -1,0 +1,111 @@
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-thinitalic.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-thinitalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-thin.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-regular.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-bold.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-semibold.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-black.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-regularitalic.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-regularitalic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-light.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-blackitalic.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-blackitalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-semibolditalic.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-semibolditalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-bolditalic.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-bolditalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-mediumitalic.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-mediumitalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-lightitalic.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-lightitalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "calibre";
+  src: url("#{$baseUrl}/assets/fonts/calibre/calibre-medium.woff2") format("woff2"),
+    url("#{$baseUrl}/assets/fonts/calibre/calibre-medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}

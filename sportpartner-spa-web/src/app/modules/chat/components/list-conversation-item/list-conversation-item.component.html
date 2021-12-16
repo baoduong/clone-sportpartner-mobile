@@ -1,0 +1,154 @@
+<div
+  [ngClass]="{'selected': (selectedConversation$ | async) && (selectedConversation$ | async).conversationId === conversation.conversationId}"
+  class="box-message-item">
+  <div (click)="toggleFavourite()" class="mark-star">
+    <button [ngClass]="{'text-mint-2': isStarred$.value}" class="btn btn-star">
+      <i class="icon-small-solid-star"></i>
+    </button>
+  </div>
+  <div (click)="selectedThisConversation()" class="message-detail">
+    <div class="section-avatar">
+      <ng-container *ngIf="conversation.conversationType === 'One'">
+        <span class="avatar">
+          <img [src]="conversation.conversationPhoto">
+        </span>
+      </ng-container>
+      <ng-container *ngIf="conversation.conversationType === 'Group'">
+        <span class="avatar">
+          <i class="icon-medium-line-members-group"></i>
+        </span>
+      </ng-container>
+    </div>
+    <div class="sender-detail">
+      <div class="line-1">
+        <p class="mobile-button-1 text-gray-cool-1 m-0">
+          {{ conversation.conversationName }}
+        </p>
+        <span class="mobile-paragraph-4 text-black-40">
+          <div [ngSwitch]="conversation.sentOnType">
+            <ng-container *ngSwitchCase="'key'">
+              {{'Generic.DATETIME.'+ conversation.sentOn | translate}}
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+              {{ conversation.sentOn }}
+            </ng-container>
+          </div>
+        </span>
+      </div>
+      <div class="line-2">
+        <ng-container *ngIf="conversation.conversationType === 'One'; else messageGroup">
+          <ng-container *ngTemplateOutlet="messageOne"></ng-container>
+        </ng-container>
+        <div *ngIf="conversation.unreadCount>0" class="new-message-number">
+          <ng-container *ngIf="conversation.unreadCount > 99">
+            +99
+          </ng-container>
+          <ng-container *ngIf="conversation.unreadCount <= 99">
+            {{conversation.unreadCount}}
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #messageOne>
+  <div class="message-group-grid">
+    <div class="mobile-paragraph-2 crop-text"
+      [ngClass]="isSelected ? 'text-black-60': conversation.unreadCount>0 ? 'text-gray-cool-1' : 'text-black-40'">
+      <ng-container [ngSwitch]="conversation.messageType">
+        <!-- Photo request -->
+        <ng-container *ngSwitchCase="'PhotoRequest'">
+          <ng-container *ngIf="isCurrentUser$.value">
+            {{'Conversation.INBOX.latestmessage_photorequest_send' | translate}}
+          </ng-container>
+          <ng-container *ngIf="!isCurrentUser$.value">
+            {{'Conversation.INBOX.latestmessage_photorequest_receive' | translate}}
+          </ng-container>
+        </ng-container>
+
+        <!-- HighFive -->
+        <ng-container *ngSwitchCase="'HighFive'">
+          <ng-container *ngIf="isCurrentUser$.value">
+            {{'Conversation.INBOX.latestmessage_highfive_send' | translate}}
+          </ng-container>
+          <ng-container *ngIf="!isCurrentUser$.value">
+            {{'Conversation.INBOX.latestmessage_highfive_receive' | translate}}
+          </ng-container>
+        </ng-container>
+
+        <!-- HighFiveBack -->
+        <ng-container *ngSwitchCase="'HighFiveBack'">
+          <ng-container *ngIf="isCurrentUser$.value">
+            {{'Conversation.INBOX.latestmessage_highfive_send' | translate}}
+          </ng-container>
+          <ng-container *ngIf="!isCurrentUser$.value">
+            {{'Conversation.INBOX.latestmessage_highfive_receive' | translate}}
+          </ng-container>
+        </ng-container>
+
+        <!-- Normal -->
+        <ng-container *ngSwitchDefault>
+          <span>
+            {{messageBody}}
+          </span>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #messageGroup>
+  <div>
+    <div class="message-group-grid">
+      <span class="mobile-text-emphasis-2"
+        [ngClass]="isSelected ? 'text-black-60': conversation.unreadCount>0 ? 'text-gray-cool-1' : 'text-black-40'">
+        <ng-container *ngIf="!isCurrentUser$.value && 
+        ( conversation.messageType==='Normal' || 
+        conversation.messageType==='HelloEveryone' ||
+        conversation.messageType==='SayHi' ||
+        conversation.messageType==='JoinConversation') && 
+        (isPremium$ | async)">
+          {{ conversation.senderName }} -
+        </ng-container>
+      </span>
+      <span class="mobile-paragraph-2 crop-text"
+        [ngClass]="isSelected ? 'text-black-60': conversation.unreadCount>0 ? 'text-gray-cool-1' : 'text-black-40'">
+        <ng-container [ngSwitch]="conversation.messageType">
+          <!-- JoinConversation -->
+          <ng-container *ngSwitchCase="'JoinConversation'">
+            <ng-container *ngIf="isCurrentUser$.value">
+              {{ 'Conversation.CHAT.message_group_join_by_you' | translate }}
+            </ng-container>
+            <ng-container *ngIf="!isCurrentUser$.value">
+              <ng-container *ngIf="!(isPremium$ | async)">
+                {{ 'Conversation.INBOX.message_group_join' | translate: {member: conversation.senderName} }}
+              </ng-container>
+              <ng-container *ngIf="(isPremium$ | async)">
+                {{ 'Conversation.CHAT.message_group_join' | translate }}
+              </ng-container>
+            </ng-container>
+          </ng-container>
+
+          <!-- LeftConversation -->
+          <ng-container *ngSwitchCase="'LeftConversation'">
+            <ng-container *ngIf="isCurrentUser$.value">
+              {{ 'Conversation.CHAT.message_group_left_by_you' | translate }}
+            </ng-container>
+            <ng-container *ngIf="!isCurrentUser$.value">
+              {{ 'Conversation.CHAT.message_group_left' | translate: {member: conversation.senderName} }}
+            </ng-container>
+          </ng-container>
+
+          <!-- Normal -->
+          <ng-container *ngSwitchDefault>
+            <span>
+              {{messageBody}}
+            </span>
+          </ng-container>
+        </ng-container>
+      </span>
+    </div>
+  </div>
+</ng-template>

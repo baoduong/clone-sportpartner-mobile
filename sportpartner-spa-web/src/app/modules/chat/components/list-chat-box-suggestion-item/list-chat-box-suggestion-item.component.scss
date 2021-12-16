@@ -1,0 +1,68 @@
+@import "functions";
+@import "media";
+@import "app-colorpalette";
+
+.chat-inbox-suggestion-item {
+  background: #ffffff;
+  padding: 20px 0;
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns: auto 34px;
+  border-bottom: 1px solid #f5f3f1;
+  .message-detail {
+    display: grid;
+    column-gap: 15px;
+    grid-template-columns: 50px auto;
+    .section-avatar {
+      .avatar {
+        display: block;
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        border-radius: 50%;
+        object-fit: cover;
+        img {
+          height: 100%;
+          min-width: 100%;
+        }
+      }
+    }
+    .sender-detail {
+      display: grid;
+      row-gap: 4px;
+      .line-2,
+      .line-1 {
+        display: flex;
+        & > *:first-child {
+          flex: 1;
+        }
+      }
+      .line-2 {
+        .message-group-grid {
+          display: grid;
+          column-gap: 3px;
+          grid-template-columns: auto;
+        }
+        .mobile-paragraph-2.text-black-40 {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  .btn-highfive {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    color: map-get($corals, coral-2);
+    i {
+      font-size: 30px;
+    }
+  }
+}

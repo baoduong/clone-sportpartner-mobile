@@ -1,0 +1,116 @@
+@import "functions";
+@import "media";
+@import "app-colorpalette";
+
+.dialog-delete {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+
+  @include mobile {
+    background-color: #ffffff;
+    z-index: 100;
+  }
+
+  .box-detail {
+    background: #ffffff;
+    position: relative;
+    height: 100%;
+
+    @include gt-mobile {
+      width: 520px;
+      height: 426px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05),
+        0px 20px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .dialog-head {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      @include gt-mobile {
+        top: 34px;
+        right: 34px;
+      }
+
+      button {
+        padding: 34px;
+        border: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include gt-mobile {
+          padding: 0;
+        }
+
+        @include mobile {
+          width: 80px;
+          height: 80px;
+        }
+
+        i {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .dialog-content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include mobile {
+        padding: 30px;
+        justify-content: center;
+      }
+
+      .heading {
+        max-width: 400px;
+        margin-bottom: 0;
+
+        @include gt-mobile {
+          margin-top: 70px;
+        }
+      }
+
+      .sub-title {
+        max-width: 400px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+
+        @include mobile {
+          max-width: 315px;
+          margin-bottom: 30px;
+        }
+      }
+
+      .btn-confirm {
+        margin-top: 10px;
+      }
+
+      button {
+        max-width: 240px;
+
+        @include mobile {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .overlay-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}

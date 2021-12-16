@@ -1,0 +1,17 @@
+<div [@leaveHeading] class="heading-page light">
+  <div class="back-button">
+    <button class="btn btn-back" (click)="back()">
+      <i class="icon-small-line-arrow-left"></i>
+      <span fxHide fxShow.gt-xs="true" [ngClass.xs]="'mobile-paragraph-2'" [ngClass.gt-xs]="'desktop-paragraph-2'"
+        class="paragraph-2">{{ 'Web-Group.GENERIC.back' | translate }}</span>
+    </button>
+  </div>
+  <div class="heading-title">
+    <span fxShow fxHide.gt-xs="true" [ngClass.xs]="'mobile-text-emphasis-2'"
+      [ngClass.gt-xs]="'desktop-text-emphasis-2'">{{ 'Web-Group.INVITATION-OVERLAY.header' | translate }}</span>
+    <span fxHide fxShow.gt-xs="true">
+      <i class="icon-full-logo"></i>
+    </span>
+
+  </div>
+</div>

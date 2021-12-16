@@ -1,0 +1,39 @@
+<div *ngIf="(isShowRecentMember$ | async)" class="popup-recent">
+    <div class="recent-overlay" (click)="closeRecentMember(false)"></div>
+    <div [@CloseRecentMember]="stateAnimation" class="recent-member-wrrap">
+        <div class="recent-title">
+            <span [ngClass.gt-xs]="'desktop-button-1'" [ngClass.xs]="'mobile-text-emphasis-2'">{{ 'Web-Group.START-PAGE.recently_joined_members_title' | translate }}</span>
+            <i class="icon-medium-line-close" (click)="closeRecentMember(false)"></i>
+        </div>
+        <hr style="margin: 0">
+        <div class="recent-content">
+            <div class="list-recent-member" #recentMemberElement>
+                <ul fxLayout="column" fxLayoutGap.gt-xs="45px" fxLayoutGap.xs="35px">
+                    <li *ngFor="let item of listMember">
+                        <div class="info-wrrap">
+                            <span class="group-name" [ngClass.gt-xs]="'desktop-heading-3'" [ngClass.xs]="'mobile-heading-3'" (click)="gotoGroupDetail(item.urlPathSport, item.urlPathCity)">{{ item.groupName }}</span>
+                            <ng-container *ngIf="item.totalNewMembers > 0">
+                                <ng-container *ngIf="item.totalNewMembers === 1; then newMember else newMembers"></ng-container>
+                                <ng-template #newMember>
+                                    <span class="total-member mobile-paragraph-2">{{ 'Web-Group.GENERIC.new_member' | translate }}</span>
+                                </ng-template>
+                                <ng-template #newMembers>
+                                    <span class="total-member mobile-paragraph-2">{{ 'Web-Group.GENERIC.new_members' | translate: { number: item.totalNewMembers } }}</span>
+                                </ng-template>
+                            </ng-container>
+                        </div>
+                        <div fxLayout="column" fxLayoutGap.gt-xs="40px" fxLayoutGap.xs="30px">
+                            <div class="item-list" *ngFor="let item2 of item.recentMembers">
+                                <app-list-member-item 
+                                    [memberProfile]="item2"
+                                    [myProfile]="myProfile"
+                                    (disableShow)="closeRecentMember($event)">
+                                </app-list-member-item>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

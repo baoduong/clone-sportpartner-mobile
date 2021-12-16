@@ -1,0 +1,34 @@
+<div *ngIf="isShowDialog" [@animationToggleDialogConfirm] class="dialog-confirm-leave-group"
+    (click)="closeDialog()" fxLayout="column" fxLayoutAlign="center center">
+    <div class="box-detail" fxLayout="column" fxLayoutAlign="center center">
+        <div class="dialog-head">
+            <button class="btn" (click)="closeDialog()">
+                <i class="icon-small-line-cross1 text-gray-cool-3"></i>
+            </button>
+        </div>
+        <div class="dialog-content">
+            <div>
+                <!-- Are you sure you want to delete this conversation -->
+                <h2 [innerHTML]="'Conversation.CHAT.menu_groupchat_leave_conversation_popup_title' | translate"
+                    class="text-gray-cool-1 text-center heading" [ngClass.gt-xs]="'desktop-heading-2'"
+                    [ngClass.xs]="'mobile-heading-1'">
+                </h2>
+            </div>
+            <div>
+                <!-- When you leave this group you wont reeceive any notifications anymore -->
+                <p [innerHTML]="'Conversation.CHAT.menu_groupchat_leave_conversation_popup_description' | translate"
+                    class="text-gray-cool-2 text-center sub-title" [ngClass.gt-xs]="'desktop-paragraph-1'"
+                    [ngClass.xs]="'mobile-paragraph-1'">
+                </p>
+            </div>
+            <button class="btn-block" (click)="closeDialog()" appBtnAzure2>
+                <!-- Woops, cancel please -->
+                {{ 'Conversation.CHAT.menu_groupchat_leave_conversation_popup_cancel_button' | translate }}
+            </button>
+            <button class="btn-block btn-confirm" appBtnOutlineAzure2 (click)="leaveGroup(groupId)">
+                <!-- Yes, stop following -->
+                {{ 'Conversation.CHAT.menu_groupchat_leave_conversation_popup_yes_button' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<!-- <ng-container *ngIf="!userProfile.isPremium && premiumInPage">
+  <div class="background-azure-2">
+    <div [ngClass.gt-xs]="'max-width-content'">
+      <div class="nof-premium" fxLayoutAlign="center center" fxLayoutGap.gt-xs="20px">
+        <div class="icon-premium" fxLayoutAlign="center center">
+          <i class="icon-small-solid-premium"></i>
+        </div>
+        <div class="text-premium" [ngClass.xs]="'mobile-paragraph-2'" [ngClass.gt-xs]="'desktop-paragraph-2'">
+          <div>
+            <span>{{'Web-Group.NON-PREMIUM.group_popup_description' | translate }}</span>
+          </div>
+        </div>
+        <button (click)="gotoPayment()" fxHide.xs="true" class="btn btn-azure-6 btn-upgrade-premium"
+          [ngClass.gt-xs]="'desktop-button-2'" [ngClass.xs]="'mobile-button-2'">
+          <span>
+            {{'Web-Group.NON-PREMIUM.group_popup_button' | translate }}
+          </span>
+        </button>
+        <i (click)="gotoPayment()" fxHide.gt-xs="true" class="icon-small-line-arrow-right"></i>
+      </div>
+    </div>
+  </div>
+</ng-container> -->
+<div #sectionNav [ngClass]="!isShowNavigation ? 'hideNav': 'showNav'" [@toogleNav]="!isShowNavigation ? 'hideNav': 'showNav'">
+  <app-upgrade-premium-banner></app-upgrade-premium-banner>
+  <div class="navigation-box">
+    <div fxLayout="row" fxFill class="navigation-wrap">
+      <!-- logo & another menu -->
+      <div fxFlex="auto" fxHide.xs="true" [ngClass.gt-xs]="'d-flex custom-1'" class="align-items-center">
+        <div fxShow fxHide.gt-sm="true">
+          <button class="btn dropdown-toggle">
+            <img src="/spa-web/assets/images/white-logo.svg" alt="Sportpartner-group">
+          </button>
+        </div>
+        <div fxHide fxShow.gt-sm="true">
+          <ul class="list-inline hamburger-logo">
+            <li class="list-inline-item">
+              <button (click)="toggleOverlaySideNav()" #btnOverlay class="btn">
+                <i class="icon-medium-line-hamburger"></i>
+              </button>
+            </li>
+            <li class="list-inline-item">
+              <img class="logo" src="/spa-web/assets/images/full-logo-white.svg" alt="Sportpartner-group">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- menu -->
+      <!-- fxFlex="auto" fxFlex.gt-sm="auto" fxFlex.xs="80" fxFill fxLayout="row" -->
+      <div class="menu-1" [ngClass]="{'disable-group': !appConfig.config.isShowGroupFeature}">
+        <div fxLayout="row" [ngClass.xs]="'flex-fill'" [ngClass.gt-xs]="'mx-auto'">
+          <!-- Memebers -->
+          <!-- fxFlex.xs="25" fxFlex.gt-xs="80px" -->
+          <a class="nav-items" href="/{{userProfile.culture}}/matches" routerLinkActive="router-link-active">
+            <i class="icon-medium-line-members"></i>
+          </a>
+          <!-- Groups -->
+          <a *ngIf="appConfig.config.isShowGroupFeature" class="nav-items" fxFlex.xs="25" fxFlex.gt-xs="80px"
+            [routerLink]="[userProfile.culture+'/group']" routerLinkActive="router-link-active">
+            <!-- <span class="count rounded-circle background-coral-2"></span> -->
+            <i class="icon-medium-line-groups"></i>
+          </a>
+          <!-- Chat -->
+          <a class="nav-items" [routerLink]="[userProfile.culture+'/chat']" routerLinkActive="router-link-active">
+            <ng-container *ngIf="(unReadMessage$ | async) > 0">
+              <span class="count rounded-circle background-coral-2"></span>
+            </ng-container>
+            <i class="icon-medium-line-chat"></i>
+          </a>
+          <!-- Alert -->
+          <a fxHide.gt-sm="true" href="/{{userProfile.culture}}/notification" fxShow class="nav-items" (click)="markReadNotification()">
+            <ng-container *ngIf="(notification$ | async) > 0">
+              <span class="count rounded-circle background-coral-2"></span>
+            </ng-container>
+            <i class="icon-medium-line-alert"></i>
+          </a>
+        </div>
+      </div>
+      <!-- avatar -->
+      <!-- fxFlex.gt-xs="80px" fxFlex.gt-sm="160px" fxFlex.xs="20" -->
+      <div class="menu-2" [ngClass]="{'disable-group': !appConfig.config.isShowGroupFeature}"
+        [ngClass.gt-xs]="'custom-2'">
+        <!-- alert -->
+        <a fxHide fxShow.gt-sm="true" class="nav-items" fxFlex="50" href="/{{userProfile.culture}}/notification"
+          disabled (click)="markReadNotification()">
+          <ng-container *ngIf="(notification$ | async) > 0">
+            <span class="count rounded-circle background-coral-2"></span>
+          </ng-container>
+          <i class="icon-medium-line-alert"></i>
+        </a>
+
+        <a (click)="toggleShowOverlayAvatar()" #btnOverlayAvatar fxFill class="nav-items" href="javascript:"
+          fxFlex.lt-lg="100" fxFlex="50">
+          <!-- <span *ngIf="userProfile.isPremium" class="count rounded-circle background-coral-2"></span> -->
+          <span class="avatar">
+            <img [src]="userProfile.avatarUrl" alt="">
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

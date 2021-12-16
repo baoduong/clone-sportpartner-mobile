@@ -1,0 +1,49 @@
+<div class="dropdown-menu-account">
+    <div class="title-item-account">
+        <div class="block-avatar">
+            <div class="block-img">
+                <span class="oval-avatar">
+                    <img [src]="userProfile.avatarUrl" [alt]="userProfile.screenName">
+                </span>
+                <ng-container *ngIf="userProfile.isPremium">
+                    <span class="is-premium">
+                        <span class="icon-small-solid-premium"></span>
+                    </span>
+                </ng-container>
+            </div>
+            <div class="bl-name">
+                <h3 class="title">
+                    {{userProfile.screenName}}
+                </h3>
+                <div class="user-type-box">
+                    <small class="crop-text">
+                        {{user_type}}
+                    </small>
+                    <div class="tooltip-user-type">
+                        <small>{{user_type}}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-container *ngIf="!userProfile.isPremium">
+            <a class="menu-upgrade-button btn deep-sky-blue text-left go-to-package"
+                [href]="userProfile.culture + '/payment/options?src=MenuButton'">
+                <img src="/spa-web/assets/images/icons-solid/premium-small.svg" alt="">
+                {{ 'Generic.MENU.upgrade_to_Premium' | translate }}
+            </a>
+        </ng-container>
+    </div>
+    <a class="dropdown-item" [href]="userProfile.culture + '/member'">
+        {{ 'Generic.MENU.my_profile' | translate }}
+    </a>
+    <a class="dropdown-item" [href]="userProfile.culture + '/member/settings'">
+        {{ 'Generic.MENU.my_account' | translate }}
+    </a>
+    <a class="dropdown-item" [href]="userProfile.culture + '/faq'">
+        {{ 'Generic.MENU.help' | translate }}
+    </a>
+    <div class="dropdown-divider" style="margin-top: 5px; margin-bottom: 3px"></div>
+    <a class="dropdown-item" [href]="userProfile.culture + '/account/logout'">
+        {{ 'Generic.MENU.logout' | translate }}
+    </a>
+</div>

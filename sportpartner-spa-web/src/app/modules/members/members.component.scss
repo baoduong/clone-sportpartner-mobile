@@ -1,0 +1,24 @@
+@import "media";
+@import "functions";
+.background {
+  min-height: 220px;
+  background-repeat: no-repeat;
+  // background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  @include gt-mobile {
+    min-height: 400px;
+  }
+
+  @include desktop-md {
+    margin-top: pxToPoint(60);
+  }
+}
+
+.card {
+  min-height: 220px;
+
+  @include gt-mobile {
+    min-height: 270px;
+  }
+}

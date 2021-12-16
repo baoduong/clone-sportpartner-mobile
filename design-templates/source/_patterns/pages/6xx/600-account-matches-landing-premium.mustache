@@ -1,0 +1,60 @@
+{{> common-header }} 
+{{> common-search }}
+<div class="tab-content" id="tabs-matches">
+  <div class="tab-pane fade show active" id="matches-list" role="tabpanel" aria-labelledby="home-tab">
+    <div id="landing-matches">
+      <div class="section-matches">
+        <div class="space-60"></div> 
+      </div>
+      <!-- starting a page 1 -->
+      <div class="pagging">
+        <div class="section-matches">        
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="match-items-panel">
+                  {{# matchedItems}} {{> common-matched-item }} {{/ matchedItems}}
+                </div>
+              </div>
+            </div>
+          </div>          
+        </div>      
+      </div>  
+      <!-- ending a page 1 -->
+      <div>
+        <div class="seperate-exact-section">
+          <div class="content">
+            <div class="image">
+              <img src="/images/seperate-non-exact.png" alt="">
+            </div>
+            <div class="inner">
+              <p class="font-weight-bold font-family-gilroy title-26">These were your exact matches!</p>
+              <p class="inner-content">Did you know that 40% of our members lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+            </div>
+          </div>
+          <div class="goto-change-settings">
+            <p class="adjust-setting">Adjust your settings to increase your chances!</p>
+            <a class="btn white" href="#">Change your settings</a>
+          </div>
+        </div>
+      </div>
+      <!-- starting a page 2 -->
+      <div class="pagging">
+        <div class="section-matches">        
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="match-items-panel">
+                  {{# matchedItems}} {{> common-matched-item }} {{/ matchedItems}}
+                </div>
+              </div>
+            </div>
+          </div>        
+        </div>      
+      </div>  
+      <!-- ending a page 2 -->
+    </div>
+  </div>
+  <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="profile-tab">
+  </div>
+</div>

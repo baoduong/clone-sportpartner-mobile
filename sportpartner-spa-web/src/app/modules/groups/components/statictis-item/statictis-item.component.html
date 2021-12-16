@@ -1,0 +1,21 @@
+<div class="group-report" [ngClass.gt-xs]="backgroundDesktop ? backgroundDesktop : ''" [ngClass.xs]="backgroundMobile ? backgroundMobile : ''">
+    <h2 class="text-center text-indigo-2" [ngClass.gt-xs]="'desktop-heading-1'" [ngClass.xs]="'mobile-heading-2'">
+        {{'Web-Group.NON-PREMIUM.group_block_title' | translate }}
+    </h2>
+    <p class="status-text" [ngClass.xs]="'mobile-subtitle-2'" [ngClass.gt-xs]="'desktop-subtitle-2'">
+        {{'Web-Group.NON-PREMIUM.group_block_description' | translate }}
+    </p>
+    <div class="report-content" fxLayout.xs="column" fxLayout.gt-xs="row" fxLayoutGap.xs="33px"
+        fxLayoutGap.gt-xs="200px" fxLayoutAlign="center center">
+        <div class="active-member-box" fxLayout="column" fxLayoutAlign="center center">
+            <img src="spa-web/assets/images/active-member.svg" alt="" width="120.9" height="100">
+            <span [ngClass]="'mobile-heading-2'" class="total">{{'Web-Group.NON-PREMIUM.group_block_members' | translate }}</span>
+            <span [ngClass]="'mobile-paragraph-1'" class="text-content">{{'Web-Group.NON-PREMIUM.group_block_members_text' | translate }}</span>
+        </div>
+        <div class="msg-send-box" fxLayout="column" fxLayoutAlign="center center">
+            <img src="spa-web/assets/images/message-send.svg" alt="" width="109" height="94">
+            <span [ngClass]="'mobile-heading-2'" class="total">{{'Web-Group.NON-PREMIUM.group_block_messages' | translate }}</span>
+            <span [ngClass]="'mobile-paragraph-1'" class="text-content">{{'Web-Group.NON-PREMIUM.group_block_messages_text' | translate }}</span>
+        </div>
+    </div>
+</div>

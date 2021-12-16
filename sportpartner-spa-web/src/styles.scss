@@ -1,0 +1,381 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./styles/bootstrap-theme/bootstrap.scss";
+@import "~@angular/cdk/overlay-prebuilt.css";
+
+$baseUrl: "/spa-web";
+// $baseUrl: "~";
+@import "media";
+
+@import "./styles/app-colorpalette";
+@import "./styles/heebo.scss";
+@import "./styles/gilroy.scss";
+@import "./styles/calibre.scss";
+@import "./styles/icons/logo/logo";
+
+// Sportpartner Icon define
+@import "./styles/icons/inline/style";
+@import "./styles/icons/sports/style";
+@import "./styles/icons/medium-line/style";
+@import "./styles/icons/medium-solid/style";
+@import "./styles/icons/small-line/style";
+@import "./styles/icons/small-solid/style";
+
+@import "./styles/text";
+@import "./styles/background";
+@import "./styles/elevations";
+
+@import "./styles/glows";
+
+@import "./styles/button-customize";
+
+:root {
+  --vh100: calc(var(--vh, 1vh) * 100);
+  --safe-area-inset-bottom: 0px;
+  --safe-area-inset-top: 0px;
+
+  @supports (padding-bottom: env(safe-area-inset-bottom)) {
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  }
+
+  @supports (padding-top: env(safe-area-inset-top)) {
+    --safe-area-inset-top: 0px;
+  }
+}
+
+html,
+body {
+  min-height: calc(
+    100% - var(--safe-area-inset-bottom) - var(--safe-area-inset-top)
+  );
+  // height: 100%;
+  background-color: #faf9f7;
+}
+
+.m-x {
+  margin: {
+    left: 20px;
+    right: 20px;
+  }
+  @include tablet {
+    margin: {
+      left: 30px;
+      right: 30px;
+    }
+  }
+}
+
+.m-y {
+  margin: {
+    top: 20px;
+    bottom: 20px;
+  }
+  @include tablet {
+    margin: {
+      top: 30px;
+      bottom: 30px;
+    }
+  }
+}
+
+.p-x {
+  padding: {
+    left: 20px;
+    right: 20px;
+  }
+  /* @include tablet {
+    padding: {
+      left: 30px;
+      right: 30px;
+    }
+  } */
+}
+
+.p-y {
+  padding: {
+    top: 20px;
+    bottom: 20px;
+  }
+  /*  @include gt-tablet {
+    padding: {
+      top: 30px;
+      bottom: 30px;
+    }
+  } */
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.glow-primary-2 {
+  @include glow-primary-2;
+}
+
+.glow-secondary-2 {
+  @include glow-secondary-2;
+}
+
+.sticky-bottom {
+  position: sticky;
+  bottom: 0;
+}
+
+.bg-member-page {
+  background-color: map-get($grayWarms, gray-warm-4);
+}
+
+.loading {
+  padding: {
+    top: 33px;
+    bottom: 33px;
+  }
+  @include desktop {
+    padding: {
+      top: 48px;
+      bottom: 48px;
+    }
+  }
+
+  text-align: center;
+
+  .dots {
+    position: relative;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: map-get($color-pallets, coral-2);
+    animation: dot-flashing 1s infinite linear alternate;
+    animation-delay: 0.5s;
+
+    &::before {
+      left: -20px;
+      animation: dot-flashing 1s infinite alternate;
+      animation-delay: 0s;
+    }
+    &::after {
+      left: 20px;
+      animation: dot-flashing 1s infinite alternate;
+      animation-delay: 1s;
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: map-get($color-pallets, coral-2);
+    }
+  }
+}
+@keyframes dot-flashing {
+  0% {
+    background-color: map-get($color-pallets, coral-2);
+  }
+  50%,
+  100% {
+    $color: map-get($color-pallets, coral-2);
+    background-color: rgba($color, 0.2);
+  }
+}
+
+@mixin padding-container($value) {
+  padding: {
+    left: $value;
+    right: $value;
+  }
+}
+
+@mixin margin-container($value) {
+  margin: {
+    left: $value;
+    right: $value;
+  }
+}
+
+.max-width-content {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  // @include padding-container(20px);
+
+  @media screen and (max-width: 767px) {
+    /* padding: {
+      left: 20px;
+      right: 20px;
+    } */
+    @include margin-container(20px);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    @include margin-container(30px);
+  }
+
+  /*   @media screen and (min-width: 1120px) and (max-width: 1280px) {
+    @include padding-container(30px);
+    @include margin-container(auto);
+    max-width: 1120px;
+  } */
+
+  @media screen and (min-width: 1280px) and (max-width: 1600px) {
+    /* @include padding-container(0);
+    max-width: 964px; */
+    @include margin-container(80px);
+    // max-width: 1440px;
+  }
+
+  @media screen and (min-width: 1601px) {
+    /* @include padding-container(0);
+    max-width: 964px; */
+    @include margin-container(auto);
+    max-width: 1440px;
+  }
+}
+
+.btn-outline-primary:hover {
+  background-color: map-get($color-pallets, azure-2);
+  border-color: map-get($color-pallets, azure-2);
+}
+
+.form-control.regular-text-field {
+  height: 60px;
+  padding: {
+    left: 20px;
+    right: 20px;
+  }
+}
+
+.sticky-on-top {
+  top: 0;
+  animation: animationSctickyTopFadeIn 0.3s 1;
+  transition: all 0.5s 0s ease-in;
+  position: sticky;
+  z-index: 999;
+}
+
+body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  @include scrollBarStyle;
+}
+
+@keyframes animationSctickyTopFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+img.init-lazyload {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  &.show {
+    opacity: 1;
+  }
+}
+
+.side-nav {
+  height: var(--vh100);
+  // background: #430073;
+  min-width: 140px;
+  max-width: 440px;
+  width: 90%;
+}
+
+.cdk-overlay-backdrop.overlay-transparent {
+  background: transparent !important;
+}
+app-message-detail-item {
+  &.diff-sender-up {
+    margin-bottom: 10px;
+  }
+  &.diff-sender-down {
+    margin-top: 10px;
+  }
+}
+
+.label-message-unread-tick {
+  + .PhotoRequest,
+  + .LeftConversation,
+  + .JoinConversation {
+    margin-top: -15px;
+  }
+}
+
+html.fixed-body {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 100%;
+  overflow: hidden;
+  body {
+    overflow: hidden;
+  }
+}
+
+.list-button {
+  flex: 1;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 8px 8px 0px 0px;
+  @include mobile {
+    flex: 1;
+  }
+  @include gt-mobile {
+    border-radius: 4px;
+  }
+  .btn {
+    padding: 21px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 4px;
+    i {
+      font-size: 20px;
+      margin-right: 20px;
+    }
+    &.active {
+      background-color: map-get($azures, azure-2);
+      color: #fff;
+    }
+  }
+}
+
+.panel-overlay-switch-box {
+  left: 0 !important;
+  bottom: 0;
+  right: 0;
+
+  .panel-overlay {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+}
+
+.tablet--layout {
+  .chat-layout.max-width-content {
+    margin: {
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+// Disabled user selected text on Mobile and Desktop
+*:not(textarea):not(input) {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

@@ -1,0 +1,43 @@
+<div class="background-gray-warm-6">
+  <div>
+    <app-quick-search-group [isShowBackButton]="true"></app-quick-search-group>
+  </div>
+  <hr fxHide.xs="true" class="m-0">
+  <div class="max-width-content">
+    <div class="top-group-content" fxLayout="column" fxLayoutGap.xs="20px" fxLayoutGap.gt-xs="30px">
+      <h2 class="text-indigo-2" [ngClass.xs]="'mobile-heading-1'" [ngClass.gt-xs]="'desktop-heading-1'">
+        {{'Web-Group.YOUR-GROUPS.title' | translate}}
+      </h2>
+      <div fxLayout="column" style="margin-bottom: 0">
+        <div class="your-group-layout" fxLayout.xs="column" fxLayout.gt-xs="row wrap">
+          <ng-container *ngFor="let item of yourGroup">
+            <app-group-card-item [groupDetail]="item">
+            </app-group-card-item>
+          </ng-container>
+        </div>
+      </div>
+      <div>
+        <app-banner-invite-friends [noBorder]="true"></app-banner-invite-friends>
+      </div>
+      <h2 class="text-indigo-2" [ngClass.xs]="'text-center mobile-heading-2'"
+        [ngClass.gt-xs]="'text-left desktop-heading-2'">
+        {{'Web-Group.YOUR-GROUPS.other_groups_title' | translate}}
+      </h2>
+      <div fxLayout="column">
+        <div #yourOrtherGroup class="your-group-layout your-orther-group" fxLayout.xs="column" fxLayout.gt-xs="row wrap">
+          <ng-container *ngFor="let item of ortherGroup">
+            <app-group-card-item [groupDetail]="item">
+            </app-group-card-item>
+          </ng-container>
+        </div>
+        <button [@LoadMoreBtn] *ngIf="isShowLoadMore" class="btn btn-load-more" fxLayoutAlign="center center" fxLayoutGap="13px" (click)="loadMoreYourGroup()">
+          <i class="icon-small-line-plus"></i>
+          <span [ngClass.xs]="'mobile-button-2'"
+            [ngClass.gt-xs]="'desktop-button-2'">{{'Web-Group.GENERIC.load_more' | translate }}</span>
+        </button>
+      </div>
+    </div>
+    <!-- <app-loading-icon></app-loading-icon> -->
+    <app-banner-curious-more-groups></app-banner-curious-more-groups>
+  </div>
+</div>

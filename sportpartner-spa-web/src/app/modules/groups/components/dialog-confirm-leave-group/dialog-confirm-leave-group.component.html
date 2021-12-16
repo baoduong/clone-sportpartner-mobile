@@ -1,0 +1,41 @@
+<div *ngIf="isShowing" class="overlay-dialog">
+  <div [@ClosingDialog]="stateAnimation" class="dialog-confirm">
+    <div class="head">
+      <button (click)="closeDialog()" class="btn btn-close">
+        <i class="icon-small-line-cross1"></i>
+      </button>
+    </div>
+    <div class="alert-content">
+      <div class="messages">
+        <div>
+          <h2 [innerHTML]="'Web-Group.GROUP-PAGE.unjoin_popup_title' | translate"
+            class="m-0 text-gray-cool-1 text-center" [ngClass.gt-xs]="'desktop-heading-2'"
+            [ngClass.xs]="'mobile-heading-1'">
+            <!-- Sure you want <br> to leave this group? -->
+          </h2>
+        </div>
+        <div>
+          <p [innerHTML]="'Web-Group.GROUP-PAGE.unjoin_popup_description' | translate"
+            class="m-0 text-gray-cool-2 text-center" [ngClass.gt-xs]="'desktop-paragraph-1'"
+            [ngClass.xs]="'mobile-paragraph-1'">
+            <!-- When you leave this group you wont <br> receive any notifications anymore -->
+          </p>
+        </div>
+      </div>
+      <div class="ctas">
+        <div>
+          <button (click)="closeDialog()" class="btn-block" appBtnAzure2>
+            <!-- Woops, cancel please -->
+            {{ 'Web-Group.GROUP-PAGE.unjoin_popup_cancel_button' | translate }}
+          </button>
+        </div>
+        <div>
+          <button (click)="leaveGroup()" class="btn-block" appBtnOutlineAzure2>
+            <!-- Yes, stop following -->
+            {{ 'Web-Group.GROUP-PAGE.unjoin_popup_yes_button' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

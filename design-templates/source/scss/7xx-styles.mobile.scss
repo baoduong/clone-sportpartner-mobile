@@ -1,0 +1,208 @@
+@import "animate-master/animate";
+
+@include style-mobile {
+  .mb-acc-messages {
+    .header-messages-box {
+      background-color: $indigo;
+      border: 0;
+      border-radius: 0 !important;
+      // position: relative;
+      height: 70px;
+      @include border-below-header;
+
+      .btn-group.bootstrap-select {
+        &.show {
+          .btn.dropdown-toggle:after {
+            transform: rotate(180deg);
+          }
+        }
+
+        a {
+          border-radius: 0;
+          padding: 18px 20px !important;
+          font-size: 18px;
+          margin: 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+          color: #525866;
+        }
+
+        li.selected a {
+          background-color: #faf9f7 !important;
+          color: $orangey-red !important;
+        }
+      }
+
+      .btn {
+        color: #fff;
+        width: calc(100vw - 21px);
+        max-width: calc(#{$max-width-mobile} - 21px);
+        font-weight: 600;
+        font-family: $font-gilroy;
+        max-width: $max-width-mobile - 20px;
+
+        &.dropdown-toggle {
+          &:after {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 129 129' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg%3e%3cpath d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='%23fff'/%3e%3c/g%3e%3c/svg%3e ") !important;
+            margin-top: 8px !important;
+          }
+        }
+      }
+
+      .dropdown-menu.open.show {
+        width: calc(100vw - 20px) !important;
+        margin-top: -5px;
+        max-width: $max-width-mobile - 20px;
+      }
+    }
+
+    .messages-box-screen {
+      // max-height: calc(var(--vh100) - 140px);
+      border-radius: 0;
+      height: auto !important;
+      min-height: 0;
+
+      img.avatar {
+        min-width: 50px;
+        max-height: 100%;
+      }
+
+      .panel-profile-extend {
+        position: fixed;
+        z-index: $z-index-header + 3;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        overflow-y: auto;
+        @include slideOutRight($duration: 0.3s);
+
+        .information {
+          .detect-scroll-content {
+            height: auto !important;
+          }
+        }
+      }
+
+      &.showProfilePanel {
+        .panel-profile-extend {
+          @include slideInRight($duration: 0.3s, $delay: 0.2s);
+        }
+      }
+    }
+
+    .inbox-item-messages {
+      width: 100vw;
+      max-width: $max-width-mobile;
+
+      .item-avatar-number {
+        margin-right: 20px !important;
+      }
+
+      .number-message {
+        font-size: 12px !important;
+      }
+
+      .item-name-message-content {
+        width: calc(100vw - 160px);
+        overflow: hidden;
+      }
+
+      .name {
+        font-family: inherit !important;
+        font-weight: 400 !important;
+        font-size: 18px !important;
+        line-height: 1.44;
+      }
+
+      .time {
+        font-size: 12px !important;
+        color: #cccccc !important;
+      }
+
+      .sport-icons.star-off {
+        opacity: 0.3;
+      }
+    }
+
+    .panel-profile {
+      .panel-inner-left.messages-box {
+        width: 100vw;
+        max-width: $max-width-mobile;
+        // height: calc(var(--vh100) - 140px);
+
+        .messages-list {
+          border: 0 !important;
+
+          .information {
+            min-height: 0 !important;
+          }
+        }
+      }
+    }
+  }
+
+  #deleted-box {
+    .footer-conversation {
+      border: 0 !important;
+      padding: 30px !important;
+    }
+  }
+
+  .panel-upgrade-premium-ib {
+    padding: 20px !important;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+    position: fixed !important;
+    max-width: $max-width-mobile;
+
+    margin: {
+      left: auto;
+      right: auto;
+    }
+  }
+
+  .messages-box .messages-list.custom-no-premium {
+    height: auto;
+  }
+
+  .no-premium-want-to-chat {
+    .title {
+      font-family: $font-gilroy;
+      font-size: 24px;
+      font-weight: 700;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      color: #262f40;
+      text-align: center;
+      padding: 0 40px;
+      margin-bottom: 15px;
+    }
+
+    .desc {
+      font-size: 18px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.56;
+      letter-spacing: normal;
+      text-align: center;
+      color: #525866;
+      padding: 0 40px;
+      margin-bottom: 24px;
+    }
+
+    .btn.deep-sky-blue.btn-round {
+      min-width: 240px;
+    }
+  }
+}
+
+#mb-conversation {
+  // position: relative;
+  z-index: $z-index-header - 1;
+
+  // .mb-acc-messages {
+  //   height: calc(var(--vh100) - 70px);
+  // }
+}

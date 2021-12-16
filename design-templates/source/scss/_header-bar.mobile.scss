@@ -1,0 +1,269 @@
+.header-bar {
+  @include style-mobile {
+    // height: 70px;
+    padding-left: 0;
+    padding-right: 0;
+    z-index: $z-index-header + 2;
+
+    .container-fluid {
+      height: 70px;
+      position: static !important;
+    }
+
+    .sportpartner {
+      font-size: 22px;
+      line-height: 1.3 !important;
+      color: #fff !important;
+    }
+
+    .btn-notification {
+      .sport-icons.bell {
+        margin-left: 0 !important;
+      }
+
+      .count {
+        font-size: 11px;
+        top: 13px;
+        left: calc(50% - 27px);
+      }
+    }
+
+    .btn.btn-link.deep-sky-blue {
+      text-indent: -9999px;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      min-width: 0;
+      border: 0;
+      background-color: transparent !important;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M22.917 25.287C21.828 23.543 20.044 22.361 18 22.07V21.568C19.8 20.784 21 19.003 21 17V12C21 8.691 18.309 6 15 6C11.691 6 9 8.691 9 12V17C9 19.003 10.2 20.784 12 21.568V22.07C9.956 22.361 8.172 23.543 7.083 25.287C3.999 22.908 2 19.187 2 15C2 7.832 7.832 2 15 2C22.168 2 28 7.832 28 15C28 19.187 26.001 22.908 22.917 25.287V25.287ZM10.217 27.076C9.712 26.879 9.219 26.648 8.741 26.385C9.64 24.913 11.234 24 13 24C13.553 24 14 23.553 14 23V20.858C14 20.402 13.692 20.005 13.251 19.891C11.926 19.547 11 18.358 11 17V12C11 9.794 12.794 8 15 8C17.206 8 19 9.794 19 12V17C19 18.358 18.074 19.547 16.749 19.891C16.308 20.005 16 20.402 16 20.858V23C16 23.553 16.447 24 17 24C18.766 24 20.36 24.913 21.259 26.385C20.781 26.648 20.288 26.879 19.783 27.076C19.776 27.079 19.77 27.081 19.763 27.084C16.729 28.267 13.271 28.267 10.237 27.084C10.23 27.081 10.224 27.079 10.217 27.076V27.076ZM30 15C30 6.728 23.271 0 15 0C6.729 0 0 6.728 0 15C0 20.273 2.741 24.91 6.867 27.586C6.877 27.593 6.882 27.602 6.892 27.608C7.083 27.731 7.281 27.843 7.478 27.957C7.74 28.11 8.007 28.254 8.279 28.391C8.494 28.499 8.708 28.606 8.927 28.703C9.113 28.786 9.302 28.863 9.492 28.938C9.72 29.029 9.949 29.112 10.18 29.19C10.353 29.25 10.523 29.311 10.699 29.364C11.086 29.481 11.478 29.582 11.874 29.667C12.004 29.695 12.137 29.715 12.269 29.738C12.589 29.799 12.911 29.849 13.236 29.887C13.374 29.903 13.511 29.919 13.65 29.932C14.098 29.973 14.548 30 15 30C15.452 30 15.902 29.973 16.351 29.932C16.489 29.919 16.626 29.903 16.764 29.887C17.089 29.849 17.411 29.799 17.731 29.738C17.863 29.715 17.996 29.695 18.126 29.667C18.522 29.582 18.914 29.481 19.301 29.364C19.477 29.311 19.647 29.25 19.82 29.19C20.051 29.112 20.28 29.029 20.507 28.939C20.697 28.863 20.887 28.787 21.073 28.703C21.292 28.606 21.506 28.499 21.721 28.391C21.993 28.254 22.26 28.109 22.522 27.957C22.719 27.843 22.917 27.731 23.108 27.608C23.118 27.602 23.123 27.593 23.133 27.586C27.259 24.91 30 20.273 30 15V15Z' fill='%23ffffff'/%3e%3c/svg%3e ");
+      background-position: center top 6px;
+    }
+
+    ul.list-inline:not(.float-right) {
+      display: flex;
+      max-width: initial;
+
+      li.list-inline-item {
+        align-items: center;
+        display: inline-flex;
+        justify-content: center;
+
+        &:nth-child(1) {
+          flex: 0;
+        }
+
+        &:nth-child(2) {
+          flex: 1;
+        }
+
+        .btn-menu {
+          width: 50px;
+          text-indent: -9999px;
+
+          background: {
+            image: url(../images/hamburger-menu-mb.png);
+            repeat: no-repeat;
+            position: left center;
+          }
+        }
+      }
+    }
+
+    &.bg-purple {
+      .btn.btn-link.deep-sky-blue,
+      .btn-menu {
+        opacity: 0.5 !important;
+      }
+    }
+
+    .loggedin {
+      display: flex; // position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      padding: 0;
+      // background: #430073;
+      background-color: $indigo;
+      max-width: 100vw;
+      @include style-small-mobile {
+        overflow: hidden;
+      }
+
+      .fl {
+        height: 70px;
+        width: 90px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        @include style-small-mobile {
+          width: calc(100vw / 4);
+        }
+        .btn-menu {
+          width: 90px;
+          height: 70px;
+          text-indent: -9999px;
+          opacity: 0.5;
+
+          background: {
+            image: url(../images/hamburger-menu-mb.png);
+            repeat: no-repeat;
+            position: center;
+          }
+        }
+      }
+
+      .fr {
+        height: 70px;
+        display: inline-flex;
+        // padding-left: 4px;
+        flex: 1;
+
+        > ul {
+          display: inline-flex !important;
+          bottom: 0 !important;
+          border-color: transparent !important;
+          justify-content: center;
+
+          .list-inline-item {
+            flex: 0 !important;
+
+            @include style-small-mobile {
+              width: calc(100vw / 4);
+            }
+
+            .nav-link {
+              border: 0 !important;
+              margin: 0;
+              padding: 0;
+              display: flex;
+              height: 70px;
+              margin-top: 0 !important;
+              padding-bottom: 0 !important;
+              min-width: 90px !important;
+              justify-content: center;
+              align-items: center;
+
+              &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: calc(50% - 15px);
+                width: 30px;
+                height: 2px;
+                background: transparent;
+              }
+
+              &#messages-tab {
+                // padding-right: 8px;
+                padding-top: 7px !important;
+
+                // &:after {
+                //   left: calc(50% - 18px);
+                // }
+              }
+
+              &#btn-bell {
+                padding-top: 7px;
+                padding-right: 7px;
+
+                &.active {
+                  .sport-icons.bell {
+                    color: $orangey-red;
+                  }
+
+                  &:after {
+                    bottom: 0;
+                    left: calc(50% - 17px);
+                  }
+                }
+              }
+
+              &.active {
+                color: $orangey-red !important;
+
+                .sport-icons.bell {
+                  opacity: 1 !important;
+                }
+
+                &:after {
+                  background: $orangey-red;
+                }
+              }
+
+              .new-message-count {
+                top: 13px !important;
+                left: calc(50% - 25px) !important;
+                font-size: 11px !important;
+              }
+
+              @media (max-width: 320px) {
+                width: 70px !important;
+                min-width: 0;
+              }
+            }
+          }
+
+          &:first-child {
+            flex: 1 auto; // justify-content: space-around;
+
+            li + li {
+              //   margin-left: 20px !important;
+
+              @media only screen and (max-width: 320px) {
+                margin-left: 0 !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.header-register {
+      ul.list-inline:not(.float-right) {
+        li.list-inline-item {
+          flex: 1 !important;
+        }
+      }
+    }
+
+    &.header-static-page {
+      a.btn.btn-link.deep-sky-blue {
+        display: none;
+      }
+
+      a.p-0.btn.btn-menu {
+        background-image: url(../images/hamburger-menu-mb-indigo.png) !important;
+        opacity: 1;
+      }
+    }
+
+    &.bg-indigo.header-help-page {
+      .btn.btn-link.deep-sky-blue,
+      .btn-menu {
+        opacity: 0.5;
+      }
+
+      .sportpartner {
+        color: #fff !important;
+      }
+    }
+  }
+
+  @include style-mobile-landscape {
+    ul:first-child {
+      justify-content: center !important;
+    }
+  }
+
+  @include style-tablet-landscape {
+    ul:first-child {
+      justify-content: center !important;
+    }
+  }
+}
+
+#btn-bell {
+  overflow: visible;
+}

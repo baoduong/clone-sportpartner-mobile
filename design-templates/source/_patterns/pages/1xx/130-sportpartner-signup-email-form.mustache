@@ -1,0 +1,176 @@
+<div id="page-sign-up-form">
+  <div class="sportpartners-header">
+    <p class="text-header">
+      <span class="font-weight-bold">
+        sportpartner
+      </span>
+      together is more
+    </p>
+  </div>
+  <hr class="m-0">
+  <div class="space-40"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center font-family-gilroy font-size-40 font-weight-bold text-color-white">
+          125.000 mensen gingen je voor. Dus meld je gratis aan in 1 minuut!
+        </h2>
+      </div>
+    </div>
+    <div class="space-40"></div>
+    <div class="row">
+      <div class="col-sm-10 offset-sm-1">
+        <form class="sign-up-form">
+          <div class="sign-up-form-panel" style="max-width: 900px;">
+            <div class="panel">
+              <div class="space-50"></div>
+              <h2 class="font-family-gilroy font-size-26 font-weight-bold text-color-dark">Choose your interests</h2>
+              <div class="space-40"></div>
+              <div class="field">
+                <label for="" class="ma-0 Paragraph-1-form-label d-md-block">Which sports are you interested in?</label>
+                <label for="" class="Description d-md-block">You can select as many as you want</label>
+                <div class="field-panel">
+                  {{# sports }}
+                  <label class="select-sport-panel customize-checkbox">
+                    {{> elements-checkbox(checkboxId: "{{ name }}", checkboxText: "{{ name }}")}}
+                    <span class="Rectangle-3"></span>
+                  </label>
+                  {{/ sports }}
+                </div>
+              </div>
+              <div class="field">
+                <label for="" class="ma-0 Paragraph-1-form-label d-md-block">You are looking for?</label>
+                <label for="" class="Description d-md-block">It is possible to select both</label>
+                <div class="field-panel">
+                  <label class="select-sport-panel customize-checkbox">
+                    {{> elements-checkbox(checkboxId: "Man", checkboxText: "Man")}}
+                  </label>
+                  <label class="select-sport-panel customize-checkbox">
+                    {{> elements-checkbox(checkboxId: "Woman", checkboxText: "Woman")}}
+                  </label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="inline-label">
+                  <label for="" class="ma-0 Paragraph-1-form-label d-md-inline-block">In what age range would you like to find a sport partner?</label>
+                  <label for="" class="Description d-md-inline-block">
+                    <span class="minValue">20</span> -
+                    <span class="maxValue">30</span> year</label>
+                </div>
+                <div class="slider-panel">
+                  <input type="text" name="range-age" data-slider-min="18" data-slider-max="80" data-slider-step="1" data-slider-tooltip="hide"
+                    data-slider-value="[20,30]">
+                </div>
+              </div>
+            </div>
+            <div class="space-60"></div>
+          </div>
+          <div class="space-10"></div>
+          <div class="sign-up-form-panel">
+            <div class="panel">
+              <div class="space-60"></div>
+              <h2 class="Heading-2">A little bit about you</h2>
+              <div class="space-40"></div>
+              <div class="field">
+                <label for="" class="Paragraph-1-form-label d-md-block">Select your sex</label>
+                <div class="field-panel">
+                  <label class="select-sport-panel customize-checkbox">
+                    {{> elements-radiobutton(rbName: "fml", checkboxId: "Male", checkboxText: "Male")}}
+                  </label>
+                  <label class="select-sport-panel customize-checkbox">
+                    {{> elements-radiobutton(rbName: "fml", checkboxId: "Female", checkboxText: "Female")}}
+                  </label>
+                </div>
+              </div>
+              <div class="field">
+                <label for="" class="Paragraph-1-form-label d-md-block">What is your age?</label>
+                <div class="field-panel">
+                  <div class="select-sport-panel dropdown">
+                    <select class="custom-select" id="">
+                      <option selected value="1">Select age</option>
+                      <option value="1">20</option>
+                      <option value="2">21</option>
+                      <option value="3">22</option>
+                      <option value="4">23</option>
+                      <option value="5">24</option>
+                      <option value="6">25</option>
+                      <option value="7">26</option>
+                      <option value="8">27</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <label for="" class="Paragraph-1-form-label d-md-block">What city do you live in?</label>
+                <div class="field-panel">
+                  <div class="select-sport-panel input full-width">
+                    {{> elements-input(type: "text", placeholder: "Type your city here", validateClass: "error") }}
+                  </div>
+                  <label class="msg-error">Please submit a valid city</label>
+                </div>
+              </div>
+              <div class="field">
+                <label for="" class="Paragraph-1-form-label d-md-block">Name</label>
+                <div class="field-panel">
+                  <div class="select-sport-panel input full-width">
+                    {{> elements-input(type: "text", placeholder: "Type your name here") }}
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <label for="" class="ma-0 Paragraph-1-form-label d-md-block">Field label</label>
+                <label for="" class="Description d-md-block">Sportpartner is good for meeting singles, but are you open to meet singles?</label>
+                <div class="field-panel">
+                  <label class="select-sport-panel customize-checkbox">
+                    {{> elements-radiobutton(rbName: "r", checkboxId: "r1", checkboxText: "Yes, I am")}}
+                  </label>
+                  <label class="select-sport-panel customize-checkbox">
+                    {{> elements-radiobutton(rbName: "r", checkboxId: "r2", checkboxText: "No, thank you")}}
+                  </label>
+                </div>
+              </div>
+              <div class="space-60"></div>
+            </div>
+          </div>
+          <div class="space-10"></div>
+          <div class="sign-up-form-panel">
+            <div class="panel">
+              <div class="space-60"></div>
+              <h2 class="Heading-2">Account details</h2>
+              <div class="space-40"></div>
+              <div class="field">
+                <label for="" class="ma-0 Paragraph-1-form-label d-md-block">Your email address</label>
+                <label for="" class="Description d-md-block">This will not be visible to other users</label>
+                <div class="field-panel">
+                  <div class="select-sport-panel input full-width">
+                    {{> elements-input(type: "text", placeholder: "Type your email address here") }}
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <label for="" class="Paragraph-1-form-label d-md-block">Password</label>
+                <div class="field-panel">
+                  <div class="select-sport-panel input full-width">
+                    <!-- {{> elements-input(type: "Password", placeholder: "Type your password here") }} -->
+                    {{> elements-password(idPasswordToggle: "account-detail-password", placeholder: "Type your password here") }}
+                  </div>
+                </div>
+              </div>
+              <div class="space-60"></div>
+            </div>
+          </div>
+          <div class="space-60"></div>
+          <div class="text-lg-center">
+            {{> elements-button(buttonText: "Sign up and meet your sportpartner today", class: "btn-round btn-submit black-two") }}
+          </div>
+          <div class="space-20"></div>
+          <div class="text-lg-center">
+            <label class="Description">By signing up you agree to Sportpartner</label>
+            {{> elements-link(linkClass: "text-link-2", linkText: "Terms and Conditions")}}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{> common-footer }}

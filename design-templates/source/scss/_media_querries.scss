@@ -1,0 +1,59 @@
+$isMobileMode: false !default;
+// fixed style for IE*
+@mixin fixed-ie {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+// fix for iPhone5
+@mixin style-small-mobile {
+  @if $isMobileMode {
+    @content;
+    // @media (max-device-width: 319.99px)  {
+    //   @content;
+    // }
+  }
+}
+
+// apply mobile style
+@mixin style-mobile {
+  @if $isMobileMode {
+    @media (max-device-width: 767.98px) and (max-width: 767.98px) {
+      @content;
+    }
+  }
+}
+
+@mixin style-mobile-landscape {
+  @if $isMobileMode {
+    @media (max-device-width: 767.98px) and (max-width: 767.98px) and (orientation: landscape) {
+      @content;
+    }
+  }
+}
+
+@mixin style-tablet-portrait {
+  @if $isMobileMode {
+    @media (max-device-width: 1024.98px) and (min-device-width: 768px) and (orientation: portrait) {
+      @content;
+    }
+  }
+}
+
+@mixin style-tablet-landscape {
+  @if $isMobileMode {
+    @media (max-device-width: 1366.98px) and (orientation: landscape) {
+      @content;
+    }
+  }
+}
+
+@mixin style-desktop {
+  @if $isMobileMode == false {
+    @content;
+  }
+  // @media only screen and (min-width: 1200.98px) {
+  //   @content;
+  // }
+}

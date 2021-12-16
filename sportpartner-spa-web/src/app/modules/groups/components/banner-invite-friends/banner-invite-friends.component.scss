@@ -1,0 +1,55 @@
+@import "media";
+@import "app-colorpalette";
+@import "functions";
+
+.landing-receive-gifl-banner {
+  padding: pxToPoint(40) pxToPoint(30);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  /*  @include tablet {
+    padding: pxToPoint(60) pxToPoint(30);
+  } */
+  @include gt-mobile {
+    padding: pxToPoint(60) pxToPoint(30) pxToPoint(63);
+    max-height: 428px;
+  }
+
+  &.card {
+    border-color: rgba(0, 0, 0, 0.05);
+  }
+  .subtitle-1 {
+    @include gt-mobile {
+      margin-top: 10px;
+    }
+  }
+  .close-banner {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    color: map-get($color-pallets, gray-warm-2);
+    line-height: 0;
+    font-size: 20px;
+    text-decoration: none !important;
+  }
+  .card-body {
+    padding: 0;
+  }
+  .btn.btn-large {
+    @include gt-mobile {
+      min-width: pxToPoint(420);
+      margin: 0 auto;
+      display: block;
+    }
+  }
+  .badge {
+    $size: pxToPoint(80);
+    width: $size;
+    height: $size;
+    border-radius: pxToPoint(30);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      font-size: pxToPoint(40);
+    }
+  }
+}
